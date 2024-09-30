@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">425618348845-0clfo95tcqulhf37cnsovmlebbkh945q.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://coolie-9cc38-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">425618348845</string>
+    <string name="google_api_key" translatable="false">AIzaSyAcziwgDyx2SxCSeuGbgFDr9_94R2tpDfk</string>
+    <string name="google_app_id" translatable="false">1:425618348845:android:dfb682ab264340b4f611a4</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAcziwgDyx2SxCSeuGbgFDr9_94R2tpDfk</string>
+    <string name="google_storage_bucket" translatable="false">coolie-9cc38.appspot.com</string>
+    <string name="project_id" translatable="false">coolie-9cc38</string>
+</resources>
