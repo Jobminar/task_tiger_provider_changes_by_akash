@@ -248,7 +248,7 @@
 //     // console.log(yearsNumber,monthsNumber);
 //     // console.log(typeof yearsNumber, typeof monthsNumber);
 //     const id = localStorage.getItem('providerId');
-//     const api = `https://appsvc-apibackend-dev.azurewebsites.net/v1.0/providers/earnings/get-earnings/${id}`;
+//     const api = `http://13.126.118.3:3000/v1.0/providers/earnings/get-earnings/${id}`;
 
 //     this.http.get<any[]>(api).subscribe(
 //       (response) => {
@@ -388,7 +388,7 @@
 //     const yearsNumber = Number(year);
 //     const monthsNumber = Number(month);
 //     const id = localStorage.getItem('providerId');
-//     const api = `https://appsvc-apibackend-dev.azurewebsites.net/v1.0/providers/earnings/get-earnings/${id}`;
+//     const api = `http://13.126.118.3:3000/v1.0/providers/earnings/get-earnings/${id}`;
 
 //     this.http.get<any[]>(api).subscribe(
 //       (response) => {

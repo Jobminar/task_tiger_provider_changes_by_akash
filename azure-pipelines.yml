@@ -1,0 +1,70 @@
+trigger:
+  branches:
+    include:
+      - main  # Adjust this according to your branch naming
+
+pool:
+  vmImage: 'windows-latest'  # Use 'macos-latest' or 'ubuntu-latest' if needed
+
+stages:
+  - stage: Build
+    displayName: "Build APK"
+    jobs:
+      - job: BuildAPK
+        displayName: "Build Android APK"
+        steps:
+          # Checkout the source code
+          - checkout: self
+
+          # Set up JDK (required for Gradle)
+          - task: JavaToolInstaller@0
+            inputs:
+              versionSpec: '17'
+              jdkArchitectureOption: 'x64'
+              jdkSourceOption: 'PreInstalled'
+            displayName: 'Install JDK 17'
+          # Sync Capacitor plugins
+          - script: |
+              npm install
+              npx cap sync android
+            displayName: 'Sync Capacitor Plugins'
+
+          # Gradle build task to assemble the APK
+          - task: Gradle@2
+            inputs:
+              gradleWrapperFile: 'android/gradlew'  # Path to your Gradle wrapper
+              workingDirectory: 'android'  # Path to the directory containing your build.gradle file
+              tasks: 'assembleDebug'  # Change to 'assembleDebug' if you want a debug build
+              options: '-x lint' 
+            displayName: 'Build APK'
+
+          # # Publish the build artifact
+          # - task: PublishPipelineArtifact@1
+          #   inputs:
+          #     artifactName: 'APK'
+          #     targetPath: '$(Build.ArtifactStagingDirectory)'
+          #     publishLocation: 'pipeline'
+          #   displayName: 'Publish APK Artifacts'
+
+
+          # # List APK directory (Optional - for debugging purposes)
+          # - script: |
+          #     dir android/app/build/outputs/apk/release
+          #   displayName: 'List APK Files'
+
+          # Publish the APK file as an artifact
+          # - task: PublishPipelineArtifact@1
+          #   inputs:
+          #     targetPath: 'android/app/build/outputs/apk/debug/'  # Update this to the path where APK is generated
+          #     artifactName: 'APK'
+          #   displayName: 'Publish APK Artifacts'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'android/app/build/outputs/apk/debug/'  # Update this to the path where APK is generated
+              artifactName: 'APK'
+            displayName: 'Publish APK Artifacts'
+
+          # - publish: '$(Build.ArtifactStagingDirectory)/frontend.zip'
+          #   artifact: 'frontendArtifact'
+          #   displayName: 'Publish Frontend Artifact'
