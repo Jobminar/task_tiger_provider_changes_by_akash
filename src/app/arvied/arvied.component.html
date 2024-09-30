@@ -1,0 +1,28 @@
+<section class="container">
+
+    <span class="material-symbols-outlined" (click)="navTOBack()">
+        arrow_back
+    </span>
+    <div class="arival-status">
+        <span>On  the way </span>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+    <div  id="map">
+        <!-- <img src="assets/demo/map111.png"> -->
+    </div>
+    <br>
+    
+    <div class="location">
+        <span class="material-symbols-outlined">
+            near_me
+        </span>
+        <span>
+           {{userFullAddress}}
+        </span>
+    </div>
+    <div class="slide-toggle">
+        <input type="checkbox" id="toggle"   (change)="toggleDisplay($event)">
+        <label for="toggle" class="already-label" style="content:'Iam Existing provider ';" ></label>
+       
+    </div>
+</section>

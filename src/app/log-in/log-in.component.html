@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="sub-container">
+        <div class="banner-div">
+            <!-- <img src="assets\logo\Rectangle 25.png"> -->
+            <div class="banner">
+                <!-- @if () {}@else {} -->
+                <span >Earn more</span><br>
+                <p>fill your dreams</p>
+            </div>
+            
+           
+        </div>
+        <form  [formGroup]="myForm" (submit)="login()" (input)="validate()">
+        <div class="phone-div">
+            
+            <div >
+                <!-- <img src="assets\logo\india logo.png"> -->
+                 <span class="num">+91</span> 
+                 <span class="line"></span>
+                 <input type="tel" class="input-box" formControlName="phoneNumber">
+            </div>
+        </div>
+        <br>
+        <div *ngIf=showError >
+            <p class="error-message" style="color: red;">***Please enter a valid 10-digit phone number.</p>
+        </div>
+       <div class="update-div">
+            <input type="checkbox" > <span>Get update on &nbsp;<img src="assets\logo\wts up .png"> whatsapp</span>
+       </div>
+       <br>
+        <div class="btn">
+             <button >Get OTP</button>
+        </div>
+        </form>
+    </div>
+</div>

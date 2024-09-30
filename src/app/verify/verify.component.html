@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="sub-container">
+        <span class="tittle">Enter Otp</span><br>
+        <span class="info-text">Please enter the code we just send to</span>
+        <p class="info-text">+91 {{userNumber}}</p>
+        <br>
+                <!-- verification.component.html -->
+        <!-- app.component.html -->
+        <form [formGroup]="otp" (ngSubmit)="login()">
+        <div class="input-div"> 
+                <input type="text" maxlength="1" formControlName="inputOne" (input)="onInput($event, 1)" (keydown)="onKeyDown($event, 1)" #input1>
+                <input type="text" maxlength="1" formControlName="inputTwo" (input)="onInput($event, 2)" (keydown)="onKeyDown($event, 2)" #input2>
+                <input type="text" maxlength="1" formControlName="inputThree" (input)="onInput($event, 3)"  (keydown)="onKeyDown($event, 3)" #input3>
+                <input type="text" maxlength="1" formControlName="inputFour" (input)="onInput($event, 4)" (keydown)="onKeyDown($event, 4)" #input4>
+            </div>  
+            <div class="resend-div">
+              <span>Didn’t receive OTP?</span>
+                @switch (resendToggling) {
+                    @case ("resend") {
+                        <div (click)="resend()" class="resend">
+                          
+                            <p>Resend</p></div>
+                    }
+                    @case ("countdown") {
+                        <div class="resend"> <p>{{ minutes }} : {{ seconds }}</p></div>
+                    }
+                }
+            </div>
+        
+            <button type="submit" class="login-btn" (click)="login()">Verify</button>
+        </form>
+        
+  
+    
+    </div>
+</div>

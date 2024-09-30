@@ -1,0 +1,120 @@
+
+<div class="container" [class.overlap]="isDrawerOpen">
+    <br>
+    <div class="header">
+        <div id="menu-button" (click)="toggleDrawer()">☰</div>
+        <!-- <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" [checked]="online"  (change)="onlineStatus()">
+              <span class="slider"></span>
+            </label>
+            
+        </div> -->
+        <div class="bell-credit">
+           
+            <!-- <div class="package"><img src="assets/packages/silver coin 1.png">&nbsp;<pre>Silver</pre></div> -->
+            <div class="credit" (click)="navToCredit()"><img src="assets/logo/credit.png"><pre>{{credits}}</pre></div>
+            <div class="bell" (click)="navToNotification()"><span class="material-symbols-outlined" >notifications</span></div>
+        </div>
+    </div>
+    <br>
+    <div class="sub-container">   
+            <div class="ads-div">
+                <div class="wrapperrr">
+                    <div *ngFor="let ad of ads">
+                        <div class="slidesss">
+                            <img [src]="ad.src">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="sub-divs">
+            <div class="availability-div" *ngIf="nextWorking.length!=0">
+                <div *ngFor="let item of nextWorking">
+                    <span>{{item.day}}, {{item.month}} {{item.date}}</span>
+                    <span><i class="fa fa-circle" style="font-size: 10px;"></i>  {{item.isWorking}}</span>
+                </div>
+                
+                <div (click)="navToCal()">
+                    <pre class="material-symbols-outlined" style="font-size: 28px;">calendar_today</pre>
+                </div>
+            </div>
+            <div>
+                    <div class="new-jobs">
+                        <div class="text-div">
+                            <span>No new jobs</span>
+                            <span>5 jobs missed recently</span>
+                        </div>
+                        <div  class="icon-div">
+                            <span class="material-symbols-outlined" >arrow_forward_ios</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="more-jobs">
+                        
+                        <div class="text-div1">
+                            @if (noOfPendingOrders===0) {
+                            <span>No more jobs today</span> 
+                            }
+                            @else {
+                                <span>{{noOfPendingOrders}} more jobs today</span> 
+                            }
+                        </div>
+                        <div  class="icon-div">
+                            <span class="material-symbols-outlined" >arrow_forward_ios</span>
+                        </div>
+                    </div>
+            </div>
+            <div class="pending-task-div">
+                <span>Pending Tasks</span>
+                <br><br>
+                <p>
+                    80 subscription jobs . 4days left to buy job pack now
+                </p>
+             
+                <p>
+                    Only 50 credits left.Recharge credits to get new jobs
+                </p>
+            </div>
+            <div class="quick-links">
+                <div>
+                    <span>Quick links</span>
+                </div>
+                <div class="helps" routerLinkActive="help" [routerLink]="'/help'">
+                    <span>Help?</span>
+                </div>
+                <!-- src/app/training/training.component.html -->
+
+  
+            </div>
+            <div id="video-div" *ngIf="isAccountVerify">
+                <div *ngFor="let ele of data; let ind = index" >
+                    <!-- <h4>{{ ele.title }}</h4>
+                    <p>Profession: {{ ele.profession }}</p> -->
+                    <div id="video-slidess" >
+                        <video controls id="videoss">
+                        <source 
+                            [src]="'https://' + bucketName + '.s3.' + region + '.amazonaws.com/' + ele.videoKey" 
+                            type="video/mp4" 
+                        />
+                        <!-- <source src="D:\movies\Premalu (2024) Telugu HQ HDRip  - x264 - AAC - 700MB - ESub.mp4"  type="video/mp4"> -->
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="online" (click)="onlineStatus()">
+    <span>{{onlineText}}</span>
+</div>
+   
+    <div style="height: 5rem;"></div>
+    <router-outlet></router-outlet>
+  <!-- <app-fotter #footer></app-fotter> -->
+  <app-fotter></app-fotter>
+
+    
+

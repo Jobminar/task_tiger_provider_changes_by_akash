@@ -1,0 +1,157 @@
+.container
+{
+    /* border: 1px solid black; */
+    width: 90%;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.sub-container
+{
+    width: 90%;
+    /* height:90vh ; */
+    position: relative;
+    /* border: 1px solid red; */
+    left: 5%;
+
+}
+.profile
+{
+    width: 100%;
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 0.25px solid black;
+    border-radius: 0.5rem;
+}
+.image
+{
+    width: 3.5rem;
+    height: 3.5rem;
+
+}
+.profile-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.details
+{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+    /* border: 1px solid black; */
+}
+.details span, .rating span{
+    font-size: 1.5rem;
+    font-family:'Inter' sans-serif ;
+    font-weight: 500;
+}
+.details-div{
+    /* border: 1px solid red; */
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   /* align-items: center; */
+    
+  }
+  .package{
+    width:max-content;
+    height: 2rem;
+    padding: 0 0.3rem 0 0.3rem;
+    display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+  }
+  .package-img{
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+ .package pre{
+    font-size: 1rem;
+    line-height: 1.7rem;
+    
+  }
+
+.details button
+{
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    width: max-content;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+.rating
+{
+    display: flex;
+    width: max-content;
+    height: max-content;
+    align-items: center;
+}
+.category
+{
+    width: 100%;
+    /* border: 1px solid red; */
+    
+   
+}
+.category  div{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.category div span, .finacial span{
+    font-size: 1.2rem;
+    font-family: 'Inter' sans-serif;
+    font-weight: 500;
+}
+.updates
+{
+    border: 0.25px solid black;
+    width: 100%;
+    height: 11.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.finacial
+{
+    display: flex;
+    width: 100%;
+    height: 3.2rem;
+    /* border: 0.25px solid rgb(3, 183, 57); */
+}
+.iconss{
+    width: 20%;
+    /* border: 0.25px solid rgb(188, 10, 232); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.iconss span{
+    font-size: 24px;
+}
+ .btn button{
+
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+.btn button span{
+    font-size: 24px;
+    color: red;
+}
+
+  

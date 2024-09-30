@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.custom-slide-toggle .mat-slide-toggle-bar {
+
+    height: 20px !important; 
+  }
+  
+  .custom-slide-toggle .mat-slide-toggle-thumb {
+    height: 2px !important; 
+    width: 28px !important; 
+    top: -4px !important;   
+  }
+  

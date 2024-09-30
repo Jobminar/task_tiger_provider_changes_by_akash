@@ -1,0 +1,100 @@
+
+<div class="container">
+ 
+    <div id="menu-button" (click)="toggleDrawer()">☰</div>
+    <div class="bell-credit">
+        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
+        <div class="bell"  (click)="navTo('notification')"><span class="material-symbols-outlined" >notifications</span></div>
+    </div>
+  
+  <div class="sub-container">
+    <!-- helooo pulaka -->
+      <!-- <div>
+        
+        <mat-card class="example-card">
+
+          <section class="example-section left-half-spinner-container">
+            <div class="background-spinner"></div>
+            <mat-progress-spinner
+              class="example-progress-spinner overlay-spinner"
+              [color]="color"
+              [mode]="'determinate'"
+             
+              [value]="calculateProgress(4, 10)">
+            </mat-progress-spinner>
+          </section>
+
+        </mat-card>
+      </div> -->
+      <div class="container-target">
+        <!-- <h2>Sample progressbar</h2> -->
+      
+        <div class="progress-wrapper">
+          <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}%</div>
+          <round-progress
+            [current]="current"
+            [max]="max"
+            [color]="color"
+            [background]="background"
+            [radius]="radius"
+            [semicircle]="semicircle"
+            [rounded]="true"
+            [stroke]="20"
+         
+          ></round-progress>
+         
+          <div class="progress-content">
+            <br>
+            <div><span class="fa fa-star"></span><span>Min : 4.7</span></div>
+          </div>
+        </div>
+      
+        <!-- <form>
+          <div class="cf">
+            <label for="current">Current:</label>
+            <input id="current" name="current" type="number" [(ngModel)]="current" />
+          </div>
+        </form> -->
+      </div>
+      
+      <div class="section-div">
+          <div class="section">
+            <span class="material-symbols-outlined" >schedule</span>
+            <br>
+            <br>
+            <span class="info">{{workingHours}} HRS</span>
+            <br>
+            <span class="sub-info">Weekend hours</span>
+          </div>
+          <div class="section">
+            <span class="material-symbols-outlined"  [ngStyle]="{'color': divColor}">draft</span> &nbsp;<span style="font-size: 1.4rem;"  [ngStyle]="{'color': divColor}">Min:80%</span>
+            <br>
+            <br>
+            <span class="info">{{minTarget}}%</span>
+            <br>
+            <span class="sub-info">Response rate</span>
+          </div>
+          <div class="section">
+            <span class="material-symbols-outlined"  style="color: red;font-size: 28px;">privacy_tip</span>
+            <br>
+            <br>
+            <span class="info">{{cancelRate}}</span>
+            <br>
+            <span class="sub-info">Cancellation</span>
+          </div>
+      </div>
+      <br>
+    
+      <div class="credit-balance-div">
+          <span class="sub-info">Credit Balance {{credits}}</span>
+          <br>
+          <br>
+          <div>
+            <button (click)="navTo('buyNow')">Buy now</button>
+            <button>See details</button>
+          </div>
+      </div>
+  </div>
+</div>
+<div style="height: 10rem;"></div>
+<app-fotter></app-fotter>

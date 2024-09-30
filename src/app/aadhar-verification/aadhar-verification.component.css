@@ -1,0 +1,76 @@
+.container
+{
+    width: 100%;
+    height: 100vh;
+    /* border: 1px solid black; */
+    align-items: center;
+    text-align: center;
+}
+.sub-container
+{
+    width: 90%;
+    height: 87vh;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    /* border: 1px solid red; */
+    
+   
+}
+.tittle
+{
+    font-family: 'inter', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 24px;
+}
+.sub-div1 div{
+    width: 100%;
+    display: grid;
+    /* grid-gap: rem; */
+    text-align: left;
+}
+input,select{
+    width: 100%;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+}
+input::placeholder{
+    padding-left: 0.5rem;
+}
+label{
+    /* float: left; */
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'inter', sans-serif;
+    line-height: 19px;
+}
+.sub-div1 button{
+    width: 4rem;
+    height: 1.4rem;
+    background-color: #d16611;
+    color:white ;
+    font-size: 0.8rem;
+    font-family: 'inter';
+  float: right;
+  border: none;
+  border-radius: 0.4rem;
+}
+.login-btn
+{
+    height: 3.4rem;
+    width: 90%;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color:rgba(255, 255, 255, 1);
+    border-radius: 4rem;
+    border: none;
+    background-color: #d16611;
+    position: fixed;
+    top: 80%;
+    left: 5%;
+    
+}

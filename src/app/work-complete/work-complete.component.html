@@ -1,0 +1,43 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="navTOBack()">
+        arrow_back
+    </span>
+    <div class="image">
+        <img src="assets\new\Man washing hand.png">
+    </div>
+    <section class="details">
+        @for (item of work; track $index) {
+            <div class="details-div">
+                <span class="about">
+                    <span  class="highlight-text">{{item.quantity}} X {{item.categoryId.name}}</span> 
+                    <span  class="highlight-text">{{item.serviceId.serviceVariants[0].price}}</span>
+                </span>
+                <span   class="sub-tittle">{{item.quantity}} X {{item.subCategoryId.name}}</span>
+                <div class="line"></div>
+            </div>
+        }
+        <div class="time-div">
+            <p>
+                <span>Others</span><br>
+                <span class="highlight-text">Convenience Fee</span>
+            </p>
+            <p class="highlight-text">69</p>
+        </div>
+        <div class="line"></div>
+            <br>
+        <div class="time-div">
+            <p>
+                <span class="highlight-text">Total value</span><br>
+                <span >commission  credits</span>
+            </p>
+            <p class="highlight-text">{{total}}</p>
+        </div>
+    </section>
+   
+      
+    <div class="slide-toggle">
+        <input type="checkbox" id="toggle" [(ngModel)]="alreadyHasAccount"  (change)="toggleDisplay()">
+        <label for="toggle" class="already-label" style="content:'Iam Existing provider ';" ></label>
+       
+    </div>
+</div>

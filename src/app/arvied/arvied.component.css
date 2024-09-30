@@ -1,0 +1,138 @@
+.container{
+    width: 95%;
+    height: 100%;
+  
+    position: relative;
+    left: 2.5%;
+    top: 2.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    
+}
+.arival-status{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+   border-radius: 0.5rem;
+    align-items: center;
+    background-color: rgba(215, 13, 9, 1);
+    
+}
+.arival-status span{
+    font-family: 'Poppins' sans-serif;
+    margin-left: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    
+}
+.arival-status button{
+  width: 6rem;
+  height: 2.5rem;
+  color: #ffff;
+  background-color: transparent;
+  border: 0.25px solid  #ffff;
+  font-family: 'Poppins' sans-serif;
+  font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0.4rem;
+    margin-right: 1rem;
+}
+#map{
+    width: 100%;
+    height: 20rem;
+}
+
+.location{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.location span:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.location span:nth-child(2){
+    font-family: 'Poppins' sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.05em;
+    text-align: left;
+
+}
+.slide-toggle {
+    position: fixed;
+    width: 95%;
+    height: 46px;
+    left: 2%;
+    bottom: 10%;
+  }
+  
+  .slide-toggle input {
+    display: none;
+    
+  }
+  
+  .slide-toggle label {
+    content: 'Arrived';
+    position: absolute;
+    top: 0;
+    left:0rem ;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(64, 144, 0, 1);
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Added transition for smooth color change */
+  }
+  
+  .slide-toggle input:checked + label {
+    background-color:green;
+  }
+  
+  .slide-toggle label::after {
+    float: left;
+    /* content: 'Placeholder Text'; */
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    background-image: url('../../assets/logo/arrow.png');
+    /* background-size: cover;  */
+    background-repeat: no-repeat;
+    background-position: center; /* or contain depending on your requirement */
+    border-radius: 50%;
+    transition: 0.3s; /* Added transition for smooth movement */
+  }
+  
+  .slide-toggle input:checked + label::after {
+    left: calc(100% - 48px);
+    
+  }
+  .slide-toggle label::before {
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 22.82px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+
+    content: 'Arrived'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px; /* Placeholder text font size */
+    pointer-events: none; /* Prevent clicking on the placeholder */
+}

@@ -1,0 +1,56 @@
+<button class="skip-btn" (click)="skip()">skip</button>
+<div class="container">
+    
+    <div class="sub-container">
+        
+        <span class="tittle">Banking details</span><br><br>
+        <div class="sub-div1">
+            <form [formGroup]="bankDetails" class="form-main">
+            
+               
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="accountName"> Account Name &nbsp;</legend>
+                    <input type="text" id="accountName" formControlName="accountName"><br>
+                    </fieldset>
+                </div >
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="accountNumber"> Account Number &nbsp;</legend>
+                    <input type="number" id="accountNumber" formControlName="accountNumber"><br>
+                    </fieldset>
+                </div>
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="PANNumber"> PAN Number &nbsp;</legend>
+                    <input type="text" id="PANNumber" formControlName="PANNumber"><br>
+                    </fieldset>
+                </div>
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="bankName"> Bank name &nbsp;</legend>
+                    <input type="text" id="bankName" formControlName="bankName"><br>
+                    </fieldset>
+                </div>
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="IFSC"> IFSC &nbsp;</legend>
+                    <input type="text" id="IFSC" formControlName="IFSC"><br>
+                    </fieldset>
+                </div>
+                <div class="form-div-section">
+                    <fieldset>
+                    <legend for="branch"> Branch &nbsp;</legend>
+                    <input type="text" id="branch" formControlName="branch"><br>
+                    </fieldset>
+                </div>
+            
+            </form>
+            
+         
+        </div>
+        <button type="submit" class="login-btn" (click)="submit()">Submit</button>
+    </div>
+    <br><br>
+       
+</div>

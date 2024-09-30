@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <div class="header">
+        <div class="arrow_back" (click)="navBack()">
+            <span class="material-symbols-outlined" style="font-size: 28px;" >arrow_back</span>
+        </div>
+        <div class="logo">
+            <img src="assets\documents\credit bg.png">
+        </div>
+    </div>
+    <div class="credit">
+        <div class="credit-details">
+            
+            <span>Credit balance :</span>&nbsp;
+            <span>{{credits}}</span>
+        </div>
+        <div>
+            <button (click)="navToAddCredit()">Add+</button>
+        </div>
+    </div>
+    <div class="sub-container">
+        <div class="cat">
+            <button 
+            *ngFor="let button of buttons"
+            [ngClass]="{'active': activeButton === button}"
+            (click)="setActiveButton(button)">
+            {{ button }}
+            </button>
+        </div>
+        
+        <div class="content">
+            <div class="content-div">
+                @for (item of filteredCreditHistory; track $index) {
+                    <div class="sub-content-div">
+                       <span class="span-div">
+                            <span class="highlight">{{item.date}}</span>
+                            <span class="normal-text">{{item.details}}</span>
+                        </span>
+                        <span class="normal-text">{{item.amount}}</span>
+                    </div>
+                    <div class="line"></div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

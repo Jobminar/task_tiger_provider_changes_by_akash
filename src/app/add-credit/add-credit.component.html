@@ -1,0 +1,66 @@
+<!-- <div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 32px;">arrow_back</span>&nbsp;<span class="tittle"  >Add credits</span>
+    </div>
+    <div class="sub-container">
+        <div class="credit-input">
+            <img src="assets\logo\credit12.png"><input type="number" placeholder="Enter number of credits" [value]="selected" [(ngModel)]="selectedValue">
+        </div>
+       <div class="quickSelect-div">
+            <span class="maintext">Quick select</span>
+            <div class="selec-div">
+                @for (item of credits; track $index) {
+                    <div (click)="selected(item)" class="maintext">{{item}}</div>
+                }
+            </div>
+       </div>
+       <div class="Amount-div">
+            <span class="maintext">Amount to pay</span> 
+            <p class="maintext">&#8377;&nbsp; {{AmountToPay}}</p>
+       </div>
+       <div class="selecPayment-div">
+            <span class="maintext">Select payment method</span><br><br>
+            <p class="minText">
+                <input type="checkbox" [checked]="payOnline" (change)="togglePayOnline($event)">&nbsp;Pay Online
+              </p>
+              <p class="minText">
+                <input type="checkbox" [checked]="deductNextPayout" (change)="toggleDeductNextPayout()">&nbsp;Deduct from next payout
+              </p>
+              
+       </div>
+    </div>
+</div> -->
+
+
+<!-- src/app/add-credit/add-credit.component.html -->
+<div class="container">
+    <div class="arrow">
+      <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 32px;">arrow_back</span>&nbsp;
+      <span class="tittle">Add credits</span>
+    </div>
+    <div class="sub-container">
+      <div class="credit-input">
+        <img src="assets/logo/credit12.png"><input type="number" placeholder="Enter number of credits" [value]="selectedValue" [(ngModel)]="selectedValue" (input)="entredAmount()">
+      </div>
+      <div class="quickSelect-div">
+        <span class="maintext">Quick select</span>
+        <div class="selec-div">
+          <div *ngFor="let item of credits" (click)="selected(item)" class="maintext">{{item}}</div>
+        </div>
+      </div>
+      <div class="Amount-div">
+        <span class="maintext">Amount to pay</span>
+        <p class="maintext">&#8377;&nbsp; {{AmountToPay}}</p>
+      </div>
+      <div class="selecPayment-div">
+        <span class="maintext">Select payment method</span><br><br>
+        <p class="minText">
+          <input type="checkbox" [checked]="payOnline" (change)="togglePayOnline($event)">&nbsp;Pay Online
+        </p>
+        <p class="minText">
+          <input type="checkbox" [checked]="deductNextPayout" (change)="toggleDeductNextPayout()">&nbsp;Deduct from next payout
+        </p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,144 @@
+<!-- <div class="container">
+    <div id="menu-button" >☰</div>
+    <div class="bell-credit">
+        <div class="credit"><img src="assets\logo\credit.png"><pre>50</pre></div>
+        <div class="bell"><span class="material-symbols-outlined" >notifications</span></div>
+    </div>
+    <div class="sub-container">
+
+        <div class="date-div">
+            <select [(ngModel)]="selectedYear"  (change)="onYearMonthChange()">
+                <option >Select Year</option>
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+            <select [(ngModel)]="selectedMonth" (change)="onYearMonthChange()">
+                <option >Select Month</option>
+                <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <span class="icon2">&#8377; &nbsp;<span>{{earn}}</span></span><br><br>
+           >
+            <div class="scroll-container" #chartContainer>
+                <div class="chart-navigation">
+                    <button (click)="previousWeek()">&#8592;</button>
+                    <button (click)="nextWeek()">&#8594;</button>
+                </div>
+                <canvas id="MyChart">{{ chart }}</canvas>
+            </div>
+        </div>
+        <div>
+            <div class="bank-transfer">
+                <span class="middle-text">Bank transfer</span>
+                <span class="material-symbols-outlined" >chevron_right</span>
+            </div>
+            <br>
+            <div class="withdraw-div">
+                <div>
+                    <span class="big-text">&#8377; 1897</span>
+                    <span class="middle-text">28-29 Mar</span>
+                    <span class="middle-text">Upcoming</span>
+                </div>
+                <div>
+                    <span class="big-text">&#8377; 176</span>
+                    <span class="middle-text">26-27 Mar</span>
+                    <span class="middle-text">Success</span>
+                </div>
+            </div>
+        </div>  
+        <div class="credit-div">
+            <div class="icon-credit">
+              <div class="icon">  <span class="material-symbols-outlined" style="font-size: 28px;" >poker_chip</span></div>
+              &nbsp;<div class="credit1">
+                    <span class="tittle">Credits</span>
+                    <span class="tittle">50</span>
+                     </div>
+            </div>
+            <span class="material-symbols-outlined" >chevron_right</span>
+        </div>
+        
+        <div class="rank">
+            <span class="tittle">345</span>
+            <span class="tittle">Your current rank</span>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter> -->
+
+
+
+<div class="container">
+    <div id="menu-button" (click)="navToMenu()" >☰</div>
+    <div class="bell-credit">
+        <div class="credit" (click)="navToCredit()"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
+        <div class="bell"><span class="material-symbols-outlined" >notifications</span></div>
+    </div>
+    <div class="sub-container">
+        <!-- <div class="date-div">
+            <select [(ngModel)]="selectedYear" (change)="onYearMonthChange()">
+                <option>Select Year</option>
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+            <select [(ngModel)]="selectedMonth" (change)="onYearMonthChange()">
+                <option>Select Month</option>
+                <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
+            </select>
+        </div> -->
+        <div class="chart-container">
+           
+            <div class="chart-navigation">
+                <span (click)="previousWeek()" style='font-size:36px'>	&lt;</span>
+               
+                <p class="date-range">{{ dateRange }}</p>
+               
+                <span (click)="nextWeek()" style='font-size:36px'>&gt;</span>
+            </div>
+            <div class="scroll-container" #chartContainer>
+                <span class="icon2">&#8377; &nbsp;<span>{{earn}}</span></span><br><br>
+                <canvas id="MyChart">{{ chart }}</canvas>
+            </div>
+        </div>
+        <div>
+            <div class="bank-transfer">
+                <span class="middle-text">Bank transfer</span>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            <br>
+            <div class="withdraw-div">
+                <div>
+                    <span class="big-text">&#8377; 1897</span>
+                    <span class="middle-text">28-29 Mar</span>
+                    <span class="middle-text">Upcoming</span>
+                </div>
+                <div>
+                    <span class="big-text">&#8377; 176</span>
+                    <span class="middle-text">26-27 Mar</span>
+                    <span class="middle-text">Success</span>
+                </div>
+            </div>
+        </div>  
+        <div class="credit-div">
+            <div class="icon-credit">
+              <div class="icon"><span class="material-symbols-outlined" style="font-size: 28px;">poker_chip</span></div>
+              &nbsp; &nbsp;
+              <div class="credit1">
+                    <span class="title">Credits</span>
+                    <span class="title">{{credits}}</span>
+                </div>
+            </div>
+            <span class="material-symbols-outlined" (click)="navToCredit()">chevron_right</span>
+        </div>
+        <div class="credit-div" (click)="navToPackage()">
+            <div class="icon-credit">
+                <span class="package">
+                    <img src="assets/packages/silver coin 1.png" class="package-img">&nbsp;
+                    <pre>Silver</pre>
+                </span>
+            </div>
+            <span class="material-symbols-outlined" (click)="navToPackage()">chevron_right</span>
+        </div>
+       
+    </div>
+</div>
+<div style="height: 5rem;"></div>
+<app-fotter></app-fotter>

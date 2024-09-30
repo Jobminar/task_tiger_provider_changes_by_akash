@@ -1,0 +1,80 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 28px;">arrow_back</span>
+    <br>
+    <div class="sub-container">
+        <div class="profile">
+            <div class="image">
+                <img [src]="userImage? userImage : 'assets/logo/profile.png'" alt="User Image"> 
+            </div>
+            <div class="details">
+                @if (userName==='' || undefined || null) {
+                    <span>Name</span>
+                }
+                @else {
+                    <span>{{userName}}</span>
+                }
+                
+                <div class="rating"> 
+                    <!-- <span class="material-symbols-outlined" >star</span> -->
+                    &#9733; 4.89
+                </div>
+                <span *ngFor="let item of workSeleceted" >
+                    {{item.nameOfService}} 
+                </span>
+            </div>
+        </div>
+        
+        <div class="category">
+            <div>
+                <div class="ids">
+                    <span class="tittle">My Id</span>
+                    <span class="tittle">{{userId}}</span>
+                
+                </div>
+                <hr>
+            </div>
+           
+           <div>
+                <div class="ids" (click)="navTo()">
+                    <span class="tittle">Add new service</span>
+                    <span class="tittle">+</span>
+                
+                </div>
+                <hr>
+            </div>
+            <div>
+                <div class="ids">
+                    <div (click)="navToVerification()">
+                        <span class="tittle">Identity verification</span><br>
+                        <span class="tittle2">Identity Proof and Personal details</span>
+                    </div>
+                    <span class="material-symbols-outlined" >arrow_forward_ios</span>
+                </div>
+               
+            </div>
+            
+        </div>
+        <div class="awards-div">
+            <span>Award and certificate </span>
+            <div class="awards">
+                <div><img [src]="certificateImages[0].images"></div>
+                <div><img  [src]="certificateImages[0].images"></div>
+            </div>
+            <span (click)="navToCertificates()">View More</span>
+        </div>
+        <div class="awards-div">
+            <span>Contact Details</span>
+           <div> <hr></div>
+            <div>
+                <pre>Phone</pre>
+                <span>{{phoneNumber}}</span>
+            </div>
+            <div>
+                <pre>Email</pre>
+                <span>abcdgmail.com</span>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

@@ -1,0 +1,30 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="navTOBack()">
+        arrow_back
+    </span>
+    <div class="sub-container">
+       
+        <div class="image-div">
+            <img src="assets/demo/Stylist doing haircut.png">
+        </div>
+        <span>
+            <span class="info-text">Before start the work</span><br>
+            <span class="numberss">Enter OTP from user</span>
+        </span>
+                <!-- verification.component.html -->
+        <!-- app.component.html -->
+        <form [formGroup]="otp" >
+        <div class="input-div"> 
+                <input type="text" maxlength="1" formControlName="inputOne" (input)="onInput($event, 1)" #input1>
+                <input type="text" maxlength="1" formControlName="inputTwo" (input)="onInput($event, 2)" #input2>
+                <input type="text" maxlength="1" formControlName="inputThree" (input)="onInput($event, 3)" #input3>
+                <input type="text" maxlength="1" formControlName="inputFour" (input)="onInput($event, 4)" #input4>
+        </div>  
+        
+        <button type="submit" class="login-btn" (click)="verifyOtp()">Confirm</button>
+        </form>
+        
+  
+    
+    </div>
+</div>

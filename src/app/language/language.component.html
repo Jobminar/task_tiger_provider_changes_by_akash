@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="sub-container">
+        <div class="select-language">
+            <span >Select Language</span>
+            <img src="assets\logo\language logo.png">
+        </div>
+        <br>
+        <br>
+<!--     
+       <div *ngFor="let item of Language" class="Language-div">
+        <div class="language-text">{{item.languages}}</div>
+        <div>
+          <label class="custom-checkbox" [class.checked]="item.isChecked" (click)="toggleCheckbox(item)">
+            <input type="checkbox" [checked]="item.isChecked" >
+          
+          </label>
+        </div>
+      </div> -->
+      <div *ngFor="let item of Language" class="Language-div">
+        <div class="language-text">{{item.languages}}</div><br><br>
+        <div>
+            <label class="custom-checkbox" [class.checked]="item.isChecked" (click)="selectOnlyOne(item)">
+                <input type="checkbox" [checked]="item.isChecked">
+            </label>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="btn">
+      <button (click)="submit()">Continue</button>
+    </div>
+    </div>
+    
+ 
+</div>
+<!-- app.component.html -->

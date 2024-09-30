@@ -1,0 +1,130 @@
+<!-- <div class="container">
+    
+    <div class="timmer">
+        <round-progress [current]="current" [max]="max" [color]="color" [background]="background" [radius]="radius"
+            [rounded]="true" [stroke]="10">
+        </round-progress>
+        <div class="timer-container">
+            <p class="time">
+                <span>{{ minutes }}:{{ seconds < 10 ? '0' + seconds : seconds }}</span>
+                        <span>Time left</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="location-container">
+        <div>
+            <span class="material-symbols-outlined" style="font-size: 28px;">
+                location_on
+            </span>
+            <div class="line"></div>
+            <span class="material-symbols-outlined" style="font-size: 28px;">
+                location_on
+            </span>
+        </div>
+        <div class="address">
+            <p>
+                <span class="location-txt">My location</span>
+                <span class="location">{{providerCurrentLocation}}</span>
+            </p>
+            <br>
+            <p>10Km</p>
+            <br>
+            <p>
+                <span class="location-txt">User location</span>
+                <span class="location">{{extractedDetails[0].fullAddress}}</span>
+            </p>
+        </div>
+    </div>
+    <div class="service-details">
+        <span>
+            <span class="main-Text">Category Type :</span>
+            <span class="value-Text">{{extractedDetails[0].categoryName}}</span>
+        </span>
+        <span>
+            <span class="main-Text">Service Type :</span>
+            <span class="value-Text">{{extractedDetails[0].categoryName}}</span> 
+        </span>
+       
+        <span>
+            <span class="main-Text">Price :</span>
+            <span class="value-Text">{{extractedDetails[0].price}} X {{extractedDetails[0].quantity}}</span> 
+        </span>
+        <span>
+            <span class="main-Text">Schedule :</span>
+            <span class="value-Text">{{extractedDetails[0].scheduledDate}} </span> 
+        </span>
+    </div>
+    <div class="acc-rej-btns">
+        <button (click)="declined()">Reject</button>
+        <button (click)="accepted()">Accept</button>
+    </div>
+</div> -->
+
+<div class="container">
+    <!-- Countdown Timer -->
+    <div class="timer">
+      <round-progress [current]="current" [max]="max" [color]="color" [background]="background" [radius]="radius"
+                      [rounded]="true" [stroke]="10">
+      </round-progress>
+      <div class="timer-container">
+        <p class="time">
+          <span>{{ minutes }}:{{ seconds < 10 ? '0' + seconds : seconds }}</span>
+          <span>Time left</span>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Location Details -->
+    <div class="location-container">
+      <div>
+        <span class="material-symbols-outlined" style="font-size: 28px;">
+          location_on
+        </span>
+        <div class="line"></div>
+        <span class="material-symbols-outlined" style="font-size: 28px;">
+          location_on
+        </span>
+      </div>
+      <div class="address">
+        <p>
+          <span class="location-txt">My location</span>
+          <span class="location">{{ providerCurrentLocation }}</span>
+        </p>
+        <br>
+        <p>10 Km</p>
+        <br>
+        <p>
+          <span class="location-txt">User location</span>
+          <span class="location">{{ extractedDetails[0]?.fullAddress }}</span>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Service Details -->
+    <div class="service-details">
+      <span>
+        <span class="main-Text">Category Type :</span>
+        <span class="value-Text">{{ extractedDetails[0]?.categoryName }}</span>
+      </span>
+      <span>
+        <span class="main-Text">Service Type :</span>
+        <span class="value-Text">{{ extractedDetails[0]?.subCategoryName }}</span>
+      </span>
+      <span>
+        <span class="main-Text">Price :</span>
+        <span class="value-Text">{{ extractedDetails[0]?.price }} X {{ extractedDetails[0]?.quantity }}</span>
+      </span>
+      <span>
+        <span class="main-Text">Schedule :</span>
+        <span class="value-Text">{{ extractedDetails[0]?.scheduledDate }}</span>
+      </span>
+    </div>
+  
+    <!-- Accept/Reject Buttons -->
+    <div class="acc-rej-btns">
+      <button (click)="declined()">Reject</button>
+      <button (click)="accepted()">Accept</button>
+    </div>
+  </div>
+  

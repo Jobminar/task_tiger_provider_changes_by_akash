@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="sub-container">
+      <div class="sp-div">
+        <span>Hey!</span>
+        <span>Join now</span>
+      </div>
+      <div class="img-div">
+        <img src="assets/logo/start2.png" alt="Logo">
+      </div>
+  
+      <!-- Toggle for Existing Provider -->
+      <div class="slide-container" (touchstart)="onTouchStart($event, 'existing')" (touchmove)="onTouchMove($event, 'existing')" (touchend)="onTouchEnd('existing')"
+           (mousedown)="onMouseDown($event, 'existing')" (mousemove)="onMouseMove($event, 'existing')" (mouseup)="onMouseUp('existing')">
+           <div class="placehlder">
+                <span>Existing Provider</span>
+            </div>
+            <div class="slider" [class.active]="isExistingActive">
+                <span *ngIf="!isExistingActive">&#8594;</span>
+                <span *ngIf="isExistingActive">&#10004;</span>
+            </div>
+      </div>
+  
+      <!-- Toggle for New Provider -->
+      <div class="slide-container" (touchstart)="onTouchStart($event, 'new')" (touchmove)="onTouchMove($event, 'new')" (touchend)="onTouchEnd('new')"
+           (mousedown)="onMouseDown($event, 'new')" (mousemove)="onMouseMove($event, 'new')" (mouseup)="onMouseUp('new')">
+            <div class="placehlder">
+                <span>New Provider</span>
+            </div>
+           <div class="slider" [class.active]="isNewActive">
+                <span *ngIf="!isNewActive">&#8594;</span>
+                <span *ngIf="isNewActive">&#10004;</span>
+            </div>
+      </div>
+    </div>
+  </div>
+  

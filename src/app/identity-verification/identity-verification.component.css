@@ -1,0 +1,76 @@
+.container{
+    width: 92vw;
+    /* height: 100vh; */
+    padding: 1rem;
+    display: grid;
+    row-gap: 2rem;
+}
+.para{
+    background-color: rgba(239, 140, 83, 0.3);
+    width: 90%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color:  rgba(255, 168, 0, 1);
+    
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 0.25px solid #000;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Style the background color */
+input[type="checkbox"]:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: block;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+/* Change background color when checked */
+input[type="checkbox"]:checked:before {
+    background-color: green; /* Change this to your desired color */
+}
+
+/* Add a check mark */
+input[type="checkbox"]:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the check mark when checked */
+input[type="checkbox"]:checked:after {
+    opacity: 1;
+}
+
+/* Prevent user interaction on checked items */
+input[type="checkbox"][disabled] {
+    cursor: not-allowed;
+    background-color: #f0f0f0; /* Optional: to give a visual cue of disabled state */
+}
+.tittle{
+    font-family: 'Inter' sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 19.36px;
+}

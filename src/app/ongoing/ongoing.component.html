@@ -1,0 +1,55 @@
+<div class="container">
+    <div id="menu-button" (click)="navTo('menu')" >☰</div>
+    <div class="bell-credit">
+        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
+        <div class="bell" (click)="navTo('notification')"><span class="material-symbols-outlined" >notifications</span></div>
+    </div>
+    <div class="sub-container">
+        <div class="cat">
+            <button 
+            *ngFor="let button of buttons"
+            [ngClass]="{'active': activeButton === button}"
+            (click)="setActiveButton(button)">
+            {{ button }}
+            </button>
+        </div>
+
+        <div class="content-container">
+            <br>
+            <div *ngFor="let item of filteredOrder; let i = index" class="content">
+                <span class="icons-div">
+                    <span class="highlight-text">{{item.orderId.address.username }}</span>
+                    <span class="icons-div" *ngIf="item.status==='Accepted' || item.status==='InProgress'">
+                        <a href="'tel:'+ item.orderId.address.mobileNumber">
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+                        </a>
+                        <span class="material-symbols-outlined">
+                            chat
+                        </span>
+                        <span class="material-symbols-outlined" (click)="navToArrived()">
+                            directions
+                        </span>
+                    </span>
+                    
+                </span>
+                <span class="highlight-text">{{ item.orderId.categoryIds[0] }}</span>
+                <span class="normal-text">{{ item.orderId.subCategoryIds[0] }}</span>
+                
+                <!-- <span class="highlight-text">{{ item.orderId.categoryIds[0] }}</span> -->
+                <span class="service-div">
+                    <span class="normal-text">{{ item.orderId.items[0].scheduledDate }}</span>
+                    <span class="highlight-text">{{item.orderId.items[0].serviceVariants[0].price}}</span>
+                </span>
+                <span class="normal-text">{{ item.orderId.address.city }} {{ item.orderId.address.state }} {{ item.orderId.address.pincode }}</span>
+            </div>
+
+            
+        </div>
+        <br>
+    </div>
+</div>
+<div style="height: 5rem;"></div>
+<!-- <app-fotter #footer></app-fotter> -->
+<app-fotter></app-fotter>

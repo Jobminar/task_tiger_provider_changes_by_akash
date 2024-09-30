@@ -1,0 +1,54 @@
+.container
+{
+    width: 100%;
+    height: 100vh;
+    /* border: 1px solid black; */
+    align-items: center;
+    text-align: center;
+}
+.sub-container
+{
+    width: 90%;
+    height: 87vh;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    /* border: 1px solid red; */
+    
+   
+}
+.tittle
+{
+    font-family: 'inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 24px;
+}
+.sub-div1
+{
+    width: 100%;
+    height: max-content;
+    border: 1px solid black;
+    margin-bottom: 5%;
+    border-radius: 1rem;
+}
+.sub-div1 div{
+    
+  padding: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.login-btn
+{
+    height: 3.4rem;
+    width: 95%;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color:rgba(255, 255, 255, 1);
+    border-radius: 4rem;
+    border: none;
+    background-color: #D16611;
+    
+    
+}

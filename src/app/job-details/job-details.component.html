@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 24px;" >arrow_back</span>
+        <div class="help" (click)="navToHelp()">Help?</div>
+    </div>
+    <div class="sub-container">
+        <div class="name">
+            <span class="tittle">{{orderDetails.orderId.address.username}}</span>
+            <span>{{orderDetails.orderId.items[0].scheduledDate}}</span>
+        </div>
+        <div class="customer-details">
+            <span class="sub-tittle">Customers Details</span>
+            <div class="Details">
+                <p class="para-section">
+                    <span class="highlight-text">Location</span>
+                    <span>
+                        {{orderDetails.orderId.address.city}}, {{orderDetails.orderId.address.state}}, {{orderDetails.orderId.address.pincode}}
+                    </span>
+                </p>
+                <div class="line"></div><br>
+                <div class="time-div">
+                    <p class="para-section">
+                        <span class="highlight-text">Job start</span>
+                        <span>
+                            12 Apr 06:30 PM
+                        </span>
+                    </p>
+                    <p class="para-section">
+                        <span class="highlight-text">Job End</span>
+                        <span>12 Apr 07:30 PM</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="summary">
+            <span class="sub-tittle">Summary</span>
+            <div class="Details">
+               
+                   <div class="time-div">
+                        <span class="highlight-text">{{orderDetails.orderId.items[0].quantity}} &nbsp; X &nbsp; {{orderDetails.orderId.categoryIds}}</span>
+                        <span class="sub-tittle">&#8377; &nbsp;{{orderDetails.orderId.items[0].serviceVariants[0].price}}</span>
+                    </div>
+                    <div class="line"></div>
+                    <br>
+                
+                <div class="time-div">
+                    <p>
+                        <span>Others</span><br>
+                        <span class="highlight-text">Convenience Fee</span>
+                    </p>
+                    <p class="sub-tittle">69</p>
+                </div>
+                <div class="line"></div>
+                    <br>
+                <div class="time-div">
+                    <p>
+                        <span class="highlight-text">Total value</span><br>
+                        <span>commission 5 credits</span>
+                    </p>
+                    <p class="sub-tittle">{{orderDetails.orderId.items[0].serviceVariants[0].price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

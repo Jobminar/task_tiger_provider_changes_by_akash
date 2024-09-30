@@ -1,0 +1,268 @@
+/* .container{
+    width: 95%;
+    height: 100%;
+   
+    position: relative;
+    left: 2.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timmer {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .timer-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .time {
+    font-size: 2em; 
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .time span:nth-child(2){
+    font-size: 1rem;
+  }
+  .location-container{
+  
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: 10% 80%;
+  }
+  .location-container div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  }
+ 
+  .line{
+    width: 1px;
+    height: 6rem;
+    border: 0;
+    border-left: 0.25px dashed black;
+  }
+
+  .address, .address p{
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+  }
+  .location-txt{
+    font-family: 'Poppins' sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 20.9px;
+  text-align: left;
+
+  }
+  .location{
+    font-family: 'Poppins' sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 16.36px;
+    text-align: left;
+    color:rgba(184, 184, 184, 1);
+    
+  }
+  .service-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .main-Text{
+    font-family: 'Poppins' sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 20.9px;
+    text-align: left;
+    color: rgba(90, 90, 90, 0.5);
+
+  }
+  .value-Text{
+    font-family: 'Poppins' sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 16.36px;
+    text-align: left;
+    color: rgba(81, 81, 81, 1);
+
+  }
+  .acc-rej-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .acc-rej-btns button{
+    width: 150px;
+    height: 50px;
+    border: 0;
+    border-radius: 0.4rem;
+    font-family: 'Inter' sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 18.3px;
+    letter-spacing: 1px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+  }
+  .acc-rej-btns button:nth-child(1){
+    background-color: rgba(215, 13, 9, 1);
+    
+  }
+  .acc-rej-btns button:nth-child(2){
+    background-color: rgba(64, 144, 0, 1);
+    
+    
+  } */
+
+  .container {
+    width: 95%;
+    height: 100%;
+    position: relative;
+    top: 5%;
+    left: 2.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Timer Styles */
+  .timer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .timer-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .time {
+    font-size: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .time span:nth-child(2) {
+    font-size: 1rem;
+  }
+  
+  /* Location Styles */
+  .location-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 80%;
+  }
+  
+  .location-container div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .line {
+    width: 1px;
+    height: 6rem;
+    border-left: 0.25px dashed black;
+  }
+  
+  .address, .address p {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .location-txt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .location {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(184, 184, 184, 1);
+  }
+  
+  /* Service Details Styles */
+  .service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .main-Text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(90, 90, 90, 0.5);
+  }
+  
+  .value-Text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(81, 81, 81, 1);
+  }
+  
+  /* Accept/Reject Button Styles */
+  .acc-rej-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .acc-rej-btns button {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+  }
+  
+  .acc-rej-btns button:nth-child(1) {
+    background-color: rgba(215, 13, 9, 1);
+  }
+  
+  .acc-rej-btns button:nth-child(2) {
+    background-color: rgba(64, 144, 0, 1);
+  }
+  

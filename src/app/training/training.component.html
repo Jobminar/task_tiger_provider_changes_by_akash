@@ -1,0 +1,37 @@
+
+<br><br>&nbsp;&nbsp; &nbsp;<span class="material-symbols-outlined" (click)="navBack()" style="font-size: 28px;">arrow_back</span><br><br>
+<div class="container" [class.blur]="isVideoPlaying">
+  <div class="sub-container">
+    <div *ngFor="let item of videos; let i = index" (click)="getVideoUrl(i)" class="videoss">
+      <!-- <video #videoPlayer
+             (click)="playVideo(i)"
+             (ended)="onVideoEnded()"
+             (timeupdate)="preventSeek(videoPlayer)"
+             controls
+             [src]="'https://' + bucketName + '.s3.' + region + '.amazonaws.com/' + item.videoKey"
+             type="video/mp4" (click)="getVideoUrl(i)">
+      </video> -->
+      <div class="dummy-video" (click)="getVideoUrl(i)">
+        <img src="assets/demo/video.png">
+      </div>
+      <br>
+      <!-- <h1 (click)="getVideoUrl(i)">play</h1> -->
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="pupUp" (click)="stopVideo()">
+  <video #activeVideo
+         class="active-video"
+         
+         (ended)="onVideoEnded()"
+         (timeupdate)="preventSeek(activeVideo)"
+         (loadedmetadata)="onVideoLoaded(activeVideo)"
+         controls
+         
+         [src]="getVideoUrl(currentVideoIndex)"
+         autoplay
+         type="video/mp4">
+  </video>
+  <!-- <button (click)="skipVideo()">Skip</button> -->
+</div>

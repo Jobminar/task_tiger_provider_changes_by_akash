@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 24px;" >arrow_back</span>&nbsp;<span class="tittle"  >Job History</span>
+    </div>
+    <div class="sub-container">
+        <div>
+            @for (item of jobs; track $index) {
+            
+            <div class="section" (click)="selectedJob(item)">    
+                    <div>
+                       <p> <span class="main-text">{{item.name}}</span></p>
+                       <p> 
+                            <span class="material-symbols-outlined" style="font-size: 1rem;" (click)="navToBack()"   >account_balance_wallet</span>&nbsp;
+                            <span class="text">Job value:{{item.value}}</span>
+                        </p>
+                        <p>
+                            <span class="material-symbols-outlined" style="font-size: 1rem;"  (click)="navToBack()"  >description</span>&nbsp;
+                            <span class="text">Online Payments:{{item.paymentDone}}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="main-text">9:30</p>
+                        
+                        <p class="text">89-0</p>
+                    </div>
+                </div> 
+                <br>
+               
+               
+            }
+        </div>
+    </div>
+</div>

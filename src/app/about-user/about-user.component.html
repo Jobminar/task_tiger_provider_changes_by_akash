@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="sub-container">
+        <span class="tittle">Tell us about yourself</span><br>
+        
+        <form [formGroup]="aboutProvider">
+           <div class="form-div"> 
+            @if ( workAdded) {
+                <div style="position: relative;">
+                    <label for="work">what work do you do?</label> <br>
+                    <input formControlName="work"  id="providerType" required (click)="navTo()" placeholder="please select the Work " [ngModel]="selectedWork">
+                    <i class="fa fa-angle-down" style="font-size:36px ;position: absolute; right: 10px; top: 75%; transform: translateY(-50%); pointer-events: none;"></i>
+                       
+                    
+                </div>
+            }
+                <div>
+                    <label for="name">what's your Name</label><br>
+                    <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
+                </div>
+                <div>
+                    <label for="work">Select your Gender</label> <br>
+                    <select for="name" formControlName="gender">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select><br>
+                    <!-- <input type="text" placeholder="Name" formControlName="providerName" id="names" required> -->
+                </div>
+                <div>
+                    <label for="location"> Pin code </label><br>
+                    <input type="number" formControlName="pincode" required placeholder="Pincode">
+                </div>
+                <div>
+                    <label for="address"> Address </label><br>
+                    <input type="text" formControlName="address" required placeholder="Address">
+                </div>
+                <!-- <div>
+                    <label for="location"> Select radius
+                        or
+                        Range to you want to work from your place </label><br>
+                    <input type="number" formControlName="radius" required placeholder="Enter radius">
+                </div> -->
+                <label for="file" class='image-label'> Upload image </label>
+                <div class="file-input-container">
+                   
+                    <label for="file-input" class="file-label">
+                      <img *ngIf="!selectedFile" src="assets/documents/Group.png" alt="Upload image" class="placeholder-image">
+                      <img *ngIf="selectedFile" [src]="imagePreview" alt="Selected image" class="preview-image">
+                      <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
+                    </label>
+                    <input type="file" id="file-input" formControlName="image"  (change)="onFileSelected($event)" class="file-input" required>
+                </div>
+                  
+                  
+                  <button type="submit" class="login-btn" (click)="submit()">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br>

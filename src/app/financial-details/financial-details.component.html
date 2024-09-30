@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 28px;" >arrow_back</span>&nbsp;
+        <span class="tittle"  >Financial details</span>
+    </div>
+    <div class="sub-container">
+        <div class="gst-div">
+            <span class="largetext">GST Details</span>
+            <span class="largetext">Add+</span>
+        </div>
+        <div class="panDetails">
+            <p  >
+                <span class="largetext">Aadhar Card details</span>
+                <span class="edit">Edit</span>
+            </p>
+            <p  >
+                <span class="largetext">Aadhar </span>
+                <span class="largetext">{{bankDetails.aadhaarNumber}}</span>
+            </p>
+        </div>
+        <div class="panDetails">
+            <p  >
+                <span class="largetext">PAN Card details</span>
+                <span class="edit">Edit</span>
+            </p>
+            <p  >
+                <span class="largetext">PAN </span>
+                <span class="largetext">{{bankDetails.pan}}</span>
+            </p>
+        </div>
+        <div class="panDetails"  class="bankdetails" >
+            <p>
+                <span class="largetext">Bank account details</span>
+                <span class="edit" >Edit</span>
+            </p>
+            <p>
+                <span class="normaltext">Account number</span>
+                <span class="largetext">{{bankDetails.accountNumber}}</span>
+            </p>
+            <p>
+                <span class="normaltext">Bank name</span>
+                <span class="largetext">{{bankDetails.bankName}}</span>
+            </p>
+            <p>
+                <span class="normaltext">IFSC code</span>
+                <span class="largetext">{{bankDetails.ifscCode}}</span>
+            </p>
+            <p>
+                <span class="normaltext">Name in account</span>
+                <span class="largetext" >{{bankDetails.accountName}}</span>
+            </p>
+        </div>
+    </div>
+</div>

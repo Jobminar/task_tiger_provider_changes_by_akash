@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="sub-container">
+        <span class="tittle">Tell us about your work!</span><br><br>
+        <div class="sub-div1">
+            <div><span>0-1 Years</span> <input type="checkbox"  [checked]="experiance==='0-1'" (change)="onCheckboxChange('0-1')"></div>
+                <hr>
+                <div><span>2-4 Years</span> <input type="checkbox" [checked]="experiance==='2-4'" (change)="onCheckboxChange('2-4')"></div>
+                <hr>
+                <div><span>3-5 Years</span> <input type="checkbox" [checked]="experiance==='3-5'" (change)="onCheckboxChange('3-5')"></div>
+                <hr>
+                <div><span>More than 5 Years</span> <input type="checkbox" [checked]="experiance==='moreThan5'" (change)="onCheckboxChange('more than 5')">
+            </div>
+    
+        </div>
+    </div>
+    <br><br>
+        <button type="submit" class="login-btn" (click)="sendResponse()">Continue</button>
+</div>

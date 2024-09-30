@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="sub-container">
+        <div class="arrow">
+            <span class="material-symbols-outlined" style="font-size: 28px;" (click)="navToBack()">arrow_back</span>
+            <span class="tittle">Packages</span>
+        </div>
+        <div *ngFor="let package of packages; let i = index" [ngClass]="{'first-package': package.packageName=== 'silver', 'package': true}">
+            <br>
+            <div>
+                <p class="upgrade"><span>UPGRADE TO</span><button>1 Month</button></p>
+                <p class="package-name"><img [src]="package.image"> &nbsp;<span>{{package.packageName}}</span></p>
+                <p class="upgrade">
+                    <span>
+                        <span class="Current">Current</span>
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">lock_open</span>
+                    </span>
+                    <span>Expire : 19th Jul 24</span>
+                </p> 
+                <ul>
+                    <li>{{package.noOfJobOffers}}</li>
+                    <li>{{package.bonus}}</li>
+                </ul>
+                <p class="upgrade">
+                    <button *ngIf="isEnrolled">1 month</button>
+                    <span *ngIf="!isEnrolled">Amount Payable</span>
+                    <span>&#8377; 1499</span>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="headers">
+      <span class="material-symbols-outlined" style="font-size: 28px;" (click)="navToBack()">arrow_back</span>
+      <ng-container *ngIf="extendServices">
+        <div>
+          <p class="material-symbols-outlined" style="font-size: 28px;" (click)="extend()">expand_circle_right</p>
+        </div>
+      </ng-container>
+      <ng-container *ngFor="let item of services; let index = index;">
+        <ng-container *ngIf="index <= 1 && !extendServices">
+          <span style="display: flex;align-items: center;justify-content: center;">
+            <input type="checkbox" [checked]="selectedService === item.nameOfService" (change)="availabilityService(item.nameOfService)">&nbsp;
+            <span class="service-tittle">{{item.nameOfService}}</span>
+          </span>
+        </ng-container>
+        <ng-container *ngIf="index === 2 && !extendServices">
+          <span class="material-symbols-outlined" style="font-size: 28px;" (click)="openServiceDialog()">expand_circle_down</span>
+        </ng-container>
+        <div *ngIf="extendServices" class="extended">
+          <span class="service">
+            <input type="checkbox" [checked]="selectedService === item.nameOfService" (change)="availabilityService(item.nameOfService)">
+            <span class="service-tittle">{{item.nameOfService}}</span>
+          </span>
+        </div>
+      </ng-container>
+    </div>
+    <br><br>
+    <div class="sub-container">
+      <div class="working-dates">
+        <ng-container *ngFor="let item of nextFourDays; let index = index;">
+          <div class="datess" [ngClass]="{'selected': selectedIndex === index}" (click)="selected(item, index)">
+            <p>{{ item.day.substring(0,3).toUpperCase() }}</p>
+            <p>{{ item.date.split('-')[0] }}</p>
+            <span class="material-symbols-outlined">{{ item.workingStaus ? 'check' : 'close' }}</span>
+          </div>
+        </ng-container>
+      </div>
+      <div class="selected-date">
+        <span>{{daySelected}},{{monthSelected}} {{dateSelected}}</span>
+      </div>
+      <div class="update">
+        <div>
+          <label class="custom-checkbox" [class.checked]="isChecked">
+            <input type="checkbox" [checked]="isChecked" (change)="workingChange()" [(ngModel)]="working">
+          </label>
+          <span>Working</span>
+        </div>
+        <span class="material-symbols-outlined" style="font-size: 28px;">{{ working ? 'expand_circle_right' : 'expand_circle_down' }}</span>
+      </div>
+      <div class="confirmation-div" *ngIf="working">
+        <div class="conformation">
+          <span class="material-symbols-outlined" style="font-size: 28px;">check</span>
+          <p>confirmation your working hours</p>
+          <span class="material-symbols-outlined" style="font-size: 28px;">expand_circle_up</span>
+        </div>
+        <br>
+        <div class="line"></div>
+        <div class="time-confirm" *ngFor="let item of nextDaysOfIndex.timming">
+          <span>{{item.time}}</span>
+          <p><mat-slide-toggle  [(ngModel)]="item.isSelected" (change)="onToggleChange($event, item)"  color="accent" ></mat-slide-toggle></p>
+        </div>
+      </div>
+      <button (click)="submitAllData()">submit</button>
+    </div>
+  </div>
+  
+  <ng-template #dialogTemplate style="width: 300px;" >
+    <h1 mat-dialog-title>Select Services</h1>
+    <div mat-dialog-content style="width: 300px;">
+      <form>
+        <div *ngFor="let item of services">
+          <div style="display: flex;align-items: center;width: 100%;
+          height: 3rem;">
+                <input type="checkbox" [checked]="selectedService === item.nameOfService" (change)="availabilityService(item.nameOfService)">
+                &nbsp;<span style="color: black;">{{item.nameOfService}}</span>
+            </div>
+        </div>
+      </form>
+    </div>
+    <div mat-dialog-actions style="display: flex;justify-content: space-evenly;">
+      <button mat-button (click)="onCancel()" style="width: 30%;height: 2rem;">Cancel</button>
+      <button mat-button (click)="onSubmit()" style="width: 30%;height: 2rem;">Submit</button>
+    </div>
+  </ng-template>
+  

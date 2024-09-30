@@ -1,0 +1,87 @@
+.container
+{
+    /* border: 1px solid black ; */
+    width: 93vw;
+    height: 100vh;
+    padding: 1rem 0.5rem 0 1rem;
+    
+}
+
+.tittle{
+    font-family: 'Inter' sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 19.36px;
+   
+}
+.sub-container{
+      /* border: 1px solid rgb(216, 9, 9) ; */
+      width: 97%;
+      position: relative;
+      top: 3.5%;
+      /* left: 3.5%; */
+      display: grid;
+      row-gap: 2rem;
+
+}
+.gst-div{
+    width: 90%;
+    height: 4rem;
+    border: 0.25px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+    border-radius: 0.5rem;
+}
+.panDetails{
+    width: 90%;
+    height: 5rem;
+    border: 0.25px solid black;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 5%;
+    border-radius: 0.5rem;
+}
+ p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* padding: 5%; */
+    
+}
+.bankdetails{
+    width: 90%;
+    height: 13rem;
+    border: 0.25px solid black;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 5%;
+    border-radius: 0.5rem;
+}
+.largetext{
+    font-family: 'Inter' sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 19.36px;
+}
+.edit{
+    font-family: 'Inter' sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 19.36px;
+    color:rgba(0, 0, 0, 0.5);
+    
+}
+.normaltext{
+    font-family: 'Inter' sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 19.36px;
+
+
+}

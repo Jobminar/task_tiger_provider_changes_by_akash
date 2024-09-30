@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="sub-container">
+        <span class="tittle">Tell us about your work!</span><br><br>
+        <div class="sub-div1">
+          <pre>What is your age?</pre>
+          <hr>
+          <div><span>16 - 18</span> <input type="checkbox" [checked]="selectedAge === '16-18'"  (change)="onCheckboxChange('16-18')" ></div>
+          <hr>
+          <div><span>18 - 40</span> <input type="checkbox" [checked]="selectedAge === '18-40'"   (change)="onCheckboxChange('18-40')"></div>
+          <hr>
+          <div><span>More than 40</span> <input type="checkbox" [checked]="selectedAge === 'more than 40'"  (change)="onCheckboxChange('more than 40')"></div>
+      </div>
+        
+        <div class="sub-div1">
+            <p style="padding: 0.5rem;">Do you have any experience in {{workSelected}} services?</p>
+            <hr>
+            <div class="select-div"><span>Yes</span> <input type="checkbox"  [checked]="selectedExperiance==='yes'" (change)="expSelected('yes')"></div>
+            <hr>
+            <div><span>No</span> <input type="checkbox"  [checked]="selectedExperiance==='no'" (change)="expSelected('no')"></div>
+        </div>
+        
+        <div class="conditions"><input type="checkbox" > &nbsp; Agree with Terms & conditions</div>
+       <br><br>
+        <button type="submit" class="login-btn" (click)="sendResponse()">Continue</button>
+    </div>
+</div>
+<!-- 
+<div>
+    <label>
+      <input type="checkbox" [checked]="selectedCheckbox === 1" (change)="onCheckboxChange(1)">
+      Checkbox 1
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" [checked]="selectedCheckbox === 2" (change)="onCheckboxChange(2)">
+      Checkbox 2
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" [checked]="selectedCheckbox === 3" (change)="onCheckboxChange(3)">
+      Checkbox 3
+    </label>
+  </div>
+   -->
