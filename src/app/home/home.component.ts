@@ -276,10 +276,12 @@ export class HomeComponent implements OnInit {
             console.log('Current Location:', location);
             this.sendCordinates(location);
             this.getname(location);
+            alert("coordinated send")
             // Perform any additional actions with the current location
           },
           (error) => {
             console.error('Error getting current location:', error);
+            alert("not send error")
           }
         );
       }
