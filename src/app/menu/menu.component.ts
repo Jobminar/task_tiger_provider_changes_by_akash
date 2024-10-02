@@ -131,6 +131,7 @@ export class MenuComponent implements OnInit{
     this.userDetals.setDefult();
     this.loginService.removeUser();
     this.router.navigate(['selectAccount']);
+    localStorage.clear();
   }
   statusChange(){
     if (this.whatsAppStaus==='on') {

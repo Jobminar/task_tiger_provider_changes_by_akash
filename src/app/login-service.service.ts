@@ -191,7 +191,7 @@ export class LoginServiceService {
   // }
 
   sendWorkDetails(){
-    const api= this.apiUrl+`providers/work`
+    const api= this.apiUrl+`providers/provider-work`
     // console.log(this.workDetails);
     const work=this.workDetails.flat();
     const userId=localStorage.getItem('providerId')
@@ -203,6 +203,7 @@ export class LoginServiceService {
     console.log(requestBody);
     return this.http.post(api,requestBody);
   }
+
   UserDetails(data: any) {
     const dataAsObject: any[] = []
     data.forEach((value: any, key: any) => {
@@ -257,7 +258,7 @@ export class LoginServiceService {
       works:work
     }
     console.log("work in service",requestBody);
-    const api = this.apiUrl+`providers/work/${id}`;
+    const api = this.apiUrl+`providers/provider-work/${id}`;
     this.http.put(api, requestBody).subscribe(
       (response) => {
         console.log(response);
@@ -307,6 +308,6 @@ export class LoginServiceService {
     this.selectedSubCategories=[];
     this.categoryId='';
     this.userFromServer = [];
-  
+    
   }
 }

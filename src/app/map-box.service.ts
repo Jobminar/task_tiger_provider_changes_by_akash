@@ -262,7 +262,7 @@ export class MapBoxService {
     });
   }
   sendCordinates(location:any):Observable<any>{
-    const api= this.apiUrl+'providers/cordinates';
+    const api= this.apiUrl+'providers/provider-cordinates';
     const userID=localStorage.getItem('providerId')
     const requestBody={
       providerId:userID,

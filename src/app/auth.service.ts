@@ -26,5 +26,9 @@ export class AuthService {
     )
   }
 
-
+// removing all the variables
+  setDefult(){
+    this.api='';
+    this.apiUrl='';
+  }
 }

@@ -13,6 +13,8 @@ export class GetOrdersService {
 
   apiUrl=azureApi;
   userCordinates:any;
+  token:any;
+  order:any;
   constructor(
     private afMessaging: AngularFireMessaging,
     private http:HttpClient,
@@ -20,7 +22,7 @@ export class GetOrdersService {
   ) {
     this.listenForMessages();
   }
-  token:any;
+
   requestPermission() {
     if (Capacitor.isNativePlatform()) {
       PushNotifications.requestPermissions().then(result => {
@@ -56,7 +58,7 @@ export class GetOrdersService {
     }
   }
 
-  order:any;
+
   
   listenForMessages() {
     console.log("listing...................");
@@ -102,7 +104,7 @@ export class GetOrdersService {
   })
   }
 
-
+  
 
 
 }

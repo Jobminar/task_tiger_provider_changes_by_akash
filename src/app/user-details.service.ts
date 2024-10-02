@@ -22,7 +22,7 @@ export class UserDetailsService {
   }
 
   getWork(id:any){
-    const aaa=this.api + `providers/work/${id}`
+    const aaa=this.api + `providers/provider-work/${id}`
     console.log(aaa);
     return this.http.get<any>(aaa)
   }
