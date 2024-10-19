@@ -7,9 +7,10 @@ import { FotterComponent } from '../fotter/fotter.component';
 import { UserDetailsService } from '../user-details.service';
 import { RazorpayService } from '../razorpay.service';
 import { MapBoxService } from '../map-box.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { OrdersService } from '../orders.service';
 import { DailogeBoxService } from '../dailoge-box.service';
+import { GoogleMapService } from '../google-map.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   region = 'ap-south-1';
   nextWorking: any = [];
   isAccountVerify: any;
-
+  loading:boolean=false;
   ngOnInit(): void {
     const storedOnlineStatus = localStorage.getItem('onlineStatus');
     const storedOnlineText = localStorage.getItem('onlineText');
@@ -76,7 +77,8 @@ export class HomeComponent implements OnInit {
     private readonly  razorpayService: RazorpayService,
     private readonly  mapboxService: MapBoxService,
     private readonly  orderService: OrdersService,
-    private readonly dialogService:DailogeBoxService
+    private readonly dialogService:DailogeBoxService,
+    private readonly googleMapService:GoogleMapService
 
   ) {
    
@@ -249,13 +251,14 @@ export class HomeComponent implements OnInit {
   onlineText: string = 'Go';
   onlineStatus(): void {
     try {
+     this.loading=true;
       const accountVerified = this.jobDetailsService.isVerify;
       console.log(accountVerified);
-      if (!accountVerified) {
-        alert("Account is not verified...")
-        // throw new Error('Account is not verified');
-        return;
-      }
+      // if (!accountVerified) {
+      //   alert("Account is not verified...")
+      //   // throw new Error('Account is not verified');
+      //   return;
+      // }
       this.online = !this.online;
 
       // this.onlineText = this.onlineText === 'Go' ? 'Off' : 'Go';
@@ -264,24 +267,26 @@ export class HomeComponent implements OnInit {
       this.onlineText = this.online ? 'Off' : 'Go';
 
       // Update the MapboxService state and localStorage
-      this.mapboxService.onlineStatus = this.online;
-      this.mapboxService.setonlineStatus(this.online, this.onlineText);
+      this.googleMapService.onlineStatus = this.online;
+      this.googleMapService.setonlineStatus(this.online, this.onlineText);
 
       // Store the updated state in localStorage
       localStorage.setItem('onlineStatus', this.online.toString());
       localStorage.setItem('onlineText', this.onlineText);
       if (this.online) {
-        this.mapboxService.getCurrentLocation().subscribe(
+        this.googleMapService. getCoordinates().subscribe(
           (location) => {
             console.log('Current Location:', location);
             this.sendCordinates(location);
             this.getname(location);
-            alert("coordinated send")
+            alert(location?.lat);
+            this.loading=false;
             // Perform any additional actions with the current location
           },
-          (error) => {
+          (error:HttpErrorResponse) => {
             console.error('Error getting current location:', error);
-            alert("not send error")
+            alert(error.error.message);
+            this.loading=false;
           }
         );
       }
@@ -307,14 +312,16 @@ export class HomeComponent implements OnInit {
   }
 
   sendCordinates(location: any) {
-    this.mapboxService.sendCordinates(location).subscribe(
-      (response) => {
+    this.googleMapService.sendCordinates(location).subscribe({
+     next:(response) => {
         console.log(response);
+       alert(response.message)
       },
-      (err) => {
+     error:(err) => {
         console.log(err);
+        alert(err.errors.message)
       }
-    );
+  });
   }
 
   sendTokens() {

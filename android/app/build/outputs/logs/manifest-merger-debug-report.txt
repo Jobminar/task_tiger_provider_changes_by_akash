@@ -11,10 +11,10 @@ INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\
 	android:name
 		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:28:13-62
 manifest
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [:capacitor-app] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
@@ -178,6 +178,26 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Use
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:8:5-67
 	android:name
 		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:3-66
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:20-63
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:3-79
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:20-76
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:3-76
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:20-74
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:3-78
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:20-76
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:32:13-34:64
 	android:resource
@@ -342,12 +362,6 @@ uses-permission#android.permission.POST_NOTIFICATIONS
 ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:5-77
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:22-74
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:22-65
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:26:5-82
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:11:5-82

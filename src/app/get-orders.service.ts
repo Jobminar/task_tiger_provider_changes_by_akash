@@ -36,6 +36,7 @@ export class GetOrdersService {
           });
 
           PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
+            this.handleInAppNotification(notification);
             console.log('Push received: ', notification);
           });
 
@@ -103,7 +104,18 @@ export class GetOrdersService {
       }
   })
   }
+  // New Method: Handle In-App Notification
+  handleInAppNotification(notification: any) {
+    alert('inapp notification')
+    const title = notification.notification?.title || notification.title;
+    const body = notification.notification?.body || notification.body;
 
+    if (title && body) {
+      // Display toast or other UI for in-app notification
+      // this.toasterService.showSuccess(body, title);
+      alert(body)
+    }
+  }
   
 
 

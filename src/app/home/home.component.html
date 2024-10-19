@@ -107,14 +107,16 @@
     </div>
 </div> 
 
-<div class="online" (click)="onlineStatus()">
+<!-- <div class="online" (click)="onlineStatus()">
     <span>{{onlineText}}</span>
-</div>
+</div> -->
    
     <div style="height: 5rem;"></div>
     <router-outlet></router-outlet>
   <!-- <app-fotter #footer></app-fotter> -->
   <app-fotter></app-fotter>
 
-    
+  @if (loading) {
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
+    }
 

@@ -19,18 +19,24 @@
                  <span class="line"></span>
                  <input type="tel" class="input-box" formControlName="phoneNumber">
             </div>
+          
         </div>
-        <br>
-        <div *ngIf=showError >
+        <div *ngIf=showError class="error">
             <p class="error-message" style="color: red;">***Please enter a valid 10-digit phone number.</p>
         </div>
+     
        <div class="update-div">
             <input type="checkbox" > <span>Get update on &nbsp;<img src="assets\logo\wts up .png"> whatsapp</span>
        </div>
        <br>
+       <br>
+      
         <div class="btn">
-             <button >Get OTP</button>
+             <button [disabled]="!myForm.valid" [ngClass]="{'disabled':!myForm.valid}">Get OTP</button>
         </div>
         </form>
     </div>
 </div>
+@if (loading) {
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
+    }

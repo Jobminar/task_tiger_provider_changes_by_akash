@@ -534,7 +534,7 @@ export class CalenderComponent {
       providerId: this.userId,
       service: this.selectedService,
       date: this.fullDate,
-      work: this.working,
+      availability: this.working,
       time: this.timeSelected
     };
     console.log(requestBody);

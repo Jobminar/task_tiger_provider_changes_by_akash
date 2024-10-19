@@ -217,6 +217,7 @@ export class MapBoxService {
           position => {
             const location: [number, number] = [position.coords.longitude, position.coords.latitude];
             console.log("current location inside getcurrent location",location);
+            alert(location);
             this.getPlaceNameFromCoordinates(location)
             observer.next(location);
             observer.complete();
@@ -268,8 +269,6 @@ export class MapBoxService {
       providerId:userID,
       longitude:location[0],
       latitude:location[1]
-      
-      
     }
 
     console.log(requestBody);

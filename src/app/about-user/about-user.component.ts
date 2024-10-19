@@ -122,6 +122,7 @@ import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserDetailsService } from '../user-details.service';
+import { GoogleMapService } from '../google-map.service';
 
 @Component({
   selector: 'app-about-user',
@@ -139,7 +140,8 @@ export class AboutUserComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private loginService: LoginServiceService,
-    private userDetailsService:UserDetailsService
+    private userDetailsService:UserDetailsService,
+    private googleMapService:GoogleMapService
   ) {
     
     this.aboutProvider = this.fb.group({
@@ -151,7 +153,11 @@ export class AboutUserComponent implements OnInit {
       phone: [ this.loginService.userNumber, Validators.required],
       age: [ this.loginService.age, Validators.required],
       gender: ['', Validators.required],
+      houseNo:'',
+      landmark:'',
       address: ['', Validators.required],
+      city:'',
+      state:'',
       image: ['']
     });
 
@@ -242,8 +248,32 @@ export class AboutUserComponent implements OnInit {
 
      
   // }
-
+  getCoordinates(){
+    const add=`${this.aboutProvider.value.houseNo} ${this.aboutProvider.value.landmark} ${this.aboutProvider.value.address} ${this.aboutProvider.value.city} ${this.aboutProvider.value.state} ${this.aboutProvider.value.pincode}`
+    console.log(add);
+    this.googleMapService.getCoordinatesFromPlaceName(add).subscribe(
+      {
+        next:(res)=>{
+          console.log(res);
+          this.googleMapService.sendCordinates(res.results[0].geometry).subscribe(
+            {
+              next:(res)=>{
+                console.log(res);
+                alert('coordinates are updated')
+              },
+              error:(err:HttpErrorResponse)=>{
+                console.log(err);
+              }
+            }
+          )
+        },error:(err:HttpErrorResponse)=>{
+          console.log(err);
+        }
+      }
+    )
+  }
   submit() {
+    this.getCoordinates();
     const formData = new FormData();
     // Append other fields to formData
     formData.append('providerName', this.aboutProvider.value.providerName);
@@ -254,7 +284,11 @@ export class AboutUserComponent implements OnInit {
     formData.append('gender', this.aboutProvider.value.gender);
     formData.append('address', this.aboutProvider.value.address);
     formData.append('phone', this.loginService.userNumber);
-  
+    formData.append('houseNo', this.aboutProvider.value.houseNo);
+    formData.append('landMark', this.aboutProvider.value.landmark);
+    formData.append('city', this.aboutProvider.value.city);
+    formData.append('state', this.aboutProvider.value.state);
+
     // Flatten and stringify the work array
     // let work = this.loginService.workDetails.flat(); // Ensure workDetails is correctly populated
     // formData.append('work', JSON.stringify(work));

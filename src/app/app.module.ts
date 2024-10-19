@@ -78,6 +78,8 @@ import { KeysPipe } from './keys.pipe';
 import { LocationComponent } from './location/location.component';
 import { DailogeBoxService } from './dailoge-box.service';
 
+
+import { NgxLoadingModule } from "ngx-loading";
 @NgModule({
   declarations: [
     AppComponent,
@@ -150,7 +152,8 @@ import { DailogeBoxService } from './dailoge-box.service';
     MatDatepickerModule ,
     MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireMessagingModule
+    AngularFireMessagingModule,
+    NgxLoadingModule
   ],
   providers: [
     provideAnimationsAsync(),DailogeBoxService

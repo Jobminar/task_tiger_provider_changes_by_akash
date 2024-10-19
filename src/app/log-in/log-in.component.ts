@@ -12,8 +12,9 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class LogInComponent {
 
-  myForm:FormGroup
-  showError:boolean=false
+  loading:boolean=false;
+  myForm:FormGroup;
+  showError:boolean=false;
   constructor(private router:Router,
               private fb:FormBuilder,
               private auth:AuthService,
@@ -36,7 +37,7 @@ export class LogInComponent {
     }
   }
   login(){
-    
+    this.loading=true;
     this.logInService.setLog(this.myForm.value.phoneNumber)
   //   console.log(this.myForm.value.phoneNumber);
   //  const api='https://api.coolieno1.in/v1.0/providers/provider-auth/signup'
@@ -56,5 +57,6 @@ export class LogInComponent {
   //   )
       
     // this.router.navigate(['verify'])
+    this.loading=false;
   }
 }
