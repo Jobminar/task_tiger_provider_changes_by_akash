@@ -150,7 +150,10 @@ export class LoginServiceService {
   setWorkDetails() {
     console.log(this.selectedSubCategories);
     const work = [
-      {categoryId:this.workId, nameOfService: this.workName, experience: this.experience,subcategory:this.selectedSubCategories },
+      {categoryId:this.workId,
+        //  nameOfService: this.workName, 
+         experience: this.experience,
+         subcategory:this.selectedSubCategories },
     ];
     this.workDetails.push(work);
     console.log(this.workDetails.flat());

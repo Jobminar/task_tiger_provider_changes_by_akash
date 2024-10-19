@@ -50,7 +50,7 @@ export class VisitingCardComponent implements OnInit{
           console.log(response);
         //  console.log(response[0].works);
         
-         this.workSeleceted=response[0].works
+         this.workSeleceted=response.works
       },(err)=>{
         console.log(err);
       }

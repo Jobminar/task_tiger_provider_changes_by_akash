@@ -15,19 +15,12 @@ export class SelectWorkComponent implements OnInit{
   
   searchQuery: string = '';
   previousUrl: string | undefined;
-
-  onInputChange(event: Event) {
-    console.log(this.searchQuery);
-    const filterItem = this.jobDetails.items.filter((item: { names: string }) =>
-      item.names.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-    console.log(filterItem);
-    this.items = filterItem;
-  }
+  workSeleceted:any[]=[];
+ 
 
   ngOnInit(): void {
     this.previousUrl = this.routeTrackingService.getPreviousUrl();
-    console.log('Previous URL:', this.previousUrl);
+    this.getWork();
   }
   constructor(
     private router: Router,
@@ -39,6 +32,33 @@ export class SelectWorkComponent implements OnInit{
   ) {
 
   }
+
+// searching work  
+  onInputChange(event: Event) {
+    console.log(this.searchQuery);
+    const filterItem = this.jobDetails.items.filter((item: { names: string }) =>
+      item.names.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+    console.log(filterItem);
+    this.items = filterItem;
+  }
+
+  // getting selected services
+  getWork(){
+    this.userDetailsService.getWork(localStorage.getItem('providerId')).subscribe(
+      (response)=>{
+          console.log(response);
+        //  console.log(response[0].works);
+        
+         this.workSeleceted=response.works;
+         this.autoCheckServices();
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
+
+
   public onChange(event: Event, item: any): void {
     const target = event.target as HTMLInputElement;
     if (target) {
@@ -57,8 +77,29 @@ export class SelectWorkComponent implements OnInit{
       }
     }
   }
-  items = this.jobDetails.items;
 
+
+
+  items = this.jobDetails.items;
+  autoCheckServices() {
+    // Loop through the selected work and match it with available items
+    console.log(this.items);
+    this.workSeleceted.forEach(work => {
+      // Find a matching item based on categoryId
+      const matchedItem = this.items.find((item :any)=> item.names === work.nameOfService);
+      console.log(matchedItem);
+      if (matchedItem ) {
+        // Loop through the subcategories in the work data
+        console.log(matchedItem);
+        console.log(work);
+        if (matchedItem ) {
+          matchedItem .checked = true;  // Set the subcategory as checked
+        }
+     
+      }
+    });
+  }
+  
   send() {
     // console.log(this.items.filter(item=>item.checked)
       const checkedItems = this.items.filter(
