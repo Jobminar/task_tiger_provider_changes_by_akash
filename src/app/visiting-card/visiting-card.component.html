@@ -19,7 +19,7 @@
                     &#9733; 4.89
                 </div>
                 <span *ngFor="let item of workSeleceted" >
-                    {{item.nameOfService}} 
+                    {{item.categoryId.name}} 
                 </span>
             </div>
         </div>
@@ -36,7 +36,7 @@
            
            <div>
                 <div class="ids" (click)="navTo()">
-                    <span class="tittle">Add new service</span>
+                    <span class="tittle">Manage Service</span>
                     <span class="tittle">+</span>
                 
                 </div>
@@ -78,3 +78,4 @@
 </div>
 <br>
 <br>
+<div style="height: 3rem;"></div>

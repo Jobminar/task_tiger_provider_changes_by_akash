@@ -1,0 +1,100 @@
+.faq-chat-container {
+    width: 90%;
+    /* margin: 50px auto; */
+    margin: 1rem 5% 0 5%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tittlee{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .tittlee span:nth-child(2){
+    font-size: 1.2rem;
+    font-family: 'Roboto' sans-serif;
+    font-weight: 500;
+  }
+  .chat-box {
+    background: #fff;
+    border-radius: 16px;
+    /* padding: 16px; */
+    padding-top: 1rem;
+    overflow-y: auto;
+  }
+  
+  .centered-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .message-list {
+    width: 100%; /* Increased from 60% to 80% */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* Centers the message list */
+  }
+  
+  .message {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .bot-avatar {
+    background-color: #ffc107;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .message-text {
+    padding: 12px 18px; /* Slightly increased padding */
+    background-color: #f8b04a;
+    border-radius: 12px;
+    word-break: break-word;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Increased message width to 90% */
+  }
+  
+  .user-message .message-text {
+    background-color: #e0e0e0;
+    border: 1px solid black;
+    align-self: flex-end;
+  }
+  
+  .bot-message {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .user-message {
+    justify-content: flex-end;
+  }
+  
+  .typing-indicator {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .option-buttons button,
+  div button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  
+  .option-buttons button:hover,
+  div button:hover {
+    background-color: #ddd;
+  }
+  

@@ -152,7 +152,8 @@ export class JobDetailsService {
       this.items.push({
         id:element._id,
         names: element.name,
-        checked: false
+        checked: false,
+        image:element.imageKey
       })
     });
   }

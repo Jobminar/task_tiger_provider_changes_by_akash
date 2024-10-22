@@ -1,0 +1,26 @@
+/* splash-screen.component.css */
+.splash-screen-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(45deg, #f95701, #fabb00);  */
+    background: conic-gradient(from 142.48deg at 49.1% 54.69%, rgba(215, 13, 9, 0.8) -1.69deg, rgba(254, 188, 4, 0.8) 357.8deg, rgba(215, 13, 9, 0.8) 358.31deg, rgba(254, 188, 4, 0.8) 717.8deg);
+
+
+
+  }
+  
+  .splash-logo img {
+    width: 156px;
+    height: 156px;
+  }
+  
+  .splash-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+  }
+  

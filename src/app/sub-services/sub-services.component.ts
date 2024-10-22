@@ -53,15 +53,15 @@ export class SubServicesComponent implements OnInit{
   autoCheckServices() {
     // Loop through the selected work
     this.workSeleceted.forEach(work => {
-      // Find the items that match the categoryId from work in subcategory array
-      const matchedSubcategories = this.items.filter((item:any) => item.categoryId === work.categoryId);
-  
+      // Find the items that match the categoryId from work in the items array
+      const matchedSubcategories = this.items.filter((item: any) => item.categoryId === work.categoryId._id);
+      
       if (matchedSubcategories.length > 0) {
         // Loop through the subcategory array in work
-        work.subcategory.forEach((subcategoryId: string) => {
+        work.subcategoryId.forEach((subcategory: any) => {
           // For each subcategory ID, find the matching subcategory in items
-          matchedSubcategories.forEach((subItem:any) => {
-            if (subItem._id === subcategoryId) {
+          matchedSubcategories.forEach((subItem: any) => {
+            if (subItem._id === subcategory._id) {
               subItem.checked = true;  // Set the subcategory as checked
               console.log(`Checked subcategory: ${subItem.name}`);
             }
@@ -70,6 +70,7 @@ export class SubServicesComponent implements OnInit{
       }
     });
   }
+  
   
   
   send(){

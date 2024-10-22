@@ -48,4 +48,8 @@ export class StartWorkComponent {
     console.log(this.toggleChecked);
     this.router.navigate(['work/otp'])
   }
+  navToChat(){
+    const role='user'
+    this.router.navigate(['help/chatlanding',role])
+  }
 }

@@ -12,7 +12,8 @@
                     @for (item of items; track $index) {
                         
                         <div class="service-div">
-                            <div class="names">{{item.names}}</div>
+                            
+                            <div class="names"><img [src]='item.image'> {{item.names}}</div>
                             <div ><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" (change)="onChange($event, item)"></div>
                         </div>
                     

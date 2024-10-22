@@ -1,0 +1,54 @@
+<div class="faq-chat-container">
+    <span class="tittlee">
+        <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+            keyboard_backspace
+        </span>
+        <span>FAQS</span>
+    </span>
+    
+    <div class="chat-box">
+      <!-- <h6 class="centered-title">Support Chat</h6> -->
+  
+      <div class="message-list">
+        <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender === 'user' ? 'user-message' : 'bot-message'">
+          <div *ngIf="msg.sender === 'bot'" class="bot-avatar">🤖</div>
+          <div class="message-text">
+            {{ msg.text }}
+          </div>
+        </div>
+  
+        <div *ngIf="isLoading" class="bot-message typing-indicator">
+          Typing...
+        </div>
+      </div>
+  
+      <!-- Display predefined options when options are visible -->
+      <div *ngIf="isOptionVisible" class="option-buttons">
+        <button *ngFor="let category of predefinedQA" (click)="handleCategoryClick(category)">
+          {{ category.category }}
+        </button>
+      </div>
+  
+      <!-- Display current questions and back button when in question-answer phase -->
+      <div *ngIf="!isOptionVisible && currentQuestions">
+        <!-- Wrapping button in ng-container to separate *ngFor and *ngIf -->
+        <ng-container *ngFor="let question of currentQuestions">
+          <button
+            (click)="handleQuestionClick(question.question, question.answer)"
+            *ngIf="!clickedQuestions.includes(question.question)"
+          >
+            {{ question.question }}
+          </button>
+        </ng-container>
+  
+        <!-- Back button to go back to the starting questions -->
+        <button class="back-button" (click)="resetToPredefinedQuestions()">
+          Back to Categories
+        </button>
+        <button class="back-button" (click)="navToChatBot()">
+            Connect with our Agent
+          </button>
+      </div>
+    </div>
+  </div>
+  

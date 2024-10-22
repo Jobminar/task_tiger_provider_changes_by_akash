@@ -180,7 +180,7 @@ export class AboutUserComponent implements OnInit {
       .subscribe({
        next:(response) => {
           console.log(response);
-          if (response.length>0) {
+          if (response.works.length>0) {
             this.workAdded=false;
           }
         },

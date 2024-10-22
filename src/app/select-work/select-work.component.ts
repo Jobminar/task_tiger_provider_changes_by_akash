@@ -16,11 +16,12 @@ export class SelectWorkComponent implements OnInit{
   searchQuery: string = '';
   previousUrl: string | undefined;
   workSeleceted:any[]=[];
- 
+  items = this.jobDetails.items;
 
   ngOnInit(): void {
     this.previousUrl = this.routeTrackingService.getPreviousUrl();
     this.getWork();
+    console.log(this.items);
   }
   constructor(
     private router: Router,
@@ -80,18 +81,18 @@ export class SelectWorkComponent implements OnInit{
 
 
 
-  items = this.jobDetails.items;
+ 
   autoCheckServices() {
     // Loop through the selected work and match it with available items
-    console.log(this.items);
+    // console.log(this.items);
     this.workSeleceted.forEach(work => {
       // Find a matching item based on categoryId
-      const matchedItem = this.items.find((item :any)=> item.names === work.nameOfService);
+      const matchedItem = this.items.find((item :any)=> item.names === work.categoryId.name);
       console.log(matchedItem);
       if (matchedItem ) {
         // Loop through the subcategories in the work data
-        console.log(matchedItem);
-        console.log(work);
+        // console.log(matchedItem);
+        // console.log(work);
         if (matchedItem ) {
           matchedItem .checked = true;  // Set the subcategory as checked
         }

@@ -46,6 +46,7 @@ import { VerifyAfterWorkComponent } from './verify-after-work/verify-after-work.
 import { SubServicesComponent } from './sub-services/sub-services.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationComponent } from './location/location.component';
+import { HelpModule } from './help/help.module';
 
 
 const routes: Routes = [
@@ -70,7 +71,8 @@ const routes: Routes = [
   {path:'visitingCard',component:VisitingCardComponent},
   {path:'referAndEarn',component:ReferAndEarnComponent},
   {path:'awards',component:AwardsComponent},
-  {path:'help',component:HelpsComponent},
+  // {path:'help',component:HelpsComponent},
+  {path:'help',loadChildren:() => import ('../app/help/help.module').then(m  => m.HelpModule)},
   {path:'target',component:TargetComponent},
   {path:'earnings',component:EarningsComponent},
   {path:'calender',component:CalenderComponent},

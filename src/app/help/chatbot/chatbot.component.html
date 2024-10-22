@@ -1,0 +1,62 @@
+ 
+ <div class="chat-container">
+    <div class="header">
+      <button class="back-btn" (click)="goBack()">
+        <span class="material-symbols-outlined notranslate">keyboard_backspace</span>
+      </button>
+      <div class="title-status">
+        <h3>Chat bot</h3>
+        <span class="status">
+          <!-- <span *ngIf="socketService.isConnected(); else offline" class="status-dot"></span> Online -->
+          <ng-template #offline><span class="offline"></span> Offline</ng-template>
+        </span>
+      </div>
+      <button class="bot-icon">
+        <img src="assets/help/chat-bot.png" />
+      </button>
+    </div>
+  
+    <div *ngIf="roomId">
+      <p>You have joined the room with ID: {{ roomId }}</p>
+      <p>Chatting with bot ID: {{ botId }}</p>
+    </div>
+  
+    <div class="chat-body">
+      <div
+        *ngFor="let message of messages"
+        [ngClass]="{
+          'user-message-container': message.senderType === 'user',
+          'admin-message-container': message.senderType !== 'user'
+        }"
+        class="message"
+      >
+        <div
+          [ngClass]="{
+            'user-message': message.senderType === 'user',
+            'admin-message': message.senderType !== 'user'
+          }"
+          class="message-box"
+        >
+          <!-- <img
+            *ngIf="message.senderType === 'admin'"
+            src="assets/bot-icon.png"
+            alt="Admin Icon"
+            class="avatar"
+          /> -->
+          {{ message.message }}
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer">
+      <input
+        [(ngModel)]="messageInput"
+        type="text"
+        placeholder="Type Message"
+        class="message-input"
+        (keydown.enter)="sendMessage()"
+      />
+      <button class="send-btn" (click)="sendMessage()">&#10148;</button>
+    </div>
+  </div>
+  

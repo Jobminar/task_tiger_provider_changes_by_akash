@@ -80,6 +80,7 @@ import { DailogeBoxService } from './dailoge-box.service';
 
 
 import { NgxLoadingModule } from "ngx-loading";
+import { ManageServicesComponent } from './manage-services/manage-services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +132,8 @@ import { NgxLoadingModule } from "ngx-loading";
     MapBoxComponent,
     NotFoundComponent,
     KeysPipe,
-    LocationComponent
+    LocationComponent,
+    ManageServicesComponent
   ],
   imports: [
     BrowserModule,

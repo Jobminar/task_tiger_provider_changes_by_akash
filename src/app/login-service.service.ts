@@ -153,7 +153,7 @@ export class LoginServiceService {
       {categoryId:this.workId,
         //  nameOfService: this.workName, 
          experience: this.experience,
-         subcategory:this.selectedSubCategories },
+         subcategoryId:this.selectedSubCategories },
     ];
     this.workDetails.push(work);
     console.log(this.workDetails.flat());
@@ -255,14 +255,16 @@ export class LoginServiceService {
   }
 
   updateUserWork(work: any, id: any) {
-   
+    console.log(work);
+    const userId=localStorage.getItem('providerId')
     console.log(id);
     const requestBody={
+      providerId:userId,
       works:work
     }
     console.log("work in service",requestBody);
-    const api = this.apiUrl+`providers/provider-work/${id}`;
-    this.http.put(api, requestBody).subscribe(
+    const api = this.apiUrl+`providers/provider-work`;
+    this.http.post(api, requestBody).subscribe(
       (response) => {
         console.log(response);
         this.dialogService.openDialog("Service has been updated");
