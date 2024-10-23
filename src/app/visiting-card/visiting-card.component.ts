@@ -16,7 +16,7 @@ export class VisitingCardComponent implements OnInit{
   userImage:string=''
   userName:string='';
   userId=localStorage.getItem("providerId")
-  workSeleceted:any[]=this.jobDetailsService.userDetails.work;
+  workSeleceted:any[]=this.jobDetailsService?.userDetails?.work;
   phoneNumber:any;
  
   certificateImages:{images:string}[]=[{images:'assets/demo/awards.png'},{images:'assets/demo/certificate2.png'}];
@@ -81,7 +81,7 @@ export class VisitingCardComponent implements OnInit{
   }
  
   navTo(){
-    this.router.navigate(['selectWork'])
+    this.router.navigate(['manageServices']);
   }
   navToBack(){
     this.location.back();

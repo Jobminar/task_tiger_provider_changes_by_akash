@@ -47,6 +47,7 @@ import { SubServicesComponent } from './sub-services/sub-services.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationComponent } from './location/location.component';
 import { HelpModule } from './help/help.module';
+import { ManageServicesComponent } from './manage-services/manage-services.component';
 
 
 const routes: Routes = [
@@ -89,14 +90,15 @@ const routes: Routes = [
   {path:'congrats',component:CongratsComponent},
   {path:'packages',component:PackagesComponent},
   {path:'training',component:TrainingComponent},
-  {path:'getOrder',component:GetOrderComponent},
+  {path:'getOrder/:id',component:GetOrderComponent},
   {path:'arrived',component:ArviedComponent},
   {path:'startWork',component:StartWorkComponent},
   {path:'work/otp',component:WorkOtpComponent},
   {path:'completeWork',component:WorkCompleteComponent},
   {path:'verifyAfterWork',component:VerifyAfterWorkComponent},
   {path:'subServices',component:SubServicesComponent},
-  {path:'notFound',component:NotFoundComponent}
+  {path:'notFound',component:NotFoundComponent},
+  {path:'manageServices',component:ManageServicesComponent}
 ]; 
 
 @NgModule({

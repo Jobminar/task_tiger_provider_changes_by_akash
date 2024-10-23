@@ -79,7 +79,18 @@ export class SelectWorkComponent implements OnInit{
     }
   }
 
-
+  selectedCat(item:any){
+    console.log("clciked");
+    const indexOfChecked = this.items.indexOf(item);
+    this.jobDetails.items[indexOfChecked].checked = true;
+    console.log('Item checked:', this.items.indexOf(item));
+    console.log('Item checked:', item.names);
+  
+    console.log("categoryId",item.id);
+    this.logInservice.categoryId=item.id
+    this.logInservice.setWork(item.names,item.id);
+    this.router.navigate(['subServices']);
+  }
 
  
   autoCheckServices() {

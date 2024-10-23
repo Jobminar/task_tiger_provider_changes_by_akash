@@ -123,6 +123,7 @@ import { LoginServiceService } from '../login-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserDetailsService } from '../user-details.service';
 import { GoogleMapService } from '../google-map.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-about-user',
@@ -139,6 +140,7 @@ export class AboutUserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private readonly location:Location,
     private loginService: LoginServiceService,
     private userDetailsService:UserDetailsService,
     private googleMapService:GoogleMapService
@@ -306,6 +308,9 @@ export class AboutUserComponent implements OnInit {
     // Send formData to the server
     this.loginService.UserDetails(formData)
   }
-  
+  navToBack(){
+    console.log("back");
+    this.location.back();
+  }
   
 }

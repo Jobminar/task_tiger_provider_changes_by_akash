@@ -18,9 +18,15 @@
                     <!-- <span class="material-symbols-outlined" >star</span> -->
                     &#9733; 4.89
                 </div>
-                <span *ngFor="let item of workSeleceted" >
-                    {{item.categoryId.name}} 
-                </span>
+                @if(workSeleceted){
+                    <span *ngFor="let item of workSeleceted ; let i= index" >
+                        @if (i <2) {
+                            {{item.categoryId.name}} 
+                        }
+                        
+                    </span>
+                }
+               
             </div>
         </div>
         

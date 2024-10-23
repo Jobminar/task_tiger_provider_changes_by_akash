@@ -120,9 +120,11 @@ export class HomeComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
         entered = response;
-        if (entered) {
+        if (entered && !this.jobDetailsService.getcheckingDetails()) {
+          console.log("inside",this.jobDetailsService.getcheckingDetails());
           this.dialogService.openDialog('Please add the details');
           // alert("Please add the details")
+          this.jobDetailsService.setCheckingDetails(true);
           this.router.navigate(['aboutUser']);
         }
       });

@@ -1,9 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobDetailsService } from '../job-details.service';
 import { OrdersService } from '../orders.service';
 import { GetOrdersService } from '../get-orders.service';
 import { MapBoxService } from '../map-box.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AfterorderService } from '../afterorder.service';
+import { GoogleMapService } from '../google-map.service';
+import { catchError, of, retry, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-get-order',
@@ -17,27 +21,40 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   
   providerCurrentLocation:any;
   workSeleceted:any
-  extractedDetails:any[]=[]
-  parsedOrder: any;
-  constructor(private router:Router,
-              private jobDetailsService:JobDetailsService,
-              private orderService:OrdersService,
-              private mapboxService:MapBoxService,
-              private getOrderService:GetOrdersService){
+  providerCurrentLocationPlace:string='';
 
-    // console.log(this.jobDetailsService.workDetails);
-    
+  
+  current: number = 0;
+  max: number = 120;
+  radius: number = 100;
+  color: string = 'rgba(255, 0, 0, 1)';
+  background: string = 'rgba(253, 5, 0, 0.4)';
+  cancelRate:number=0;
+  workingHours:number=0;
+  credits:number=0;
+// working on order
+  userAddress:string='';
+  userCoordinates:[number,number]=[0,0];
+  orderIds:any[]=[]
+  acceptStatus:any; 
+  extractedDetails:any[]=[];
+  constructor(private readonly router:Router,
+              private readonly jobDetailsService:JobDetailsService,
+              private readonly orderService:OrdersService,
+              private readonly mapboxService:MapBoxService,
+              private readonly routerParam:ActivatedRoute,
+              private readonly afterOrderService:AfterorderService,
+              private readonly googleMapService:GoogleMapService,
+              private readonly getOrderService:GetOrdersService){
      this.workSeleceted=this.jobDetailsService.workDetails
-      // this.getOrder()
-    // this.router.navigate(['getOrder'])
   }
+
   ngOnInit() {
+    this.getProvderLocation();
     this.startTimer();
-    this.providerCurrentLocation=this.mapboxService.placeName
-    this.order=this.getOrderService.order
-    
-    this.details()
+    this.getOrderDetails('6718d70f3174fa8f55b4295b');
   }
+
 
   startTimer() {
     this.interval = setInterval(() => {
@@ -57,21 +74,9 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   get minutes(): number {
     return Math.floor(this.timeLeft / 60);
   }
-
   get seconds(): number {
     return this.timeLeft % 60;
   }
-
-  current: number = 0;
-  max: number = 120;
-  radius: number = 100;
-  color: string = 'rgba(255, 0, 0, 1)';
-  background: string = 'rgba(253, 5, 0, 0.4)';
-  cancelRate:number=0;
-  workingHours:number=0;
-  credits:number=0;
-
-
     serviceName:any=[{
       name:'cleaning'
     },
@@ -81,43 +86,6 @@ export class GetOrderComponent implements OnInit,OnDestroy{
       name:'tankcleaning'
     }
   ]
-
-
-// working on order
-userAddress:any;
-userCoordinates:[number,number]=[0,0]
-
-details(): void {
-  this.order=JSON.parse(this.order.order);
-  this.orderService.oredrDetails=this.order
-  this.parsedOrder = this.order
-  this.getCartId(this.order)
-  // Extract required fields and push into the new array
-  this.extractedDetails.push({
-    fullAddress: `${this.parsedOrder.addressId.city}, ${this.parsedOrder.addressId.state}, ${this.parsedOrder.addressId.pincode}`,
-    latitude: this.parsedOrder.addressId.latitude,
-    longitude: this.parsedOrder.addressId.longitude,
-    categoryName: this.parsedOrder.items[0].categoryId.name,
-    subCategoryName: this.parsedOrder.items[0].subCategoryId.name,
-    quantity: this.parsedOrder.items[0].quantity,
-    scheduledDate: this.parsedOrder.items[0].scheduledDate,
-    price: this.parsedOrder.items[0].serviceId.serviceVariants[0].price
-  });
-
-  console.log(this.extractedDetails);
-  this.userCoordinates=[this.extractedDetails[0].longitude,this.extractedDetails[0].latitude]
-  this.orderService.userFullAddress=this.extractedDetails[0].fullAddress;
-  this.mapboxService.userCordinates=this.userCoordinates;
-
-}
-
-  orderIds:any[]=[]
- 
-
- 
-  acceptStatus:any;
-
-  
   getCartId(data: any) {
     
     let orderId=this.order._id;
@@ -157,12 +125,41 @@ details(): void {
     // Start the display chain
     displayCategory(0);
   }
+
+    /**
+   * getting order id from url which is passing from notifications
+   * 
+   */
+    getOrderId(){
+      this.routerParam.paramMap.subscribe(
+        {
+          next:(res)=>{
+            console.log(res);
+            const orderId=res.get('id');
+            this.getOrderDetails(orderId);
+          },error:(err:HttpErrorResponse)=>{
+            console.log(err);
+          }
+        }
+      )
+    }
   
-
-
+    getOrderDetails(orderid:string | null){
+      if(orderid){
+        this.afterOrderService.getOrderDetails(orderid).subscribe({
+          next:(res)=>{
+            console.log(res);
+            this.order=res;
+            this.getUserLocation();
+          },
+          error:(err:HttpErrorResponse)=>{
+            console.log(err);
+          }
+        })
+      }
+    }
   accepted() {
     this.acceptStatus = true;
-   
   }
   
   declined() {
@@ -186,4 +183,57 @@ details(): void {
       }
     )
   }
+  // getting provider current location
+  getProvderLocation(){
+    this.googleMapService.getCoordinates().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.providerCurrentLocation=res;
+        const role='provider';
+        this.getPlaceNameFromCorr(this.providerCurrentLocation,role)
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  // getting user current location name
+  getUserLocation(){
+    console.log("cing user");
+    const role ='user';
+    const address= this.order.addressId
+    console.log(this.order);
+    const coordinated={
+      lat:address.latitude,
+      lng:address.longitude
+    }
+    this.getPlaceNameFromCorr(coordinated,role);
+  }
+ 
+getPlaceNameFromCorr(coordinates: {lat: number, lng: number}, role: string) {
+  this.googleMapService.getPlaceNameFromCoordinates(coordinates.lat, coordinates.lng)
+    .pipe(
+      timeout(10000),  // Set a timeout for slow networks
+      retry(2),        // Retry the API call in case of failure
+      catchError((err) => {
+        console.error('Failed to get place name:', err);
+        return of({ results: [{ formatted_address: 'Unknown Location' }] }); // Fallback for both provider and user
+      })
+    )
+    .subscribe({
+      next: (res) => {
+        const formattedAddress = res.results[0].formatted_address || 'Unknown Location';
+        if (role === 'provider') {
+          this.providerCurrentLocationPlace = formattedAddress;
+          console.log('Provider location:', formattedAddress);
+        } else if (role === 'user') {
+          this.userAddress = formattedAddress;
+          console.log('User location:', formattedAddress);
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching place name:', err);
+      }
+    });
+}
 }

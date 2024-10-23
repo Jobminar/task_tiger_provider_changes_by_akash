@@ -1,1 +1,40 @@
-<p>manage-services works!</p>
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" style="font-size: 28px;" (click)="navToBack()">arrow_back</span>
+        <span class="tittle">Manage Services</span>
+    </div>
+    <div class="sub-container">
+      <div class="new-address"(click)="navToSelectWork()" >
+        <div>
+            <span class="material-symbols-outlined notranslate">
+                add
+            </span>
+            <span>Add new Services</span>
+        </div>
+       
+    </div>
+        <div *ngFor="let work of works" class="work-div">
+            <h3>{{ work.categoryId.name }}</h3>
+          
+            <!-- Display subcategories if available -->
+            <div *ngIf="work.subcategoryId.length > 0">
+              <ul>
+                <li *ngFor="let subcategory of work.subcategoryId; let i = index">
+                  {{ subcategory.name }}
+                  <!-- Google delete icon to remove the subcategory -->
+                  <span class="material-icons" (click)="removeSubcategory(work._id, subcategory._id)">
+                    delete
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <p *ngIf="work.subcategoryId.length === 0">No subcategories available</p>
+          
+            <!-- Experience information -->
+            <p>Experience: {{ work.experience }}</p>
+          </div>
+          
+
+          
+    </div>
+</div>

@@ -89,14 +89,14 @@
       <div class="address">
         <p>
           <span class="location-txt">My location</span>
-          <span class="location">{{ providerCurrentLocation }}</span>
+          <span class="location">{{ providerCurrentLocationPlace }}</span>
         </p>
         <br>
-        <p>10 Km</p>
+        <!-- <p>10 Km</p> -->
         <br>
         <p>
           <span class="location-txt">User location</span>
-          <span class="location">{{ extractedDetails[0]?.fullAddress }}</span>
+          <span class="location">{{ userAddress }}</span>
         </p>
       </div>
     </div>
@@ -108,7 +108,11 @@
         <span class="value-Text">{{ extractedDetails[0]?.categoryName }}</span>
       </span>
       <span>
-        <span class="main-Text">Service Type :</span>
+        <span class="main-Text">SubService Type :</span>
+        <span class="value-Text">{{ extractedDetails[0]?.subCategoryName }}</span>
+      </span>
+      <span>
+        <span class="main-Text">Service Name :</span>
         <span class="value-Text">{{ extractedDetails[0]?.subCategoryName }}</span>
       </span>
       <span>

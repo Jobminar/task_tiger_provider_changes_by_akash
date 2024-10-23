@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { OrdersService } from '../orders.service';
 import { RazorpayService } from '../razorpay.service';
 import { UserDetailsService } from '../user-details.service';
+import { DailogeBoxService } from '../dailoge-box.service';
 
 @Component({
   selector: 'app-menu',
@@ -25,7 +26,8 @@ export class MenuComponent implements OnInit{
               private jobDetailsService:JobDetailsService,
               private ordersService:OrdersService,
               private razorpayService:RazorpayService,
-              private userDetals:UserDetailsService
+              private userDetals:UserDetailsService,
+              private readonly dialougeService:DailogeBoxService
   )
   {
     
@@ -121,7 +123,19 @@ export class MenuComponent implements OnInit{
     this.location.back()
   }
   navToVisiting(){
-    this.router.navigate(['visitingCard'])
+    const providerId=localStorage.getItem('providerId');
+    this.userDetals.getUserDetails(providerId).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.router.navigate(['visitingCard']);
+      },
+      error: (err: any) => {
+        console.log(err);
+        this.dialougeService.openDialog("Provider details are missing");
+        this.router.navigate(['aboutUser']);
+      }
+    });
+   
   }
   logOut(){
     this.jobDetailsService.setDefault();

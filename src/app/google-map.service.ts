@@ -29,6 +29,7 @@ export class GoogleMapService {
       text: storedOnlineText || 'Go'  
     };
   }
+
   getCoordinates(): Observable<google.maps.LatLngLiteral | null>{
 
     navigator.geolocation.getCurrentPosition(
@@ -61,6 +62,11 @@ export class GoogleMapService {
   }
   getCoordinatesFromPlaceName(placeName: string): Observable<any> {
     const geocodingApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(placeName)}&key=AIzaSyCJQHv3pYfnPd6F3ju1DXZ7jm46PJbncuk`;
+    return this.http.get(geocodingApiUrl);
+  }
+  // get place from coordinates
+  getPlaceNameFromCoordinates(lat: number, lng: number): Observable<any> {
+    const geocodingApiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCJQHv3pYfnPd6F3ju1DXZ7jm46PJbncuk`;
     return this.http.get(geocodingApiUrl);
   }
 }

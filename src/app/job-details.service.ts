@@ -12,6 +12,7 @@ export class JobDetailsService {
   apiUrl=azureApi;
   userId=localStorage.getItem('provider')
  isVerify:boolean=false;
+  checkingDetails:boolean=false;
   constructor(private http:HttpClient,
     private router:Router,
     private dialogService:DailogeBoxService) {
@@ -45,6 +46,13 @@ export class JobDetailsService {
 //     isWorking:'working'
 //   }
 // ]
+
+   setCheckingDetails(status:boolean){
+    this.checkingDetails=status;
+   }
+   getcheckingDetails():boolean{
+    return this.checkingDetails;
+   }
   selectedJobDetails(job:any){
     console.log(job);
     this.selectedJob=job
@@ -101,8 +109,13 @@ export class JobDetailsService {
             observer.next(true);  // User not found, set isUserEntered to true
           } else {
             observer.error(error);  // Handle other errors
-            this.dialogService.openDialog('Please add the details');
-            this.router.navigate(['aboutUser']);
+           
+            if (!this.checkingDetails) {
+              this.dialogService.openDialog('Please add the details');
+              this.checkingDetails=true;
+              this.router.navigate(['aboutUser']);
+            }
+           
           }
           observer.complete();
         }

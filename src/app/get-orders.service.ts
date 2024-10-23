@@ -42,6 +42,7 @@ export class GetOrdersService {
 
           PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
             console.log('Push action performed: ', notification);
+            this.handleNotificationClick(notification);
           });
         }
       });
@@ -109,14 +110,32 @@ export class GetOrdersService {
     alert('inapp notification')
     const title = notification.notification?.title || notification.title;
     const body = notification.notification?.body || notification.body;
-
+    const data = notification.notification.data;
     if (title && body) {
       // Display toast or other UI for in-app notification
       // this.toasterService.showSuccess(body, title);
+      if (title==='New Order' && data) {
+        this.router.navigate(['getOrder', data.orderId]);
+      }
       alert(body)
     }
   }
   
-
+ // Handle notification click (when user taps notification from the notification tray)
+ handleNotificationClick(notification: PushNotificationActionPerformed) {
+  const data = notification.notification.data;
+  const title = notification.notification?.title 
+  const body = notification.notification?.body 
+  if (data && data.orderId && title) {
+    // Navigate to a specific page based on the notification data
+    if (title==='New Order') {
+      this.router.navigate(['getOrder', data.orderId]);
+    }
+  
+  } else {
+    // Default action if no specific data is present
+    this.router.navigate(['getOrder']);
+  }
+}
 
 }
