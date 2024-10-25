@@ -5,6 +5,8 @@ trigger:
 
 pool:
   name: 'tt-devops-build'
+  demands:
+    - Agent.Version -gtVersion 2.199.0  # Remove the 'java' demand if it causes issues
 
 stages:
   - stage: Build
