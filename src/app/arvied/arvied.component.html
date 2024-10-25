@@ -7,10 +7,7 @@
         <span>On  the way </span>
         <button (click)="cancel()">Cancel</button>
     </div>
-    <div  id="map">
-        <!-- <img src="assets/demo/map111.png"> -->
-    </div>
-    <br>
+    <div id="map" #map style="height: 500px; width: 100%;"></div>
     
     <div class="location">
         <span class="material-symbols-outlined">
@@ -20,9 +17,12 @@
            {{userFullAddress}}
         </span>
     </div>
-    <div class="slide-toggle">
-        <input type="checkbox" id="toggle"   (change)="toggleDisplay($event)">
-        <label for="toggle" class="already-label" style="content:'Iam Existing provider ';" ></label>
-       
+    <!-- <div class="slide-toggle" *ngIf="toggleChecked">
+        <input type="checkbox" id="toggle" (click)="handleDisabledClick()" [disabled]="!toggleChecked"   (change)="toggleDisplay($event)">
+        <label for="toggle" class="already-label"></label>
+    </div> -->
+    <div class="slide-toggle" >
+        <input type="checkbox" id="toggle" (click)="handleDisabledClick()"  (change)="toggleDisplay($event)">
+        <label for="toggle" class="already-label"></label>
     </div>
 </section>

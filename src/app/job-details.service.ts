@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DailogeBoxService } from './dailoge-box.service';
 import { azureApi } from '../constents/apis';
 @Injectable({
@@ -9,6 +9,7 @@ import { azureApi } from '../constents/apis';
 })
 export class JobDetailsService {
 
+  providerRating:number=0;
   apiUrl=azureApi;
   userId=localStorage.getItem('provider')
  isVerify:boolean=false;
@@ -123,6 +124,26 @@ export class JobDetailsService {
     });
   }
   
+  // getting Rating 
+  getRating():Observable<any>{
+    const providerId=localStorage.getItem('providerId');
+    if (this.providerRating>0) {
+      return of(this.providerRating)
+    } else {
+      const api=`${this.apiUrl}users/user-feedback/provider/${providerId}`;
+     return new Observable((ob)=>{
+
+      this.http.get<any>(api).subscribe({
+          next:(res)=>{
+            console.log(res);
+            ob.next(this.providerRating);
+          },error:(err:HttpErrorResponse)=>{
+            console.log(err);
+          }
+        })
+    }) 
+    }
+  }
   
 
   workDetails:any=[];

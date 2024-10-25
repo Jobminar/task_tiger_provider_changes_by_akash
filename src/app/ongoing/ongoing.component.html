@@ -18,31 +18,31 @@
             <br>
             <div *ngFor="let item of filteredOrder; let i = index" class="content">
                 <span class="icons-div">
-                    <span class="highlight-text">{{item.orderId.address.username }}</span>
-                    <span class="icons-div" *ngIf="item.status==='Accepted' || item.status==='InProgress'">
+                    <span class="highlight-text">{{item.orderId?.addressId?.username }}</span>
+                    <span class="iconsss" *ngIf="item.status==='Accepted' || item.status==='InProgress'">
                         <a href="'tel:'+ item.orderId.address.mobileNumber">
                             <span class="material-symbols-outlined">
                                 call
                             </span>
                         </a>
-                        <span class="material-symbols-outlined">
+                        <span class="material-symbols-outlined" (click)="navToChat(item.userId)">
                             chat
                         </span>
-                        <span class="material-symbols-outlined" (click)="navToArrived()">
+                        <span class="material-symbols-outlined" (click)="navToArrived(item)">
                             directions
                         </span>
                     </span>
                     
                 </span>
-                <span class="highlight-text">{{ item.orderId.categoryIds[0] }}</span>
-                <span class="normal-text">{{ item.orderId.subCategoryIds[0] }}</span>
+                <span class="highlight-text">{{ item.orderId?.categoryIds[0]?.name }}</span>
+                <span class="normal-text">{{ item.orderId?.subCategoryIds[0]?.name }}</span>
                 
                 <!-- <span class="highlight-text">{{ item.orderId.categoryIds[0] }}</span> -->
                 <span class="service-div">
-                    <span class="normal-text">{{ item.orderId.items[0].scheduledDate }}</span>
-                    <span class="highlight-text">{{item.orderId.items[0].serviceVariants[0].price}}</span>
+                    <span class="normal-text">{{ item.orderId?.items[0]?.scheduledDate }}</span>
+                    <span class="highlight-text">  &#8377; {{ item.orderId.totalAmount}}</span>
                 </span>
-                <span class="normal-text">{{ item.orderId.address.city }} {{ item.orderId.address.state }} {{ item.orderId.address.pincode }}</span>
+                <span class="normal-text">{{item.orderId.addressId?.address}} {{ item.orderId.addressId.city }} {{ item.orderId.addressId.state }} {{ item.orderId.addressId.pincode }}</span>
             </div>
 
             

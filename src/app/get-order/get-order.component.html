@@ -105,23 +105,23 @@
     <div class="service-details">
       <span>
         <span class="main-Text">Category Type :</span>
-        <span class="value-Text">{{ extractedDetails[0]?.categoryName }}</span>
+        <span class="value-Text">{{order?.categoryIds[0]?.name}}</span>
       </span>
       <span>
         <span class="main-Text">SubService Type :</span>
-        <span class="value-Text">{{ extractedDetails[0]?.subCategoryName }}</span>
+        <span class="value-Text">{{ order?.subCategoryIds[0]?.name}}</span>
       </span>
       <span>
         <span class="main-Text">Service Name :</span>
-        <span class="value-Text">{{ extractedDetails[0]?.subCategoryName }}</span>
+        <span class="value-Text">{{ order?.subCategoryIds[0]?.name }}</span>
       </span>
       <span>
         <span class="main-Text">Price :</span>
-        <span class="value-Text">{{ extractedDetails[0]?.price }} X {{ extractedDetails[0]?.quantity }}</span>
+        <span class="value-Text">{{order?.totalAmount}}</span>
       </span>
       <span>
         <span class="main-Text">Schedule :</span>
-        <span class="value-Text">{{ extractedDetails[0]?.scheduledDate }}</span>
+        <span class="value-Text">{{ order?.items[0]?.scheduledDate }}</span>
       </span>
     </div>
   

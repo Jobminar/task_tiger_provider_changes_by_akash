@@ -37,7 +37,7 @@ export class CreditComponent {
     this.razorpayServie.getCredits().subscribe({
       next:(response)=>{
         console.log(response);
-        this.credits=response.creditBalance;
+        this.credits=response.credits;
         this.history=response.transactions;
         this.filteredCreditHistory=this.history;
       },

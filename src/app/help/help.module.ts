@@ -11,7 +11,7 @@ const routes:Routes=[
   {path:'',component:FaqschatsComponent},
   {path:'faqs',component:FaqschatsComponent},
   {path:'chatlanding/:role',component:ChatbotlandingComponent},
-  {path:'chatbot/:role',component:ChatbotComponent}
+  {path:'chatbot',component:ChatbotComponent}
 ]
 
 @NgModule({

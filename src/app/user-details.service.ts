@@ -45,6 +45,7 @@ export class UserDetailsService {
 
   getWork(id:any){
     const aaa=this.api + `providers/provider-work/${id}`
+ 
     console.log(aaa);
     return this.http.get<any>(aaa)
   }
@@ -65,7 +66,7 @@ export class UserDetailsService {
   }
 
   getPackages():Observable<any>{
-    const api= this.api+'admin/provider-package';
+    const api= `${this.api}admin/admin-provider-package`;
     return this.http.get<any>(api);
   }
 

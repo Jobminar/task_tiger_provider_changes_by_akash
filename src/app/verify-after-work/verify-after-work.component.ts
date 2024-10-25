@@ -1,8 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OrdersService } from '../orders.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AfterorderService } from '../afterorder.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-verify-after-work',
@@ -15,15 +17,19 @@ export class VerifyAfterWorkComponent {
   @ViewChild('input3') input3!: ElementRef 
   @ViewChild('input4') input4!: ElementRef 
   otp: FormGroup;
-
+  orderHistoryId:string | null='';
+  order:any;
   navTOBack(){
     this.location.back()
   }
   constructor(private form: FormBuilder,
             private orderService:OrdersService,
-              private router:Router,private location:Location)
+              private router:Router,
+              private readonly afterOrderService:AfterorderService,
+              private readonly routerParam:ActivatedRoute,
+              private location:Location)
   { 
-               
+       this.getOrderId();        
     this.otp = this.form.group({
       inputOne: '',
       inputTwo: '',
@@ -54,15 +60,45 @@ export class VerifyAfterWorkComponent {
     }
   }
 
+  getOrderId() {
+    this.routerParam.paramMap.subscribe({
+      next: (res) => {
+        const id = res.get('id');
+        if (id) {
+          this.orderHistoryId = id;
+         this.getOrderDetails(id);
+        }
+      },
+    });
+  }
+
+  getOrderDetails(orderId: string | null) {
+    if (orderId) {
+      this.orderHistoryId = orderId;
+      this.afterOrderService.getOrderDetails(orderId).subscribe({
+        next: (res) => {
+          this.order = res;
+          // this.orderId = res.orderId?._id;
+        },
+        error: (err: HttpErrorResponse) => {
+          console.error(err);
+        }
+      });
+    }
+  }
   login() {
     const otpValue = this.otp.value;
     const otp=otpValue.inputOne+otpValue.inputTwo+otpValue.inputThree+otpValue.inputFour 
     // console.log("OTP:", this.otp.value);
     console.log(otp);
-    this.orderService.verifyAfterComplete(otp).subscribe(
+    this.orderService.verifyAfterComplete(otp,this.orderHistoryId).subscribe(
       (response)=>{
         console.log(response);
-        this.router.navigate(['home']);
+        const role={
+          userId:this.order.userId,
+          orderHistoryId:this.orderHistoryId
+        }
+        this.router.navigate(['feedback'],{queryParams:role});
       },(err)=>{
         console.log(err);
       }

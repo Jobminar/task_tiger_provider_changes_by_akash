@@ -8,20 +8,20 @@
             
             <div class="section" (click)="selectedJob(item)">    
                     <div>
-                       <p> <span class="main-text">{{item.name}}</span></p>
+                       <p> <span class="main-text">{{item.orderId?.items[0]?.serviceId.name}}</span></p>
                        <p> 
                             <span class="material-symbols-outlined" style="font-size: 1rem;" (click)="navToBack()"   >account_balance_wallet</span>&nbsp;
-                            <span class="text">Job value:{{item.value}}</span>
+                            <span class="text">Job value:{{item.orderId?.totalAmount}}</span>
                         </p>
                         <p>
                             <span class="material-symbols-outlined" style="font-size: 1rem;"  (click)="navToBack()"  >description</span>&nbsp;
-                            <span class="text">Online Payments:{{item.paymentDone}}</span>
+                            <span class="text">Online Payments:{{item.orderId?.totalAmount}}</span>
                         </p>
                     </div>
                     <div>
-                        <p class="main-text">9:30</p>
+                        <p class="main-text">{{item.orderId?.items[0]?.selectedTime}}</p>
                         
-                        <p class="text">89-0</p>
+                        <p class="text">{{item.orderId?.items[0]?.selectedDate}} - {{item.orderId?.items[0]?.selectedMonth}}</p>
                     </div>
                 </div> 
                 <br>

@@ -500,7 +500,7 @@ export class EarningsComponent implements OnInit {
               private router:Router,
               private razorpayService:RazorpayService
   ) {
-    this.credits=this.razorpayService.userCredit;
+    
     for (let year = 2022; year <= 2030; year++) {
       this.years.push(year);
     }
@@ -509,8 +509,20 @@ export class EarningsComponent implements OnInit {
   ngOnInit(): void {
     this.initializeChart();
     this.loadDefaultEarnings();
+    this.getCredits();
   }
-
+  getCredits(){
+    this.razorpayService.getCredits().subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.credits=response.credits;
+    
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
   initializeChart() {
     const ctx = document.getElementById('MyChart') as ChartItem;
     this.chart = new Chart(ctx, {

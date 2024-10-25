@@ -25,7 +25,21 @@ export class TargetComponent {
   {
     this.colorChange();
     this. getTarget();
-    this.credits=this.razorpayService.userCredit
+    this.getCredits();
+  }
+
+
+  getCredits(){
+    this.razorpayService.getCredits().subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.credits=response.credits;
+    
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 
   colorChange()

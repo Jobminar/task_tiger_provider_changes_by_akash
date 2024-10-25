@@ -22,11 +22,14 @@ export class OrdersService {
     return this.http.get<any>(api); 
   }
 
-  accept(id:any){
+  accept(id:any,price:number,userId:string){
     const requestBody={
       orderId :id,
+      price:price,
+      userId:userId,
       providerId:localStorage.getItem('providerId')
     }
+    console.log(requestBody);
    const api= this.apiUrl+'users/order-history/accept-order';
    return this.http.post(api,requestBody)
   }
@@ -39,14 +42,9 @@ export class OrdersService {
    return this.http.post(api,request)
   }
 
-  verifyStartOrder(otp:any){
-    const api= this.apiUrl+'users/order-history/verify-start-order'
-    const requestBody={
-      orderHistoryId:this.orderIds,
-      otp:otp
-    }
-
-    return this.http.post<any>(api,requestBody)
+  verifyStartOrder(requestBody:{orderHistoryId:any,uniqueNumber:string}){
+    const api= `${this.apiUrl}users/order-history/verify-start-order`;
+    return this.http.post<any>(api,requestBody);
   }
 
   cancelOrder(){
@@ -60,30 +58,37 @@ export class OrdersService {
     return this.http.post(api,requestBody);
   }
 
-  completeOrder(){
+  sendingImageBeforeWork(formData:FormData):Observable<any>{
+    const api=`${this.apiUrl}users/order-history/before-work-upload-image`;
+    return this.http.post<any>(api,formData)
+  }
+  completeOrder(orderHistoryId:string|null,userId:string){
     const api= this.apiUrl+'users/order-history/order-completed-generateotp';
     const request={
-      orderHistoryId:this.orderIds,
-      providerId:localStorage.getItem('providerId')
+      orderHistoryId:orderHistoryId,
+      providerId:localStorage.getItem('providerId'),
+      userId:userId
     }
     console.log(request);
     return this.http.post(api,request)
   }
 
-  verifyAfterComplete(otp:any){
+  verifyAfterComplete(otp:any,orderHistoryId:string|null){
     const api= this.apiUrl+'users/order-history/order-completed-verify'
     const requestBody={
-      orderId:this.orderIds,
-      providerId:localStorage.getItem('providerId'),
+      orderHistoryId:orderHistoryId,
+      
+      // providerId:localStorage.getItem('providerId'),
       otp:otp
     }
-
+    console.log(requestBody);
     return this.http.post<any>(api,requestBody)
   }
 
   orderHistory():Observable<any>{
     const providerId=localStorage.getItem('providerId');
-    const api= this.apiUrl+`users/order-history/${providerId}`;
+    // const api= this.apiUrl+`users/order-history/provider/${providerId}` ;
+    const api= this.apiUrl+`users/order-history`;
     return this.http.get<any>(api);
 
   }

@@ -8,6 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AfterorderService } from '../afterorder.service';
 import { GoogleMapService } from '../google-map.service';
 import { catchError, of, retry, timeout } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-get-order',
@@ -37,12 +38,14 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   userCoordinates:[number,number]=[0,0];
   orderIds:any[]=[]
   acceptStatus:any; 
+  orderId:string='';
   extractedDetails:any[]=[];
   constructor(private readonly router:Router,
               private readonly jobDetailsService:JobDetailsService,
               private readonly orderService:OrdersService,
               private readonly mapboxService:MapBoxService,
               private readonly routerParam:ActivatedRoute,
+              private readonly location:Location,
               private readonly afterOrderService:AfterorderService,
               private readonly googleMapService:GoogleMapService,
               private readonly getOrderService:GetOrdersService){
@@ -52,7 +55,8 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   ngOnInit() {
     this.getProvderLocation();
     this.startTimer();
-    this.getOrderDetails('6718d70f3174fa8f55b4295b');
+    this.getOrderId()
+    // this.getOrderDetails();
   }
 
 
@@ -63,6 +67,7 @@ export class GetOrderComponent implements OnInit,OnDestroy{
         this.current=this.timeLeft
       } else {
         clearInterval(this.interval);
+        this.router.navigate(['home']);
       }
     }, 1000);
   }
@@ -86,10 +91,11 @@ export class GetOrderComponent implements OnInit,OnDestroy{
       name:'tankcleaning'
     }
   ]
+
+
   getCartId(data: any) {
     
     let orderId=this.order._id;
-    
     const displayCategory = (index: number) => {
      
         let checkInterval = setInterval(() => {
@@ -98,7 +104,7 @@ export class GetOrderComponent implements OnInit,OnDestroy{
             if (this.acceptStatus) {
               this.acceptStatus=false
               // User accepted, exit the loop
-              this.acceptedOrder(orderId)
+              this.acceptedOrder();
               console.log("User accepted, exiting the loop");
                // Reset acceptStatus
               return;
@@ -146,7 +152,9 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   
     getOrderDetails(orderid:string | null){
       if(orderid){
-        this.afterOrderService.getOrderDetails(orderid).subscribe({
+        this.orderId=orderid;
+        console.log(orderid);
+        this.afterOrderService.getOrderFromOrderId(orderid).subscribe({
           next:(res)=>{
             console.log(res);
             this.order=res;
@@ -160,6 +168,7 @@ export class GetOrderComponent implements OnInit,OnDestroy{
     }
   accepted() {
     this.acceptStatus = true;
+    this.acceptedOrder();
   }
   
   declined() {
@@ -170,14 +179,14 @@ export class GetOrderComponent implements OnInit,OnDestroy{
     this.router.navigate(['home']);
   }
 
-  acceptedOrder(element:any){
-    console.log(element);
-    this.orderService.accept(element).subscribe(
+  acceptedOrder(){
+    console.log("order accepted");
+    this.orderService.accept(this.orderId,this.order.totalAmount,this.order.userId._id).subscribe(
       (response: any)=>{
         console.log(response);
         this.orderService.orderIds=response.orderHistoryId
         
-        this.router.navigate(['arrived']);
+        this.router.navigate(['arrived',response.orderHistory._id]);
       },(err)=>{
         console.log(err);
       }

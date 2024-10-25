@@ -5,7 +5,7 @@
     </div>
     <div class="sub-container">
         <div class="name">
-            <span class="tittle">{{orderDetails.orderId.address.username}}</span>
+            <span class="tittle">{{orderDetails.orderId.addressId.username}}</span>
             <span>{{orderDetails.orderId.items[0].scheduledDate}}</span>
         </div>
         <div class="customer-details">
@@ -14,7 +14,7 @@
                 <p class="para-section">
                     <span class="highlight-text">Location</span>
                     <span>
-                        {{orderDetails.orderId.address.city}}, {{orderDetails.orderId.address.state}}, {{orderDetails.orderId.address.pincode}}
+                        {{orderDetails.orderId.addressId.address}},{{orderDetails.orderId.addressId.landmark}},  {{orderDetails.orderId.addressId.city}}, {{orderDetails.orderId.addressId.state}}, {{orderDetails.orderId.addressId.pincode}}
                     </span>
                 </p>
                 <div class="line"></div><br>
@@ -37,8 +37,8 @@
             <div class="Details">
                
                    <div class="time-div">
-                        <span class="highlight-text">{{orderDetails.orderId.items[0].quantity}} &nbsp; X &nbsp; {{orderDetails.orderId.categoryIds}}</span>
-                        <span class="sub-tittle">&#8377; &nbsp;{{orderDetails.orderId.items[0].serviceVariants[0].price}}</span>
+                        <span class="highlight-text">{{orderDetails.orderId.items[0].quantity}} &nbsp; X &nbsp; {{orderDetails.orderId.categoryIds[0].name}}</span>
+                        <span class="sub-tittle">&#8377; &nbsp;{{orderDetails.orderId.totalAmount}}</span>
                     </div>
                     <div class="line"></div>
                     <br>
@@ -57,7 +57,7 @@
                         <span class="highlight-text">Total value</span><br>
                         <span>commission 5 credits</span>
                     </p>
-                    <p class="sub-tittle">{{orderDetails.orderId.items[0].serviceVariants[0].price}}</p>
+                    <p class="sub-tittle">{{orderDetails.orderId.totalAmount}}</p>
                 </div>
             </div>
         </div>

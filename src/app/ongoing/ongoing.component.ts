@@ -12,81 +12,120 @@ import { OrdersService } from '../orders.service';
 })
 export class OngoingComponent {
   @ViewChild('footer') footer!: FotterComponent;
+  
   buttons = ['Ongoing', 'Pending', 'Completed', 'Cancelled'];
   activeButton = 'Ongoing';
-  credits:any;
-  text:String=this.activeButton;
-  filterStatus:string="Accepted";
-  order:any;
-  navBack(){
-    this.location.back();
-  }
- 
-  constructor(private location:Location,
-              private router:Router,
-              private razorpayService:RazorpayService,
-            private orderService:OrdersService)
-  {
-    this.credits=this.razorpayService.userCredit;
+  credits: any;
+  text: String = this.activeButton;
+  filterStatus: string = "InProgress"; // Default filter status to "InProgress" for ongoing orders
+  order: any[] = []; // Assuming the order is an array of objects
+  filteredOrder: any[] = []; // Filtered orders array
+
+  constructor(
+    private location: Location,
+    private router: Router,
+    private razorpayService: RazorpayService,
+    private orderService: OrdersService
+  ) {
+   this.getCredits();
     this.getOrderDetails();
   }
 
-  
-  getOrderDetails(){
-    this.orderService.orderHistory().subscribe(
-      {
-        next:(response)=>{
-          console.log(response);
-          this.order=response;
-          this.filterOrder();
-        },
-        error:(err)=>{
-          console.log(err);
-        }
+  getCredits(){
+    this.razorpayService.getCredits().subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.credits=response.credits;
+    
+      },
+      error:(err)=>{
+        console.log(err);
       }
-    )
+    })
   }
+  navBack() {
+    this.location.back();
+  }
+
+  // Fetch order history details
+  getOrderDetails() {
+    this.orderService.orderHistory().subscribe({
+      next: (response) => {
+        console.log(response);
+        this.order = response; // Assuming response is an array of order objects
+        this.filterOrder(); // Call filterOrder after fetching the order history
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  // Set the active button and filter orders accordingly
   setActiveButton(button: string) {
     this.activeButton = button;
-    this.text=button;
-    this.assignOrder();
+    this.text = button;
+    this.assignOrder(); // Update filter criteria
   }
 
-  assignOrder(){
-    switch(this.activeButton){
-      case 'Ongoing':this.filterStatus="Accepted";
-      break;
-      case 'Pending':this.filterStatus="InProgress";
-      break;
-      case 'Completed':this.filterStatus="Completed";
-      break;
-      case 'Cancelled' : this.filterStatus="Cancelled";
-      break
+  // Assign the correct status to filter based on the button pressed
+  assignOrder() {
+    switch (this.activeButton) {
+      case 'Ongoing':
+        this.filterStatus = "InProgress"; // Change status to filter for ongoing orders
+        break;
+      case 'Pending':
+        this.filterStatus = "Accepted"; // Change status to filter for pending orders
+        break;
+      case 'Completed':
+        this.filterStatus = "Completed"; // Change status to filter for completed orders
+        break;
+      case 'Cancelled':
+        this.filterStatus = "Cancelled"; // Change status to filter for cancelled orders
+        break;
     }
-
-    this.filterOrder()
-    
+    this.filterOrder(); // Apply the filter based on status
   }
-  filteredOrder:any;
-  filterOrder(){
-    const filterOrder=this.order.filter((i: any)=>{
-      return i.status.toLowerCase().includes(this.filterStatus.toLowerCase());i.status.toLowerCase().includes(this.filterStatus.toLowerCase())
-    })
 
-    console.log(filterOrder);
-    this.filteredOrder=filterOrder;
+  // Filter the order array based on the status
+  filterOrder() {
+    console.log(this.order);
+    this.filteredOrder = this.order.filter((i: any) => {
+      return i.status && i.status.toLowerCase() === this.filterStatus.toLowerCase();
+    });
+    console.log(this.filteredOrder);
   }
-  navTo(nav:string){
-    switch(nav){
-      case 'credit': this.router.navigate(['credits']);
-      break;
-      case 'notification':this.router.navigate(['notification']);
-      break;
-      case 'menu': this.router.navigate(['menu'])
+
+  // Navigation function to different routes
+  navTo(nav: string) {
+    switch (nav) {
+      case 'credit':
+        this.router.navigate(['credits']);
+        break;
+      case 'notification':
+        this.router.navigate(['notification']);
+        break;
+      case 'menu':
+        this.router.navigate(['menu']);
+        break;
     }
   }
 
-  navToArrived(){
-    this.router.navigate(['arrived'])
+  navToArrived(item:any) {
+    if (this.activeButton==='Ongoing') {
+      this.router.navigate(['completeWork',item._id]);
+    }
+    else if(this.activeButton==='Pending'){
+      this.router.navigate(['arrived',item._id]);
+    }
+  
+  }
+
+  navToChat(userId:string){
+    const role={
+      role:'user',
+      id:userId
+    }
+    this.router.navigate(['help/chatbot'], { queryParams: role });
   }
 }

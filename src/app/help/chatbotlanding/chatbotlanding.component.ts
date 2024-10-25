@@ -13,8 +13,12 @@ export class ChatbotlandingComponent {
   ngOnInit(): void {
     this.getParam();
     // Redirect to another page after 5 seconds
+    const role={
+      role:this.role,
+      id:''
+    }
     setTimeout(() => {
-      this.router.navigate(['/help/chatbot',this.role]);  // Change 'home' to your desired route
+      this.router.navigate(['/help/chatbot'],{queryParams:role});  // Change 'home' to your desired route
     }, 5000);
   }
 

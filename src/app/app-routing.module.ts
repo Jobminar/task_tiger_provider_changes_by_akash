@@ -48,6 +48,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationComponent } from './location/location.component';
 import { HelpModule } from './help/help.module';
 import { ManageServicesComponent } from './manage-services/manage-services.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { WorkImageComponent } from './work-image/work-image.component';
 
 
 const routes: Routes = [
@@ -91,14 +93,16 @@ const routes: Routes = [
   {path:'packages',component:PackagesComponent},
   {path:'training',component:TrainingComponent},
   {path:'getOrder/:id',component:GetOrderComponent},
-  {path:'arrived',component:ArviedComponent},
-  {path:'startWork',component:StartWorkComponent},
-  {path:'work/otp',component:WorkOtpComponent},
-  {path:'completeWork',component:WorkCompleteComponent},
-  {path:'verifyAfterWork',component:VerifyAfterWorkComponent},
+  {path:'arrived/:id',component:ArviedComponent},
+  {path:'startWork/:id',component:StartWorkComponent},
+  {path:'work/otp/:id',component:WorkOtpComponent},
+  {path:'completeWork/:id',component:WorkCompleteComponent},
+  {path:'verifyAfterWork/:id',component:VerifyAfterWorkComponent},
   {path:'subServices',component:SubServicesComponent},
   {path:'notFound',component:NotFoundComponent},
-  {path:'manageServices',component:ManageServicesComponent}
+  {path:'manageServices',component:ManageServicesComponent},
+  {path:'feedback',component:FeedbackComponent},
+  {path:'workImage/:id',component:WorkImageComponent}
 ]; 
 
 @NgModule({

@@ -6,6 +6,7 @@ import { Capacitor } from '@capacitor/core';
 import { mergeMapTo } from 'rxjs';
 import { azureApi } from '../constents/apis';
 import { PushNotification, PushNotificationActionPerformed, PushNotifications, Token } from '@capacitor/push-notifications';
+import { Location } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,8 @@ export class GetOrdersService {
   constructor(
     private afMessaging: AngularFireMessaging,
     private http:HttpClient,
-    private router:Router
+    private router:Router,
+    private readonly location:Location
   ) {
     this.listenForMessages();
   }
@@ -63,24 +65,24 @@ export class GetOrdersService {
 
   
   listenForMessages() {
-    console.log("listing...................");
-    this.afMessaging.messages.subscribe((message) => {
+    this.afMessaging.messages.subscribe((message: any) => {
       console.log(message);
-      alert(message)
-      this.router.navigate(['getOrder'])
-      console.log(message.notification);
-      console.log(message.data?.['order']);
-      console.log(message.notification?.title);
-      // if (message.notification?.title ==='New Order!') {
-      //   this.order=message.data
-      //   console.log("object");
-      //   this.router.navigate(['getOrder'])
-      // }
-    //  alert(message)
+  
+      const notificationTitle = message.notification?.title;
+      const orderId = message.data?.['orderId'];
+  
+      if (notificationTitle === 'New Order' && orderId) {
+        this.router.navigate(['getOrder', orderId], { replaceUrl: true }).then(() => {
+          // Replace the current state to prevent back navigation to this page
+          this.location.replaceState('home');
+        });
+      } else {
+        console.warn('Order ID missing or title mismatch');
+      }
     },
-  (err)=>{
-    console.log(err);
-  });
+    (err) => {
+      console.log(err);
+    });
   }
 
   
@@ -110,31 +112,50 @@ export class GetOrdersService {
     alert('inapp notification')
     const title = notification.notification?.title || notification.title;
     const body = notification.notification?.body || notification.body;
-    const data = notification.notification.data;
+    const data = notification.data;
     if (title && body) {
+      alert(title)
       // Display toast or other UI for in-app notification
       // this.toasterService.showSuccess(body, title);
-      if (title==='New Order' && data) {
-        this.router.navigate(['getOrder', data.orderId]);
+      if (title==='New Order') {
+        alert(data.orderId)
+        // this.router.navigate(['getOrder', data.orderId]);
+        setTimeout(() => {
+          this.router.navigate(['getOrder', data.orderId]).then(() => {
+            this.location.replaceState('home'); // Clear history stack for Android navigation
+          });
+        }, 3000);
+      
       }
-      alert(body)
+      // alert("new order created")
     }
   }
   
  // Handle notification click (when user taps notification from the notification tray)
- handleNotificationClick(notification: PushNotificationActionPerformed) {
-  const data = notification.notification.data;
+ handleNotificationClick(notification: any) {
+  const data = notification.data;
   const title = notification.notification?.title 
-  const body = notification.notification?.body 
+  const body = notification.notification?.body ;
+  alert(data.orderId)
   if (data && data.orderId && title) {
     // Navigate to a specific page based on the notification data
     if (title==='New Order') {
-      this.router.navigate(['getOrder', data.orderId]);
+      // this.router.navigate(['getOrder', data.orderId]);
+    
+        alert('inside nav')
+        // this.router.navigate(['getOrder', data.orderId]);
+        setTimeout(() => {
+          this.router.navigate(['getOrder', data.orderId]).then(() => {
+            this.location.replaceState('home'); // Clear history stack for Android navigation
+          });
+        }, 2000);
+       
+     
     }
   
   } else {
     // Default action if no specific data is present
-    this.router.navigate(['getOrder']);
+    // this.router.navigate(['getOrder', { replaceUrl: true }]);
   }
 }
 

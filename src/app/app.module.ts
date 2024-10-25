@@ -81,6 +81,8 @@ import { DailogeBoxService } from './dailoge-box.service';
 
 import { NgxLoadingModule } from "ngx-loading";
 import { ManageServicesComponent } from './manage-services/manage-services.component';
+import { WorkImageComponent } from './work-image/work-image.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,7 +135,9 @@ import { ManageServicesComponent } from './manage-services/manage-services.compo
     NotFoundComponent,
     KeysPipe,
     LocationComponent,
-    ManageServicesComponent
+    ManageServicesComponent,
+    WorkImageComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

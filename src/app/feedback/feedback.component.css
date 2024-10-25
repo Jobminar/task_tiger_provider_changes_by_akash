@@ -1,0 +1,62 @@
+.feedback-container {
+  width: 90%;
+    max-width: 500px;
+    margin: 1rem 5% 0 5%;
+    /* text-align: center; */
+    font-family: Arial, sans-serif;
+  }
+  .star-div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .star-rating {
+    margin-bottom: 20px;
+  }
+  
+  .star {
+    font-size: 40px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .star.filled {
+    color: yellow;
+  }
+  
+  .feedback-text {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-btn {
+    width: max-content;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  

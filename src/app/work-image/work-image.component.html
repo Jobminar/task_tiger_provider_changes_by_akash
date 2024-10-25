@@ -1,0 +1,13 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="navTOBack()">
+        arrow_back
+      </span>
+    <button (click)="takePicture()">Take Picture</button>
+
+    @if (imageUrl) {
+        <div class="image">
+             <img  [src]="imageUrl" alt="Captured Image" >
+        </div>
+        <button (click)="submit()">Submit</button>
+    }
+</div>

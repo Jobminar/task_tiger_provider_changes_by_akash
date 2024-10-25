@@ -8,6 +8,7 @@ import { OrdersService } from '../orders.service';
 import { RazorpayService } from '../razorpay.service';
 import { UserDetailsService } from '../user-details.service';
 import { DailogeBoxService } from '../dailoge-box.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-menu',
@@ -36,8 +37,18 @@ export class MenuComponent implements OnInit{
   ngOnInit(): void {
     this.jobDetailsService.getUserDetails(localStorage.getItem('providerId'))
     this.getUsername();
+    this.getProviderRating();
   }
   
+  getProviderRating(){
+    this.jobDetailsService.getRating().subscribe({
+      next:(res)=>{
+        console.log(res);
+      },error:(err:HttpErrorResponse)=>{
+        console.log(err);
+      }
+    })
+  }
   getUsername(){
     this.jobDetailsService.getUserDetails(localStorage.getItem('providerId')).subscribe({
       next:(response)=>{

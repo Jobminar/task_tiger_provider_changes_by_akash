@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TraniningService } from '../tranining.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-training',
@@ -11,6 +12,7 @@ export class TrainingComponent {
 
   navBack() {
     // Implement your navigation logic here
+    this.location.back();
   }
 
   videos: any[] = [];
@@ -24,7 +26,9 @@ export class TrainingComponent {
   @ViewChild('videoPlayer', { static: false }) videoPlayer: ElementRef<HTMLVideoElement> | undefined;
   @ViewChild('activeVideo', { static: false }) activeVideo: ElementRef<HTMLVideoElement> | undefined;
 
-  constructor(private http: HttpClient, private tranningService: TraniningService) { }
+  constructor(private http: HttpClient, private tranningService: TraniningService,
+              private readonly location:Location
+  ) { }
 
   ngOnInit(): void {
     this.gettingVideos();

@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SocketsService } from '../../sockets.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-chatbot',
@@ -21,7 +22,8 @@ export class ChatbotComponent {
   botId = 'BOT123'; // Example Bot ID
   role:string | null =null;
   constructor(private socketService: SocketsService,
-              private routerParam:ActivatedRoute
+              private routerParam:ActivatedRoute,
+              private readonly location:Location
   ) {}
 
   ngOnInit(): void {
@@ -42,10 +44,16 @@ export class ChatbotComponent {
 */
 
   getRole(){
-    this.routerParam.paramMap.subscribe(
+    this.routerParam.queryParams.subscribe(
       (res)=>{
-        this.role=res.get('role');
+      
         console.log(res);
+        const role=res['role'];
+        const id=res['id']
+        if (role==='user') {
+          this.receiverId=id;
+        }
+        console.log(role, id);
         console.log(this.role);
       }
     )
@@ -82,6 +90,7 @@ export class ChatbotComponent {
 
   goBack(): void {
     // Add your back navigation logic here
+    this.location.back();
   }
 
   ngOnDestroy(): void {

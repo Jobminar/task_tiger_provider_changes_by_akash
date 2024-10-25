@@ -11,16 +11,19 @@ INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\
 	android:name
 		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:28:13-62
 manifest
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:2:1-47:12
 MERGED from [:capacitor-app] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:capacitor-android] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-cordova-android-plugins] D:\jobminar\task-tiger azure\provider\mobile-provider\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\88a6080fbc42bac50aa5f58be10a395a\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.10.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3e3a68e9259e7dc2746a343e800647b\transformed\material-1.10.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\20d48cf573eda110056dd09b0371c9bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\4ce7c60d257b8629ab4c81cf615a92a1\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\44b764ef4a0c2818774bd443073d6bc9\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\02af67d3594ada2148314bae886ebee9\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:17:1-24:12
@@ -33,21 +36,25 @@ MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\d4af2973284b2ae0e8f0136bd1b22ce4\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\88f0c9777cc0dc2b5c32ca11a7c2ee14\transformed\firebase-iid-interop-17.1.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\ffc946b5670bce7bddc4d3eb352db6f3\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\WIN 10\.gradle\caches\transforms-3\fdefdaab9969417a0a3b1e6c013b75d1\transformed\play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3fc31ff6fb6f61980a375fe0e8644210\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\53359f3038cb13de1318f37b05a9ec5d\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c262db5defd6bd210a75fdd04203e20b\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.webkit:webkit:1.9.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b948559cdc2cc7d0142d11d80ac027fd\transformed\webkit-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\d7a99d4d8d208219a76655dfe6642b5f\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7612c75160e5074bf55899402c3ed6ba\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\84d9786aaf5bcddfba07ca3ef005c797\transformed\core-ktx-1.12.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\0da0ca1f42b6c24a991c967b463e89ed\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b51a997d8e61bfee68c9e58d3e280a06\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1eb069c0fcd8b93a15fdf80b347d1cae\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\c2dd5b16a7279ded118e2ac1f1aa2675\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\cc8c4a139a4efdcfc092fa800ee7a7ae\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b0d4cf1d16556daabfb189ec579cffb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f0550df3d9d24bcfd7815787e794b0b9\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\WIN 10\.gradle\caches\transforms-3\3d3e07e4c9c329b75d857f1a545e7b19\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\1f19457a2094334ede033edaa680eac5\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:17:1-22:12
@@ -62,6 +69,7 @@ MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 
 MERGED from [androidx.fragment:fragment:1.6.2] C:\Users\WIN 10\.gradle\caches\transforms-3\b7681978623fb5a34dc59f8ae14b69b9\transformed\fragment-1.6.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\WIN 10\.gradle\caches\transforms-3\e7c087e2e63ca40d4727b77d524bd515\transformed\activity-1.8.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3a565aa25f09ab5646e47f1b0b3f33e\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\WIN 10\.gradle\caches\transforms-3\1d25d41f2a807ca234a101e7980df6cf\transformed\exifinterface-1.3.6\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\ae741a4408489e1a5bd70009ba1f9e60\transformed\firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [com.google.android.datatransport:transport-api:3.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\dbc01e9325c115711748d0457a0bb7a5\transformed\transport-api-3.1.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\6de92c6ebde913d3b53ba4b61d49b388\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
@@ -69,6 +77,7 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\WIN 10\.gradle\c
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\2b19c49b9055d666a310de3e6f33c8a9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\186b0f3051d75ccae7d6a5c0bd95509a\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1ef749150016b292adc1e05584b45871\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\25d31c664b03672e3208c0be7777f9e4\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\859998aadd2ecaf74c804401d8cfdd88\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\41f06ab7e49ee1fdf66441d1e56d9c21\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -90,6 +99,10 @@ MERGED from [:capacitor-push-notifications] D:\jobminar\task-tiger azure\provide
 MERGED from [:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-15:19
 MERGED from [:capacitor-cordova-android-plugins] D:\jobminar\task-tiger azure\provider\mobile-provider\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-9:19
 MERGED from [:capacitor-cordova-android-plugins] D:\jobminar\task-tiger azure\provider\mobile-provider\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-9:19
+MERGED from [com.google.android.material:material:1.10.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3e3a68e9259e7dc2746a343e800647b\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.10.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3e3a68e9259e7dc2746a343e800647b\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\20d48cf573eda110056dd09b0371c9bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\20d48cf573eda110056dd09b0371c9bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:28:5-64:19
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:28:5-64:19
 MERGED from [com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:21:5-29:19
@@ -179,25 +192,33 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Use
 	android:name
 		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:22-64
 uses-permission#android.permission.WAKE_LOCK
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:3-66
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:5-68
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:9:5-68
 	android:name
-		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:20-63
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:22-65
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:3-79
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:5-81
 	android:name
-		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:20-76
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:3-76
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:5-78
 	android:name
-		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:20-74
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:3-78
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:5-80
 	android:name
-		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:20-76
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:22-78
+uses-permission#android.permission.CAMERA
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:5-65
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:22-62
+uses-permission#android.permission.READ_ externa  l_storage
+ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:5-83
+	android:name
+		ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:22-80
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:32:13-34:64
 	android:resource
@@ -210,6 +231,8 @@ INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\
 INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml
 MERGED from [:capacitor-app] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-app] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
@@ -220,6 +243,10 @@ MERGED from [:capacitor-cordova-android-plugins] D:\jobminar\task-tiger azure\pr
 MERGED from [:capacitor-cordova-android-plugins] D:\jobminar\task-tiger azure\provider\mobile-provider\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\88a6080fbc42bac50aa5f58be10a395a\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\88a6080fbc42bac50aa5f58be10a395a\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.10.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3e3a68e9259e7dc2746a343e800647b\transformed\material-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.10.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3e3a68e9259e7dc2746a343e800647b\transformed\material-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\20d48cf573eda110056dd09b0371c9bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\20d48cf573eda110056dd09b0371c9bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\4ce7c60d257b8629ab4c81cf615a92a1\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\4ce7c60d257b8629ab4c81cf615a92a1\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\44b764ef4a0c2818774bd443073d6bc9\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -244,6 +271,8 @@ MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle
 MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:19:5-44
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\d4af2973284b2ae0e8f0136bd1b22ce4\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\d4af2973284b2ae0e8f0136bd1b22ce4\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\88f0c9777cc0dc2b5c32ca11a7c2ee14\transformed\firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\88f0c9777cc0dc2b5c32ca11a7c2ee14\transformed\firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\ffc946b5670bce7bddc4d3eb352db6f3\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
@@ -252,16 +281,10 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Use
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\5458d780bdb2a2ae97ce2e6a86465f1f\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\WIN 10\.gradle\caches\transforms-3\fdefdaab9969417a0a3b1e6c013b75d1\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\WIN 10\.gradle\caches\transforms-3\fdefdaab9969417a0a3b1e6c013b75d1\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3fc31ff6fb6f61980a375fe0e8644210\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3fc31ff6fb6f61980a375fe0e8644210\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\53359f3038cb13de1318f37b05a9ec5d\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\53359f3038cb13de1318f37b05a9ec5d\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c262db5defd6bd210a75fdd04203e20b\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c262db5defd6bd210a75fdd04203e20b\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.9.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b948559cdc2cc7d0142d11d80ac027fd\transformed\webkit-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.webkit:webkit:1.9.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b948559cdc2cc7d0142d11d80ac027fd\transformed\webkit-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\d7a99d4d8d208219a76655dfe6642b5f\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -270,10 +293,22 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\WIN 10\.grad
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7612c75160e5074bf55899402c3ed6ba\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\84d9786aaf5bcddfba07ca3ef005c797\transformed\core-ktx-1.12.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\84d9786aaf5bcddfba07ca3ef005c797\transformed\core-ktx-1.12.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\0da0ca1f42b6c24a991c967b463e89ed\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\0da0ca1f42b6c24a991c967b463e89ed\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b51a997d8e61bfee68c9e58d3e280a06\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b51a997d8e61bfee68c9e58d3e280a06\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1eb069c0fcd8b93a15fdf80b347d1cae\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1eb069c0fcd8b93a15fdf80b347d1cae\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\fc2f139bc6b6b6e64916bbd629c687b9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\c2dd5b16a7279ded118e2ac1f1aa2675\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\c2dd5b16a7279ded118e2ac1f1aa2675\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\cc8c4a139a4efdcfc092fa800ee7a7ae\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\cc8c4a139a4efdcfc092fa800ee7a7ae\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b0d4cf1d16556daabfb189ec579cffb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\b0d4cf1d16556daabfb189ec579cffb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f0550df3d9d24bcfd7815787e794b0b9\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f0550df3d9d24bcfd7815787e794b0b9\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\WIN 10\.gradle\caches\transforms-3\3d3e07e4c9c329b75d857f1a545e7b19\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
@@ -302,6 +337,8 @@ MERGED from [androidx.activity:activity:1.8.0] C:\Users\WIN 10\.gradle\caches\tr
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\WIN 10\.gradle\caches\transforms-3\e7c087e2e63ca40d4727b77d524bd515\transformed\activity-1.8.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3a565aa25f09ab5646e47f1b0b3f33e\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f3a565aa25f09ab5646e47f1b0b3f33e\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\WIN 10\.gradle\caches\transforms-3\1d25d41f2a807ca234a101e7980df6cf\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\WIN 10\.gradle\caches\transforms-3\1d25d41f2a807ca234a101e7980df6cf\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\ae741a4408489e1a5bd70009ba1f9e60\transformed\firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\ae741a4408489e1a5bd70009ba1f9e60\transformed\firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.android.datatransport:transport-api:3.1.0] C:\Users\WIN 10\.gradle\caches\transforms-3\dbc01e9325c115711748d0457a0bb7a5\transformed\transport-api-3.1.0\AndroidManifest.xml:18:5-44
@@ -316,6 +353,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\WIN 10\.gradle\cac
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\WIN 10\.gradle\caches\transforms-3\2b19c49b9055d666a310de3e6f33c8a9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\186b0f3051d75ccae7d6a5c0bd95509a\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\186b0f3051d75ccae7d6a5c0bd95509a\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1ef749150016b292adc1e05584b45871\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\1ef749150016b292adc1e05584b45871\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\25d31c664b03672e3208c0be7777f9e4\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\25d31c664b03672e3208c0be7777f9e4\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\859998aadd2ecaf74c804401d8cfdd88\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
@@ -332,6 +371,14 @@ MERGED from [org.apache.cordova:framework:10.1.1] C:\Users\WIN 10\.gradle\caches
 		INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml
+queries
+ADDED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
+intent#action:name:android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
+action#android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
+	android:name
+		ADDED from [:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:22:5-79

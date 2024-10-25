@@ -239,7 +239,7 @@ export class HomeComponent implements OnInit {
       (res) => {
         console.log(res);
         this.razorpayService.userCredit = res.creditBalance;
-        this.credits = res.creditBalance;
+        this.credits = res.credits;
       },
       (err) => {
         console.log(err);
@@ -341,14 +341,43 @@ export class HomeComponent implements OnInit {
 
   // getting the pending orders
   noOfPendingOrders: number = 0;
+  // getPendingOrders() {
+  //   this.orderService.orderHistory().subscribe({
+  //     next: (response) => {
+  //       console.log(response);
+  //       const pending = 'InProgress';
+  //       const filter = response.filter((i: any) => {
+  //         return i.status.toLowerCase().includes(pending.toLowerCase());
+  //       });
+  //       this.noOfPendingOrders = filter.length;
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //   });
+  // }
+
+
   getPendingOrders() {
     this.orderService.orderHistory().subscribe({
       next: (response) => {
         console.log(response);
+  
+        // Get today's date in the same format as 'scheduledDate'
+        const today = new Date();
+        const todayFormatted = today.toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        }).replace(/\//g, '-'); // Format: dd-mm-yyyy
+  
         const pending = 'InProgress';
-        const filter = response.filter((i: any) => {
-          return i.status.toLowerCase().includes(pending.toLowerCase());
+        const filter = response.filter((order: any) => {
+          const scheduledDate = order.orderId.items[0].scheduledDate;
+          const status = order.status.toLowerCase();
+          return status.includes(pending.toLowerCase()) && scheduledDate === todayFormatted;
         });
+        console.log('filtered', filter);
         this.noOfPendingOrders = filter.length;
       },
       error: (err) => {
@@ -356,4 +385,5 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+  
 }
