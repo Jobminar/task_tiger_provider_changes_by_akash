@@ -4,7 +4,7 @@ trigger:
       - main  # Adjust this according to your branch naming
 
 pool:
-  vmImage: 'windows-latest'  # Use 'macos-latest' or 'ubuntu-latest' if needed
+  name: 'tt-devops-build'
 
 stages:
   - stage: Build
