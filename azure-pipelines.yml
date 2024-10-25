@@ -17,12 +17,12 @@ stages:
           - checkout: self
 
           # Set up JDK (required for Gradle)
-          - task: JavaToolInstaller@0
-            inputs:
-              versionSpec: '17'
-              jdkArchitectureOption: 'x64'
-              jdkSourceOption: 'PreInstalled'
-            displayName: 'Install JDK 17'
+          # - task: JavaToolInstaller@0
+          #   inputs:
+          #     versionSpec: '17'
+          #     jdkArchitectureOption: 'x64'
+          #     jdkSourceOption: 'PreInstalled'
+          #   displayName: 'Install JDK 17'
           
           - script: echo %JAVA_HOME%
             displayName: 'Print JAVA_HOME'
