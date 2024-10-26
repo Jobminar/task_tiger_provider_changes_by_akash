@@ -136,6 +136,7 @@ export class JobDetailsService {
       this.http.get<any>(api).subscribe({
           next:(res)=>{
             console.log(res);
+            this.providerRating=res;
             ob.next(this.providerRating);
           },error:(err:HttpErrorResponse)=>{
             console.log(err);

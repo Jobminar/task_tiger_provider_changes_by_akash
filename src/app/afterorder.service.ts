@@ -14,10 +14,14 @@ export class AfterorderService {
   // getting the order details byusing id from notifications
   getOrderDetails(orderId:string):Observable<any>{
     
-    const api=`${this.apiUrl}users/order-history/${orderId}`;
+    const api=`${this.apiUrl}users/order/order/${orderId}`;
     return this.http.get<any>(api);
   }
 
+  getOrderHistoryId(orderId:string):Observable<any>{
+    const api=`${this.apiUrl}users/order-history/order/${orderId}`;
+    return this.http.get<any>(api);
+  }
   getOrderFromOrderId(orderId:string):Observable<any>{
     const api=`${this.apiUrl}users/order/order/${orderId}`;
     return this.http.get<any>(api);
@@ -28,8 +32,15 @@ export class AfterorderService {
     return this.http.post<any>(api,formdata);
   }
 
+  gettingStatus(id:string|null){
+    const api=`${this.apiUrl}users/order-history/order/${id}`;
+    return this.http.get<any>(api);
+  }
   // feedback
-
+  uploadAfterWorkImage(formData:FormData):Observable<any>{
+    const api=`${this.apiUrl}users/order-history/after-work-upload-image`;
+    return this.http.post<any>(api,formData);
+  }
   feedBack(requestBody:any):Observable<any>{
     const api=`${this.apiUrl}users/user-feedback`;
     return this.http.post(api,requestBody);

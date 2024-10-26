@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit{
   userName:string='';
   userImage:String='';
   whatsAppStaus='on';
+  providerRating:string='';
   private apiSubscription!:Subscription
   constructor(private location:Location,
               private router:Router,
@@ -44,6 +45,7 @@ export class MenuComponent implements OnInit{
     this.jobDetailsService.getRating().subscribe({
       next:(res)=>{
         console.log(res);
+        this.providerRating=res.averageRating;
       },error:(err:HttpErrorResponse)=>{
         console.log(err);
       }
@@ -79,7 +81,7 @@ export class MenuComponent implements OnInit{
     },
     {
       icon:'tv_gen',
-      name:'Tranning'
+      name:'Training'
     },
     {
       icon:'featured_seasonal_and_gifts',
@@ -108,7 +110,7 @@ export class MenuComponent implements OnInit{
         console.log('inside');
         this.router.navigate(['credits']);
         break;
-      case 'Tranning':
+      case 'Training':
         this.router.navigate(['training']);
         break;
       case 'Invite a friend':

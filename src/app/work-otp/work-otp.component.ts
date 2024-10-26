@@ -20,6 +20,7 @@ export class WorkOtpComponent implements OnInit{
   otp!: FormGroup;
   orderHistoryId:string| null='';
   order:any;
+  orderId:string='';
   navTOBack(){
     this.location.back()
   }
@@ -87,7 +88,8 @@ export class WorkOtpComponent implements OnInit{
           next:(res)=>{
             console.log(res);
             this.order=res;
-           
+           this.orderId=res._id;
+           this.getOrderHistoryId(this.orderId)
           },
           error:(err:HttpErrorResponse)=>{
             console.log(err);
@@ -95,7 +97,16 @@ export class WorkOtpComponent implements OnInit{
         })
       }
     }
-
+    getOrderHistoryId(id:string){
+      this.afterOrderService.getOrderHistoryId(id).subscribe({
+        next:(res)=>{
+          console.log(res);
+          this.orderHistoryId=res.data._id;
+        },error:(err:HttpErrorResponse)=>{
+          console.log(err);
+        }
+      })
+    }
 
 
   getOtp(){
@@ -116,14 +127,15 @@ export class WorkOtpComponent implements OnInit{
     const requestBody={
           orderHistoryId:this.orderHistoryId,
           uniqueNumber:otp,
-          userId:this.order.userId
+          userId:this.order.userId,
+          orderId:this.orderId
     }
     console.log(requestBody);
     this.orderService.verifyStartOrder(requestBody).subscribe({
       next:(response)=>{
         console.log(response);
         this.dialougeBOxService.openDialog('OTP verified sucessfully');
-        this.router.navigate(['workImage',this.orderHistoryId]);
+        this.router.navigate(['workImage',this.orderId]);
       },error:(err)=>{
         console.log(err);
         this.dialougeBOxService.openDialog(err.error.message);

@@ -21,12 +21,12 @@ export class AppComponent {
    
   }
   ngOnInit() {
-    this.messagingService.requestPermission();
-    setTimeout(() => {
-      this.myObject = this.messagingService.token
-        ? { token: this.messagingService.token }
-        : {};
-    }, 5000);
+    // this.messagingService.requestPermission();
+    // setTimeout(() => {
+    //   this.myObject = this.messagingService.token
+    //     ? { token: this.messagingService.token }
+    //     : {};
+    // }, 5000);
     this.messagingService.listenForMessages();
     this.monitorNetworkStatus();
     this.registerBackButtonListener();

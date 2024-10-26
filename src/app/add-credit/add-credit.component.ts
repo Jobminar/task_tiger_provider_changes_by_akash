@@ -103,8 +103,19 @@ export class AddCreditComponent {
     const amount = this.AmountToPay;
     const currency = 'INR';
     const orderId = 'order_id_from_backend'; // Example order ID from backend
-    this.razorPayService.payWithRazorpay(amount, orderId, currency);
+    
+    this.razorPayService.createOrder(amount).subscribe({
+      next: (response) => {
+        console.log('Order created:', response);
+        this.razorPayService.payWithRazorpay(amount, response.id, currency);
+      },
+      error: (error) => {
+        console.error('Error creating order:', error);
+      }
+    });
   }
+  
 
+  
   
 }

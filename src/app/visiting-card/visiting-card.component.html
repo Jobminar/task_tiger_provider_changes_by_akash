@@ -1,5 +1,5 @@
 <div class="container">
-    <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 28px;">arrow_back</span>
+    <span class="material-symbols-outlined notranslate" (click)="navToBack()" style="font-size: 28px;">arrow_back</span>
     <br>
     <div class="sub-container">
         <div class="profile">
@@ -16,7 +16,7 @@
                 
                 <div class="rating"> 
                     <!-- <span class="material-symbols-outlined" >star</span> -->
-                    &#9733; 4.89
+                    &#9733; {{providerRating}}
                 </div>
                 @if(workSeleceted){
                     <span *ngFor="let item of workSeleceted ; let i= index" >
@@ -54,7 +54,7 @@
                         <span class="tittle">Identity verification</span><br>
                         <span class="tittle2">Identity Proof and Personal details</span>
                     </div>
-                    <span class="material-symbols-outlined" >arrow_forward_ios</span>
+                    <span class="material-symbols-outlined notranslate" >arrow_forward_ios</span>
                 </div>
                
             </div>

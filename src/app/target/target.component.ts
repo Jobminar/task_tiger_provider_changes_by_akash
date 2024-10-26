@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {  Component,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { RazorpayService } from '../razorpay.service';
 import { azureApi } from '../../constents/apis';
+import { JobDetailsService } from '../job-details.service';
 @Component({
   selector: 'app-target',
   templateUrl: './target.component.html',
@@ -17,15 +18,18 @@ export class TargetComponent {
   minTarget:any=0;
   min:any=80;
   divColor:string='black';
+  providerRating:number=0;
   creditBalance:number=50;
   constructor( private http:HttpClient,
                 private router:Router,
-                private razorpayService:RazorpayService
+                private razorpayService:RazorpayService,
+                private jobDetailsService:JobDetailsService
   )
   {
     this.colorChange();
     this. getTarget();
     this.getCredits();
+    this.getProviderRating();
   }
 
 
@@ -37,6 +41,17 @@ export class TargetComponent {
     
       },
       error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  getProviderRating(){
+    this.jobDetailsService.getRating().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.providerRating=parseInt(res.averageRating);
+      },error:(err:HttpErrorResponse)=>{
         console.log(err);
       }
     })
@@ -117,5 +132,8 @@ export class TargetComponent {
       break;
       case 'buyNow': this.router.navigate(['addCredit'])
     }
+  }
+  navToDetails(){
+    this.router.navigate(['credits']);
   }
 }

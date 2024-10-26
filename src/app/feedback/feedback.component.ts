@@ -54,11 +54,13 @@ export class FeedbackComponent {
     // Here you can handle the submission of feedback (send to server or display, etc.)
     console.log("Rating:", this.rating);
     console.log("Feedback:", this.userFeedback);
+    console.log(this.userId);
     const requestBody={
       userId: this.userId,
       providerId: localStorage.getItem('providerId'),
       orderHistoryId:this.orderHistoryId,
-      rating: this.rating
+      rating: this.rating,
+      description:this.userFeedback
     }
     console.log(requestBody);
     this.afterOrderService.feedBack(requestBody).subscribe({

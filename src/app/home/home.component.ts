@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit {
   ) {
    
     console.log(this.nextWorking.length);
+    this.getBanners();
     this.getProviderDetails();
     this.workingDates();
     this.getAvalibility();
@@ -152,9 +153,9 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          console.log(response[0]._id);
-          this.userDetailsService.workResponse = response[0].works;
-          this.userDetailsService.workResponseId = response[0]._id;
+          console.log(response._id);
+          this.userDetailsService.workResponse = response.works;
+          this.userDetailsService.workResponseId = response._id;
         },
         (err) => {
           console.log(err);
@@ -246,6 +247,18 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+
+  // get banners from backend 
+getBanners(){
+  this.userDetailsService.getBanners().subscribe({
+    next:(res)=>{
+      console.log(res);
+    },error:(err:HttpErrorResponse)=>{
+      console.log(err);
+    }
+  })
+}
 
   //online and off line status
 
@@ -371,9 +384,10 @@ export class HomeComponent implements OnInit {
           year: 'numeric'
         }).replace(/\//g, '-'); // Format: dd-mm-yyyy
   
-        const pending = 'InProgress';
+        const pending = 'Workstart';
         const filter = response.filter((order: any) => {
-          const scheduledDate = order.orderId.items[0].scheduledDate;
+          const scheduledDate = order.orderId.items[0].scheduledDate.split(' ')[0];          ;
+          console.log("scheduleee================",scheduledDate);
           const status = order.status.toLowerCase();
           return status.includes(pending.toLowerCase()) && scheduledDate === todayFormatted;
         });

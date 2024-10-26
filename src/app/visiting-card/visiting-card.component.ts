@@ -5,6 +5,7 @@ import { LoginServiceService } from '../login-service.service';
 import { JobDetailsService } from '../job-details.service';
 import { UserDetailsService } from '../user-details.service';
 import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-visiting-card',
@@ -18,7 +19,7 @@ export class VisitingCardComponent implements OnInit{
   userId=localStorage.getItem("providerId")
   workSeleceted:any[]=this.jobDetailsService?.userDetails?.work;
   phoneNumber:any;
- 
+  providerRating:string='';
   certificateImages:{images:string}[]=[{images:'assets/demo/awards.png'},{images:'assets/demo/certificate2.png'}];
   constructor(private readonly router:Router,
               private readonly location:Location,
@@ -34,7 +35,20 @@ export class VisitingCardComponent implements OnInit{
     this.signingDetails()
     this.getWork();
     this.getCertificates();
+    this.getProviderRating();
   }
+
+  getProviderRating(){
+    this.jobDetailsService.getRating().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.providerRating=res.averageRating;
+      },error:(err:HttpErrorResponse)=>{
+        console.log(err);
+      }
+    })
+  }
+
   signingDetails(){
     this.phoneNumber=this.jobDetailsService.userDetails?.phone;
     this.userName=this.jobDetailsService.userDetails?.providerName;

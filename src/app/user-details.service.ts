@@ -43,6 +43,10 @@ export class UserDetailsService {
     return work;
   }
 
+  getBanners():Observable<any>{
+    const api=`${this.api}admin/provider-banners`;
+    return this.http.get<any>(api);
+  }
   getWork(id:any){
     const aaa=this.api + `providers/provider-work/${id}`
  

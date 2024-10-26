@@ -184,9 +184,11 @@ export class GetOrderComponent implements OnInit,OnDestroy{
     this.orderService.accept(this.orderId,this.order.totalAmount,this.order.userId._id).subscribe(
       (response: any)=>{
         console.log(response);
-        this.orderService.orderIds=response.orderHistoryId
-        
-        this.router.navigate(['arrived',response.orderHistory._id]);
+        // this.orderService.orderIds=response.orderHistoryId
+        setTimeout(()=>{
+          this.router.navigate(['arrived',response.orderHistory.orderId]);
+        },2000)
+    
       },(err)=>{
         console.log(err);
       }

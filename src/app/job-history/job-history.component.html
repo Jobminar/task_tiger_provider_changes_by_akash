@@ -1,6 +1,6 @@
 <div class="container">
     <div class="arrow">
-        <span class="material-symbols-outlined" (click)="navToBack()" style="font-size: 24px;" >arrow_back</span>&nbsp;<span class="tittle"  >Job History</span>
+        <span class="material-symbols-outlined notranslate" (click)="navToBack()" style="font-size: 24px;" >arrow_back</span>&nbsp;<span class="tittle"  >Job History</span>
     </div>
     <div class="sub-container">
         <div>
@@ -10,11 +10,11 @@
                     <div>
                        <p> <span class="main-text">{{item.orderId?.items[0]?.serviceId.name}}</span></p>
                        <p> 
-                            <span class="material-symbols-outlined" style="font-size: 1rem;" (click)="navToBack()"   >account_balance_wallet</span>&nbsp;
+                            <span class="material-symbols-outlined notranslate" style="font-size: 1rem;" (click)="navToBack()"   >account_balance_wallet</span>&nbsp;
                             <span class="text">Job value:{{item.orderId?.totalAmount}}</span>
                         </p>
                         <p>
-                            <span class="material-symbols-outlined" style="font-size: 1rem;"  (click)="navToBack()"  >description</span>&nbsp;
+                            <span class="material-symbols-outlined notranslate" style="font-size: 1rem;"  (click)="navToBack()"  >description</span>&nbsp;
                             <span class="text">Online Payments:{{item.orderId?.totalAmount}}</span>
                         </p>
                     </div>

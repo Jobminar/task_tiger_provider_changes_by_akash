@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TraniningService } from '../tranining.service';
 import { Location } from '@angular/common';
+import { UserDetailsService } from '../user-details.service';
 
 @Component({
   selector: 'app-training',
@@ -26,14 +27,30 @@ export class TrainingComponent {
   @ViewChild('videoPlayer', { static: false }) videoPlayer: ElementRef<HTMLVideoElement> | undefined;
   @ViewChild('activeVideo', { static: false }) activeVideo: ElementRef<HTMLVideoElement> | undefined;
 
-  constructor(private http: HttpClient, private tranningService: TraniningService,
+  constructor(private http: HttpClient, 
+              private tranningService: TraniningService,
+              private readonly userService:UserDetailsService,
               private readonly location:Location
   ) { }
 
   ngOnInit(): void {
     this.gettingVideos();
+    this.getWork();
   }
 
+  
+  getWork(){
+    this.userService.getWork(localStorage.getItem('providerId')).subscribe(
+      (response)=>{
+          console.log(response);
+        //  console.log(response[0].works);
+        
+        //  this.workSeleceted=response.works
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
   gettingVideos() {
     this.tranningService.getingVideos().subscribe(
       (response) => {

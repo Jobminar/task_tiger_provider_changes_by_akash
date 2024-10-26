@@ -1,6 +1,6 @@
 <section class="container">
 
-    <span class="material-symbols-outlined" (click)="navTOBack()">
+    <span class="material-symbols-outlined notranslate" (click)="navTOBack()">
         arrow_back
     </span>
     <div class="arival-status">
@@ -10,7 +10,7 @@
     <div id="map" #map style="height: 500px; width: 100%;"></div>
     
     <div class="location">
-        <span class="material-symbols-outlined">
+        <span class="material-symbols-outlined notranslate">
             near_me
         </span>
         <span>
@@ -21,7 +21,7 @@
         <input type="checkbox" id="toggle" (click)="handleDisabledClick()" [disabled]="!toggleChecked"   (change)="toggleDisplay($event)">
         <label for="toggle" class="already-label"></label>
     </div> -->
-    <div class="slide-toggle" >
+    <div class="slide-toggle " >
         <input type="checkbox" id="toggle" (click)="handleDisabledClick()"  (change)="toggleDisplay($event)">
         <label for="toggle" class="already-label"></label>
     </div>

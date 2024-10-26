@@ -65,7 +65,7 @@ getOrderId(){
       this.afterOrderService.getOrderDetails(orderid).subscribe({
         next:(res)=>{
           console.log(res);
-          this.order=res.orderId;
+          this.order=res;
           this.getUserLocation();
         },
         error:(err:HttpErrorResponse)=>{

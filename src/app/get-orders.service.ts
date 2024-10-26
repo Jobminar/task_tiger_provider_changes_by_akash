@@ -77,7 +77,7 @@ export class GetOrdersService {
           this.location.replaceState('home');
         });
       } else {
-        console.warn('Order ID missing or title mismatch');
+        // console.warn('Order ID missing or title mismatch');
       }
     },
     (err) => {
@@ -133,11 +133,11 @@ export class GetOrdersService {
   
  // Handle notification click (when user taps notification from the notification tray)
  handleNotificationClick(notification: any) {
-  const data = notification.data;
+  const data = notification.data?.['orderId'];
   const title = notification.notification?.title 
   const body = notification.notification?.body ;
-  alert(data.orderId)
-  if (data && data.orderId && title) {
+  alert(data)
+  if (data && title) {
     // Navigate to a specific page based on the notification data
     if (title==='New Order') {
       // this.router.navigate(['getOrder', data.orderId]);
@@ -145,7 +145,7 @@ export class GetOrdersService {
         alert('inside nav')
         // this.router.navigate(['getOrder', data.orderId]);
         setTimeout(() => {
-          this.router.navigate(['getOrder', data.orderId]).then(() => {
+          this.router.navigate(['getOrder', data]).then(() => {
             this.location.replaceState('home'); // Clear history stack for Android navigation
           });
         }, 2000);

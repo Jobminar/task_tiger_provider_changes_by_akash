@@ -19,6 +19,7 @@ export class VerifyAfterWorkComponent {
   otp: FormGroup;
   orderHistoryId:string | null='';
   order:any;
+  orderId:string='';
   navTOBack(){
     this.location.back()
   }
@@ -65,7 +66,7 @@ export class VerifyAfterWorkComponent {
       next: (res) => {
         const id = res.get('id');
         if (id) {
-          this.orderHistoryId = id;
+          this.orderId = id;
          this.getOrderDetails(id);
         }
       },
@@ -77,7 +78,9 @@ export class VerifyAfterWorkComponent {
       this.orderHistoryId = orderId;
       this.afterOrderService.getOrderDetails(orderId).subscribe({
         next: (res) => {
+          console.log(res);
           this.order = res;
+          this.getOrderHistoryId(this.orderId)
           // this.orderId = res.orderId?._id;
         },
         error: (err: HttpErrorResponse) => {
@@ -86,16 +89,26 @@ export class VerifyAfterWorkComponent {
       });
     }
   }
+  getOrderHistoryId(orderId:string){
+    this.afterOrderService.getOrderHistoryId(orderId).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.orderHistoryId=res.data._id;
+      },error:(err:HttpErrorResponse)=>{
+        console.log(err);
+      }
+    })
+  }
   login() {
     const otpValue = this.otp.value;
     const otp=otpValue.inputOne+otpValue.inputTwo+otpValue.inputThree+otpValue.inputFour 
     // console.log("OTP:", this.otp.value);
     console.log(otp);
-    this.orderService.verifyAfterComplete(otp,this.orderHistoryId).subscribe(
+    this.orderService.verifyAfterComplete(otp,this.orderHistoryId,this.orderId).subscribe(
       (response)=>{
         console.log(response);
         const role={
-          userId:this.order.userId,
+          userId:this.order.userId?._id,
           orderHistoryId:this.orderHistoryId
         }
         this.router.navigate(['feedback'],{queryParams:role});

@@ -62,22 +62,17 @@ export class OrdersService {
     const api=`${this.apiUrl}users/order-history/before-work-upload-image`;
     return this.http.post<any>(api,formData)
   }
-  completeOrder(orderHistoryId:string|null,userId:string){
+  completeOrder(requestBody:any){
     const api= this.apiUrl+'users/order-history/order-completed-generateotp';
-    const request={
-      orderHistoryId:orderHistoryId,
-      providerId:localStorage.getItem('providerId'),
-      userId:userId
-    }
-    console.log(request);
-    return this.http.post(api,request)
+
+    return this.http.post(api,requestBody)
   }
 
-  verifyAfterComplete(otp:any,orderHistoryId:string|null){
+  verifyAfterComplete(otp:any,orderHistoryId:string|null,orderId:string){
     const api= this.apiUrl+'users/order-history/order-completed-verify'
     const requestBody={
       orderHistoryId:orderHistoryId,
-      
+      orderId:orderId,
       // providerId:localStorage.getItem('providerId'),
       otp:otp
     }

@@ -2,7 +2,7 @@
     <div id="menu-button" (click)="navTo('menu')" >☰</div>
     <div class="bell-credit">
         <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
-        <div class="bell" (click)="navTo('notification')"><span class="material-symbols-outlined" >notifications</span></div>
+        <div class="bell" (click)="navTo('notification')"><span class="material-symbols-outlined notranslate" >notifications</span></div>
     </div>
     <div class="sub-container">
         <div class="cat">
@@ -21,14 +21,14 @@
                     <span class="highlight-text">{{item.orderId?.addressId?.username }}</span>
                     <span class="iconsss" *ngIf="item.status==='Accepted' || item.status==='InProgress'">
                         <a href="'tel:'+ item.orderId.address.mobileNumber">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined notranslate">
                                 call
                             </span>
                         </a>
-                        <span class="material-symbols-outlined" (click)="navToChat(item.userId)">
+                        <span class="material-symbols-outlined notranslate" (click)="navToChat(item.userId)">
                             chat
                         </span>
-                        <span class="material-symbols-outlined" (click)="navToArrived(item)">
+                        <span class="material-symbols-outlined notranslate" (click)="navToArrived(item)">
                             directions
                         </span>
                     </span>

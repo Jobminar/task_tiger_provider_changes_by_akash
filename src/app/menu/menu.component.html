@@ -1,4 +1,4 @@
-<br><br>&nbsp;&nbsp; &nbsp;<span class="material-symbols-outlined" (click)="navBack()">arrow_back</span><br><br>
+<br><br>&nbsp;&nbsp; &nbsp;<span class="material-symbols-outlined notranslate" (click)="navBack()">arrow_back</span><br><br>
 <div class="container">
   
     <div class="sub-container">
@@ -20,7 +20,7 @@
                         <pre>Silver</pre>
                     </span>
                 </div>
-                <div class="rating"> <span class="material-symbols-outlined" >star</span> 4.89</div>
+                <div class="rating"> <span class="material-symbols-outlined notranslate" >star</span>{{providerRating}}</div>
                 <button (click)="navToVisiting()">View more</button>
             </div>
         </div>
@@ -30,10 +30,10 @@
                 <br>
             <div (click)="navTo(item.name)">
                 <div (click)="navTo(item.name)">
-                    <span class="material-symbols-outlined" >{{item.icon}}</span> &nbsp;
+                    <span class="material-symbols-outlined notranslate" >{{item.icon}}</span> &nbsp;
                     &nbsp; <span>{{item.name}}</span>
                 </div>
-                <span class="material-symbols-outlined" >arrow_forward_ios</span>
+                <span class="material-symbols-outlined notranslate" >arrow_forward_ios</span>
              
             </div>
             <hr>
@@ -44,7 +44,7 @@
         <div class="updates">
             <div class="finacial" (click)="navToFinancial()">
                 <div class="iconss">
-                    <span class="material-symbols-outlined" >currency_rupee</span>
+                    <span class="material-symbols-outlined notranslate" >currency_rupee</span>
                 </div>
                 <div>
                     <span>Financial details</span><br>
@@ -62,7 +62,7 @@
             </div>
             <div class="finacial" [routerLink]="'/language'" routerLinkActive="language">
                 <div class="iconss">
-                    <span class="material-symbols-outlined" >g_translate</span>
+                    <span class="material-symbols-outlined notranslate" >g_translate</span>
                 </div>
                 <div>
                     <span>Change language</span><br>
@@ -71,8 +71,8 @@
             </div>
         </div>
         <br>
-        <div class="btn" (click)="logOut()">
-          <button><span class="material-symbols-outlined" >power_settings_new</span>&nbsp; Logout</button>
+        <div class="btn" (click)="logOut()"> 
+          <button><span class="material-symbols-outlined notranslate" >power_settings_new</span>&nbsp; Logout</button>
         </div>
     </div>
 </div>

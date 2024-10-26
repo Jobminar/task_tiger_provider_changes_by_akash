@@ -58,7 +58,7 @@ export class StartWorkComponent implements AfterViewInit {
         this.afterOrderService.getOrderDetails(orderid).subscribe({
           next:(res)=>{
             console.log(res);
-            this.order=res.orderId;
+            this.order=res;
             this.getUserLocationCoordinates();
           },
           error:(err:HttpErrorResponse)=>{

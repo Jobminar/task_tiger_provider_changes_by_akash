@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="sub-container">
         <div class="select-language">
             <span >Select Language</span>
@@ -6,16 +6,7 @@
         </div>
         <br>
         <br>
-<!--     
-       <div *ngFor="let item of Language" class="Language-div">
-        <div class="language-text">{{item.languages}}</div>
-        <div>
-          <label class="custom-checkbox" [class.checked]="item.isChecked" (click)="toggleCheckbox(item)">
-            <input type="checkbox" [checked]="item.isChecked" >
-          
-          </label>
-        </div>
-      </div> -->
+
       <div *ngFor="let item of Language" class="Language-div">
         <div class="language-text">{{item.languages}}</div><br><br>
         <div>
@@ -32,5 +23,18 @@
     </div>
     
  
-</div>
+</div> -->
 <!-- app.component.html -->
+<div class="container">
+    
+  <div class="sub-container">
+      <span class="tittlee">
+          <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+              keyboard_backspace
+          </span>
+          <span>Select Language</span>
+      </span>
+  <div id="google_translate_element" class="trans"></div>
+  </div>
+</div>
+

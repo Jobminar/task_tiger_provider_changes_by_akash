@@ -64,18 +64,19 @@ export class WorkCompleteComponent implements OnInit{
 
   toggleDisplay() {
     const userId=this.work.userId
-    this.orderService.completeOrder(this.orderHistoryId,userId).subscribe(
-      (response) => {
-        console.log(response);
-        // this.router.navigate(['verifyAfterWork',this.orderHistoryId]);
-        this.router.navigate(['verifyAfterWork', this.orderHistoryId], { replaceUrl: true }).then(() => {
-          // Replace the current state to prevent back navigation to this page
-          this.location.replaceState('home');
-        });
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    this.router.navigate(['workImage', this.orderHistoryId], { replaceUrl: true });
+    // this.orderService.completeOrder(this.orderHistoryId,userId).subscribe(
+    //   (response) => {
+    //     console.log(response);
+    //     // this.router.navigate(['verifyAfterWork',this.orderHistoryId]);
+    //     this.router.navigate(['workImage', this.orderHistoryId], { replaceUrl: true }).then(() => {
+    //       // Replace the current state to prevent back navigation to this page
+    //       this.location.replaceState('home');
+    //     });
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
   }
 }

@@ -4,7 +4,7 @@
     <div id="menu-button" (click)="toggleDrawer()">☰</div>
     <div class="bell-credit">
         <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
-        <div class="bell"  (click)="navTo('notification')"><span class="material-symbols-outlined" >notifications</span></div>
+        <div class="bell"  (click)="navTo('notification')"><span class="material-symbols-outlined notranslate" >notifications</span></div>
     </div>
   
   <div class="sub-container">
@@ -30,9 +30,9 @@
         <!-- <h2>Sample progressbar</h2> -->
       
         <div class="progress-wrapper">
-          <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}%</div>
+          <div class="current" [ngStyle]="getOverlayStyle()">{{ providerRating }}%</div>
           <round-progress
-            [current]="current"
+            [current]="providerRating"
             [max]="max"
             [color]="color"
             [background]="background"
@@ -59,7 +59,7 @@
       
       <div class="section-div">
           <div class="section">
-            <span class="material-symbols-outlined" >schedule</span>
+            <span class="material-symbols-outlined notranslate" >schedule</span>
             <br>
             <br>
             <span class="info">{{workingHours}} HRS</span>
@@ -67,7 +67,7 @@
             <span class="sub-info">Weekend hours</span>
           </div>
           <div class="section">
-            <span class="material-symbols-outlined"  [ngStyle]="{'color': divColor}">draft</span> &nbsp;<span style="font-size: 1.4rem;"  [ngStyle]="{'color': divColor}">Min:80%</span>
+            <span class="material-symbols-outlined notranslate"  [ngStyle]="{'color': divColor}">draft</span> &nbsp;<span style="font-size: 1.4rem;"  [ngStyle]="{'color': divColor}">Min:80%</span>
             <br>
             <br>
             <span class="info">{{minTarget}}%</span>
@@ -75,7 +75,7 @@
             <span class="sub-info">Response rate</span>
           </div>
           <div class="section">
-            <span class="material-symbols-outlined"  style="color: red;font-size: 28px;">privacy_tip</span>
+            <span class="material-symbols-outlined notranslate"  style="color: red;font-size: 28px;">privacy_tip</span>
             <br>
             <br>
             <span class="info">{{cancelRate}}</span>
@@ -91,7 +91,7 @@
           <br>
           <div>
             <button (click)="navTo('buyNow')">Buy now</button>
-            <button>See details</button>
+            <button (click)="navToDetails()">See details</button>
           </div>
       </div>
   </div>

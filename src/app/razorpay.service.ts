@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { azureApi } from '../constents/apis';
+import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 // import Razorpay from 'razorpay';
 declare var Razorpay: any;
 @Injectable({
@@ -12,7 +14,7 @@ export class RazorpayService {
   private apiUrl=azureApi;
   userId=localStorage.getItem('providerId');
   userCredit:number=0;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private readonly location:Location) { }
 
   payWithRazorpay(amount: number, orderId: string, currency: string) {
     const options = {
@@ -54,6 +56,21 @@ export class RazorpayService {
     rzp1.open();
   }
 
+  createOrder(totalPrice: number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const body = {
+      amount: totalPrice,
+      currency: 'INR',
+      receipt: `receipt_${Date.now()}`
+    };
+    const api=`${this.apiUrl}core/razor-pay/create-order`
+    return this.http.post(api, body, { headers });
+  }
+
+ 
   addingCredit(amount:any){
     const api= this.apiUrl+'providers/provider-credits/recharge'
     const requestBody={
@@ -81,7 +98,8 @@ export class RazorpayService {
     this.getCredits().subscribe(
       (res)=>{
         console.log(res);
-        this.userCredit=res.credits
+        this.userCredit=res.credits;
+        this.location.back();
       },(err)=>{
         console.log(err);
       }
