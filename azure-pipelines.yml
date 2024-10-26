@@ -31,6 +31,10 @@ stages:
               echo "Checking Java version"
               java -version
             displayName: 'Check Java Version'
+          # Ensure local.properties is set up correctly for SDK path
+          - script: |
+              echo "sdk.dir=C:\\Program Files (x86)\\Android\\android-sdk" > android/local.properties
+            displayName: 'Set SDK path in local.properties'
 
           # Sync Capacitor plugins
           - script: |
