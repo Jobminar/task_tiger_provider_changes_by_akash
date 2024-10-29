@@ -49,31 +49,52 @@ export class UserDetailsService {
   }
   getWork(id:any){
     const aaa=this.api + `providers/provider-work/${id}`
- 
+   
     console.log(aaa);
     return this.http.get<any>(aaa)
   }
 
-  deleteWork(catId:string,subCatId:string){
-    const api=`${this.api}/providers/provider-work/delete-subcategory`;
+  deleteServiceWork(catId:string,subCatId:string){
+    const api=`${this.api}providers/provider-work/delete`;
     const requestBody={
       providerId: localStorage.getItem('providerId'),
       workId: catId,
-      subcategoryId:subCatId
+      serviceId:subCatId
     }
+    const options = {
+      body: requestBody
+    };
+    return this.http.delete(api,options);
+  }
 
-    return this.http.post(api,requestBody);
+  deleteWork(requestBody:any):Observable<any>{
+    const api=`${this.api}providers/provider-work/delete-work`;
+   
+    const options = {
+      body: requestBody
+    };
+    return this.http.delete(api,options);
   }
   getFinancialDetails():Observable<any>{
     const api= this.api+`providers/provider-finance/${localStorage.getItem('providerId')}`;
    return this.http.get<any>(api)
   }
 
+
   getPackages():Observable<any>{
     const api= `${this.api}admin/admin-provider-package`;
     return this.http.get<any>(api);
   }
 
+
+  buyingPackages(requestBody:any){
+    const api=`${this.api}providers/provider-package`;
+    return this.http.post<any>(api,requestBody);
+  }
+  getPurchasedPackages(providerId:string |null):Observable<any>{
+    const api=`${this.api}providers/provider-package/${providerId}`;
+    return this.http.get<any>(api);
+  }
   // userCertificated
   getCertificated(id:any):Observable<any>{
      const api= this.api+`providers/provider-certificate/${id}`;

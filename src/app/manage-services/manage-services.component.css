@@ -117,4 +117,9 @@
     color: #95a5a6;
     font-style: italic;
   }
+  .service-section{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
   

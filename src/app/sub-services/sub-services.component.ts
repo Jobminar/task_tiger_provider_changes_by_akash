@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
 import { Router } from '@angular/router';
 import { UserDetailsService } from '../user-details.service';
+import { DailogeBoxService } from '../dailoge-box.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sub-services',
@@ -13,6 +15,8 @@ export class SubServicesComponent implements OnInit{
   constructor(private loginService:LoginServiceService,
               private logInService:LoginServiceService,
               private router:Router,
+              private readonly location:Location,
+              private readonly dailougeService:DailogeBoxService,
             private userDetailsService:UserDetailsService){
     
 
@@ -56,31 +60,43 @@ export class SubServicesComponent implements OnInit{
       // Find the items that match the categoryId from work in the items array
       const matchedSubcategories = this.items.filter((item: any) => item.categoryId === work.categoryId._id);
       
-      if (matchedSubcategories.length > 0) {
-        // Loop through the subcategory array in work
-        work.subcategoryId.forEach((subcategory: any) => {
-          // For each subcategory ID, find the matching subcategory in items
-          matchedSubcategories.forEach((subItem: any) => {
-            if (subItem._id === subcategory._id) {
-              subItem.checked = true;  // Set the subcategory as checked
-              console.log(`Checked subcategory: ${subItem.name}`);
-            }
-          });
+      if (matchedSubcategories.length > 0 && work.serviceId.length>0) {
+        // Since work.subcategoryId is an object, not an array, we can check it directly
+        const subcategory = work.subcategoryId;
+        
+        // For each matched subcategory, set checked if it matches the subcategoryId
+        matchedSubcategories.forEach((subItem: any) => {
+          if (subItem._id === subcategory._id) {
+            subItem.checked = true;  // Set the subcategory as checked
+            console.log(`Checked subcategory: ${subItem.name}`);
+          }
         });
       }
     });
   }
   
   
-  
   send(){
     // this.logInService.setWorkDetails();
     if (this.logInService.selectedSubCategories.length>0) {
-      this.router.navigate(['aboutWork'])
+      // this.router.navigate(['aboutWork']);
+      this.router.navigate(['services']);
     } else {
-      alert("Please select atleat one sub-category ")
+      this.dailougeService.openDialog("Please select atleat one sub-category ");
+     
     }
     
+  }
+  slect(item:any){
+    const indexOfChecked = this.items.indexOf(item);
+    console.log("categoryId",item._);
+    this.logInService.setSubCat(item._id);
+    if (this.logInService.selectedSubCategories.length>0) {
+      // this.router.navigate(['aboutWork']);
+      this.router.navigate(['services']);
+    } else {
+      this.dailougeService.openDialog("Please select atleat one sub-category ");
+    }
   }
   items:any=[]
   onChange(event: any, item: any){
@@ -97,11 +113,20 @@ export class SubServicesComponent implements OnInit{
       
         console.log("categoryId",item._);
         this.logInService.setSubCat(item._id);
+        if (this.logInService.selectedSubCategories.length>0) {
+          // this.router.navigate(['aboutWork']);
+          this.router.navigate(['services']);
+        } else {
+          this.dailougeService.openDialog("Please select atleat one sub-category ");
+        }
         // this.logInservice.categoryId=item.id
         // this.logInservice.setWork(item.names,item.id);
         // this.router.navigate(['subServices']);
         // Perform additional actions related to the checked item
       }
     }
+  }
+  navToBack(){
+    this.location.back();
   }
 }

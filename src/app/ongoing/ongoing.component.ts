@@ -13,7 +13,7 @@ import { OrdersService } from '../orders.service';
 export class OngoingComponent {
   @ViewChild('footer') footer!: FotterComponent;
   
-  buttons = ['Ongoing', 'Pending', 'Completed', 'Cancelled'];
+  buttons = ['Ongoing', 'Pending', 'Accepted','Completed', 'Cancelled'];
   activeButton = 'Ongoing';
   credits: any;
   text: String = this.activeButton;
@@ -52,7 +52,7 @@ export class OngoingComponent {
     this.orderService.orderHistory().subscribe({
       next: (response) => {
         console.log(response);
-        this.order = response; // Assuming response is an array of order objects
+        this.order = response.data; // Assuming response is an array of order objects
         this.filterOrder(); // Call filterOrder after fetching the order history
       },
       error: (err) => {
@@ -75,8 +75,11 @@ export class OngoingComponent {
         this.filterStatus = "InProgress"; // Change status to filter for ongoing orders
         break;
       case 'Pending':
-        this.filterStatus = "Accepted"; // Change status to filter for pending orders
+        this.filterStatus = "Workstart"; // Change status to filter for pending orders
         break;
+        case 'Accepted':
+          this.filterStatus = "Accepted"; // Change status to filter for pending orders
+          break;
       case 'Completed':
         this.filterStatus = "Completed"; // Change status to filter for completed orders
         break;

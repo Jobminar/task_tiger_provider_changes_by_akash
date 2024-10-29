@@ -115,6 +115,9 @@ export class HomeComponent implements OnInit {
     }, 2000);
   }
   navToAboutUser() {
+    if(!localStorage.getItem('providerId')){
+      this.router.navigate(['selectAccount']);
+    }
     let entered;
     this.jobDetailsService
       .getUserDetails(localStorage.getItem('providerId'))
@@ -162,6 +165,8 @@ export class HomeComponent implements OnInit {
         }
       );
   }
+
+  
   dates: any[] = [];
   monthNames = [
     'Jan',
@@ -254,6 +259,7 @@ getBanners(){
   this.userDetailsService.getBanners().subscribe({
     next:(res)=>{
       console.log(res);
+      this.ads=res;
     },error:(err:HttpErrorResponse)=>{
       console.log(err);
     }
@@ -384,8 +390,8 @@ getBanners(){
           year: 'numeric'
         }).replace(/\//g, '-'); // Format: dd-mm-yyyy
   
-        const pending = 'Workstart';
-        const filter = response.filter((order: any) => {
+        const pending = 'Accepted';
+        const filter = response.data.filter((order: any) => {
           const scheduledDate = order.orderId.items[0].scheduledDate.split(' ')[0];          ;
           console.log("scheduleee================",scheduledDate);
           const status = order.status.toLowerCase();

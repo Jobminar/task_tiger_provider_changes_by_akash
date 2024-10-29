@@ -81,10 +81,22 @@ export class CalenderComponent {
   }
 
   timing: any[] = [
-    { time: '07:00AM - 10:00AM', isSelected: false },
-    { time: '10:00AM - 01:00PM', isSelected: false },
-    { time: '01:00PM - 04:00PM', isSelected: false },
-    { time: '04:00PM - 07:00PM', isSelected: false }
+    { time: '07AM-10AM', isSelected: false },
+    { time: '10AM-01PM', isSelected: false },
+    { time: '01PM-04Pm', isSelected: false },
+    { time: '04PM-07Pm', isSelected: false },
+    { time: '07PM-10Pm', isSelected: false }
+    // { time: '12AM', isSelected: false },
+    // { time: '01PM', isSelected: false },
+    // { time: '02PM', isSelected: false },
+    // { time: '03PM', isSelected: false },
+    // { time: '04PM', isSelected: false },
+    // { time: '05PM', isSelected: false },
+    // { time: '06PM', isSelected: false },
+    // { time: '07PM', isSelected: false },
+    // { time: '08PM', isSelected: false },
+    // { time: '09PM', isSelected: false },
+    // { time: '10PM', isSelected: false }
   ];
 
   getSelectedService() {
@@ -112,16 +124,34 @@ export class CalenderComponent {
       const currentDay = new Date(today);
       currentDay.setDate(today.getDate() + i);
       const formattedDate = this.formatDate(currentDay);
+      const filteredTimings = (i === 0) ? this.getFutureTimings() : [...this.timing];
       this.nextFourDays.push({
         date: formattedDate,
         day: days[currentDay.getDay()],
         workingStaus: false,
-        timming: this.timing.map(t => ({ ...t }))  // Clone the timing array for each date
+        timming: filteredTimings  // Clone the timing array for each date
       });
     }
     this.nextDaysOfIndex = this.nextFourDays[this.selectedIndex];
   }
 
+  getFutureTimings() {
+    const currentHour = this.date.getHours();
+  
+    const currentMinute = this.date.getMinutes();
+    return this.timing.filter(item => {
+      const timeString = item.time;
+      let hour = parseInt(timeString.slice(0, -2));  // Extract the hour part
+      const isAM = timeString.includes('AM');
+
+      // Convert to 24-hour format if PM and not 12 PM
+      if (!isAM && hour < 12) hour += 12;
+      if (isAM && hour === 12) hour = 0;  // Handle 12 AM as midnight
+
+      // Filter out past hours and if hour is same as current, check minutes
+      return hour > currentHour 
+    });
+  }
   formatDate(date: Date): string {
     const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
@@ -170,15 +200,19 @@ export class CalenderComponent {
     this.nextFourDays[this.selectedIndex].workingStaus = !this.nextFourDays[this.selectedIndex].workingStaus;
   }
 
-  onToggleChange(event: MatSlideToggleChange, item: any) {
+  onToggleChange(event:any, item: any) {
+    const inputElement = event.target as HTMLInputElement;
+    const isChecked = inputElement?.checked ?? false;
+    // item.isSelected = isChecked;
+    console.log(isChecked);
     this.nextDaysOfIndex.timming.forEach((timeSlot: { time: any; isSelected: boolean; }) => {
       if (timeSlot.time === item.time) {
-        timeSlot.isSelected = event.checked;
+        timeSlot.isSelected = isChecked;
       }
     });
 
     // Update the timeSelected based on the user's choice
-    this.timeSelected = event.checked ? item.time : '';
+    this.timeSelected = isChecked ? item.time : '';
 
     console.log(this.dateSelected);
 

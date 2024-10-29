@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
 import { Router } from '@angular/router';
+import { DailogeBoxService } from '../dailoge-box.service';
 
 @Component({
   selector: 'app-work-experiance',
@@ -11,7 +12,8 @@ export class WorkExperianceComponent {
   experiance:string | null=''
 
   constructor(private logInservice:LoginServiceService,
-              private router:Router
+              private router:Router,
+              private dialogeService:DailogeBoxService
   ){
 
   }
@@ -31,6 +33,20 @@ export class WorkExperianceComponent {
 
     this.logInservice.setExperiance(this.experiance);
     this.logInservice.setWorkDetails()
-    this.router.navigate(['selectWork'])
+    
+    // console.log(this.selectedAge,this.selectedExperiance);
+    this.logInservice.sendWorkDetails().subscribe(
+      (response)=>{
+        console.log(response);
+        this.dialogeService.openDialog("Service has been added");
+        this.logInservice.workId='';
+        this.logInservice.setSubCat("");
+        this.logInservice.setservices([]);
+       this.router.navigate(['selectWork'])
+      },(err)=>{
+        console.log(err);
+        this.dialogeService.openDialog(err.error.message);
+      }
+    )
   }
 }

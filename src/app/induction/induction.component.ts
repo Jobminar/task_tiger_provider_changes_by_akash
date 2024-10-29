@@ -178,6 +178,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TraniningService } from '../tranining.service';
+import { UserDetailsService } from '../user-details.service';
 
 @Component({
   selector: 'app-induction',
@@ -201,10 +202,14 @@ export class InductionComponent implements OnInit {
   @ViewChild('videoPlayer', { static: false }) videoPlayer: ElementRef<HTMLVideoElement> | undefined;
   @ViewChild('activeVideo', { static: false }) activeVideo: ElementRef<HTMLVideoElement> | undefined;
 
-  constructor(private http: HttpClient, private tranningService: TraniningService, private router: Router) { }
+  constructor(private http: HttpClient,
+               private tranningService: TraniningService, 
+              private router:  Router,
+              private userService:UserDetailsService ) { }
 
   ngOnInit(): void {
     this.gettingVideos();
+    this.getWork();
   }
 
   gettingVideos() {
@@ -219,6 +224,35 @@ export class InductionComponent implements OnInit {
     );
   }
 
+  getWork(){
+    this.userService.getWork(localStorage.getItem('providerId')).subscribe(
+      (response)=>{
+          console.log(response);
+          const categoryIds = response.works.map((work: any) => work.categoryId._id);
+        //  console.log(response[0].works);
+        /**
+         * replace the ids with serviceIds to get the dynamic videos
+         */
+        this.getVideosForIds(["6701477d6cdbd8a62eb1bafa"]);
+        //  this.workSeleceted=response.works
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
+  getVideosForIds(ids: string[]) {
+    console.log(ids);
+    this.tranningService.getInductionVideosByIds(ids).subscribe(
+      (response) => {
+        console.log(response.flat());
+        // this.videos = response.filter(video => video !== null); // Filter out any null values
+       
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
   playVideo(index: number): void {
     this.pupUp = true;
     this.currentVideoIndex = index;

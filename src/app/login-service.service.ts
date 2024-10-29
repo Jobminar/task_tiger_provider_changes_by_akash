@@ -30,8 +30,9 @@ export class LoginServiceService {
   age: any;
   gender: any;
   experience: any = 0;
-  selectedSubCategories:any[]=[];
+  selectedSubCategories:string='';
   categoryId:any;
+  selectedServiceId:any[]=[];
   userFromServer: any = [];
   constructor(private http: HttpClient,
      private router: Router,
@@ -133,9 +134,14 @@ export class LoginServiceService {
   }
 
   setSubCat(item:any){
-    console.log(item);
-    this.selectedSubCategories.push(item)
+   
+    this.selectedSubCategories=item
     console.log(this.selectedSubCategories);
+  }
+  
+  
+  setservices(serviceId:any){
+    this.selectedServiceId=serviceId;
   }
   setAge(age: any) {
     console.log(age);
@@ -150,10 +156,13 @@ export class LoginServiceService {
   setWorkDetails() {
     console.log(this.selectedSubCategories);
     const work = [
-      {categoryId:this.workId,
+      {
+        categoryId:this.workId,
         //  nameOfService: this.workName, 
          experience: this.experience,
-         subcategoryId:this.selectedSubCategories },
+         subcategoryId:this.selectedSubCategories ,
+         serviceId:this.selectedServiceId
+      },
     ];
     this.workDetails.push(work);
     console.log(this.workDetails.flat());
@@ -166,6 +175,10 @@ export class LoginServiceService {
     return this.http.get<any>(api);
   }
  
+  getServices(catId:string,subCatId:string):Observable<any>{
+    const api=`${this.apiUrl}/core/services/filter/${catId}/${subCatId}`;
+    return this.http.get<any>(api);
+  }
 
   // UserDetails(data: any) {
   //   console.log(data);
@@ -194,7 +207,7 @@ export class LoginServiceService {
   // }
 
   sendWorkDetails(){
-    const api= this.apiUrl+`providers/provider-work`
+    const api= this.apiUrl+`providers/provider-work`;
     // console.log(this.workDetails);
     const work=this.workDetails.flat();
     const userId=localStorage.getItem('providerId')
@@ -310,7 +323,7 @@ export class LoginServiceService {
     this.age='';
     this.gender='';
     this.experience= 0;
-    this.selectedSubCategories=[];
+    this.selectedSubCategories='';
     this.categoryId='';
     this.userFromServer = [];
     

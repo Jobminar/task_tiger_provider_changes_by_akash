@@ -136,8 +136,8 @@ export class GetOrdersService {
   const data = notification.data?.['orderId'];
   const title = notification.notification?.title 
   const body = notification.notification?.body ;
-  alert(data)
-  if (data && title) {
+  
+  if (title) {
     // Navigate to a specific page based on the notification data
     if (title==='New Order') {
       // this.router.navigate(['getOrder', data.orderId]);
@@ -147,6 +147,7 @@ export class GetOrdersService {
         setTimeout(() => {
           this.router.navigate(['getOrder', data]).then(() => {
             this.location.replaceState('home'); // Clear history stack for Android navigation
+            alert(data);
           });
         }, 2000);
        

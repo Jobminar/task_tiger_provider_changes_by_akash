@@ -1,0 +1,26 @@
+<div class="container">
+    <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+        keyboard_backspace
+    </span>
+    <div class="sub-container">
+       
+        <span class="tittle">Select Services</span><br>
+        <!-- <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for stock" [(ngModel)]="searchQuery" (input)="onInputChange($event)">
+            <span class="material-symbols-outlined" [hidden]="searchQuery">search</span>
+        </div> -->
+        
+        <div class="serivce">
+            <!-- <span class="tittle2">All categories</span><br> -->
+            @for (item of items; track $index) {
+               
+                <div class="service-div">
+                    <div class="names"><img [src]="item.image">{{item.name}}</div>
+                    <div ><input type="checkbox" class="checkbox"  [(ngModel)]="item.checked"  (change)="onChange($event, item)"></div>
+                </div>
+            
+            }
+        </div>
+    </div>
+    <button type="submit" (click)="send()" class="login-btn">Continue</button>
+</div>

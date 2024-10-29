@@ -55,10 +55,17 @@
         </div>
         <br>
         <div class="line"></div>
-        <div class="time-confirm" *ngFor="let item of nextDaysOfIndex.timming">
-          <span>{{item.time}}</span>
-          <p><mat-slide-toggle  [(ngModel)]="item.isSelected" (change)="onToggleChange($event, item)"  color="accent" ></mat-slide-toggle></p>
+        <section class="time-section">
+            <div class="time-confirm" *ngFor="let item of nextDaysOfIndex.timming">
+          
+          <!-- <p><mat-slide-toggle  [(ngModel)]="item.isSelected" (change)="onToggleChange($event, item)"  color="accent" ></mat-slide-toggle></p> -->
+          
+            <input type="checkbox" [(ngModel)]="item.isSelected" (change)="onToggleChange($event, item)" color="accent">
+          
+          <span class="service-tittle">{{item.time}}</span>
         </div>
+      </section>
+
       </div>
       <button (click)="submitAllData()">submit</button>
     </div>

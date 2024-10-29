@@ -4,20 +4,20 @@
     height: 100vh;
     /* border: 1px solid black; */
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 .sub-container
 {
     width: 90%;
     height: 87vh;
     position: relative;
-    top: 5%;
+    /* top: 5%; */
     left: 5%;
     /* border: 1px solid red; */
     align-items: center;
     display: grid;
     grid-gap: 0.5rem;
-   
+    text-align: center;
 }
 .tittle
 {

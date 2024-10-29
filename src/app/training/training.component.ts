@@ -34,8 +34,9 @@ export class TrainingComponent {
   ) { }
 
   ngOnInit(): void {
-    this.gettingVideos();
     this.getWork();
+    
+    
   }
 
   
@@ -43,25 +44,42 @@ export class TrainingComponent {
     this.userService.getWork(localStorage.getItem('providerId')).subscribe(
       (response)=>{
           console.log(response);
+          const serviceIds = response.works.map((work: any) => work.serviceId._id);
         //  console.log(response[0].works);
-        
+        /**
+         * replace the ids with serviceIds to get the dynamic videos
+         */
+        this.getVideosForIds([ "670ebee772f9da361fe4cdc4","670ebed072f9da361fe4cd1c"]);
         //  this.workSeleceted=response.works
       },(err)=>{
         console.log(err);
       }
     )
   }
-  gettingVideos() {
-    this.tranningService.getingVideos().subscribe(
+  getVideosForIds(ids: string[]) {
+    console.log(ids);
+    this.tranningService.getVideosByIds(ids).subscribe(
       (response) => {
-        console.log(response);
-        this.videos = response;
+        console.log(response.flat());
+        this.videos = response.filter(video => video !== null); // Filter out any null values
+       
       },
       (error) => {
         console.log(error);
       }
     );
   }
+  // gettingVideos() {
+  //   this.tranningService.getingVideos().subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       this.videos = response;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   playVideo(index: number): void {
     this.pupUp=true

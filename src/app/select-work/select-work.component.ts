@@ -16,10 +16,11 @@ export class SelectWorkComponent implements OnInit{
   searchQuery: string = '';
   previousUrl: string | undefined;
   workSeleceted:any[]=[];
-  items = this.jobDetails.items;
+  items :any[]=[];
 
   ngOnInit(): void {
     this.previousUrl = this.routeTrackingService.getPreviousUrl();
+    this.items=this.jobDetails.items;
     this.getWork();
     console.log(this.items);
   }
@@ -100,7 +101,7 @@ export class SelectWorkComponent implements OnInit{
       // Find a matching item based on categoryId
       const matchedItem = this.items.find((item :any)=> item.names === work.categoryId.name);
       console.log(matchedItem);
-      if (matchedItem ) {
+      if (matchedItem && work.serviceId.length>0) {
         // Loop through the subcategories in the work data
         // console.log(matchedItem);
         // console.log(work);
@@ -123,23 +124,9 @@ export class SelectWorkComponent implements OnInit{
       {
         const work=this.logInservice.workDetails.flat()
         this.UpdatingUserWork(work);
-      } 
-      else{
-        if (checkedItems.length < 1) {
-          alert('please select any one service');
-        } else {
-          this.logInservice.sendWorkDetails().subscribe(
-            (response)=>{
-              console.log(response);
-              this.dialogeService.openDialog("Service has been added");
-              this.router.navigate(['aboutUser']);
-            },(err)=>{
-              console.log(err);
-            }
-          )
-         
-        }
+        console.log(this.jobDetails.userDetails.providerName);
       }
+      // this.router.navigate(['manageServices']);
   }
 
   workForSending:any[]=[];

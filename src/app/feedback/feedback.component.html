@@ -1,9 +1,17 @@
 <section class="feedback-container">
-  <span class="material-symbols-outlined notranslate" style="font-size: 28px;" (click)="navToBack()">arrow_back</span>
-  <div class="star-div">
-    <h2>Give Your Feedback</h2>
-  
-    <!-- Star Rating Section -->
+  <!-- Back Button -->
+  <span class="material-symbols-outlined back-icon" (click)="navToBack()">arrow_back</span>
+
+  <!-- Success Icon -->
+  <div class="success-icon">
+    <img src="assets/demo/done.png">
+  </div>
+
+  <!-- Star Rating Section -->
+   <div class="star-div">
+
+   
+  <div class="star-rating-section">
     <div class="star-rating">
       <span class="star" [class.filled]="rating >= 1" (click)="rate(1)">&#9733;</span>
       <span class="star" [class.filled]="rating >= 2" (click)="rate(2)">&#9733;</span>
@@ -12,17 +20,16 @@
       <span class="star" [class.filled]="rating >= 5" (click)="rate(5)">&#9733;</span>
     </div>
 
-    <!-- Feedback Textarea -->
-    <div class="feedback-text">
-      <textarea
-        [(ngModel)]="userFeedback"
-        placeholder="Write your feedback here..."
-        rows="5"
-      ></textarea>
-    </div>
- 
-    <!-- Submit Button -->
-    <button class="submit-btn" (click)="submitFeedback()">Submit Feedback</button>
+    <p class="rating-text">Excellent</p>
+    <p class="rating-subtext">You rated Sergio Ramos 5 star</p>
   </div>
-  </section>
-  
+
+  <!-- Feedback Text Area -->
+  <div class="feedback-text">
+    <textarea [(ngModel)]="userFeedback" placeholder="Write your text" rows="4"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+</div>
+</section>

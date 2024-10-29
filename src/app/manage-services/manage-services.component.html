@@ -13,27 +13,38 @@
         </div>
        
     </div>
-        <div *ngFor="let work of works" class="work-div">
-            <h3>{{ work.categoryId.name }}</h3>
-          
-            <!-- Display subcategories if available -->
-            <div *ngIf="work.subcategoryId.length > 0">
-              <ul>
-                <li *ngFor="let subcategory of work.subcategoryId; let i = index">
-                  {{ subcategory.name }}
-                  <!-- Google delete icon to remove the subcategory -->
-                  <span class="material-icons" (click)="removeSubcategory(work._id, subcategory._id)">
-                    delete
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <p *ngIf="work.subcategoryId.length === 0">No subcategories available</p>
-          
-            <!-- Experience information -->
-            <p>Experience: {{ work.experience }}</p>
+      @for (work of works; track $index) {
+        @if (work.serviceId.length >0){
+        <div  class="work-div">
+        
+          <h3>Category : {{ work.categoryId.name }}</h3>
+         <section class="service-section"> 
+          <h3> SubCategory : {{work.subcategoryId.name}}</h3>
+          <span class="material-icons" (click)="removeWork(work._id)">
+            delete
+          </span>
+         </section>
+          <!-- Display subcategories if available -->
+          <div>
+            <h3>Services :</h3>
+            <ul>
+              <li *ngFor="let subcategory of work.serviceId; let i = index">
+                {{ subcategory.name }}
+        
+                <span class="material-icons" (click)="removeSubcategory(work._id, subcategory._id)">
+                  delete
+                </span>
+              </li>
+            </ul>
           </div>
-          
+          <p *ngIf="work.subcategoryId.length === 0">No subcategories available</p>
+        
+          <!-- Experience information -->
+          <p>Experience: {{ work.experience }}</p>
+         
+        </div>
+      }
+      }
 
           
     </div>

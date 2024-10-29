@@ -3,11 +3,16 @@
         arrow_back
       </span>
     <button (click)="takePicture()">Take Picture</button>
-
-    @if (imageUrl) {
-        <div class="image">
-             <img  [src]="imageUrl" alt="Captured Image" >
-        </div>
-        <button (click)="submit()">Submit</button>
-    }
+      <div class="sub-container">
+        @if (imageUrl) {
+            <div class="image">
+                 <img  [src]="imageUrl" alt="Captured Image" >
+            </div>
+            <div class="button-div">
+                <button (click)="submit()">Submit</button>
+            </div>
+            
+        }
+      </div>
+    
 </div>

@@ -1,32 +1,57 @@
 <div class="container">
     <div class="sub-container">
         <div class="arrow">
-            <span class="material-symbols-outlined notranslate" style="font-size: 28px;" (click)="navToBack()">arrow_back</span>
-            <span class="tittle">Packages</span>
+            <span
+                class="material-symbols-outlined notranslate"
+                style="font-size: 28px;"
+                (click)="navToBack()"
+            >arrow_back</span>
         </div>
-        <div *ngFor="let package of packages; let i = index" [ngClass]="{'first-package': package.packageName=== 'silver', 'package': true}">
-            <br>
+
+        <div
+            *ngFor="let package of packages; let i = index"
+            [ngClass]="{
+                'first-package': package.packageName === 'silver',
+                'package': true
+            }"
+        >
+            <br />
             <div>
-                <p class="upgrade"><span>UPGRADE TO</span><button>validity :{{package.validity}}</button></p>
-                <p class="package-name"><img [src]="package.image"> &nbsp;<span>{{package.packageName}}</span></p>
+                <p class="upgrade">
+                    <span *ngIf="isPackageActivated(package); else buyButton">
+                        Activated Package
+                    </span>
+                    <ng-template #buyButton>
+                        <!-- <button (click)="buy(package)">Buy Now</button> -->
+                        <p class="upgrade">
+                            <span>UPGRADE TO</span>
+                            <button (click)="buy(package)"  [disabled]="isPackageActivated(package)">Buy Now</button>
+                        </p>
+                    </ng-template>
+                </p>
+
+                <p class="package-name">
+                    <img [src]="package.image" /> &nbsp;<span>{{ package.packageName }}</span>
+                </p>
                 <p class="upgrade">
                     <span>
                         <span class="Current">Current</span> &nbsp;
                         <span class="material-symbols-outlined notranslate" style="font-size: 1rem;">lock_open</span>
                     </span>
-                    <span>Validity : {{package.validity}}</span>
-                </p> 
+                    <span>
+                        {{ isPackageActivated(package) ? 'Expiry' : 'Validity' }} : 
+                        {{ isPackageActivated(package) ? getExpiryDate(package.packageName) : package.validity }}
+                    </span>
+                </p>
                 <ul>
-                    <li>{{package.noOfJobOffers}} jobs </li>
-                    <li>{{package.discountPlatformCom}} % discount on platform commision</li>
+                    <li>{{ package.noOfJobOffers }} jobs</li>
+                    <li>{{ package.discountPlatformCom }} % discount on platform commission</li>
                 </ul>
                 <p class="upgrade">
-                    <!-- <button *ngIf="isEnrolled">1 month</button> -->
                     <span *ngIf="!isEnrolled">Amount Payable</span>
-                    <span>&#8377; {{package.priceRs}}</span>
+                    <span>&#8377; {{ package.priceRs }}</span>
                 </p>
             </div>
         </div>
-        
     </div>
 </div>

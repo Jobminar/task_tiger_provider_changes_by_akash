@@ -13,7 +13,11 @@
         <div class="bell-credit">
            
             <!-- <div class="package"><img src="assets/packages/silver coin 1.png">&nbsp;<pre>Silver</pre></div> -->
-            <div class="credit" (click)="navToCredit()"><img src="assets/logo/credit.png"><pre>{{credits}}</pre></div>
+            <div class="credit" (click)="navToCredit()">
+                <img src="assets/logo/credit.png">
+                <pre>{{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</pre>
+            </div>
+              
             <div class="bell" (click)="navToNotification()"><span class="material-symbols-outlined notranslate" >notifications</span></div>
         </div>
     </div>
@@ -23,7 +27,7 @@
                 <div class="wrapperrr">
                     <div *ngFor="let ad of ads">
                         <div class="slidesss">
-                            <img [src]="ad.src">
+                            <img [src]="ad.image">
                         </div>
                     </div>
                 </div>

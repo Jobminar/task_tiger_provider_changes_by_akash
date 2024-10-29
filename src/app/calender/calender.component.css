@@ -16,8 +16,8 @@
 }
 .service-tittle{
     font-family: 'Inter'sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 500;
     line-height: 16.94px;
     text-align: left;
 
@@ -199,6 +199,17 @@ button{
 }
 .time-confirm
 {
+    height: 2rem;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    /* border: 1px solid black; */
+}
+.time-section{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    column-gap: 5%;
+    row-gap: 1rem;
 }

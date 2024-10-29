@@ -1,4 +1,7 @@
 <div class="container">
+    <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+        keyboard_backspace
+    </span>
     <div class="sub-container">
         <span class="tittle">Select Sub-Services</span><br>
         <!-- <div class="search-container">
@@ -11,12 +14,12 @@
             @for (item of items; track $index) {
                
                 <div class="service-div">
-                    <div class="names"><img [src]="item.imageKey">{{item.name}}</div>
+                    <div class="names" (click)="slect(item)"><img [src]="item.imageKey">{{item.name}}</div>
                     <div ><input type="checkbox" class="checkbox"  [(ngModel)]="item.checked"  (change)="onChange($event, item)"></div>
                 </div>
             
             }
         </div>
     </div>
-    <button type="submit" (click)="send()" class="login-btn">Continue</button>
+    <!-- <button type="submit" (click)="send()" class="login-btn">Continue</button> -->
 </div>

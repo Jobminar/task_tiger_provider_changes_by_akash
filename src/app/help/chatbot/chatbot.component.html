@@ -30,6 +30,7 @@
         }"
         class="message"
       >
+      @if (message.message && message.message.trim() !== '') {
         <div
           [ngClass]="{
             'user-message': message.senderType === 'user',
@@ -45,6 +46,7 @@
           /> -->
           {{ message.message }}
         </div>
+      }
       </div>
     </div>
   

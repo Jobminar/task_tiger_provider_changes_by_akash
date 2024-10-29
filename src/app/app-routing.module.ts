@@ -50,6 +50,7 @@ import { HelpModule } from './help/help.module';
 import { ManageServicesComponent } from './manage-services/manage-services.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { WorkImageComponent } from './work-image/work-image.component';
+import { ServiceComponent } from './service/service.component';
 
 
 const routes: Routes = [
@@ -102,7 +103,8 @@ const routes: Routes = [
   {path:'notFound',component:NotFoundComponent},
   {path:'manageServices',component:ManageServicesComponent},
   {path:'feedback',component:FeedbackComponent},
-  {path:'workImage/:id',component:WorkImageComponent}
+  {path:'workImage/:id',component:WorkImageComponent},
+  {path:'services',component:ServiceComponent}
 ]; 
 
 @NgModule({

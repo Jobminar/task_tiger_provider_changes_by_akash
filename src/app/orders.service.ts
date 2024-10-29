@@ -82,8 +82,8 @@ export class OrdersService {
 
   orderHistory():Observable<any>{
     const providerId=localStorage.getItem('providerId');
-    // const api= this.apiUrl+`users/order-history/provider/${providerId}` ;
-    const api= this.apiUrl+`users/order-history`;
+    const api= this.apiUrl+`users/order-history/provider/${providerId}` ;
+    // const api= this.apiUrl+`users/order-history`;
     return this.http.get<any>(api);
 
   }

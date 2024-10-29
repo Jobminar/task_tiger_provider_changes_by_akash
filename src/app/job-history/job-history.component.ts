@@ -51,7 +51,7 @@ export class JobHistoryComponent implements OnInit{
     this.orderService.orderHistory().subscribe({
       next: (response) => {
         console.log(response);
-        this.jobs = response; // Assuming response is an array of order objects
+        this.jobs = response.data; // Assuming response is an array of order objects
         this.filterOrder(); // Call filterOrder after fetching the order history
       },
       error: (err) => {

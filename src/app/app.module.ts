@@ -83,6 +83,7 @@ import { NgxLoadingModule } from "ngx-loading";
 import { ManageServicesComponent } from './manage-services/manage-services.component';
 import { WorkImageComponent } from './work-image/work-image.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { ServiceComponent } from './service/service.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -137,7 +138,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     LocationComponent,
     ManageServicesComponent,
     WorkImageComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,

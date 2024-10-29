@@ -38,7 +38,7 @@ export class ManageServicesComponent implements OnInit{
   removeSubcategory(workId: string, subcategoryId:string) {
   
     console.log(workId,'subCat', subcategoryId);
-    this.userDetailsService.deleteWork(workId,subcategoryId).subscribe(
+    this.userDetailsService.deleteServiceWork(workId,subcategoryId).subscribe(
       {
         next:(res)=>{
           console.log(res);
@@ -49,6 +49,25 @@ export class ManageServicesComponent implements OnInit{
         }
       }
     )
+  }
+
+  removeWork(workId:string){
+    const requestBody={
+      providerId:localStorage.getItem('providerId'),
+      workId:workId
+    }
+    this.userDetailsService.deleteWork(requestBody).subscribe(
+      {
+        next:(res)=>{
+          console.log(res);
+          this.getWork();
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      }
+    )
+
   }
   navToSelectWork(){
     this.router.navigate(['selectWork']);
