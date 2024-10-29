@@ -4,7 +4,9 @@ trigger:
       - main  # Adjust this according to your branch naming
 
 pool:
-  vmImage: 'windows-latest'  # Use 'macos-latest' or 'ubuntu-latest' if needed
+  name: 'tt-devops-build'
+  demands:
+    - Agent.Version -gtVersion 2.199.0  # Remove the 'java' demand if it causes issues
 
 stages:
   - stage: Build
@@ -16,13 +18,24 @@ stages:
           # Checkout the source code
           - checkout: self
 
-          # Set up JDK (required for Gradle)
-          - task: JavaToolInstaller@0
-            inputs:
-              versionSpec: '17'
-              jdkArchitectureOption: 'x64'
-              jdkSourceOption: 'PreInstalled'
-            displayName: 'Install JDK 17'
+          #Set up JDK (required for Gradle)
+          # Set JAVA_HOME to the pre-installed JDK location
+          - script: |
+              echo "Setting JAVA_HOME to the pre-installed JDK"
+              echo ##vso[task.setvariable variable=JAVA_HOME]C:\Program Files\Java\jdk-17
+              echo %JAVA_HOME%
+            displayName: 'Set JAVA_HOME'
+
+          # Print JAVA version to ensure the correct JDK is used
+          - script: |
+              echo "Checking Java version"
+              java -version
+            displayName: 'Check Java Version'
+          # Ensure local.properties is set up correctly for SDK path
+          - script: |
+              echo "sdk.dir=C:\\Program Files (x86)\\Android\\android-sdk" > android/local.properties
+            displayName: 'Set SDK path in local.properties'
+
           # Sync Capacitor plugins
           - script: |
               npm install
