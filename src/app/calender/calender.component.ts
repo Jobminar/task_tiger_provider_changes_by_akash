@@ -8,6 +8,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserDetailsService } from '../user-details.service';
 import { azureApi } from '../../constents/apis';
 import { DailogeBoxService } from '../dailoge-box.service';
+
+import { parse, format } from 'date-fns';
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
@@ -38,6 +40,7 @@ export class CalenderComponent {
   selectedService: string = '';
 
   constructor(
+
     private location: Location,
     private renderer: Renderer2,
     private el: ElementRef,
@@ -103,13 +106,29 @@ export class CalenderComponent {
     this.userService.getWork(localStorage.getItem('providerId')).subscribe(
       (response) => {
         console.log(response);
-        this.services = response.works;
+  
+        // Filter response.works to include only unique categories
+        const uniqueCategories = response.works.reduce((acc: any[], current: any) => {
+          const categoryExists = acc.find(
+            (item) => item.categoryId.name === current.categoryId.name
+          );
+  
+          if (!categoryExists) {
+            acc.push(current); // Add current work only if its category is not yet added
+          }
+  
+          return acc;
+        }, []);
+  
+        this.services = uniqueCategories; // Assign the filtered list to services
+        // console.log(this.services);
       },
       (err) => {
         console.log(err);
       }
     );
   }
+  
 
   availabilityService(serviceName: string) {
     this.selectedService = serviceName;
@@ -251,12 +270,28 @@ export class CalenderComponent {
       this.api = `${this.apiUrl}providers/provider-date/delete`
     }
 
+    const date = parse(this.fullDate, 'yyyy-MM-dd', new Date());
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+        console.error('Invalid date:', this.fullDate);
+        return; // Handle the error appropriately
+    }
+    
+    const formattedDate = format(date, 'yyyy-MM-dd');
+    console.log(formattedDate);
+
     const requestBody = {
       providerId: this.userId,
       service: this.selectedService,
-      date: this.fullDate,
+      slotTime:{
+        date: this.fullDate,
+        time: this.timeSelected
+      },
+      
       availability: this.working,
-      time: this.timeSelected
+      jobStartTime:null,
+      jobEndTime:null
     };
     console.log(requestBody);
     console.log(this.api);
@@ -306,7 +341,7 @@ export class CalenderComponent {
 
       this.nextFourDays.forEach((item: { date: string; workingStaus: boolean; timming: any[]; }) => {
         if (item.date === formattedDate) {
-          item.workingStaus = element.work;
+          item.workingStaus = element.availability;
           item.timming.forEach(t => {
             if (t.time === element.time) {
               t.isSelected = true;

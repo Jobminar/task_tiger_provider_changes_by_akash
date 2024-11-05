@@ -101,7 +101,7 @@ export class SelectWorkComponent implements OnInit{
       // Find a matching item based on categoryId
       const matchedItem = this.items.find((item :any)=> item.names === work.categoryId.name);
       console.log(matchedItem);
-      if (matchedItem && work.serviceId.length>0) {
+      if (matchedItem ) {
         // Loop through the subcategories in the work data
         // console.log(matchedItem);
         // console.log(work);

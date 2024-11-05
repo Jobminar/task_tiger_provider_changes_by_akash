@@ -9,351 +9,356 @@
 9        android:targetSdkVersion="34" />
 10
 11    <!-- Permissions -->
-12
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:5-67
-13-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:22-64
-14    <uses-permission android:name="android.permission.WAKE_LOCK" />
-14-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:5-68
-14-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:22-65
-15    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-15-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:5-81
-15-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:22-78
-16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:5-78
-16-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:22-76
-17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-17-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:5-80
-17-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:22-78
-18    <uses-permission android:name="android.permission.CAMERA" />
-18-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:5-65
-18-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:22-62
-19    <uses-permission android:name="android.permission.READ_ externa  l_storage" />
-19-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:5-83
-19-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:22-80
-20
-21    <queries>
-21-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
-22        <intent>
-22-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
-23            <action android:name="android.media.action.IMAGE_CAPTURE" />
-23-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
-23-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
-24        </intent>
-25    </queries>
-26
-27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-27-->[:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
-27-->[:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
-28    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-28-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:5-77
-28-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:22-74
-29    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-29-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:26:5-82
-29-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:26:22-79
-30
-31    <permission
-31-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-32        android:name="com.tasktigersprovider.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-32-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-33        android:protectionLevel="signature" />
-33-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-34
-35    <uses-permission android:name="com.tasktigersprovider.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-35-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-35-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
-36
-37    <application
-37-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:4:5-36:19
-38        android:allowBackup="true"
-38-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:5:9-35
-39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-39-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-40        android:debuggable="true"
-41        android:extractNativeLibs="true"
-42        android:icon="@mipmap/ic_launcher"
-42-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:6:9-43
-43        android:label="@string/app_name"
-43-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:7:9-41
-44        android:roundIcon="@mipmap/ic_launcher_round"
-44-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:8:9-54
-45        android:supportsRtl="true"
-45-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:9:9-35
-46        android:theme="@style/AppTheme" >
-46-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:10:9-40
-47        <activity
-47-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:12:9-25:20
-48            android:name="com.tasktigersprovider.app.MainActivity"
-48-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:14:13-41
-49            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-49-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:13:13-129
-50            android:exported="true"
-50-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:18:13-36
-51            android:label="@string/title_activity_main"
-51-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:15:13-56
-52            android:launchMode="singleTask"
-52-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:17:13-44
-53            android:theme="@style/AppTheme.NoActionBarLaunch" >
-53-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:16:13-62
-54            <intent-filter>
-54-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:20:13-23:29
-55                <action android:name="android.intent.action.MAIN" />
-55-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:21:17-69
-55-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:21:25-66
-56
-57                <category android:name="android.intent.category.LAUNCHER" />
-57-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:22:17-77
-57-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:22:27-74
-58            </intent-filter>
-59        </activity>
-60
-61        <provider
-62            android:name="androidx.core.content.FileProvider"
-62-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:28:13-62
-63            android:authorities="com.tasktigersprovider.app.fileprovider"
-63-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:29:13-64
-64            android:exported="false"
-64-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:30:13-37
-65            android:grantUriPermissions="true" >
-65-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:31:13-47
-66            <meta-data
-66-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:32:13-34:64
-67                android:name="android.support.FILE_PROVIDER_PATHS"
-67-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:33:17-67
-68                android:resource="@xml/file_paths" />
-68-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:34:17-51
-69        </provider>
-70
-71        <service
-71-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-14:19
-72            android:name="com.capacitorjs.plugins.pushnotifications.MessagingService"
-72-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-86
-73            android:exported="false" >
-73-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-37
-74            <intent-filter>
-74-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:29
-75                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-75-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-78
-75-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:25-75
-76            </intent-filter>
-77        </service>
-78
-79        <receiver
-79-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:29:9-40:20
-80            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-80-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:30:13-78
-81            android:exported="true"
-81-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:31:13-36
-82            android:permission="com.google.android.c2dm.permission.SEND" >
-82-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:32:13-73
-83            <intent-filter>
-83-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:33:13-35:29
-84                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-84-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:34:17-81
-84-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:34:25-78
-85            </intent-filter>
-86
-87            <meta-data
-87-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:37:13-39:40
-88                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
-88-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:38:17-92
-89                android:value="true" />
-89-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:39:17-37
-90        </receiver>
-91        <!--
-92             FirebaseMessagingService performs security checks at runtime,
-93             but set to not exported to explicitly avoid allowing another app to call it.
-94        -->
-95        <service
-95-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:46:9-53:19
-96            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-96-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:47:13-82
-97            android:directBootAware="true"
-97-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:48:13-43
-98            android:exported="false" >
-98-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:49:13-37
-99            <intent-filter android:priority="-500" >
-99-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:29
-100                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-100-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-78
-100-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:25-75
-101            </intent-filter>
-102        </service>
-103        <service
-103-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
-104            android:name="com.google.firebase.components.ComponentDiscoveryService"
-104-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:55:13-84
-105            android:directBootAware="true"
-105-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-106            android:exported="false" >
-106-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:56:13-37
-107            <meta-data
-107-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:57:13-59:85
-108                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
-108-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:58:17-122
-109                android:value="com.google.firebase.components.ComponentRegistrar" />
-109-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:59:17-82
-110            <meta-data
-110-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:60:13-62:85
-111                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-111-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:61:17-119
-112                android:value="com.google.firebase.components.ComponentRegistrar" />
-112-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:62:17-82
-113            <meta-data
-113-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:25:13-27:85
-114                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-114-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:26:17-115
-115                android:value="com.google.firebase.components.ComponentRegistrar" />
-115-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:27:17-82
-116            <meta-data
-116-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
-117                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
-117-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
-118                android:value="com.google.firebase.components.ComponentRegistrar" />
-118-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
-119            <meta-data
-119-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
-120                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-120-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
-121                android:value="com.google.firebase.components.ComponentRegistrar" />
-121-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
-122            <meta-data
-122-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
-123                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-123-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
-124                android:value="com.google.firebase.components.ComponentRegistrar" />
-124-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
-125            <meta-data
-125-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
-126                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-126-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
-127                android:value="com.google.firebase.components.ComponentRegistrar" />
-127-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
-128        </service>
-129        <service
-129-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:28:9-34:19
-130            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-130-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:29:13-103
-131            android:exported="false" >
-131-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:30:13-37
-132            <meta-data
-132-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:31:13-33:39
-133                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-133-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:32:17-94
-134                android:value="cct" />
-134-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:33:17-36
-135        </service>
-136        <service
-136-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:26:9-30:19
-137            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-137-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:27:13-117
-138            android:exported="false"
-138-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:28:13-37
-139            android:permission="android.permission.BIND_JOB_SERVICE" >
-139-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:29:13-69
-140        </service>
-141
-142        <receiver
-142-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:32:9-34:40
-143            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-143-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:33:13-132
-144            android:exported="false" />
-144-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:34:13-37
-145
-146        <provider
-146-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
-147            android:name="com.google.firebase.provider.FirebaseInitProvider"
-147-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
-148            android:authorities="com.tasktigersprovider.app.firebaseinitprovider"
-148-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
-149            android:directBootAware="true"
-149-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
-150            android:exported="false"
-150-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
-151            android:initOrder="100" />
-151-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
-152
-153        <activity
-153-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-154            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-154-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-155            android:exported="false"
-155-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-156-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-157
-158        <provider
-158-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-159            android:name="androidx.startup.InitializationProvider"
-159-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-160            android:authorities="com.tasktigersprovider.app.androidx-startup"
-160-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-161            android:exported="false" >
-161-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-162            <meta-data
-162-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-163                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-163-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-164                android:value="androidx.startup" />
-164-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-165            <meta-data
-165-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-166                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-166-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-167                android:value="androidx.startup" />
-167-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-168            <meta-data
-168-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-169                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-169-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-170                android:value="androidx.startup" />
-170-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-171        </provider>
-172
-173        <meta-data
-173-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
-174            android:name="com.google.android.gms.version"
-174-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
-175            android:value="@integer/google_play_services_version" />
-175-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
-176
-177        <receiver
-177-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-178            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-178-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-179            android:directBootAware="false"
-179-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-180            android:enabled="true"
-180-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-181            android:exported="true"
-181-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-182            android:permission="android.permission.DUMP" >
-182-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-183            <intent-filter>
-183-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-184                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-184-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-184-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-185            </intent-filter>
-186            <intent-filter>
-186-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-187                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-187-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-187-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-188            </intent-filter>
-189            <intent-filter>
-189-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-190                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-190-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-190-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-191            </intent-filter>
-192            <intent-filter>
-192-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-193                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-193-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-193-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-194            </intent-filter>
-195        </receiver>
-196    </application>
-197
-198</manifest>
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:39:5-67
+12-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:39:22-64
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:5-68
+13-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:40:22-65
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:5-81
+14-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:41:22-78
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:5-79
+15-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:42:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:5-81
+16-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:43:22-78
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:5-65
+17-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:44:22-62
+18    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+18-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:5-80
+18-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:45:22-77
+19    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+19-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:5-82
+19-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:46:22-79
+20    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+20-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:47:5-93
+20-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:47:22-90
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+21-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:48:5-77
+21-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:48:22-74
+22
+23    <queries>
+23-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
+24        <intent>
+24-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
+25            <action android:name="android.media.action.IMAGE_CAPTURE" />
+25-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
+25-->[:capacitor-camera] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
+26        </intent>
+27    </queries>
+28
+29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+29-->[:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
+29-->[:capacitor-network] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
+30    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+30-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:5-77
+30-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:23:22-74
+31
+32    <permission
+32-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+33        android:name="com.tasktigersprovider.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+33-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+34        android:protectionLevel="signature" />
+34-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+35
+36    <uses-permission android:name="com.tasktigersprovider.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+36-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+36-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+37
+38    <application
+38-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:4:5-36:19
+39        android:allowBackup="true"
+39-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:5:9-35
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.12.0] C:\Users\WIN 10\.gradle\caches\transforms-3\4f7b0d764f8b5d0d84c4d0344e1adc27\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+41        android:debuggable="true"
+42        android:extractNativeLibs="true"
+43        android:icon="@mipmap/ic_launcher"
+43-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:6:9-43
+44        android:label="@string/app_name"
+44-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:7:9-41
+45        android:roundIcon="@mipmap/ic_launcher_round"
+45-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:8:9-54
+46        android:supportsRtl="true"
+46-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:9:9-35
+47        android:theme="@style/AppTheme" >
+47-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:10:9-40
+48        <activity
+48-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:12:9-25:20
+49            android:name="com.tasktigersprovider.app.MainActivity"
+49-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:14:13-41
+50            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+50-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:13:13-129
+51            android:exported="true"
+51-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:18:13-36
+52            android:label="@string/title_activity_main"
+52-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:15:13-56
+53            android:launchMode="singleTask"
+53-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:17:13-44
+54            android:theme="@style/AppTheme.NoActionBarLaunch" >
+54-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:16:13-62
+55            <intent-filter>
+55-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:20:13-23:29
+56                <action android:name="android.intent.action.MAIN" />
+56-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:21:17-69
+56-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:21:25-66
+57
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:22:17-77
+58-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:22:27-74
+59            </intent-filter>
+60        </activity>
+61
+62        <provider
+63            android:name="androidx.core.content.FileProvider"
+63-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:28:13-62
+64            android:authorities="com.tasktigersprovider.app.fileprovider"
+64-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:29:13-64
+65            android:exported="false"
+65-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:30:13-37
+66            android:grantUriPermissions="true" >
+66-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:31:13-47
+67            <meta-data
+67-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:32:13-34:64
+68                android:name="android.support.FILE_PROVIDER_PATHS"
+68-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:33:17-67
+69                android:resource="@xml/file_paths" />
+69-->D:\jobminar\task-tiger azure\provider\mobile-provider\android\app\src\main\AndroidManifest.xml:34:17-51
+70        </provider>
+71
+72        <service
+72-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-14:19
+73            android:name="com.capacitorjs.plugins.pushnotifications.MessagingService"
+73-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-86
+74            android:exported="false" >
+74-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-37
+75            <intent-filter>
+75-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:29
+76                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+76-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-78
+76-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:25-75
+77            </intent-filter>
+78        </service>
+79
+80        <receiver
+80-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:29:9-40:20
+81            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+81-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:30:13-78
+82            android:exported="true"
+82-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:31:13-36
+83            android:permission="com.google.android.c2dm.permission.SEND" >
+83-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:32:13-73
+84            <intent-filter>
+84-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:33:13-35:29
+85                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+85-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:34:17-81
+85-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:34:25-78
+86            </intent-filter>
+87
+88            <meta-data
+88-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:37:13-39:40
+89                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+89-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:38:17-92
+90                android:value="true" />
+90-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:39:17-37
+91        </receiver>
+92        <!--
+93             FirebaseMessagingService performs security checks at runtime,
+94             but set to not exported to explicitly avoid allowing another app to call it.
+95        -->
+96        <service
+96-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:46:9-53:19
+97            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+97-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:47:13-82
+98            android:directBootAware="true"
+98-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:48:13-43
+99            android:exported="false" >
+99-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:49:13-37
+100            <intent-filter android:priority="-500" >
+100-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:29
+101                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+101-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-78
+101-->[:capacitor-push-notifications] D:\jobminar\task-tiger azure\provider\mobile-provider\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:25-75
+102            </intent-filter>
+103        </service>
+104        <service
+104-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
+105            android:name="com.google.firebase.components.ComponentDiscoveryService"
+105-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:55:13-84
+106            android:directBootAware="true"
+106-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+107            android:exported="false" >
+107-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:56:13-37
+108            <meta-data
+108-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:57:13-59:85
+109                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+109-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:58:17-122
+110                android:value="com.google.firebase.components.ComponentRegistrar" />
+110-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:59:17-82
+111            <meta-data
+111-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:60:13-62:85
+112                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+112-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:61:17-119
+113                android:value="com.google.firebase.components.ComponentRegistrar" />
+113-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\9505ba22c21cf02d41a1eb2f112fca7e\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:62:17-82
+114            <meta-data
+114-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:25:13-27:85
+115                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+115-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:26:17-115
+116                android:value="com.google.firebase.components.ComponentRegistrar" />
+116-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\56c82783e5dcd2190bba44a4649f4d4e\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:27:17-82
+117            <meta-data
+117-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
+118                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+118-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
+120            <meta-data
+120-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
+121                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+121-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\2db5733dfb387f435785ab163407d629\transformed\firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
+123            <meta-data
+123-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+124                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+124-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+125                android:value="com.google.firebase.components.ComponentRegistrar" />
+125-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\3c2e31827ee93ee3444efbe5c107e70a\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+126            <meta-data
+126-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+127                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+127-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+128                android:value="com.google.firebase.components.ComponentRegistrar" />
+128-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+129        </service>
+130        <service
+130-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:28:9-34:19
+131            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+131-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:29:13-103
+132            android:exported="false" >
+132-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:30:13-37
+133            <meta-data
+133-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:31:13-33:39
+134                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+134-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:32:17-94
+135                android:value="cct" />
+135-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\6fc6eedf0be622ae85a4c0732ca4dfc0\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:33:17-36
+136        </service>
+137        <service
+137-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:26:9-30:19
+138            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+138-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:27:13-117
+139            android:exported="false"
+139-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:28:13-37
+140            android:permission="android.permission.BIND_JOB_SERVICE" >
+140-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:29:13-69
+141        </service>
+142
+143        <receiver
+143-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:32:9-34:40
+144            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+144-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:33:13-132
+145            android:exported="false" />
+145-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\WIN 10\.gradle\caches\transforms-3\d1f4b7667f05215d0af71161bd417398\transformed\transport-runtime-3.1.9\AndroidManifest.xml:34:13-37
+146
+147        <provider
+147-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+148            android:name="com.google.firebase.provider.FirebaseInitProvider"
+148-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+149            android:authorities="com.tasktigersprovider.app.firebaseinitprovider"
+149-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+150            android:directBootAware="true"
+150-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+151            android:exported="false"
+151-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+152            android:initOrder="100" />
+152-->[com.google.firebase:firebase-common:21.0.0] C:\Users\WIN 10\.gradle\caches\transforms-3\7fc3b045f90605e66bd35bc4ff8c10e9\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+153
+154        <activity
+154-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+155            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+155-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+156            android:exported="false"
+156-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+157            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+157-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\WIN 10\.gradle\caches\transforms-3\ecd63083fcba173e803df3926ffdadd6\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+158
+159        <provider
+159-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+160            android:name="androidx.startup.InitializationProvider"
+160-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+161            android:authorities="com.tasktigersprovider.app.androidx-startup"
+161-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+162            android:exported="false" >
+162-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+163            <meta-data
+163-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+164                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+164-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+165                android:value="androidx.startup" />
+165-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WIN 10\.gradle\caches\transforms-3\61f606930917a64588c199b54d3d711a\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+166            <meta-data
+166-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+167                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+167-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+168                android:value="androidx.startup" />
+168-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\WIN 10\.gradle\caches\transforms-3\7d158143758428a9a27e664e481c199e\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+169            <meta-data
+169-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+170                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+170-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+171                android:value="androidx.startup" />
+171-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+172        </provider>
+173
+174        <meta-data
+174-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+175            android:name="com.google.android.gms.version"
+175-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+176            android:value="@integer/google_play_services_version" />
+176-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\f948a95633a2d2cdaa6216f43ece699d\transformed\play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+177
+178        <receiver
+178-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+179            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+179-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+180            android:directBootAware="false"
+180-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+181            android:enabled="true"
+181-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+182            android:exported="true"
+182-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+183            android:permission="android.permission.DUMP" >
+183-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+184            <intent-filter>
+184-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+185                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+185-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+185-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+186            </intent-filter>
+187            <intent-filter>
+187-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+188                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+188-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+188-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+189            </intent-filter>
+190            <intent-filter>
+190-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+191                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+191-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+191-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+192            </intent-filter>
+193            <intent-filter>
+193-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+194                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+194-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+194-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\WIN 10\.gradle\caches\transforms-3\c4b6893a58c24e59df590ee54241c077\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+195            </intent-filter>
+196        </receiver>
+197    </application>
+198
+199</manifest>

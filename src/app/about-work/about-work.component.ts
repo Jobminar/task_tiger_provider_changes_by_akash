@@ -24,10 +24,12 @@ export class AboutWorkComponent {
     this.loginService.sendWorkDetails().subscribe(
       (response)=>{
         console.log(response);
-        this.dialogeService.openDialog("Service has been added");
         this.loginService.workId='';
-        this.loginService.setSubCat("");
-        this.loginService.setservices([]);
+        this.loginService.selectedSubCategories='';
+        this.loginService.selectedServiceId=[];
+        console.log(this.loginService.workId,this.loginService.selectedServiceId,this.loginService.selectedSubCategories);
+        this.dialogeService.openDialog("Service has been added");
+       
        this.router.navigate(['selectWork'])
       },(err)=>{
         console.log(err);

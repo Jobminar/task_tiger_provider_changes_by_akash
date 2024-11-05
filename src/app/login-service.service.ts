@@ -32,7 +32,7 @@ export class LoginServiceService {
   experience: any = 0;
   selectedSubCategories:string='';
   categoryId:any;
-  selectedServiceId:any[]=[];
+  selectedServiceId:any;
   userFromServer: any = [];
   constructor(private http: HttpClient,
      private router: Router,
@@ -141,6 +141,7 @@ export class LoginServiceService {
   
   
   setservices(serviceId:any){
+    console.log("serviceId",serviceId);
     this.selectedServiceId=serviceId;
   }
   setAge(age: any) {
@@ -164,7 +165,7 @@ export class LoginServiceService {
          serviceId:this.selectedServiceId
       },
     ];
-    this.workDetails.push(work);
+    this.workDetails=work;
     console.log(this.workDetails.flat());
   }
 

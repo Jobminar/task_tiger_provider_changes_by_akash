@@ -67,6 +67,7 @@ export class GetOrderComponent implements OnInit,OnDestroy{
         this.current=this.timeLeft
       } else {
         clearInterval(this.interval);
+        this.getOrderService.clearOrderId();
         this.router.navigate(['home']);
       }
     }, 1000);
@@ -174,8 +175,9 @@ export class GetOrderComponent implements OnInit,OnDestroy{
   declined() {
     this.acceptStatus = false;
     console.log("declined");
-    this.acceptStatus=false
-    this.timeLeft=120
+    this.acceptStatus=false;
+    this.timeLeft=120;
+    this.getOrderService.clearOrderId();
     this.router.navigate(['home']);
   }
 

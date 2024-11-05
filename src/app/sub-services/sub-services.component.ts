@@ -60,7 +60,7 @@ export class SubServicesComponent implements OnInit{
       // Find the items that match the categoryId from work in the items array
       const matchedSubcategories = this.items.filter((item: any) => item.categoryId === work.categoryId._id);
       
-      if (matchedSubcategories.length > 0 && work.serviceId.length>0) {
+      if (matchedSubcategories.length > 0 ) {
         // Since work.subcategoryId is an object, not an array, we can check it directly
         const subcategory = work.subcategoryId;
         

@@ -14,7 +14,7 @@
        
     </div>
       @for (work of works; track $index) {
-        @if (work.serviceId.length >0){
+       
         <div  class="work-div">
         
           <h3>Category : {{ work.categoryId.name }}</h3>
@@ -28,12 +28,13 @@
           <div>
             <h3>Services :</h3>
             <ul>
-              <li *ngFor="let subcategory of work.serviceId; let i = index">
-                {{ subcategory.name }}
-        
+              <li >
+                {{ work.serviceId.name }}
+                <!-- @if (work.serviceId.length>1){
                 <span class="material-icons" (click)="removeSubcategory(work._id, subcategory._id)">
                   delete
                 </span>
+              } -->
               </li>
             </ul>
           </div>
@@ -44,7 +45,7 @@
          
         </div>
       }
-      }
+      
 
           
     </div>

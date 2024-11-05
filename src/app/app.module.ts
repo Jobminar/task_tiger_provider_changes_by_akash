@@ -84,6 +84,7 @@ import { ManageServicesComponent } from './manage-services/manage-services.compo
 import { WorkImageComponent } from './work-image/work-image.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ServiceComponent } from './service/service.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -139,7 +140,8 @@ import { ServiceComponent } from './service/service.component';
     ManageServicesComponent,
     WorkImageComponent,
     FeedbackComponent,
-    ServiceComponent
+    ServiceComponent,
+ 
   ],
   imports: [
     BrowserModule,

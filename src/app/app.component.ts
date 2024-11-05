@@ -5,6 +5,7 @@ import { GetOrdersService } from './get-orders.service';
 import { App } from '@capacitor/app';
 import { Network } from '@capacitor/network';
 import { Router } from '@angular/router';
+import { PushNotifications } from '@capacitor/push-notifications';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,20 +19,63 @@ export class AppComponent {
     private messagingService: GetOrdersService,
     private readonly router: Router
   ) {
+    this.initializePushNotifications();
+    this.checkForOrderNavigation();
+    this. gettingNotification();
    
   }
   ngOnInit() {
+    
     // this.messagingService.requestPermission();
     // setTimeout(() => {
     //   this.myObject = this.messagingService.token
     //     ? { token: this.messagingService.token }
     //     : {};
     // }, 5000);
-    this.messagingService.listenForMessages();
+    // this.messagingService.listenForMessages();
+    
     this.monitorNetworkStatus();
     this.registerBackButtonListener();
   }
 
+  initializePushNotifications() {
+    PushNotifications.addListener('pushNotificationActionPerformed', (notification) => {
+      const orderId = notification.notification.data?.orderId;
+      alert(orderId);
+      if (orderId) {
+        this.messagingService.setOrderId(orderId);
+        this.router.navigate(['getOrder', orderId]);
+      }
+    });
+  }
+  private checkForOrderNavigation() {
+    const orderId = this.messagingService.getOrderId();
+    if (orderId) {
+      this.router.navigate(['getOrder', orderId]);
+      this.messagingService.clearOrderId(); // Clear the order ID after navigating
+    }
+  }
+  gettingNotification(){
+    App.addListener('appStateChange', ({ isActive }) => {
+      if (isActive) {
+        PushNotifications.getDeliveredNotifications().then(result => {
+          const notifications = result.notifications; // Access the notifications array
+          
+          notifications.forEach(notification => {
+            if (notification.title === 'New Order') {
+              const orderId = notification.data?.orderId;
+              if (orderId) {
+                this.router.navigate(['getOrder', orderId]);
+              }
+            }
+          });
+        }).catch(error => {
+          console.error('Error fetching delivered notifications:', error);
+        });
+      }
+    });
+  }
+  
   registerBackButtonListener() {
     App['addListener']('backButton', (event: any) => {
       if (event.canGoBack) {

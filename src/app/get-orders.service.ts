@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
   providedIn: 'root'
 })
 export class GetOrdersService {
-
+  private orderId: string | null = null;
   apiUrl=azureApi;
   userCordinates:any;
   token:any;
@@ -145,11 +145,9 @@ export class GetOrdersService {
         alert('inside nav')
         // this.router.navigate(['getOrder', data.orderId]);
         setTimeout(() => {
-          this.router.navigate(['getOrder', data]).then(() => {
-            this.location.replaceState('home'); // Clear history stack for Android navigation
-            alert(data);
-          });
-        }, 2000);
+          alert(data)
+          this.router.navigate(['getOrder', data])
+        }, 3000);
        
      
     }
@@ -158,6 +156,18 @@ export class GetOrdersService {
     // Default action if no specific data is present
     // this.router.navigate(['getOrder', { replaceUrl: true }]);
   }
+}
+
+setOrderId(orderId: string) {
+  this.orderId = orderId;
+}
+
+getOrderId(): string | null {
+  return this.orderId;
+}
+
+clearOrderId() {
+  this.orderId = null;
 }
 
 }
