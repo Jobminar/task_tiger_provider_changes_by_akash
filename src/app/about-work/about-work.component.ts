@@ -26,7 +26,7 @@ export class AboutWorkComponent {
         console.log(response);
         this.loginService.workId='';
         this.loginService.selectedSubCategories='';
-        this.loginService.selectedServiceId=[];
+        this.loginService.selectedServiceId='';
         console.log(this.loginService.workId,this.loginService.selectedServiceId,this.loginService.selectedSubCategories);
         this.dialogeService.openDialog("Service has been added");
        
