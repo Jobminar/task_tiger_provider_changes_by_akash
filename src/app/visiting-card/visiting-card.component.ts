@@ -65,8 +65,8 @@ export class VisitingCardComponent implements OnInit{
         //  console.log(response[0].works);
         
         //  this.workSeleceted=response.works
-         this.workSeleceted = response.works.filter((value, index, self) => 
-        index === self.findIndex((t) => (
+         this.workSeleceted = response.works.filter((value:any, index:any, self:any) => 
+        index === self.findIndex((t:any) => (
           t.categoryId.name === value.categoryId.name
         ))
       );

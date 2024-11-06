@@ -23,6 +23,7 @@ export class ManageServicesComponent implements OnInit{
   }
 
   getWork() {
+    this.works=[];
     this.userDetailsService.getWork(localStorage.getItem('providerId'))
       .subscribe({
        next:(response) => {

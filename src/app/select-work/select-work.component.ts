@@ -115,18 +115,23 @@ export class SelectWorkComponent implements OnInit{
   
   send() {
     // console.log(this.items.filter(item=>item.checked)
-      const checkedItems = this.items.filter(
-        (item: { checked: boolean }) => item.checked === true
-      );
-      console.log(checkedItems);
+      // const checkedItems = this.items.filter(
+      //   (item: { checked: boolean }) => item.checked === true
+      // );
+      // console.log(checkedItems);
       // console.log(this.jobDetails.userDetails.providerName);
-      if ( this.jobDetails.userDetails  && this.jobDetails.userDetails.providerName != undefined)
-      {
-        const work=this.logInservice.workDetails.flat()
-        this.UpdatingUserWork(work);
-        console.log(this.jobDetails.userDetails.providerName);
-      }
+      // if ( this.jobDetails.userDetails  && this.jobDetails.userDetails.providerName != undefined)
+      // {
+      //   const work=this.logInservice.workDetails.flat()
+      //   this.UpdatingUserWork(work);
+      //   console.log(this.jobDetails.userDetails.providerName);
+      // }
       // this.router.navigate(['manageServices']);
+      if(this.jobDetails?.userDetails?.providerName && this.jobDetails.userDetails?.providerName!==undefined){
+        this.router.navigate(['manageServices']);
+      }else{
+        this.router.navigate(['aboutUser']);
+      }
   }
 
   workForSending:any[]=[];

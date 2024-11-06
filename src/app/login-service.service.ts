@@ -155,6 +155,7 @@ export class LoginServiceService {
   }
 
   setWorkDetails() {
+    this.workDetails=[];
     console.log(this.selectedSubCategories);
     const work = [
       {
@@ -166,7 +167,7 @@ export class LoginServiceService {
       },
     ];
     this.workDetails=work;
-    console.log(this.workDetails.flat());
+    console.log(this.workDetails);
   }
 
 // get api for sub categories
@@ -210,7 +211,7 @@ export class LoginServiceService {
   sendWorkDetails(){
     const api= this.apiUrl+`providers/provider-work`;
     // console.log(this.workDetails);
-    const work=this.workDetails.flat();
+    const work=this.workDetails;
     const userId=localStorage.getItem('providerId')
    
     const requestBody={
