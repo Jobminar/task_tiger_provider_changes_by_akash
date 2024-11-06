@@ -188,7 +188,7 @@ export class HomeComponent implements OnInit {
 
     for (let index = 0; index < dates.length; index++) {
       const element = dates[index];
-      const date = element.date.split('T')[0];
+      const date = element.slotTime.date.split('T')[0];
       const currentDate = new Date(date);
       const day = this.dayNames[currentDate.getDay()];
       const month = this.monthNames[currentDate.getMonth()];

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RazorpayService } from '../razorpay.service';
 import { azureApi } from '../../constents/apis';
 import { JobDetailsService } from '../job-details.service';
+import { catchError, forkJoin, of } from 'rxjs';
 @Component({
   selector: 'app-target',
   templateUrl: './target.component.html',
@@ -30,6 +31,7 @@ export class TargetComponent {
     this. getTarget();
     this.getCredits();
     this.getProviderRating();
+    this.getData();
   }
 
 
@@ -123,7 +125,23 @@ export class TargetComponent {
       }
     )
   }
+  getData(){
+    const ids = ['6701477d6cdbd8a62eb1bafd', '6701477d6cdbd8a62eb1bb0', '6701477d6cdbd8a62eb1bb03'];
+const requests = ids.map(id => 
+  this.http.get(`${this.apiUrl}admin/admin-provider-promotions/${id}`)
+    .pipe(
+      catchError(error => {
+        console.error(`Error fetching data for ID ${id}:`, error);
+        return of(null); // Return null or an empty object if there's an error
+      })
+    )
+);
 
+forkJoin(requests).subscribe(results => {
+  const successfulResults = results.filter(result => result !== null); // Filter out failed responses if needed
+  console.log(successfulResults); // Only successful responses
+});
+  }
   navTo(nav:string){
     switch(nav){
       case 'credit': this.router.navigate(['credits']);

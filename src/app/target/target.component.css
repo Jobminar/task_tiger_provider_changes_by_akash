@@ -201,11 +201,12 @@ round-progress {
 
 
 .container-target {
-  width: 80%;
-  max-width: 650px;
+  width: 100%;
+  /* max-width: 650px; */
   margin: 40px auto 80px;
   text-align: center;
-  padding: 40px;
+  /* padding: 40px; */
+  padding-bottom: 40px;
   background: #fff;
   border: solid 1px #ccc;
   border-radius: 4px;
@@ -301,8 +302,8 @@ input[type='color'] {
     float: none;
   }
 
-  .container-target {
+  /* .container-target {
     margin: 0 auto 50px;
     padding: 25px;
-  }
+  } */
 }

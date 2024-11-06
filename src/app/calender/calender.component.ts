@@ -204,7 +204,7 @@ export class CalenderComponent {
     console.log(this.monthSelected);
 
     // Clear previous selection for the new date
-    this.timing.forEach(t => t.isSelected = false);
+    // this.timing.forEach(t => t.isSelected = false);
   }
 
   workingChange() {
@@ -333,7 +333,7 @@ export class CalenderComponent {
     console.log(this.services);
 
     response.forEach((element: any) => {
-      const dayString = element.date;
+      const dayString = element.slotTime.date;
       const onlyDate = new Date(dayString);
       const day = onlyDate.getDate();
       const month = onlyDate.toLocaleDateString('default', { month: 'long' });
@@ -343,7 +343,7 @@ export class CalenderComponent {
         if (item.date === formattedDate) {
           item.workingStaus = element.availability;
           item.timming.forEach(t => {
-            if (t.time === element.time) {
+            if (t.time === element.slotTime.time) {
               t.isSelected = true;
             }
           });
@@ -377,7 +377,7 @@ export class CalenderComponent {
         console.log(this.availabilityResponse);
         this.availabilityResponse.forEach((element: any) => {
           if (element.service === serviceName) {
-            const dayString = element.date;
+            const dayString = element.slotTime.date;
             const onlyDate = new Date(dayString);
             const day = onlyDate.getDate();
             const month = onlyDate.toLocaleDateString('default', { month: 'long' });
@@ -387,7 +387,7 @@ export class CalenderComponent {
               if (formattedDate === item.date) {
                 item.workingStaus = true;
                 item.timming.forEach((time: any) => {
-                  if (time.time === element.time) {
+                  if (time.time === element.slotTime.time) {
                     time.isSelected = true;
                   }
                 });
