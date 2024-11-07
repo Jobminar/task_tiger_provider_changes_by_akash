@@ -5,34 +5,35 @@
     </div>
      <div class="sub-container">
         <div class="addPhoto">
-            <label for="file-input" class="file-label">
+            <label  class="file-label">
                 <div *ngIf="!selectedFile" class="placeholder-image"> 
                     <span>+</span>
                     <span>Add Photo</span>
                 </div>
                 <img *ngIf="selectedFile" [src]="imagePreview" alt="Selected image" class="preview-image">
-                <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
-              </label>
+               
+            </label>
               <form [formGroup]="imageForm">
                     <input type="file" id="file-input" (change)="onFileSelected($event)"   class="file-input" required>
                 </form>
         </div>
-        <div class="addPhoto">
+        <!-- <div class="addPhoto">
             <label for="file-input" class="file-label">
                 <div *ngIf="!selectedDocument" class="placeholder-image"> 
                     <span>+</span>
                     <span>Add Documents</span>
                 </div>
                 <img *ngIf="selectedDocument" [src]="documentPreview" alt="Selected image" class="preview-image">
-                <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
+               
               </label>
               <form [formGroup]="imageForm">
                     <input type="file" id="document-inputs" (change)="onDocumentSelected($event)"   class="file-input" required>
                 </form>
-        </div>
+        </div> -->
         @for (item of items; track $index) {
-            <div class="awards">
+            <div class="awards" >
                 <img [src]="item.image" alt="Image from AWS S3">
+                <div class="click-blocker"></div> 
             </div>
         }
     </div>

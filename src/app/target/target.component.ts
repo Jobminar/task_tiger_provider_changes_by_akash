@@ -125,6 +125,9 @@ export class TargetComponent {
       }
     )
   }
+
+  promos:any;
+  promoMilestones: number[] = [100, 250, 400, 650]; 
   getData(){
     const ids = ['6701477d6cdbd8a62eb1bafd', '6701477d6cdbd8a62eb1bb0', '6701477d6cdbd8a62eb1bb03'];
 const requests = ids.map(id => 
@@ -139,7 +142,8 @@ const requests = ids.map(id =>
 
 forkJoin(requests).subscribe(results => {
   const successfulResults = results.filter(result => result !== null); // Filter out failed responses if needed
-  console.log(successfulResults); // Only successful responses
+  console.log(successfulResults.flat()); // Only successful responses
+  this.promos=successfulResults.flat().filter((res:any)=> res.status==='Active');
 });
   }
   navTo(nav:string){

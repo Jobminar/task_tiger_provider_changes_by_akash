@@ -467,12 +467,13 @@
 
 
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, ChartItem, registerables } from 'chart.js/auto';
 import { RazorpayService } from '../razorpay.service';
 import { azureApi } from '../../constents/apis';
+import { UserDetailsService } from '../user-details.service';
 Chart.register(...registerables);
 
 @Component({
@@ -498,6 +499,7 @@ export class EarningsComponent implements OnInit {
   credits:any;
   constructor(private http: HttpClient,
               private router:Router,
+              private userDetailsService:UserDetailsService,
               private razorpayService:RazorpayService
   ) {
     
@@ -507,10 +509,13 @@ export class EarningsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
     this.initializeChart();
     this.loadDefaultEarnings();
     this.getCredits();
   }
+
+ 
   getCredits(){
     this.razorpayService.getCredits().subscribe({
       next:(response)=>{
@@ -584,7 +589,7 @@ export class EarningsComponent implements OnInit {
   updateChartData(year: number, month: number) {
     const id = localStorage.getItem('providerId');
     // const api = `https://api.coolieno1.in/v1.0/providers/earnings/get-earnings/${id}`;
-    const api=`${this.apiUrl}providers/earnings/get-earnings/${id}`
+    const api=`${this.apiUrl}providers/provider-earnings/get-earnings/${id}`
     this.http.get<any[]>(api).subscribe(
       (response) => {
         console.log('API Response:', response);
@@ -660,6 +665,7 @@ export class EarningsComponent implements OnInit {
   }
 
   previousWeek() {
+    this.earn=null;
     if (this.currentWeek > 0) {
       this.currentWeek--;
     } else {
@@ -669,6 +675,7 @@ export class EarningsComponent implements OnInit {
   }
 
   nextWeek() {
+    this.earn=null
     if (this.currentWeek < this.totalWeeks - 1) {
       this.currentWeek++;
     } else {

@@ -71,7 +71,7 @@ export class AwardsComponent {
         this.imagePreview = reader.result;
       };
       reader.readAsDataURL(this.selectedDocument);
-      console.log("image",this.imagePreview);
+      console.log("image",this.imagePreview,'file',file);
       this.imageForm.value.image=file
     }
     this.sending();
@@ -88,6 +88,9 @@ export class AwardsComponent {
     this.http.post(api,formData).subscribe({
       next:(response)=>{
         console.log(response);
+        this.imageForm.value.image=null;
+        this.imagePreview = null; // Clear the preview after successful upload
+          this.selectedFile = null; 
         this.getCertificates();
       },
       error:(error)=>{
@@ -114,5 +117,5 @@ export class AwardsComponent {
       }
   })
   }
- 
+
 }

@@ -101,6 +101,10 @@ export class UserDetailsService {
     return this.http.get<any>(api)
   }
  
+  upDatingEarnings(requestBody:any):Observable<any>{
+    const api=`${this.api}providers/provider-earnings/get-earnings/666850ff188555c2c4a62885`;
+    return this.http.post(api,requestBody);
+  }
   setDefult(){
     this.workResponseId='';
     this.workResponse=[]

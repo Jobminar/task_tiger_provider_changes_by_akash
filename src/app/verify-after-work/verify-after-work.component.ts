@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AfterorderService } from '../afterorder.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserDetailsService } from '../user-details.service';
 
 @Component({
   selector: 'app-verify-after-work',
@@ -26,6 +27,7 @@ export class VerifyAfterWorkComponent {
   constructor(private form: FormBuilder,
             private orderService:OrdersService,
               private router:Router,
+              private readonly userDetailsService:UserDetailsService,
               private readonly afterOrderService:AfterorderService,
               private readonly routerParam:ActivatedRoute,
               private location:Location)
@@ -107,11 +109,8 @@ export class VerifyAfterWorkComponent {
     this.orderService.verifyAfterComplete(otp,this.orderHistoryId,this.orderId).subscribe(
       (response)=>{
         console.log(response);
-        const role={
-          userId:this.order.userId?._id,
-          orderHistoryId:this.orderHistoryId
-        }
-        this.router.navigate(['feedback'],{queryParams:role});
+        this.updatingEarnings();
+        
       },(err)=>{
         console.log(err);
       }
@@ -119,7 +118,25 @@ export class VerifyAfterWorkComponent {
     
   }
 
- 
+ updatingEarnings(){
+  const requestBody={
+    providerId:localStorage.getItem('providerId'),
+    date:"2024-10-28",
+    amount: 190
+  }
+  this.userDetailsService.upDatingEarnings(requestBody).subscribe({
+    next:(res)=>{
+      console.log(res);
+      const role={
+        userId:this.order.userId?._id,
+        orderHistoryId:this.orderHistoryId
+      }
+      this.router.navigate(['feedback'],{queryParams:role});
+    },error:(err:HttpErrorResponse)=>{
+      console.log(err);
+    }
+  })
+ }
   
 
 

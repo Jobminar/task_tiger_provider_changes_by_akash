@@ -94,7 +94,7 @@
                 <span (click)="nextWeek()" style='font-size:36px'>&gt;</span>
             </div>
             <div class="scroll-container" #chartContainer>
-                <span class="icon2">&#8377; &nbsp;<span>{{earn}}</span></span><br><br>
+                <span class="icon2" *ngIf="earn!=null">&#8377; &nbsp;<span>{{earn}}</span></span><br><br>
                 <canvas id="MyChart">{{ chart }}</canvas>
             </div>
         </div>
