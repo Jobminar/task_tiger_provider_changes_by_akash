@@ -146,6 +146,11 @@ forkJoin(requests).subscribe(results => {
   this.promos=successfulResults.flat().filter((res:any)=> res.status==='Active');
 });
   }
+
+  getProgressPercentage(completedJobs: number, totalJobs: number): number {
+    if (totalJobs === 0) return 0;
+    return (completedJobs / totalJobs) * 100;
+  }
   navTo(nav:string){
     switch(nav){
       case 'credit': this.router.navigate(['credits']);

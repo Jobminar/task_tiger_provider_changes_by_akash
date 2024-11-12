@@ -24,3 +24,6 @@
     </div>
   </div>
 </div>
+@if (loading) {
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
+  }

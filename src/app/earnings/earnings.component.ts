@@ -497,6 +497,8 @@ export class EarningsComponent implements OnInit {
   allLabelsData: any[] = [];
   dateRange: string = '';
   credits:any;
+  packageImage:string='';
+  packageName:string='';
   constructor(private http: HttpClient,
               private router:Router,
               private userDetailsService:UserDetailsService,
@@ -513,6 +515,7 @@ export class EarningsComponent implements OnInit {
     this.initializeChart();
     this.loadDefaultEarnings();
     this.getCredits();
+    this.getPackageDetails();
   }
 
  
@@ -664,6 +667,18 @@ export class EarningsComponent implements OnInit {
     }
   }
 
+  getPackageDetails(){
+   
+    this.userDetailsService.getBuyedPackage().subscribe({
+     next:(res)=>{
+       console.log(res);
+       this.packageImage=res[0].image;
+       this.packageName=res[0].packageName;
+     },error:(err:HttpErrorResponse)=>{
+       console.log(err);
+     }
+    })
+   }
   previousWeek() {
     this.earn=null;
     if (this.currentWeek > 0) {

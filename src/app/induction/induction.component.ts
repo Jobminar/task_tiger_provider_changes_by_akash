@@ -174,7 +174,7 @@
 // }
 
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TraniningService } from '../tranining.service';
@@ -208,7 +208,7 @@ export class InductionComponent implements OnInit {
               private userService:UserDetailsService ) { }
 
   ngOnInit(): void {
-    this.gettingVideos();
+    // this.gettingVideos();
     this.getWork();
   }
 
@@ -216,7 +216,7 @@ export class InductionComponent implements OnInit {
     this.tranningService.gettingInductionVeideos().subscribe(
       (response) => {
         console.log(response);
-        this.videos = response;
+        // this.videos = response;
       },
       (error) => {
         console.log(error);
@@ -245,7 +245,7 @@ export class InductionComponent implements OnInit {
     this.tranningService.getInductionVideosByIds(ids).subscribe(
       (response) => {
         console.log(response.flat());
-        // this.videos = response.filter(video => video !== null); // Filter out any null values
+        this.videos = response.flat().filter(video => video !== null); // Filter out any null values
        
       },
       (error) => {
@@ -302,15 +302,32 @@ export class InductionComponent implements OnInit {
       }
     } else {
       this.isVideoPlaying = false;
-      alert('Congrats you have completed the traning')
-      this.navigateWaiting();
+      this.updateVideoStatus();
+  
       this.showNavigationButton = true;
     }
   }
 
+  updateVideoStatus(){
+    const requestBody={
+      providerId: localStorage.getItem('providerId'),
+      isWatched: true
+    }
+    this.tranningService.updatingWatchedVideo(requestBody).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        alert('Congrats you have completed the traning');
+        this.navigateWaiting();
+      },
+      error:(err:HttpErrorResponse)=>{
+        console.log(err);
+      }
+    })
+  }
   getVideoUrl(index: number): string {
+    console.log(this.videos,index);
     this.pupUp = true;
-    return `https://${this.bucketName}.s3.${this.region}.amazonaws.com/${this.videos[index].videoKey}`;
+    return this.videos[index].video;
   }
 
   navigateWaiting(): void {

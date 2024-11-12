@@ -180,7 +180,8 @@ getOrderId(){
   }
   // Cancel order
   cancel() {
-    this.orderService.cancelOrder().subscribe(
+    console.log(this.orderHistoryId);
+    this.orderService.cancelOrder(this.orderHistoryId).subscribe(
       (response) => {
         console.log(response);
         this.router.navigate(['home']);

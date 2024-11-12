@@ -35,7 +35,7 @@
           </div>
         </ng-container>
       </div>
-      <div class="selected-date">
+      <div class="selected-date" *ngIf="showDate">
         <span>{{daySelected}},{{monthSelected}} {{dateSelected}}</span>
       </div>
       <div class="update">

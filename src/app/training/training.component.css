@@ -71,8 +71,8 @@ video {
     width: 100%;
   }
   .active-video {
-    width: 640px;
-    height: 360px;
+    width: 100%;
+    height: 100%;
   }
   
   button {

@@ -179,20 +179,24 @@ export class CalenderComponent {
     return `${day}-${month}-${year}`;
   }
 
-  selectedIndex: number = 0;
-
+  selectedIndex: any;
+  showDate:boolean=false;
   selected(item: any, index: any) {
+    this.showDate=true;
     if(!this.selectedService){
       this.dailogeBoxService.openDialog('select the service from the above');
      
       return;
     }
+    this.getDetails();
     console.log(item);
     this.isChecked = false;
     if (item.workingStaus) {
       this.working = true;
     } else {
       this.working = false;
+      this.timing.forEach(t => t.isSelected = false);
+      
     }
     this.selectedIndex = index;
     this.dateSelected = item.date.toString().split('-')[0];
@@ -200,11 +204,12 @@ export class CalenderComponent {
     this.monthSelected = item.date.toString().split('-')[1];
     this.yearSelected = item.date.toString().split('-')[2];
     this.nextDaysOfIndex = this.nextFourDays[this.selectedIndex];
-    console.log(this.nextDaysOfIndex);
-    console.log(this.monthSelected);
+ 
+    // console.log(this.monthSelected);
 
     // Clear previous selection for the new date
-    // this.timing.forEach(t => t.isSelected = false);
+    this.timing.forEach(t => t.isSelected = false);
+    console.log(this.nextDaysOfIndex);
   }
 
   workingChange() {
@@ -216,7 +221,8 @@ export class CalenderComponent {
       
       return;
     }
-    this.nextFourDays[this.selectedIndex].workingStaus = !this.nextFourDays[this.selectedIndex].workingStaus;
+    this.timing.forEach(t => t.isSelected = false);
+   console.log(this.nextFourDays);
   }
 
   onToggleChange(event:any, item: any) {
@@ -224,9 +230,11 @@ export class CalenderComponent {
     const isChecked = inputElement?.checked ?? false;
     // item.isSelected = isChecked;
     console.log(isChecked);
+    this.nextFourDays[this.selectedIndex].workingStaus = !this.nextFourDays[this.selectedIndex].workingStaus;
     this.nextDaysOfIndex.timming.forEach((timeSlot: { time: any; isSelected: boolean; }) => {
       if (timeSlot.time === item.time) {
         timeSlot.isSelected = isChecked;
+        // this.working=true;
       }
     });
 
@@ -355,9 +363,11 @@ export class CalenderComponent {
   }
 
   checkDuplicate(date: string, time: string, service: string): boolean {
-    return this.availabilityResponse.some(item =>
-      item.date === date && item.time === time && item.service === service
-    );
+    console.log(date,time);
+    return this.availabilityResponse.some(item =>{
+      console.log(item.slotTime.date.split('T')[0],item.slotTime.time);
+      return item.slotTime.date.split('T')[0] == date && item.slotTime.time == time
+   } );
   }
 
   navToBack() {

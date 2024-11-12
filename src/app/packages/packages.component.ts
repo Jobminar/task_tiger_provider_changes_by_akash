@@ -47,6 +47,7 @@ export class PackagesComponent {
             (response) => {
                 console.log('Purchased packages:', response);
                 this.purchasedPackages = response;
+                this.userDetails.buyedPackage=response;
                 this.getExpiryDate(response.packageName);
             },
             (error) => {

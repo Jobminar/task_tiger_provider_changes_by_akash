@@ -14,13 +14,13 @@
                     @else {
                         <span>{{userName}}</span> 
                     }
-                    
-                    <span class="package" (click)="navTo('packages')">
-                        <img src="assets/packages/silver coin 1.png" class="package-img">&nbsp;
-                        <pre>Silver</pre>
+                
+                    <span class="package" (click)="navTo('packages')" *ngIf="packageImage">
+                        <img [src]="packageImage" class="package-img">&nbsp; 
+                        <p class="truncate">{{packageName}}</p>
                     </span>
                 </div>
-                <div class="rating"> <span class="material-symbols-outlined notranslate" >star</span>{{providerRating}}</div>
+                <div class="rating" *ngIf="providerRating"> <span class="material-symbols-outlined notranslate" >star</span>{{providerRating}}</div>
                 <button (click)="navToVisiting()">View more</button>
             </div>
         </div>

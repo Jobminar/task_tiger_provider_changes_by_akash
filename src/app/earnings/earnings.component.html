@@ -131,9 +131,13 @@
         <div class="credit-div" (click)="navToPackage()">
             <div class="icon-credit">
                 <span class="package">
-                    <img src="assets/packages/silver coin 1.png" class="package-img">&nbsp;
-                    <pre>Silver</pre>
+                    <img [src]="packageImage"  class="package-img">&nbsp;
+                    <pre>{{packageName}}</pre>
                 </span>
+                <!-- <span class="package" (click)="navToPackage()" *ngIf="packageImage">
+                    <img [src]="packageImage" class="package-img">&nbsp; 
+                    <p class="truncate">{{packageName}}</p>
+                </span> -->
             </div>
             <span class="material-symbols-outlined notranslate" (click)="navToPackage()">chevron_right</span>
         </div>

@@ -61,7 +61,7 @@ export class TrainingComponent {
     this.tranningService.getVideosByIds(ids).subscribe(
       (response) => {
         console.log(response.flat());
-        this.videos = response.filter(video => video !== null); // Filter out any null values
+        this.videos = response.flat().filter(video => video !== null); // Filter out any null values
        
       },
       (error) => {
@@ -139,7 +139,7 @@ export class TrainingComponent {
   getVideoUrl(index: number): string {
     this.pupUp=true
     console.log(this.pupUp);
-    return `https://${this.bucketName}.s3.${this.region}.amazonaws.com/${this.videos[index].videoKey}`;
+    return this.videos[index].video;
   }
 
 }

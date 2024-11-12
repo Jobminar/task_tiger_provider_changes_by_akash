@@ -31,6 +31,7 @@ export class TraniningService {
   }
   
   getInductionVideosByIds(ids: string[]): Observable<any[]> {
+    console.log(ids);
     const requests = ids.map(id => this.http.get<any>(`${this.apiForVideo}/induction/${id}`).pipe(
       catchError(error => {
         console.error(`Error fetching video for ID ${id}:`, error);
@@ -38,5 +39,10 @@ export class TraniningService {
       })
     ));
     return forkJoin(requests);
+  }
+
+  updatingWatchedVideo(requestBody:any):any{
+    const api=`${this.apiUrl}providers/provider-watched-video`;
+    return this.http.post(api,requestBody)
   }
 }

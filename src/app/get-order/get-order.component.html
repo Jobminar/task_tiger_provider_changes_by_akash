@@ -105,15 +105,15 @@
     <div class="service-details">
       <span>
         <span class="main-Text">Category Type :</span>
-        <span class="value-Text">{{order?.categoryIds[0]?.name}}</span>
+        <span class="value-Text">{{order?.items[0].categoryId?.name}}</span>
       </span>
       <span>
         <span class="main-Text">SubService Type :</span>
-        <span class="value-Text">{{ order?.subCategoryIds[0]?.name}}</span>
+        <span class="value-Text">{{ order?.items[0].subCategoryId?.name}}</span>
       </span>
       <span>
         <span class="main-Text">Service Name :</span>
-        <span class="value-Text">{{ order?.subCategoryIds[0]?.name }}</span>
+        <span class="value-Text">{{ order?.items[0].serviceId?.name }}</span>
       </span>
       <span>
         <span class="main-Text">Price :</span>

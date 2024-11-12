@@ -22,6 +22,10 @@
                     <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
                 </div>
                 <div>
+                    <label for="age">what's your age</label><br>
+                    <input type="number" placeholder="Age" formControlName="age" id="age" required>
+                </div>
+                <div>
                     <label for="work">Select your Gender</label> <br>
                     <select for="name" formControlName="gender">
                         <option value="" disabled selected>Select</option>
@@ -36,12 +40,16 @@
                     <input type="number" formControlName="pincode" required placeholder="Pincode">
                 </div> -->
                 <div>
-                    <label for="houseNo"> H no </label><br>
-                    <input type="text" formControlName="houseNo" required placeholder="Address">
+                    <label for="whatsapp"> Whatsapp number </label><br>
+                    <input type="number" formControlName="whatsapp" required placeholder="whatsapp">
+                </div>
+                <div>
+                    <label for="houseNo"> House number </label><br>
+                    <input type="text" formControlName="houseNo" required placeholder="House number">
                 </div>
                 <div>
                     <label for="landmark"> Landmark </label><br>
-                    <input type="text" formControlName="landmark" required placeholder="Address">
+                    <input type="text" formControlName="landmark" required placeholder="Landmark">
                 </div>
                 <div>
                     <label for="address"> Address </label><br>
@@ -49,11 +57,11 @@
                 </div>
                 <div>
                     <label for="city"> City</label><br>
-                    <input type="text" formControlName="city" required placeholder="Address">
+                    <input type="text" formControlName="city" required placeholder="City">
                 </div>
                 <div>
                     <label for="state"> State </label><br>
-                    <input type="text" formControlName="state" required placeholder="Address">
+                    <input type="text" formControlName="state" required placeholder="State">
                 </div>
                 <div>
                     <label for="pincode"> Pincode </label><br>
@@ -83,3 +91,6 @@
     </div>
 </div>
 <br>
+@if (loading) {
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
+    }

@@ -56,19 +56,31 @@
           </div>
         </form> -->
       </div>
-      <div *ngFor="let promo of promos" class="promo-card">
+     
+      <div class="tittle-promotions">
+        <span>Promotions</span>
+        <u>VIew All</u>
+      </div>
+      <div *ngFor="let promo of promos" class="promo-card" [ngClass]="{'singlePromotion':promos.length===1}">
         <div class="promo-header">
           <div>{{ promo.promoName }}</div>
           <div class="total-pay">Get ₹{{ promo.bonusAmount }}</div>
         </div>
         <div class="promo-details">
-          <div class="label">Target pay</div>
+          <!-- <div class="label">Target pay</div> -->
           <div class="progress-bar">
-            <div class="milestone" *ngFor="let milestone of promoMilestones; let last = last">
+            <mat-progress-bar
+            mode="determinate"
+            [value]="getProgressPercentage(6, promo.numberOfJobs)"
+            color="primary">
+            </mat-progress-bar>
+         
+            <!-- <div class="milestone" *ngFor="let milestone of promoMilestones; let last = last">
               ₹{{ milestone }}
               <span *ngIf="last">({{ promo.numberOfJobs }} jobs)</span>
-            </div>
+            </div> -->
           </div>
+          <span >({{ promo.numberOfJobs }} jobs)</span>
         </div>
       </div>
       
@@ -111,5 +123,5 @@
       </div>
   </div>
 </div>
-<div style="height: 10rem;"></div>
+<div style="height:10rem;"></div>
 <app-fotter></app-fotter>

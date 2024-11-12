@@ -13,6 +13,7 @@ export class UserDetailsService {
   currentCordinates:any;
   userRegistered:any;
   providerDetails:any;
+  buyedPackage:any[]=[]
  private api:string=azureApi;
   constructor(private http:HttpClient) { }
 
@@ -91,10 +92,39 @@ export class UserDetailsService {
     const api=`${this.api}providers/provider-package`;
     return this.http.post<any>(api,requestBody);
   }
+
+
   getPurchasedPackages(providerId:string |null):Observable<any>{
     const api=`${this.api}providers/provider-package/${providerId}`;
     return this.http.get<any>(api);
   }
+
+  getBuyedPackage(): Observable<any> {
+    const providerId = localStorage.getItem('providerId');
+  
+    // Check if `buyedPackage` is defined and has elements
+    if (this.buyedPackage && this.buyedPackage.length > 0) {
+      return of(this.buyedPackage);
+    }
+  
+    // Return a new Observable that fetches data from the API if `buyedPackage` is not available
+    return new Observable(observer => {
+      this.getPurchasedPackages(providerId).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.buyedPackage = res;
+          observer.next(this.buyedPackage);
+          observer.complete();
+        },
+        error: (err) => {
+          console.error(err);
+          this.buyedPackage = []; // Ensure `buyedPackage` is set to an empty array in case of an error
+          observer.error(err); // Return the actual error for proper error handling
+        }
+      });
+    });
+  }
+  
   // userCertificated
   getCertificated(id:any):Observable<any>{
      const api= this.api+`providers/provider-certificate/${id}`;
@@ -102,7 +132,7 @@ export class UserDetailsService {
   }
  
   upDatingEarnings(requestBody:any):Observable<any>{
-    const api=`${this.api}providers/provider-earnings/get-earnings/666850ff188555c2c4a62885`;
+    const api=`${this.api}providers/provider-earnings`;
     return this.http.post(api,requestBody);
   }
   setDefult(){

@@ -124,6 +124,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { UserDetailsService } from '../user-details.service';
 import { GoogleMapService } from '../google-map.service';
 import { Location } from '@angular/common';
+import { DailogeBoxService } from '../dailoge-box.service';
 
 @Component({
   selector: 'app-about-user',
@@ -136,6 +137,7 @@ export class AboutUserComponent implements OnInit {
   imagePreview: string | ArrayBuffer | null = null;
   selectedWork: any ;
   userNumber:any;
+  loading:boolean=false;
   workAdded:boolean=true;
   constructor(
     private fb: FormBuilder,
@@ -143,7 +145,8 @@ export class AboutUserComponent implements OnInit {
     private readonly location:Location,
     private loginService: LoginServiceService,
     private userDetailsService:UserDetailsService,
-    private googleMapService:GoogleMapService
+    private googleMapService:GoogleMapService,
+    private dailougeBoxService:DailogeBoxService
   ) {
     
     this.aboutProvider = this.fb.group({
@@ -159,6 +162,7 @@ export class AboutUserComponent implements OnInit {
       landmark:'',
       address: ['', Validators.required],
       city:'',
+      whatsapp:'',
       state:'',
       image: ['']
     });
@@ -275,6 +279,7 @@ export class AboutUserComponent implements OnInit {
     )
   }
   submit() {
+    this.loading=true;
     this.getCoordinates();
     const formData = new FormData();
     // Append other fields to formData
@@ -290,6 +295,7 @@ export class AboutUserComponent implements OnInit {
     formData.append('landMark', this.aboutProvider.value.landmark);
     formData.append('city', this.aboutProvider.value.city);
     formData.append('state', this.aboutProvider.value.state);
+    formData.append('whatsapp', this.aboutProvider.value.whatsapp);
 
     // Flatten and stringify the work array
     // let work = this.loginService.workDetails.flat(); // Ensure workDetails is correctly populated
@@ -306,7 +312,14 @@ export class AboutUserComponent implements OnInit {
     });
   
     // Send formData to the server
-    this.loginService.UserDetails(formData)
+    this.loginService.UserDetails(formData).subscribe({
+      next:(res)=>{
+        this.loading=false;
+        this.dailougeBoxService.openDialog("Details are uploaded sucessfully")
+      },error:(err:HttpErrorResponse)=>{
+        this.loading=false;
+      }
+    })
   }
   navToBack(){
     console.log("back");

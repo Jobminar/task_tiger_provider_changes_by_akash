@@ -47,10 +47,10 @@ export class OrdersService {
     return this.http.post<any>(api,requestBody);
   }
 
-  cancelOrder(){
-    const api= this.apiUrl+'users/order-history/cancel-order';
+  cancelOrder(orderHistoryId:string|null){
+    const api= this.apiUrl+'users/order-history/provider-cancel-order';
     const requestBody={
-      orderHistoryId:this.orderIds,
+      orderId:orderHistoryId,
       providerId:localStorage.getItem('providerId'),
       reason:'nothing'
     }

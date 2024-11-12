@@ -15,7 +15,8 @@ export class FinancialDetailsComponent {
   constructor(private location:Location,
               private userDetails:UserDetailsService
   ){
-    this.getUserDetails()
+    this.getUserDetails();
+    this.bankDetails();
   }
 
   getUserDetails()
@@ -29,4 +30,6 @@ export class FinancialDetailsComponent {
       }
     )
   }
+
+
 }

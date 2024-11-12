@@ -21,6 +21,8 @@ export class MenuComponent implements OnInit{
   userImage:String='';
   whatsAppStaus='on';
   providerRating:string='';
+  packageImage:string='';
+  packageName:string='';
   private apiSubscription!:Subscription
   constructor(private location:Location,
               private router:Router,
@@ -39,6 +41,7 @@ export class MenuComponent implements OnInit{
     this.jobDetailsService.getUserDetails(localStorage.getItem('providerId'))
     this.getUsername();
     this.getProviderRating();
+    this.getPackageDetails();
   }
   
   getProviderRating(){
@@ -47,6 +50,7 @@ export class MenuComponent implements OnInit{
         console.log(res);
         this.providerRating=res.averageRating;
       },error:(err:HttpErrorResponse)=>{
+        this.providerRating='';
         console.log(err);
       }
     })
@@ -65,6 +69,19 @@ export class MenuComponent implements OnInit{
       }
   })
    
+  }
+
+  getPackageDetails(){
+   
+   this.userDetals.getBuyedPackage().subscribe({
+    next:(res)=>{
+      console.log(res);
+      this.packageImage=res[0].image;
+      this.packageName=res[0].packageName;
+    },error:(err:HttpErrorResponse)=>{
+      console.log(err);
+    }
+   })
   }
   options:any=[
     {

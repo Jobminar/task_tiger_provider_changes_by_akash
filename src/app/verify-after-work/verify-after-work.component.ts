@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { AfterorderService } from '../afterorder.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserDetailsService } from '../user-details.service';
-
+import { format } from 'date-fns';
 @Component({
   selector: 'app-verify-after-work',
   templateUrl: './verify-after-work.component.html',
@@ -106,6 +106,7 @@ export class VerifyAfterWorkComponent {
     const otp=otpValue.inputOne+otpValue.inputTwo+otpValue.inputThree+otpValue.inputFour 
     // console.log("OTP:", this.otp.value);
     console.log(otp);
+    
     this.orderService.verifyAfterComplete(otp,this.orderHistoryId,this.orderId).subscribe(
       (response)=>{
         console.log(response);
@@ -119,11 +120,15 @@ export class VerifyAfterWorkComponent {
   }
 
  updatingEarnings(){
+  const originalDate = new Date();
+  const formattedDate = format(originalDate, 'yyyy-MM-dd'); 
   const requestBody={
     providerId:localStorage.getItem('providerId'),
-    date:"2024-10-28",
+    date:formattedDate,
     amount: 190
   }
+  console.log(requestBody);
+  console.log(typeof(formattedDate));
   this.userDetailsService.upDatingEarnings(requestBody).subscribe({
     next:(res)=>{
       console.log(res);

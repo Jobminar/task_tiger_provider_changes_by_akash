@@ -76,6 +76,7 @@ export class BankDetailsComponent {
               private http: HttpClient) {
     this.bankDetails = this.fb.group({
       accountName: ['', Validators.required],
+      gst: ['', Validators.required],
       accountNumber: ['', Validators.required],
       PANNumber: ['', Validators.required],
       bankName: ['', Validators.required],
@@ -88,31 +89,31 @@ export class BankDetailsComponent {
   submit() {
     
 
-    const api=`${this.apiUrl}providers/provider-finance`
+    const api=`${this.apiUrl}providers/provider-finance`;
     const formData = new FormData();
     formData.append('accountName', this.bankDetails.value.accountName);
     formData.append('providerId', localStorage.getItem('providerId') || '');
     formData.append('aadhaarNumber',this.bankDetails.value.aadhaarNumber)
-    // formData.append('gst', 'ABC121');  // Replace with the actual GST if required
+    formData.append('gst', this.bankDetails.value.gst);  // Replace with the actual GST if required
     formData.append('accountNumber', this.bankDetails.value.accountNumber);
     formData.append('pan', this.bankDetails.value.PANNumber);
     formData.append('bankName', this.bankDetails.value.bankName);
     formData.append('ifscCode', this.bankDetails.value.IFSC);
     formData.append('branch', this.bankDetails.value.branch);
-
-    this.http.post(api, formData).subscribe(
-      (response) => {
+    
+    this.http.post(api, formData).subscribe({
+      next:(response) => {
         console.log(response);
         this.router.navigate(['induction']);
       },
-      (error) => {
+      error:(error) => {
         console.log(error);
        
         if (error.error.error==="E11000 duplicate key error collection: test.finances index: pan_1 dup key: { pan: \"cggpc1173E\" }") {
           alert("Pancard is already registered");
         }
       }
-    );
+  });
   }
 
   skip() {

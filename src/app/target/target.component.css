@@ -203,7 +203,7 @@ round-progress {
 .container-target {
   width: 100%;
   /* max-width: 650px; */
-  margin: 40px auto 80px;
+  /* margin: 0px auto 80px; */
   text-align: center;
   /* padding: 40px; */
   padding-bottom: 40px;
@@ -310,14 +310,23 @@ input[type='color'] {
 
 
 
+.tittle-promotions{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin: 16px 0 10px;
 
+}
 .promo-card {
+  width: 80%;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
-
+.singlePromotion{
+  width: auto;
+}
 .promo-header {
   display: flex;
   justify-content: space-between;
@@ -326,6 +335,8 @@ input[type='color'] {
 
 .promo-details {
   margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .label {
@@ -334,6 +345,7 @@ input[type='color'] {
 }
 
 .progress-bar {
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;

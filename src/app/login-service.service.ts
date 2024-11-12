@@ -222,7 +222,7 @@ export class LoginServiceService {
     return this.http.post(api,requestBody);
   }
 
-  UserDetails(data: any) {
+  UserDetails(data: any) :Observable<any>{
     const dataAsObject: any[] = []
     data.forEach((value: any, key: any) => {
       dataAsObject.push(key =value);
@@ -230,10 +230,13 @@ export class LoginServiceService {
     console.log(dataAsObject);
     console.log(data);
     const api = this.apiUrl+'providers/provider-details';
-    this.http.post(api, data).subscribe(
+    return new Observable(ob=>{
+      this.http.post(api, data).subscribe(
       (response: any) => {
         console.log('Success', response);
         this.userFromServer = response;
+        ob.next(response);
+        ob.complete();
         this.router.navigate(['aadharVerify']);
       },
       (error: HttpErrorResponse) => {
@@ -247,8 +250,11 @@ export class LoginServiceService {
         }
         // Log detailed error information
         console.error(`Backend returned code ${error.status}, body was: `, error.error);
+        ob.error(error);
       }
+     
     );
+    })
   }
   
   

@@ -34,15 +34,25 @@
             </div>
             
         <div class="sub-divs">
-            <div class="availability-div" *ngIf="nextWorking.length!=0">
+            <div class="availability-div" [ngClass]="{'availability-bg': nextWorking.length != 0}" >
+                @if (nextWorking.length!=0) {
                 <div *ngFor="let item of nextWorking">
                     <span>{{item.day}}, {{item.month}} {{item.date}}</span>
                     <span><i class="fa fa-circle" style="font-size: 10px;"></i>  {{item.isWorking}}</span>
                 </div>
-                
                 <div (click)="navToCal()">
                     <pre class="material-symbols-outlined notranslate" style="font-size: 28px;">calendar_today</pre>
                 </div>
+                }
+                @else {
+                    <div >
+                        <span>Schedule your availability now</span>
+                    </div>
+                    <div (click)="navToCal()">
+                        <pre class="material-symbols-outlined notranslate" style="font-size: 28px;">arrow_forward_ios</pre>
+                    </div>
+                }
+               
             </div>
             <div>
                     <div class="new-jobs">
@@ -86,7 +96,7 @@
                     <span>Quick links</span>
                 </div>
                 <div class="helps" routerLinkActive="help" [routerLink]="'/help'">
-                    <span >Help?</span>
+                    <span style="color:white" >Help?</span>
                 </div>
                 <!-- src/app/training/training.component.html -->
 
@@ -99,7 +109,7 @@
                     <div id="video-slidess" >
                         <video controls id="videoss">
                         <source 
-                            [src]="'https://' + bucketName + '.s3.' + region + '.amazonaws.com/' + ele.videoKey" 
+                            [src]="ele.video" 
                             type="video/mp4" 
                         />
                         <!-- <source src="D:\movies\Premalu (2024) Telugu HQ HDRip  - x264 - AAC - 700MB - ESub.mp4"  type="video/mp4"> -->
