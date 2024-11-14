@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <button class="skip-btn" (click)="skip()">skip</button>
     <div class="sub-container">
        
@@ -17,4 +17,71 @@
     </div>
  
        
-</div>
+</div> -->
+
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined notranslate"style="font-size: 28px;" (click)="navTo()">arrow_back</span>&nbsp;
+        <span class="tittle"  >Document’s Verification</span>
+    </div>
+    <!-- <div class="progress-bar">
+      <div class="step active">Aadhar Details</div>
+      <div class="step">Pan Card Details</div>
+      <div class="step">Bank Details</div>
+    </div> -->
+ 
+    <form (ngSubmit)="onSubmit()" [formGroup]="documentForm">
+      <section class="section">
+        <h2>Aadhar card details</h2>
+        <p>Upload focused photo of your Aadhar Card for faster verification</p>
+        
+        <div class="upload-box">
+          <p *ngIf="!previews['aadharFront']" >Front side photo of your Aadhar card with your clear name and photo</p>
+           <!-- Upload button and file input -->
+        <label for="aadharFrontInput" class="upload-button" *ngIf="!previews['aadharFront']">
+            <span class="icon">📷</span> Upload Photo
+          </label>
+          <input 
+            type="file" 
+            id="aadharFrontInput" 
+            (change)="onFileSelect($event, 'aadharFront')" 
+            class="file-input"
+            *ngIf="!previews['aadharFront']"
+          />
+          <img *ngIf="previews['aadharFront']" [src]="previews['aadharFront']" alt="Aadhar Front Preview" class="preview-image" />
+          <!-- <div class="status-button" *ngIf="previews['aadharFront']">
+            <span>Uploaded</span>
+            <span class="icon">✖</span>
+          </div> -->
+        </div>
+        
+        <div class="upload-box">
+          <p *ngIf="!previews['aadharBack']">Back side photo of your Aadhar card</p>
+          <label for="fileInput" class="upload-button"  *ngIf="!previews['aadharBack']" >
+            <span class="icon">📷</span> Upload Photo
+          </label>
+          <input type="file" id="fileInput" class="upload-button" (change)="onFileSelect($event, 'aadharBack')"  />
+          
+          <input type="file" />
+          <img *ngIf="previews['aadharBack']" [src]="previews['aadharBack']" alt="Aadhar Back Preview" class="preview-image" />
+        </div>
+      </section>
+  
+      <section class="section">
+        <h2>PAN card details</h2>
+        <div class="upload-box">
+          <p *ngIf="!previews['panCard']">Front side photo of your Pan card with your clear photo</p>
+          <label for="fileInput" class="upload-button" *ngIf="!previews['panCard']" >
+            <span class="icon">📷</span> Upload Photo
+          </label>
+          <input type="file" id="fileInput" class="upload-button" (change)="onFileSelect($event, 'panCard')"   />
+          
+          <img *ngIf="previews['panCard']" [src]="previews['panCard']" alt="Pan Card Preview" class="preview-image" />
+        </div>
+      </section>
+      <div class="submit-btn">
+      <button type="submit" class="submit-btn">Save & Continue</button>
+    </div>
+    </form>
+  </div>
+  

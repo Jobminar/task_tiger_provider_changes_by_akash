@@ -12,7 +12,7 @@
         <div class="credit-details">
             
             <span>Credit balance :</span>&nbsp;
-            <span>{{credits}}</span>
+            <span>{{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</span>
         </div>
         <div>
             <button (click)="navToAddCredit()">Add+</button>

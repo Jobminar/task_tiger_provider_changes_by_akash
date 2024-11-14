@@ -51,6 +51,7 @@ import { ManageServicesComponent } from './manage-services/manage-services.compo
 import { FeedbackComponent } from './feedback/feedback.component';
 import { WorkImageComponent } from './work-image/work-image.component';
 import { ServiceComponent } from './service/service.component';
+import { AddAddressComponent } from './add-address/add-address.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path:'location',component:LocationComponent},
   {path:'verify',component:VerifyComponent},
   {path:'aboutUser',component:AboutUserComponent},
+  {path:'addAddress',component:AddAddressComponent},
   {path:'selectWork',component:SelectWorkComponent},
   {path:'aboutWork',component:AboutWorkComponent},
   {path:'workExperiance',component:WorkExperianceComponent},

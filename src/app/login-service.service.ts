@@ -38,14 +38,14 @@ export class LoginServiceService {
      private router: Router,
      private readonly dialogService:DailogeBoxService
   ) {}
-  setLogInApi() {
-    this.api = this.apiUrl+'providers/provider-auth/login';
-    console.log(this.api);
-  }
-  setSignUpApi() {
-    this.api =this.apiUrl+ 'providers/provider-auth/signup';
-    console.log(this.api);
-  }
+  // setLogInApi() {
+  //   this.api = this.apiUrl+'providers/provider-auth/login';
+  //   console.log(this.api);
+  // }
+  // setSignUpApi() {
+  //   this.api =this.apiUrl+ 'providers/provider-auth/signup';
+  //   console.log(this.api);
+  // }
 
   
   setLog(number: any) {
@@ -54,8 +54,9 @@ export class LoginServiceService {
     const requestBody = {
       phone: number,
     };
+    const api= this.apiUrl+'providers/provider-auth/login'
     console.log(requestBody);
-    this.http.post(this.api, requestBody).subscribe(
+    this.http.post(api, requestBody).subscribe(
       (response) => {
         console.log(response);
       this.responseOtp=response;
@@ -229,9 +230,10 @@ export class LoginServiceService {
     });
     console.log(dataAsObject);
     console.log(data);
-    const api = this.apiUrl+'providers/provider-details';
+    const providerId=localStorage.getItem('providerId');
+    const api = `${this.apiUrl}providers/provider-auth/${providerId}`;
     return new Observable(ob=>{
-      this.http.post(api, data).subscribe(
+      this.http.patch(api, data).subscribe(
       (response: any) => {
         console.log('Success', response);
         this.userFromServer = response;

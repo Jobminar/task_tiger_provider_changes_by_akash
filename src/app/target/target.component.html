@@ -3,7 +3,7 @@
  
     <div id="menu-button" (click)="toggleDrawer()">☰</div>
     <div class="bell-credit">
-        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
+        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</pre></div>
         <div class="bell"  (click)="navTo('notification')"><span class="material-symbols-outlined notranslate" >notifications</span></div>
     </div>
   
@@ -61,7 +61,7 @@
         <span>Promotions</span>
         <u>VIew All</u>
       </div>
-      <div *ngFor="let promo of promos" class="promo-card" [ngClass]="{'singlePromotion':promos.length===1}">
+      <div *ngFor="let promo of promos" class="promo-card" [ngClass]="{'singlePromotion':promos.length===1}" (click)="openPopUp()">
         <div class="promo-header">
           <div>{{ promo.promoName }}</div>
           <div class="total-pay">Get ₹{{ promo.bonusAmount }}</div>
@@ -113,7 +113,7 @@
       <br>
     
       <div class="credit-balance-div">
-          <span class="sub-info">Credit Balance {{credits}}</span>
+          <span class="sub-info">Credit Balance {{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</span>
           <br>
           <br>
           <div>
@@ -123,5 +123,38 @@
       </div>
   </div>
 </div>
+<div class="overlay" *ngIf="isVisible">
+  <div class="popup-content">
+    <button class="close-button" (click)="closePopup()">X</button>
+    <h1 class="popup-title">Task Tigers</h1>
+    <h2 class="popup-subtitle">"Double Your Earnings This Month!"</h2>
+    <div class="bonus-img-details">
+      
+      <div class="offer-details">
+        <p>Ready to boost your earnings? This month, we're doubling the rewards for your hard work!</p>
+        <p><strong>Offer applicable</strong></p>
+        <p>29-10-2024 To 19-11-2024</p>
+      </div>
+      <div class="bonus-section">
+        <div class="burst">
+          <span class="bonus-text">Get</span>
+          <!-- <span class="bonus-amount">{{ bonusAmount }}</span> -->
+          <span class="bonus-amount">1000</span> 
+          <span class="bonus-text">Bonus</span>
+        </div>
+      </div>
+    </div>
+    <div class="instructions">
+      <h3>Here's how it works</h3>
+      <p>- Complete [X] jobs in [X] services and earn [Reward Amount]</p>
+    </div>
+    <div class="note">
+      <strong>Note:</strong>
+      <p>Don't miss this limited-time offer. Start accepting more jobs today and watch your earnings soar!</p>
+    </div>
+  </div>
+</div>
+
+
 <div style="height:10rem;"></div>
 <app-fotter></app-fotter>

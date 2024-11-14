@@ -39,8 +39,12 @@
       <span class="tittle">Add credits</span>
     </div>
     <div class="sub-container">
-      <div class="credit-input">
-        <img src="assets/logo/credit12.png"><input type="number" placeholder="Enter number of credits" [value]="selectedValue" [(ngModel)]="selectedValue" (input)="entredAmount()">
+      <div class="input-credit">
+        <div class="credit-input">
+          <img src="assets/logo/credit12.png">
+          <input type="number" placeholder="Enter number of credits" [value]="selectedValue" [(ngModel)]="selectedValue" (input)="entredAmount()">
+        </div>
+        <span *ngIf="AmountToPay">For &#8377;&nbsp; {{AmountToPay}} you will get {{creditsVlGet % 1 ===0 ? creditsVlGet:(creditsVlGet  | number: '1.2-2')}}</span>
       </div>
       <div class="quickSelect-div">
         <span class="maintext">Quick select</span>

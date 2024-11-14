@@ -84,6 +84,7 @@ import { ManageServicesComponent } from './manage-services/manage-services.compo
 import { WorkImageComponent } from './work-image/work-image.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ServiceComponent } from './service/service.component';
+import { AddAddressComponent } from './add-address/add-address.component';
 
 @NgModule({
   declarations: [
@@ -141,6 +142,7 @@ import { ServiceComponent } from './service/service.component';
     WorkImageComponent,
     FeedbackComponent,
     ServiceComponent,
+    AddAddressComponent,
  
   ],
   imports: [

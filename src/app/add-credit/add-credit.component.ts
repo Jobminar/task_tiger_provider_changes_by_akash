@@ -73,12 +73,16 @@ export class AddCreditComponent {
   credits: number[] = [20, 50, 100, 250];
   selectedValue: number = 0;
   AmountToPay: number = 0;
+  creditsVlGet:number=0;
   entredAmount(){
-    this.AmountToPay=this.selectedValue
+    this.AmountToPay=this.selectedValue;
+    this.creditsVlGet = Math.floor(this.AmountToPay / 10);
+    console.log(this.AmountToPay);
   }
   selected(item: number) {
     this.selectedValue = item;
     this.AmountToPay = this.selectedValue;
+    this.creditsVlGet = Math.floor(this.AmountToPay / 10);
   }
 
   payOnline: boolean = false;

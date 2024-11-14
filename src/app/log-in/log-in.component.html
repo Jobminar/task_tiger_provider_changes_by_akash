@@ -3,9 +3,10 @@
         <div class="banner-div">
             <!-- <img src="assets\logo\Rectangle 25.png"> -->
             <div class="banner">
-                <!-- @if () {}@else {} -->
+<!--                
                 <span >Earn more</span><br>
-                <p>fill your dreams</p>
+                <p>fill your dreams</p> -->
+                <img src="./assets/logo/logo png1.png">
             </div>
             
            
@@ -24,12 +25,17 @@
         <div *ngIf=showError class="error">
             <p class="error-message" style="color: red;">***Please enter a valid 10-digit phone number.</p>
         </div>
-     
-       <div class="update-div">
+        <div class="otp-details">
+            <span class="material-symbols-outlined">
+                info
+            </span>
+            <span>You will receive an OTP code from Task Tigers to confirm your number.</span>
+        </div>
+       <!-- <div class="update-div">
             <input type="checkbox" > <span>Get update on &nbsp;<img src="assets\logo\wts up .png"> whatsapp</span>
-       </div>
+       </div> -->
        <br>
-       <br>
+       
       
         <div class="btn">
              <button [disabled]="!myForm.valid" [ngClass]="{'disabled':!myForm.valid}">Get OTP</button>

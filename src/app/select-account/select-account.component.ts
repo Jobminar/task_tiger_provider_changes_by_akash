@@ -342,10 +342,10 @@ export class SelectAccountComponent {
 
   onToggleChange(accountType: string): void {
     if (accountType === 'existing') {
-      this.loginService.setLogInApi();
+      // this.loginService.setLogInApi();
       this.navigateBasedOnAccount();
     } else if (accountType === 'new') {
-      this.loginService.setSignUpApi();
+      // this.loginService.setSignUpApi();
       setTimeout(() => {
         this.router.navigate(['log-in']);
       }, 1000);

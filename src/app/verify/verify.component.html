@@ -1,8 +1,8 @@
 <div class="container">
     <div class="sub-container">
-        <span class="tittle">Enter OTP </span><br>
+        <span class="tittle">Verify your phone number </span><br>
         <span class="info-text">Please enter the code we just send to</span>
-        <p class="info-text">+91 {{userNumber}}</p>
+        <p class="info-text2">+91 {{userNumber}}</p>
         <br>
                 <!-- verification.component.html -->
         <!-- app.component.html -->
@@ -14,21 +14,22 @@
                 <input type="text" maxlength="1" formControlName="inputFour" (input)="onInput($event, 4)" (keydown)="onKeyDown($event, 4)" #input4>
             </div>  
             <div class="resend-div">
-              <span>Didn’t receive OTP?
+              <span>Did not received the OTP?
                 @switch (resendToggling) {
                     @case ("resend") {
                        
-                          
-                            <u (click)="resend()" class="resend">Resend</u>
+                          <br>
+                            <button (click)="resend()" class="resend">Resend Code</button>
                     }
                     @case ("countdown") {
+                        <br>
                         <div class="resend"> <p>{{ minutes }} : {{ seconds }}</p></div>
                     }
                 }
             </span>
             </div>
         
-            <button type="submit" class="login-btn" (click)="login()">Verify</button>
+            <!-- <button type="submit" class="login-btn" (click)="login()">Verify</button> -->
         </form>
         
   

@@ -126,10 +126,10 @@ export class HomeComponent implements OnInit {
         entered = response;
         if (entered && !this.jobDetailsService.getcheckingDetails()) {
           console.log("inside",this.jobDetailsService.getcheckingDetails());
-          this.dialogService.openDialog('Please add the details');
+          this.dialogService.openDialog('Please add the details uncomment me in home-132');
           // alert("Please add the details")
           this.jobDetailsService.setCheckingDetails(true);
-          this.router.navigate(['aboutUser']);
+          // this.router.navigate(['aboutUser']);
         }
       });
     console.log(entered);

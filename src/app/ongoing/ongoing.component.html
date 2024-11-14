@@ -1,7 +1,7 @@
 <div class="container">
     <div id="menu-button" (click)="navTo('menu')" >☰</div>
     <div class="bell-credit">
-        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{credits}}</pre></div>
+        <div class="credit" (click)="navTo('credit')"><img src="assets\logo\credit.png"><pre>{{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</pre></div>
         <div class="bell" (click)="navTo('notification')"><span class="material-symbols-outlined notranslate" >notifications</span></div>
     </div>
     <div class="sub-container">

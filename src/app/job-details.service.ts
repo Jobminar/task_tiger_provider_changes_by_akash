@@ -112,9 +112,9 @@ export class JobDetailsService {
             observer.error(error);  // Handle other errors
            
             if (!this.checkingDetails) {
-              this.dialogService.openDialog('Please add the details');
+              this.dialogService.openDialog('Please add the details uncomment me in job-details-service-117');
               this.checkingDetails=true;
-              this.router.navigate(['aboutUser']);
+              // this.router.navigate(['aboutUser']);
             }
            
           }

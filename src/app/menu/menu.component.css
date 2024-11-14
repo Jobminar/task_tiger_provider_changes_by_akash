@@ -112,10 +112,11 @@
     
    
 }
+
 .category  div{
     display: flex;
     justify-content: space-between;
-   
+   align-items: center;
 }
 .category div span, .finacial span{
     font-size: 1.2rem;

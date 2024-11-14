@@ -18,6 +18,7 @@ export class TargetComponent {
   // color: string = 'primary'; 
   minTarget:any=0;
   min:any=80;
+  isVisible:boolean=true;
   divColor:string='black';
   providerRating:number=0;
   creditBalance:number=50;
@@ -150,6 +151,13 @@ forkJoin(requests).subscribe(results => {
   getProgressPercentage(completedJobs: number, totalJobs: number): number {
     if (totalJobs === 0) return 0;
     return (completedJobs / totalJobs) * 100;
+  }
+
+  openPopUp(){
+    this.isVisible = true
+  }
+  closePopup() {
+    this.isVisible = false;
   }
   navTo(nav:string){
     switch(nav){

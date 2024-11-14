@@ -151,26 +151,22 @@ export class AboutUserComponent implements OnInit {
     
     this.aboutProvider = this.fb.group({
       userId: localStorage.getItem('providerId'),
-      providerName: ['', Validators.required],
-      work: ['', Validators.required],
-      pincode: ['', Validators.required],
-      // radius: ['', Validators.required],
-      phone: [ this.loginService.userNumber, Validators.required],
+      name: ['', Validators.required],
+      // work: ['', Validators.required],
+      // pincode: ['', Validators.required],
+      // // radius: ['', Validators.required],
+      // phone: [ this.loginService.userNumber, Validators.required],
       age: [ this.loginService.age, Validators.required],
       gender: ['', Validators.required],
-      houseNo:'',
-      landmark:'',
-      address: ['', Validators.required],
-      city:'',
-      whatsapp:'',
-      state:'',
+      email:[''],
+      DOB:[''],
       image: ['']
     });
 
     // Flattening the nested work details array
-    const setWork = this.loginService.workDetails.flat();
-    this.aboutProvider.controls['work'].setValue(setWork);
-    console.log(setWork);
+    // const setWork = this.loginService.workDetails.flat();
+    // this.aboutProvider.controls['work'].setValue(setWork);
+    // console.log(setWork);
     console.log('inform',this.aboutProvider.value.work);
     this.selectedWork = this.loginService.workDetails.flatMap(
               item => item.flatMap((subItem: { nameOfService: any; }) => subItem.nameOfService)
@@ -283,19 +279,19 @@ export class AboutUserComponent implements OnInit {
     this.getCoordinates();
     const formData = new FormData();
     // Append other fields to formData
-    formData.append('providerName', this.aboutProvider.value.providerName);
-    formData.append('age', this.aboutProvider.value.age);
-    formData.append('pincode', this.aboutProvider.value.pincode);
+    formData.append('name', this.aboutProvider.value.providerName);
+    // formData.append('age', this.aboutProvider.value.age);
+    // formData.append('pincode', this.aboutProvider.value.pincode);
     // formData.append('radius', this.aboutProvider.value.radius);
-    formData.append('providerId', this.aboutProvider.value.userId);
-    formData.append('gender', this.aboutProvider.value.gender);
-    formData.append('address', this.aboutProvider.value.address);
-    formData.append('phone', this.loginService.userNumber);
-    formData.append('houseNo', this.aboutProvider.value.houseNo);
-    formData.append('landMark', this.aboutProvider.value.landmark);
-    formData.append('city', this.aboutProvider.value.city);
-    formData.append('state', this.aboutProvider.value.state);
-    formData.append('whatsapp', this.aboutProvider.value.whatsapp);
+    formData.append('gender', this.aboutProvider.value.userId);
+    formData.append('gmail', this.aboutProvider.value.gender);
+    formData.append('dateOfBirth', this.aboutProvider.value.address);
+    // formData.append('phone', this.loginService.userNumber);
+    // formData.append('houseNo', this.aboutProvider.value.houseNo);
+    // formData.append('landMark', this.aboutProvider.value.landmark);
+    // formData.append('city', this.aboutProvider.value.city);
+    // formData.append('state', this.aboutProvider.value.state);
+    // formData.append('whatsapp', this.aboutProvider.value.whatsapp);
 
     // Flatten and stringify the work array
     // let work = this.loginService.workDetails.flat(); // Ensure workDetails is correctly populated

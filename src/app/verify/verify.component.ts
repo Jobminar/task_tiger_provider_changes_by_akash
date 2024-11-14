@@ -61,6 +61,10 @@ export class VerifyComponent implements OnInit{
           break;
       }
     }
+
+    if(position===4){
+      this.login()
+    }
   }
 
   onKeyDown(event: KeyboardEvent, currentInputIndex: number) {
@@ -92,7 +96,7 @@ export class VerifyComponent implements OnInit{
     // Send OTP to backend
     const otp=otpValue.inputOne+otpValue.inputTwo+otpValue.inputThree+otpValue.inputFour 
     console.log("OTP:", this.otp.value);
-   console.log(otp)
+  
 
    this.logInService.verifyOtp(otp).subscribe(
     async (response:any)=>{

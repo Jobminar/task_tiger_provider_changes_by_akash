@@ -4,11 +4,11 @@
         <span class="tittle">Manage Services</span>
     </div> -->
     <div class="sub-container">
-        <span class="tittle">Tell us about yourself</span><br>
+        <!-- <span class="tittle">Tell us about yourself</span><br> -->
         
         <form [formGroup]="aboutProvider">
            <div class="form-div"> 
-            @if ( workAdded) {
+            <!-- @if ( workAdded) {
                 <div style="position: relative;">
                     <label for="work">what work do you do?</label> <br>
                     <input formControlName="work"  id="providerType" required (click)="navTo()" placeholder="please select the Work " [ngModel]="selectedWork">
@@ -16,34 +16,58 @@
                        
                     
                 </div>
-            }
+            } -->
+            <label for="file" class='image-label'> Upload image </label>
+            <div class="file-input-container">
+                   
+                <label for="file-input" class="file-label">
+                  <img *ngIf="!selectedFile" src="assets/documents/Group.png" alt="Upload image" class="placeholder-image">
+                  <img *ngIf="selectedFile" [src]="imagePreview" alt="Selected image" class="preview-image">
+                  <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
+                </label>
+                <input type="file" id="file-input" formControlName="image"  (change)="onFileSelected($event)" class="file-input" required>
+            </div>
                 <div>
-                    <label for="name">what's your Name</label><br>
+                    <label for="name">First Name</label><br>
                     <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
                 </div>
                 <div>
-                    <label for="age">what's your age</label><br>
-                    <input type="number" placeholder="Age" formControlName="age" id="age" required>
+                    <label for="name">Surname</label><br>
+                    <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
                 </div>
                 <div>
-                    <label for="work">Select your Gender</label> <br>
-                    <select for="name" formControlName="gender">
+                    <label for="gender">Select your Gender</label> <br>
+                    <select for="gender" formControlName="gender">
                         <option value="" disabled selected>Select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
-                    </select><br>
+                    </select>
                     <!-- <input type="text" placeholder="Name" formControlName="providerName" id="names" required> -->
                 </div>
-                <!-- <div>
-                    <label for="location"> Pin code </label><br>
-                    <input type="number" formControlName="pincode" required placeholder="Pincode">
-                </div> -->
+               
                 <div>
-                    <label for="whatsapp"> Whatsapp number </label><br>
+                    <label for="DOB">Date of Birth</label><br>
+                    <input type="date" placeholder="DOB" formControlName="DOB" id="DOB" required>
+                </div>
+              
+                <div>
+                    <label for="phoneNumber"> Phone number </label><br>
+                    <input type="number" formControlName="phoneNumber" required placeholder="phoneNumber">
+                </div>
+                <div>
+                    <label for="whatsapp"> Whatsapp number (Optional) </label><br>
                     <input type="number" formControlName="whatsapp" required placeholder="whatsapp">
                 </div>
                 <div>
+                    <label for="email">Email (Optional)</label><br>
+                    <input type="email" placeholder="email" formControlName="email" id="email" required>
+                </div>
+                <div>
+                    <label for="whatsapp"> Language you know </label><br>
+                    <input type="number" formControlName="whatsapp" required placeholder="whatsapp">
+                </div>
+                <!-- <div>
                     <label for="houseNo"> House number </label><br>
                     <input type="text" formControlName="houseNo" required placeholder="House number">
                 </div>
@@ -66,23 +90,15 @@
                 <div>
                     <label for="pincode"> Pincode </label><br>
                     <input type="text" formControlName="pincode" required placeholder="Address">
-                </div>
+                </div> -->
                 <!-- <div>
                     <label for="location"> Select radius
                         or
                         Range to you want to work from your place </label><br>
                     <input type="number" formControlName="radius" required placeholder="Enter radius">
                 </div> -->
-                <label for="file" class='image-label'> Upload image </label>
-                <div class="file-input-container">
-                   
-                    <label for="file-input" class="file-label">
-                      <img *ngIf="!selectedFile" src="assets/documents/Group.png" alt="Upload image" class="placeholder-image">
-                      <img *ngIf="selectedFile" [src]="imagePreview" alt="Selected image" class="preview-image">
-                      <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
-                    </label>
-                    <input type="file" id="file-input" formControlName="image"  (change)="onFileSelected($event)" class="file-input" required>
-                </div>
+             
+               
                   
                   
                   <button type="submit" class="login-btn" (click)="submit()">Continue</button>
@@ -92,5 +108,8 @@
 </div>
 <br>
 @if (loading) {
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
-    }
+    <div class="loading-div">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
+    
+    </div>
+}
