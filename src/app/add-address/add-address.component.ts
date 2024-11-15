@@ -5,6 +5,8 @@ import { azureApi } from '../../constents/apis';
 
 import { Subscription } from 'rxjs';
 import { isPlatformBrowser, Location } from '@angular/common';
+import { GoogleMapService } from '../google-map.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-address',
@@ -14,42 +16,6 @@ import { isPlatformBrowser, Location } from '@angular/common';
 export class AddAddressComponent implements OnInit, AfterViewInit, OnDestroy{
   
   addressForm: FormGroup; 
-  constructor(private fb: FormBuilder, 
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: object,
-    private location:Location) 
-    { 
-      this.addressForm = this.fb.group({ 
-        houseNo: ['', Validators.required], 
-        address: ['', Validators.required],
-        providerId:localStorage.getItem('providerId'), 
-        landMark: [''],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        pincode: ['', Validators.required]
-           });
-  } 
-  ngOnInit(): void {
-    // Initialize any necessary data or subscriptions here
-  }
-  onSubmit() 
-  { 
-    if (this.addressForm.valid) 
-      {
-        console.log(this.addressForm.value);
-        const api=`${azureApi}providers/provider-address `
-         this.http.post(api, this.addressForm.value) .subscribe({
-          next:(response )=> { 
-            console.log('Address saved successfully', response);
-            
-           }, error :(err:HttpErrorResponse)=> 
-            { 
-              console.error('Error saving address', err);
-             }
-      }); 
-          } 
-  }
-
   loading = false;
   destinationInput: string = '';
   suggestions: any[] = [];
@@ -64,6 +30,71 @@ export class AddAddressComponent implements OnInit, AfterViewInit, OnDestroy{
   private subscriptions: Subscription = new Subscription();
 
 
+  constructor(private fb: FormBuilder, 
+            private http: HttpClient,
+            private googleMapService:GoogleMapService,
+            private router:Router,
+            @Inject(PLATFORM_ID) private platformId: object,
+            private location:Location) 
+    { 
+      this.addressForm = this.fb.group({ 
+        houseNo: ['', Validators.required], 
+        address: ['', Validators.required],
+        providerId:localStorage.getItem('providerId'), 
+        landMark: [''],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+        pincode: ['', Validators.required]
+           });
+  } 
+  ngOnInit(): void {
+    // Initialize any necessary data or subscriptions here
+  }
+
+  getCoordinates(){
+    const add=`${this.addressForm.value.houseNo} ${this.addressForm.value.landmark} ${this.addressForm.value.address} ${this.addressForm.value.city} ${this.addressForm.value.state} ${this.addressForm.value.pincode}`
+    console.log(add);
+    this.googleMapService.getCoordinatesFromPlaceName(add).subscribe(
+      {
+        next:(res)=>{
+          console.log(res);
+          this.googleMapService.sendCordinates(res.results[0].geometry).subscribe(
+            {
+              next:(res)=>{
+                console.log(res);
+                alert('coordinates are updated')
+              },
+              error:(err:HttpErrorResponse)=>{
+                console.log(err);
+              }
+            }
+          )
+        },error:(err:HttpErrorResponse)=>{
+          console.log(err);
+        }
+      }
+    )
+  }
+  onSubmit() 
+  { 
+    if (this.addressForm.valid) 
+      {
+        this.getCoordinates();
+        console.log(this.addressForm.value);
+        const api=`${azureApi}providers/provider-address `
+         this.http.post(api, this.addressForm.value) .subscribe({
+          next:(response )=> { 
+            console.log('Address saved successfully', response);
+            this.router.navigate(['selectWork']);
+           }, error :(err:HttpErrorResponse)=> 
+            { 
+              console.error('Error saving address', err);
+             }
+      }); 
+          } 
+  }
+
+ 
   ngAfterViewInit(): void {
    
       this.initializeMap();

@@ -12,14 +12,23 @@
         <div class="serivce">
             <!-- <span class="tittle2">All categories</span><br> -->
             @for (item of items; track $index) {
-               
-                <div class="service-div">
-                    <div class="names" (click)="slect(item)"><img [src]="item.imageKey">{{item.name}}</div>
-                    <div ><input type="checkbox" class="checkbox"  [(ngModel)]="item.checked"  (change)="onChange($event, item)"></div>
+                <div class="sub-cat-div">
+                    @for(cat of allCatDetails;track $index ){
+                        @if(cat._id === item[0].categoryId){
+                            <span>{{cat.name}}</span>
+                        }
+                    }
+                    @for (i of item;  track $index) {
+                        <div class="service-div">
+                            <div class="names" (click)="slect(i)"><img [src]="i.imageKey">{{i.name}}</div>
+                            <div ><input type="checkbox" class="checkbox"  [(ngModel)]="i.checked"  (change)="onChange($event, i)"></div>
+                            
+                        </div>
+                       
+                    }
                 </div>
-            
             }
         </div>
     </div>
-    <!-- <button type="submit" (click)="send()" class="login-btn">Continue</button> -->
+    <button type="submit" (click)="send()" class="login-btn">Continue</button>
 </div>

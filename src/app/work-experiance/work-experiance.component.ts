@@ -39,7 +39,7 @@ export class WorkExperianceComponent {
       (response)=>{
         console.log(response);
         this.dialogeService.openDialog("Service has been added");
-        this.logInservice.workId='';
+        this.logInservice.workId=[];
         this.logInservice.setSubCat("");
         this.logInservice.setservices([]);
        this.router.navigate(['selectWork'])

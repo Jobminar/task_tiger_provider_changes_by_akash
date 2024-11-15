@@ -85,7 +85,7 @@ import { WorkImageComponent } from './work-image/work-image.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ServiceComponent } from './service/service.component';
 import { AddAddressComponent } from './add-address/add-address.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -165,7 +165,8 @@ import { AddAddressComponent } from './add-address/add-address.component';
     MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireMessagingModule,
-    NgxLoadingModule
+    NgxLoadingModule,
+    NgSelectModule
   ],
   providers: [
     provideAnimationsAsync(),DailogeBoxService

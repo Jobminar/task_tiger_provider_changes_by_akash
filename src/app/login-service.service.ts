@@ -5,7 +5,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { catchError, forkJoin, Observable, of } from 'rxjs';
 import { DailogeBoxService } from './dailoge-box.service';
 import { azureApi } from '../constents/apis';
 @Injectable({
@@ -26,11 +26,11 @@ export class LoginServiceService {
   pincode: any;
   radius: any;
   workName: any;
-  workId:any;
+  workId:any[]=[];
   age: any;
   gender: any;
   experience: any = 0;
-  selectedSubCategories:string='';
+  selectedSubCategories:any[]=[];
   categoryId:any;
   selectedServiceId:any;
   userFromServer: any = [];
@@ -131,12 +131,13 @@ export class LoginServiceService {
 
   setWork(work: any,id:any) {
     this.workName = work;
-    this.workId=id
+    this.workId.push(id);
+    console.log(this.workId);
   }
 
   setSubCat(item:any){
    
-    this.selectedSubCategories=item
+    this.selectedSubCategories.push(item)
     console.log(this.selectedSubCategories);
   }
   
@@ -173,14 +174,54 @@ export class LoginServiceService {
 
 // get api for sub categories
   
-  getSubCategory(){
-    const api= this.apiUrl+`core/sub-categories/category/${this.categoryId}`
-    return this.http.get<any>(api);
+  // getSubCategory(){
+  //   const api= this.apiUrl+`core/sub-categories/category/${this.categoryId}`
+  //   return this.http.get<any>(api);
+  // }
+  getSubCategories(categoryIds: string[]): Observable<any[]> {
+    // Create an array of HTTP GET observables for each categoryId with error handling
+    const requests = categoryIds.map((id) => {
+      const api = `${this.apiUrl}core/sub-categories/category/${id}`;
+      return this.http.get<any>(api).pipe(
+        catchError((error) => {
+          console.error(`Failed to fetch data for category ID ${id}:`, error);
+          return of(null); // Return `null` or an empty object to continue the sequence
+        })
+      );
+    });
+
+    // Use forkJoin to execute all requests in parallel and combine their results
+    return forkJoin(requests);
   }
- 
-  getServices(catId:string,subCatId:string):Observable<any>{
-    const api=`${this.apiUrl}/core/services/filter/${catId}/${subCatId}`;
-    return this.http.get<any>(api);
+
+  getServices(catId:any[],subCatId:any[]):Observable<any> {
+    // const api=`${this.apiUrl}/core/services/filter/${catId}/${subCatId}`;
+    // return this.http.get<any>(api);
+    const catIds = catId; // Assuming this is an array of category IDs
+  const subCatIds = subCatId; // Assuming you have a method or array of subcategory IDs
+
+  // Validate that both arrays are of the same length
+  if (catIds.length !== subCatIds.length) {
+    console.error('Mismatch between catIds and subCatIds length');
+    return of();
+  }
+
+  const requests = catIds.map((catId) => {
+     subCatIds.map((subCatId)=>{
+      const api = `${azureApi}core/sub-categories/category/${catId}/${subCatId}`;
+
+      return this.http.get<any>(api).pipe(
+        catchError((error) => {
+          console.error(`Failed to fetch data for category ID ${catId} and subcategory ID ${subCatId}:`, error);
+          return of(null); // Return `null` or an empty object to continue the sequence
+        })
+      );
+    }); // Get the corresponding subcategory ID for each category ID
+   
+  });
+
+  // Use forkJoin to execute all requests in parallel and combine their results
+  return forkJoin(requests)
   }
 
   // UserDetails(data: any) {
@@ -239,7 +280,7 @@ export class LoginServiceService {
         this.userFromServer = response;
         ob.next(response);
         ob.complete();
-        this.router.navigate(['aadharVerify']);
+        this.router.navigate(['addAddress']);
       },
       (error: HttpErrorResponse) => {
         console.error('Error', error);
@@ -329,11 +370,11 @@ export class LoginServiceService {
     this.pincode='';
     this.radius=undefined;
     this.workName='';
-    this.workId='';
+    this.workId=[];
     this.age='';
-    this.gender='';
+    this.gender=''; 
     this.experience= 0;
-    this.selectedSubCategories='';
+    this.selectedSubCategories=[];
     this.categoryId='';
     this.userFromServer = [];
     

@@ -74,7 +74,7 @@ export class SelectWorkComponent implements OnInit{
         console.log("categoryId",item.id);
         this.logInservice.categoryId=item.id
         this.logInservice.setWork(item.names,item.id);
-        this.router.navigate(['subServices']);
+        // this.router.navigate(['subServices']);
         // Perform additional actions related to the checked item
       }
     }
@@ -90,7 +90,7 @@ export class SelectWorkComponent implements OnInit{
     console.log("categoryId",item.id);
     this.logInservice.categoryId=item.id
     this.logInservice.setWork(item.names,item.id);
-    this.router.navigate(['subServices']);
+   
   }
 
  
@@ -127,11 +127,13 @@ export class SelectWorkComponent implements OnInit{
       //   console.log(this.jobDetails.userDetails.providerName);
       // }
       // this.router.navigate(['manageServices']);
-      if(this.jobDetails?.userDetails?.providerName && this.jobDetails.userDetails?.providerName!==undefined){
-        this.router.navigate(['manageServices']);
-      }else{
-        this.router.navigate(['aboutUser']);
-      }
+      // 
+      this.router.navigate(['subServices']);
+      // if(this.jobDetails?.userDetails?.providerName && this.jobDetails.userDetails?.providerName!==undefined){
+      //   this.router.navigate(['manageServices']);
+      // }else{
+      //   this.router.navigate(['aboutUser']);
+      // }
   }
 
   workForSending:any[]=[];

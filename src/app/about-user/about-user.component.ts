@@ -139,28 +139,41 @@ export class AboutUserComponent implements OnInit {
   userNumber:any;
   loading:boolean=false;
   workAdded:boolean=true;
+  language = [
+    'Telugu',
+     'Hindi',
+     'English',
+     'Tamil',
+     'urudu',
+    'marati',
+    'kanada'
+];
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private readonly location:Location,
     private loginService: LoginServiceService,
     private userDetailsService:UserDetailsService,
-    private googleMapService:GoogleMapService,
+   
     private dailougeBoxService:DailogeBoxService
   ) {
     
     this.aboutProvider = this.fb.group({
       userId: localStorage.getItem('providerId'),
-      name: ['', Validators.required],
-      // work: ['', Validators.required],
-      // pincode: ['', Validators.required],
-      // // radius: ['', Validators.required],
-      // phone: [ this.loginService.userNumber, Validators.required],
+      firstName: ['', Validators.required],
+    
+      surname: ['', Validators.required],
+        gender: ['', Validators.required],
+        DOB:[''],
+     
+      phoneNumber: [ ""],
+      whatsapp:[''],
       age: [ this.loginService.age, Validators.required],
-      gender: ['', Validators.required],
+      launguage:this.selectedItems[0],
       email:[''],
-      DOB:[''],
-      image: ['']
+   
+      // image: ['']
     });
 
     // Flattening the nested work details array
@@ -177,6 +190,7 @@ export class AboutUserComponent implements OnInit {
     this.getNumber();
     this.getWork();
   }
+
   getWork() {
     this.userDetailsService.getWork(localStorage.getItem('providerId'))
       .subscribe({
@@ -250,44 +264,21 @@ export class AboutUserComponent implements OnInit {
 
      
   // }
-  getCoordinates(){
-    const add=`${this.aboutProvider.value.houseNo} ${this.aboutProvider.value.landmark} ${this.aboutProvider.value.address} ${this.aboutProvider.value.city} ${this.aboutProvider.value.state} ${this.aboutProvider.value.pincode}`
-    console.log(add);
-    this.googleMapService.getCoordinatesFromPlaceName(add).subscribe(
-      {
-        next:(res)=>{
-          console.log(res);
-          this.googleMapService.sendCordinates(res.results[0].geometry).subscribe(
-            {
-              next:(res)=>{
-                console.log(res);
-                alert('coordinates are updated')
-              },
-              error:(err:HttpErrorResponse)=>{
-                console.log(err);
-              }
-            }
-          )
-        },error:(err:HttpErrorResponse)=>{
-          console.log(err);
-        }
-      }
-    )
-  }
+ 
   submit() {
     this.loading=true;
-    this.getCoordinates();
+   
     const formData = new FormData();
     // Append other fields to formData
-    formData.append('name', this.aboutProvider.value.providerName);
-    // formData.append('age', this.aboutProvider.value.age);
-    // formData.append('pincode', this.aboutProvider.value.pincode);
+    formData.append('firstName', this.aboutProvider.value.firstName);
+    formData.append('surName', this.aboutProvider.value.surname);
+    formData.append('launguage', this.aboutProvider.value.launguage);
     // formData.append('radius', this.aboutProvider.value.radius);
-    formData.append('gender', this.aboutProvider.value.userId);
-    formData.append('gmail', this.aboutProvider.value.gender);
-    formData.append('dateOfBirth', this.aboutProvider.value.address);
-    // formData.append('phone', this.loginService.userNumber);
-    // formData.append('houseNo', this.aboutProvider.value.houseNo);
+    formData.append('gender', this.aboutProvider.value.gender);
+    formData.append('gmail', this.aboutProvider.value.email);
+    formData.append('dateOfBirth', this.aboutProvider.value.DOB);
+    formData.append('primaryMobile', this.aboutProvider.value.phoneNumber);
+    formData.append('whatsappNumber', this.aboutProvider.value.whatsapp);
     // formData.append('landMark', this.aboutProvider.value.landmark);
     // formData.append('city', this.aboutProvider.value.city);
     // formData.append('state', this.aboutProvider.value.state);
@@ -298,9 +289,9 @@ export class AboutUserComponent implements OnInit {
     // formData.append('work', JSON.stringify(work));
   
     // Append the selected file if it exists
-    if (this.selectedFile) {
-      formData.append('image', this.selectedFile, this.selectedFile.name);
-    }
+    // if (this.selectedFile) {
+    //   formData.append('image', this.selectedFile, this.selectedFile.name);
+    // }
   
     // Log formData key-value pairs
     formData.forEach((value, key) => {
@@ -321,5 +312,28 @@ export class AboutUserComponent implements OnInit {
     console.log("back");
     this.location.back();
   }
-  
+  options = ['Male', 'Female', 'Others']; // Replace with your options
+  selectedItems: string[] = [];
+  dropdownOpen = false;
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  closeDropdown() {
+    this.dropdownOpen = false;
+  }
+
+  isSelected(option: string): boolean {
+    return this.selectedItems.includes(option);
+  }
+
+  onSelect(option: string) {
+    if (this.isSelected(option)) {
+      this.selectedItems = this.selectedItems.filter(item => item !== option);
+    } else {
+      this.selectedItems.push(option);
+    }
+    console.log(this.selectedItems);
+  }
 }

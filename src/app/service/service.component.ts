@@ -11,8 +11,8 @@ import { Location } from '@angular/common';
 })
 export class ServiceComponent {
   workSeleceted:any[]=[];
-  selectedCatId:string='';
-  selectedSubCatId='';
+  selectedCatId:any[]=[];
+  selectedSubCatId:any[]=[];
   selectedServicesId:any;
   constructor(
               private readonly location:Location,
@@ -34,15 +34,15 @@ export class ServiceComponent {
   // getting subServices
   getServices(){
     console.log(this.selectedCatId,this.selectedSubCatId," cat ans sub cat ids");
-    this.logInService.getServices(this.selectedCatId,this.selectedSubCatId).subscribe(
-      (response)=>{
+    this.logInService.getServices(this.selectedCatId,this.selectedSubCatId).subscribe({
+      next:(response)=>{
         console.log(response);
         this.items=response;
         this.getWork();
-      },(err)=>{
+      },error:(err)=>{
         console.log(err);
       }
-    )
+  })
   }
   // getting selected services
   getWork(){

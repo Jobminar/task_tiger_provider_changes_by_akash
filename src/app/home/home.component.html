@@ -22,7 +22,8 @@
         </div>
     </div>
     <br>
-    <div class="sub-container">   
+    <div class="sub-container">  
+         <!--div for banners   -->
             <div class="ads-div">
                 <div class="wrapperrr">
                     <div *ngFor="let ad of ads">
@@ -33,7 +34,9 @@
                 </div>
             </div>
             
+          
         <div class="sub-divs">
+              <!-- div fro availability -->
             <div class="availability-div" [ngClass]="{'availability-bg': nextWorking.length != 0}" >
                 @if (nextWorking.length!=0) {
                 <div *ngFor="let item of nextWorking">
@@ -102,6 +105,8 @@
 
   
             </div>
+
+            <!-- training videos starts here -->
             <div id="video-div" *ngIf="isAccountVerify">
                 <div *ngFor="let ele of data; let ind = index" >
                     <!-- <h4>{{ ele.title }}</h4>
@@ -127,9 +132,10 @@
    
     <div style="height: 5rem;"></div>
     <router-outlet></router-outlet>
-  <!-- <app-fotter #footer></app-fotter> -->
+ 
   <app-fotter></app-fotter>
 
+  <!-- for loading effect -->
   @if (loading) {
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
     }

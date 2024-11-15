@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { UserDetailsService } from '../user-details.service';
 import { DailogeBoxService } from '../dailoge-box.service';
 import { Location } from '@angular/common';
+import { azureApi } from '../../constents/apis';
+import { catchError, forkJoin, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sub-services',
@@ -12,9 +15,11 @@ import { Location } from '@angular/common';
 })
 export class SubServicesComponent implements OnInit{
   workSeleceted:any[]=[];
+last: any;
   constructor(private loginService:LoginServiceService,
               private logInService:LoginServiceService,
               private router:Router,
+              private http:HttpClient,
               private readonly location:Location,
               private readonly dailougeService:DailogeBoxService,
             private userDetailsService:UserDetailsService){
@@ -30,16 +35,51 @@ export class SubServicesComponent implements OnInit{
 
   // getting subServices
   getSubServices(){
-    this.loginService.getSubCategory().subscribe(
-      (response)=>{
+    const catIds=this.loginService.workId;
+    this.loginService.getSubCategories(catIds).subscribe({
+     next: (response)=>{
         console.log(response);
-        this.items=response;
+        this.items=response.filter((response) => response !== null);
         this.getWork();
-      },(err)=>{
+        this.getDetailsOfCat()
+      },error:(err)=>{
         console.log(err);
       }
-    )
+  })
   }
+
+  allCatDetails:any[]=[];
+  getDetailsOfCat() {
+    const catIds = this.loginService.workId;
+    const requests = catIds.map((id) => {
+      const api = `${azureApi}core/categories/${id}`;
+      return this.http.get<any>(api).pipe(
+        catchError((error) => {
+          console.error(`Failed to fetch data for category ID ${id}:`, error);
+          return of(null); // Return `null` or an empty object to continue the sequence
+        })
+      );
+    });
+  
+    // Use forkJoin to execute all requests in parallel and combine their results
+    forkJoin(requests).subscribe(
+      (results) => {
+        console.log('All categories data:', results);
+  
+  this.allCatDetails=results.filter( (res) => res!==null);
+  this.loginService.workId=[];
+        // You can perform further logic here if needed, like updating your component state
+      },
+      (error) => {
+        console.error('Error fetching categories data:', error);
+      }
+    );
+  }
+  
+
+  // Use forkJoin to execute all requests in parallel and combine their results
+   
+  
   // getting selected services
   getWork(){
     this.userDetailsService.getWork(localStorage.getItem('providerId')).subscribe(
@@ -112,10 +152,11 @@ export class SubServicesComponent implements OnInit{
         // console.log('Item checked:', item);
       
         console.log("categoryId",item._);
+        this.logInService.setWork(item,item.categoryId)
         this.logInService.setSubCat(item._id);
         if (this.logInService.selectedSubCategories.length>0) {
           // this.router.navigate(['aboutWork']);
-          this.router.navigate(['services']);
+          // this.router.navigate(['services']);
         } else {
           this.dailougeService.openDialog("Please select atleat one sub-category ");
         }

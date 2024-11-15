@@ -17,23 +17,23 @@
                     
                 </div>
             } -->
-            <label for="file" class='image-label'> Upload image </label>
+            <!-- <label for="file" class='image-label'> Upload image </label>
             <div class="file-input-container">
                    
                 <label for="file-input" class="file-label">
                   <img *ngIf="!selectedFile" src="assets/documents/Group.png" alt="Upload image" class="placeholder-image">
                   <img *ngIf="selectedFile" [src]="imagePreview" alt="Selected image" class="preview-image">
-                  <!-- <span *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
+                 
                 </label>
                 <input type="file" id="file-input" formControlName="image"  (change)="onFileSelected($event)" class="file-input" required>
-            </div>
+            </div> -->
                 <div>
                     <label for="name">First Name</label><br>
-                    <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
+                    <input type="text" placeholder="First Name" formControlName="firstName" id="names" required>
                 </div>
                 <div>
                     <label for="name">Surname</label><br>
-                    <input type="text" placeholder="Name" formControlName="providerName" id="names" required>
+                    <input type="text" placeholder="Surname" formControlName="surname" id="names" required>
                 </div>
                 <div>
                     <label for="gender">Select your Gender</label> <br>
@@ -63,10 +63,31 @@
                     <label for="email">Email (Optional)</label><br>
                     <input type="email" placeholder="email" formControlName="email" id="email" required>
                 </div>
-                <div>
-                    <label for="whatsapp"> Language you know </label><br>
-                    <input type="number" formControlName="whatsapp" required placeholder="whatsapp">
+                <div class="ng-selects">
+                 
+                    <div class="dropdown" (clickOutside)="closeDropdown()">
+                        <div class="dropdown-toggle" (click)="toggleDropdown()">
+                            <span *ngIf="!selectedItems.length">Select options</span>
+                            <span *ngIf="selectedItems.length">{{ selectedItems.join(', ') }}</span>
+                            <span class="caret"></span>
+                        </div>
+                        <div class="dropdown-menu" *ngIf="dropdownOpen">
+ 
+                            <div *ngFor="let option of language" class="dropdown-item">
+                                <label>
+                                    <input type="checkbox" [checked]="isSelected(option)" (change)="onSelect(option)" />
+                                    {{ option }}
+                                </label>
+                            </div> 
+                            <button (click)="closeDropdown()">save</button>
+                        </div>
+                    </div>
+                    
+
+
+
                 </div>
+               
                 <!-- <div>
                     <label for="houseNo"> House number </label><br>
                     <input type="text" formControlName="houseNo" required placeholder="House number">
@@ -113,3 +134,5 @@
     
     </div>
 }
+
+
