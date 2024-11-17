@@ -50,9 +50,9 @@ export class VisitingCardComponent implements OnInit{
   }
 
   signingDetails(){
-    this.phoneNumber=this.jobDetailsService.userDetails?.phone;
-    this.userName=this.jobDetailsService.userDetails?.providerName;
-    this.userImage=this.jobDetailsService.userDetails?.image
+    this.phoneNumber=this.jobDetailsService.userDetails?.providerphone;
+    this.userName=this.jobDetailsService.userDetails?.provider.firstName;
+    this.userImage=this.jobDetailsService.userDetails?.provider.image
     // this.workSeleceted=this.jobDetailsService.workDetails;
    
     // console.log(this.workSeleceted);
@@ -65,11 +65,28 @@ export class VisitingCardComponent implements OnInit{
         //  console.log(response[0].works);
         
         //  this.workSeleceted=response.works
-         this.workSeleceted = response.works.filter((value:any, index:any, self:any) => 
-        index === self.findIndex((t:any) => (
-          t.categoryId.name === value.categoryId.name
-        ))
-      );
+        //  this.workSeleceted = response.works.filter((value:any, index:any, self:any) => 
+        // index === self.findIndex((t:any) => (
+        //   t.categoryId.name === value.categoryId.name
+          
+        // ))
+
+        const uniqueCategoryIds = new Set<string>();
+  
+        // Collect unique category objects
+        const uniqueCategories = response.works.reduce((acc: any[], work: any) => {
+          work.categoryId.forEach((category: any) => {
+            if (!uniqueCategoryIds.has(category._id)) {
+              uniqueCategoryIds.add(category._id);
+              acc.push(category); // Add only unique category objects to the result
+            }
+          });
+          return acc;
+        }, []);
+  
+        this.workSeleceted = uniqueCategories; // Assign the filtered unique category list to services
+        console.log(this.workSeleceted);
+
       },(err)=>{
         console.log(err);
       }

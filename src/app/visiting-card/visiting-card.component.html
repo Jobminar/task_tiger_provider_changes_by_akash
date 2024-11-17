@@ -7,7 +7,7 @@
                 <img [src]="userImage? userImage : 'assets/logo/profile.png'" alt="User Image"> 
             </div>
             <div class="details">
-                @if (userName==='' || undefined || null) {
+                @if (userName ==='' || undefined || null) {
                     <span>Name</span>
                 }
                 @else {
@@ -21,7 +21,7 @@
                 @if(workSeleceted){
                     <span *ngFor="let item of workSeleceted ; let i= index" >
                         @if (i <2) {
-                            {{item.categoryId.name}} 
+                            {{item.name}} 
                         }
                         
                     </span>

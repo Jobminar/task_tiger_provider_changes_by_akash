@@ -35,18 +35,18 @@ export class WorkExperianceComponent {
     this.logInservice.setWorkDetails()
     
     // console.log(this.selectedAge,this.selectedExperiance);
-    this.logInservice.sendWorkDetails().subscribe(
-      (response)=>{
-        console.log(response);
-        this.dialogeService.openDialog("Service has been added");
-        this.logInservice.workId=[];
-        this.logInservice.setSubCat("");
-        this.logInservice.setservices([]);
-       this.router.navigate(['selectWork'])
-      },(err)=>{
-        console.log(err);
-        this.dialogeService.openDialog(err.error.message);
-      }
-    )
+    // this.logInservice.sendWorkDetails().subscribe(
+    //   (response)=>{
+    //     console.log(response);
+    //     this.dialogeService.openDialog("Service has been added");
+    //     this.logInservice.workId=[];
+    //     this.logInservice.setSubCat("");
+    //     this.logInservice.setservices([]);
+    //    this.router.navigate(['selectWork'])
+    //   },(err)=>{
+    //     console.log(err);
+    //     this.dialogeService.openDialog(err.error.message);
+    //   }
+    // )
   }
 }

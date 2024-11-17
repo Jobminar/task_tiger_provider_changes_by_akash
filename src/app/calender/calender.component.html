@@ -9,8 +9,8 @@
       <ng-container *ngFor="let item of services; let index = index;">
         <ng-container *ngIf="index <= 1 && !extendServices">
           <span style="display: flex;align-items: center;justify-content: center;">
-            <input type="checkbox" [checked]="selectedService === item.categoryId.name" (change)="availabilityService(item.categoryId.name)">&nbsp;
-            <span class="service-tittle">{{item.categoryId.name}}</span>
+            <input type="checkbox" [checked]="selectedService === item.name" (change)="availabilityService(item.name)">&nbsp;
+            <span class="service-tittle">{{item.name}}</span>
           </span>
         </ng-container>
         <ng-container *ngIf="index === 2 && !extendServices">
@@ -25,7 +25,8 @@
       </ng-container>
     </div>
     <br><br>
-    <div class="sub-container">
+    
+    <div class="sub-container" >
       <div class="working-dates">
         <ng-container *ngFor="let item of nextFourDays; let index = index;">
           <div class="datess" [ngClass]="{'selected': selectedIndex === index}" (click)="selected(item, index)">
@@ -79,8 +80,8 @@
           <div style="display: flex;align-items: center;width: 100%;
           height: 3rem;">
           
-                <input type="checkbox" [checked]="selectedService === item.categoryId.name" (change)="availabilityService(item.categoryId.name)">
-                &nbsp;<span style="color: black;">{{item.categoryId.name}}</span>
+                <input type="checkbox" [checked]="selectedService === item.name" (change)="availabilityService(item.name)">
+                &nbsp;<span style="color: black;">{{item.name}}</span>
             </div>
         </div>
       </form>

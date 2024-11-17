@@ -18,7 +18,7 @@ export class UserDetailsService {
   constructor(private http:HttpClient) { }
 
   getUserDetails(id: any): Observable<boolean> {
-    const api = this.api+`providers/provider-details/${id}`;
+    const api = this.api+`providers/provider-auth/${id}`;
 
     if (this.providerDetails) {
       return of(this.providerDetails);

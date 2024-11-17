@@ -91,7 +91,7 @@ export class JobDetailsService {
   //   return isUserEntered
   // }
   getUserDetails(id: any): Observable<boolean> {
-    const api = this.apiUrl+`providers/provider-details/${id}`;
+    const api = this.apiUrl+`providers/provider-auth/${id}`;
     return new Observable<boolean>((observer) => {
       this.http.get<any>(api).subscribe(
         (data) => {

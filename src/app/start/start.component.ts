@@ -36,6 +36,7 @@ export class StartComponent {
     
   }
 status:boolean=false;
+
   checkinductionVideosStatus(){
     const providerId=localStorage.getItem('providerId');
     const api=`${azureApi}providers/provider-watched-video/${providerId}`

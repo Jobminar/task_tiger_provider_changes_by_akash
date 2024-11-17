@@ -77,6 +77,15 @@ export class SelectWorkComponent implements OnInit{
         // this.router.navigate(['subServices']);
         // Perform additional actions related to the checked item
       }
+
+      if(!isChecked){
+        console.log(this.logInservice.workId);
+        console.log(item.id);
+        this.logInservice.workId=this.logInservice.workId.filter(id=>id !== item.id)
+        item.checked=false;
+
+        console.log(this.logInservice.workId);
+      }
     }
   }
 
@@ -90,9 +99,29 @@ export class SelectWorkComponent implements OnInit{
     console.log("categoryId",item.id);
     this.logInservice.categoryId=item.id
     this.logInservice.setWork(item.names,item.id);
+    
    
   }
-
+  selectAll(event:Event){
+    const checked=event.target as HTMLInputElement
+    if(checked.checked){
+      this.items.map((cat:any)=>{
+      
+        this.logInservice.categoryId=cat.id
+        this.logInservice.setWork(cat.names,cat.id);
+        cat.checked=true;
+      })
+    }
+    if(!checked.checked){
+      this.logInservice.categoryId=[]
+      this.logInservice.workId=[];
+      this.items.map((cat:any)=>{
+      
+        cat.checked=true;
+      })
+    }
+    
+  }
  
   autoCheckServices() {
     // Loop through the selected work and match it with available items

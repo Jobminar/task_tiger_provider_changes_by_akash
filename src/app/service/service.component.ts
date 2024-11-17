@@ -13,7 +13,7 @@ export class ServiceComponent {
   workSeleceted:any[]=[];
   selectedCatId:any[]=[];
   selectedSubCatId:any[]=[];
-  selectedServicesId:any;
+  selectedServicesId:any[]=[];
   constructor(
               private readonly location:Location,
               private logInService:LoginServiceService,
@@ -25,18 +25,33 @@ export class ServiceComponent {
   }
 
   ngOnInit(): void {
-    this.selectedCatId=this.logInService.workId;
+    this.selectedCatId=this.logInService.catIdForServices;
     this.selectedSubCatId=this.logInService.selectedSubCategories;
     this.getServices();
      
   }
 
   // getting subServices
+  groupedServicesArray:any;
   getServices(){
     console.log(this.selectedCatId,this.selectedSubCatId," cat ans sub cat ids");
     this.logInService.getServices(this.selectedCatId,this.selectedSubCatId).subscribe({
       next:(response)=>{
         console.log(response);
+       
+        const grouped = response.services.reduce((acc: { [x: string]: any[]; }, service: { subCategoryId: { _id: any; }; }) => {
+          const subCategoryId = service.subCategoryId._id;
+          if (!acc[subCategoryId]) {
+            acc[subCategoryId] = [];
+          }
+          acc[subCategoryId].push(service);
+          return acc;
+        }, {});
+
+        // Extract only the arrays from the grouped object
+        this.groupedServicesArray = Object.values(grouped);
+
+        console.log(this.groupedServicesArray); // Log to verify the result
         this.items=response;
         this.getWork();
       },error:(err)=>{
@@ -89,38 +104,66 @@ export class ServiceComponent {
   
   
   
-  
+  catIds:any[]=[];
+  subCatIds:any[]=[];
+  serviceIds:any[]=[]
   send(){
-    // this.logInService.setWorkDetails();
     if (this.logInService.selectedSubCategories.length>0) {
       this.logInService.setservices(this.selectedServicesId);
-      this.router.navigate(['aboutWork'])
+ 
+     
     } else {
-      alert("Please select atleat one sub-category ")
+      alert("Please select atleat one sub-category ");
+      return;
     }
+    // this.logInService.setWorkDetails();
+    const requestBody=[{
+      categoryId:this.catIds,
+      subcategoryId:this.subCatIds,
+      serviceId:  this.serviceIds,
+      variantName:'normal',
+      experience:'2 years'
+    }]
+    this.logInService.sendWorkDetails(requestBody).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.logInService.workId=[];
+        this.logInService.selectedSubCategories=[];
+        this.logInService.selectedServiceId='';
+        this.logInService.catIdForServices=[];
+        this.router.navigate(['aadharVerify'])
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+   
     
   }
-  items:any=[]
+  items:any=[] 
+  
   onChange(event: any, item: any){
     const target = event.target as HTMLInputElement;
     console.log(item);
     if (target) {
       const isChecked = target.checked;
       if (isChecked) {
-        const indexOfChecked = this.items.indexOf(item);
+        // const indexOfChecked = this.items.indexOf(item);
         // this.jobDetails.items[indexOfChecked].checked = true;
         // console.log('Item checked:', this.items.indexOf(item));
         // console.log('Item checked:', item.names);
         console.log('Item checked:', item);
+        this.catIds.push(item.categoryId._id);
+        this.subCatIds.push(item.subCategoryId._id);
+        this.serviceIds.push(item._id); 
         if (this.logInService.selectedSubCategories.length>0) {
-          this.selectedServicesId=item._id;
-          this.logInService.setservices(this.selectedServicesId);
+          // this.selectedServicesId=item._id;
+          // this.logInService.setservices(this.selectedServicesId);
           console.log("ready to");
-          this.router.navigate(['aboutWork'])
+          // this.router.navigate(['aboutWork'])
         } else {
           alert("Please select atleat one sub-category ")
         }
-        console.log("categoryId",item._);
+        // console.log("categoryId",item._);
         // this.logInService.setSubCat(item._id);
       
         // this.logInservice.categoryId=item.id

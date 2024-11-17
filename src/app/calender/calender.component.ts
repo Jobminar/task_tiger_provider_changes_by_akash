@@ -107,24 +107,25 @@ export class CalenderComponent {
       (response) => {
         console.log(response);
   
-        // Filter response.works to include only unique categories
-        const uniqueCategories = response.works.reduce((acc: any[], current: any) => {
-          const categoryExists = acc.find(
-            (item) => item.categoryId.name === current.categoryId.name
-          );
+        // Create a set to keep track of unique category IDs
+        const uniqueCategoryIds = new Set<string>();
   
-          if (!categoryExists) {
-            acc.push(current); // Add current work only if its category is not yet added
-          }
-  
+        // Collect unique category objects
+        const uniqueCategories = response.works.reduce((acc: any[], work: any) => {
+          work.categoryId.forEach((category: any) => {
+            if (!uniqueCategoryIds.has(category._id)) {
+              uniqueCategoryIds.add(category._id);
+              acc.push(category); // Add only unique category objects to the result
+            }
+          });
           return acc;
         }, []);
   
-        this.services = uniqueCategories; // Assign the filtered list to services
-        // console.log(this.services);
+        this.services = uniqueCategories; // Assign the filtered unique category list to services
+        console.log(this.services);
       },
       (err) => {
-        console.log(err);
+        console.error(err);
       }
     );
   }

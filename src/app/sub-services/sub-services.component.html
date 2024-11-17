@@ -9,26 +9,92 @@
             <span class="material-symbols-outlined" [hidden]="searchQuery">search</span>
         </div> -->
         
-        <div class="serivce">
-            <!-- <span class="tittle2">All categories</span><br> -->
+        <!-- <div class="service">
             @for (item of items; track $index) {
-                <div class="sub-cat-div">
-                    @for(cat of allCatDetails;track $index ){
-                        @if(cat._id === item[0].categoryId){
-                            <span>{{cat.name}}</span>
+              <div class="sub-cat-div">
+                @for (cat of allCatDetails; track $index) {
+                  @if (cat._id === item[0].categoryId) {
+                    <span>{{ cat.name }}</span>
+                    <div>
+                      <input type="checkbox" (change)="selectAll($event, item)">Select All
+                    </div>
+                    <div class="ui-varient">
+                      <div class="ui-varient-div">
+                        @for (uiItem of cat.uiVariant; track $index) {
+                          <div
+                            [ngClass]="{'Uiselected': selectedIndex === $index}"
+                            (click)="selectVariant($index, uiItem, cat._id)"
+                            *ngIf="uiItem !== 'None'">
+                            <p>{{ uiItem }}</p>
+                          </div>
                         }
-                    }
-                    @for (i of item;  track $index) {
-                        <div class="service-div">
-                            <div class="names" (click)="slect(i)"><img [src]="i.imageKey">{{i.name}}</div>
-                            <div ><input type="checkbox" class="checkbox"  [(ngModel)]="i.checked"  (change)="onChange($event, i)"></div>
-                            
-                        </div>
-                       
-                    }
-                </div>
+                      </div>
+                    </div>
+                  }
+                }
+                @for (i of item; track $index) {
+                  @if (!selectedUiMap[item[0].categoryId]) {
+                    <div class="service-div">
+                      <div class="names" (click)="slect(i)">
+                        <img [src]="i.imageKey">{{ i.name }}
+                      </div>
+                      <div>
+                        <input type="checkbox" class="checkbox" [(ngModel)]="i.checked" (change)="onChange($event, i)">
+                      </div>
+                    </div>
+                  } @else {
+                    <div class="service-div" *ngIf="i.variantName === selectedUiMap[item[0].categoryId]">
+                      <div class="names" (click)="slect(i)">
+                        <img [src]="i.imageKey">{{ i.name }}
+                      </div>
+                      <div>
+                        <input type="checkbox" class="checkbox" [(ngModel)]="i.checked" (change)="onChange($event, i)">
+                      </div>
+                    </div>
+                  }
+                }
+              </div>
             }
-        </div>
+        </div> -->
+        <div class="service">
+            @for (item of items; track $index) {
+              <div class="sub-cat-div">
+                @for (cat of allCatDetails; track $index) {
+                  @if (cat._id === item[0].categoryId) {
+                    <span>{{ cat.name }}</span>
+                    <div>
+                      <input type="checkbox" (change)="selectAll($event, item)">Select All
+                    </div>
+                    <div class="ui-varient">
+                      <div class="ui-varient-div">
+                        @for (uiItem of cat.uiVariant; track $index) {
+                          <div
+                            [ngClass]="{'Uiselected': selectedIndexMap[cat._id] === $index}"
+                            (click)="selectVariant($index, uiItem, cat._id)"
+                            *ngIf="uiItem !== 'None'">
+                            <p>{{ uiItem }}</p>
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  }
+                }
+                @for (i of item; track $index) {
+                  
+                    <div class="service-div" *ngIf="i.variantName === selectedUiMap[item[0].categoryId]">
+                      <div class="names" (click)="slect(i)">
+                        <img [src]="i.imageKey">{{ i.name }}
+                      </div>
+                      <div>
+                        <input type="checkbox" class="checkbox" [(ngModel)]="i.checked" (change)="onChange($event, i)">
+                      </div>
+                    </div>
+                  
+                }
+              </div>
+            }
+          </div>
+          
     </div>
     <button type="submit" (click)="send()" class="login-btn">Continue</button>
 </div>

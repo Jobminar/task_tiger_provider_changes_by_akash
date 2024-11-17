@@ -61,8 +61,8 @@ export class MenuComponent implements OnInit{
         console.log(response);
       },
       complete:()=>{
-        this.userName=this.jobDetailsService.userDetails?.providerName;
-        this.userImage=this.jobDetailsService.userDetails?.image;
+        this.userName=this.jobDetailsService.userDetails?.provider.firstName 
+        this.userImage=this.jobDetailsService.userDetails?.provider.image;
         console.log(this.jobDetailsService.userDetails);
         console.log(this.userName);
         this.apiSubscription?.unsubscribe();

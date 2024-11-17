@@ -27,16 +27,16 @@ export class HomeComponent implements OnInit {
   isAccountVerify: any;
   loading:boolean=false;
   ngOnInit(): void {
-    const storedOnlineStatus = localStorage.getItem('onlineStatus');
-    const storedOnlineText = localStorage.getItem('onlineText');
+    // const storedOnlineStatus = localStorage.getItem('onlineStatus');
+    // const storedOnlineText = localStorage.getItem('onlineText');
 
-    if (storedOnlineStatus !== null) {
-      this.online = storedOnlineStatus === 'true'; // Convert string to boolean
-    }
+    // if (storedOnlineStatus !== null) {
+    //   this.online = storedOnlineStatus === 'true'; // Convert string to boolean
+    // }
 
-    if (storedOnlineText !== null) {
-      this.onlineText = storedOnlineText;
-    }
+    // if (storedOnlineText !== null) {
+    //   this.onlineText = storedOnlineText;
+    // }
 
     this.isAccountVerify = this.logInService.isAccountVerify;
     this.trainingService.getingVideos().subscribe(

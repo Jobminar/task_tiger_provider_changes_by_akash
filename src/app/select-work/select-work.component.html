@@ -7,7 +7,7 @@
         </div>
         
         <div class="serivce">
-                <span class="tittle2">Popular categories</span><br>
+                <!-- <span class="tittle2">Popular categories</span><br>
                
                     @for (item of items; track $index) {
                         
@@ -17,10 +17,10 @@
                             <div ><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" (change)="onChange($event, item)"></div>
                         </div>
                     
-                    }
+                    } -->
                 
                 
-                <span class="tittle2">All categories</span><br>
+                <span class="tittle2">All categories</span> <span><input type="checkbox" (change)="selectAll($event)">Select All</span><br>
             @for (item of items; track $index) {
                 
                 <div class="service-div">

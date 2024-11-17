@@ -135,9 +135,11 @@ export class LoginServiceService {
     console.log(this.workId);
   }
 
-  setSubCat(item:any){
+  catIdForServices:any[]=[];
+  setSubCat(item:any,catId:any){
    
     this.selectedSubCategories.push(item)
+    this.catIdForServices.push(catId);
     console.log(this.selectedSubCategories);
   }
   
@@ -195,33 +197,12 @@ export class LoginServiceService {
   }
 
   getServices(catId:any[],subCatId:any[]):Observable<any> {
-    // const api=`${this.apiUrl}/core/services/filter/${catId}/${subCatId}`;
-    // return this.http.get<any>(api);
-    const catIds = catId; // Assuming this is an array of category IDs
-  const subCatIds = subCatId; // Assuming you have a method or array of subcategory IDs
-
-  // Validate that both arrays are of the same length
-  if (catIds.length !== subCatIds.length) {
-    console.error('Mismatch between catIds and subCatIds length');
-    return of();
-  }
-
-  const requests = catIds.map((catId) => {
-     subCatIds.map((subCatId)=>{
-      const api = `${azureApi}core/sub-categories/category/${catId}/${subCatId}`;
-
-      return this.http.get<any>(api).pipe(
-        catchError((error) => {
-          console.error(`Failed to fetch data for category ID ${catId} and subcategory ID ${subCatId}:`, error);
-          return of(null); // Return `null` or an empty object to continue the sequence
-        })
-      );
-    }); // Get the corresponding subcategory ID for each category ID
-   
-  });
-
-  // Use forkJoin to execute all requests in parallel and combine their results
-  return forkJoin(requests)
+    const api=`${azureApi}providers/provider-display-services/services`;
+    const requestBody={
+      categoryIds:catId,
+      subCategoryIds:subCatId
+    }
+    return this.http.post<any>(api,requestBody)
   }
 
   // UserDetails(data: any) {
@@ -250,10 +231,10 @@ export class LoginServiceService {
   //   );
   // }
 
-  sendWorkDetails(){
+  sendWorkDetails(work:any){
     const api= this.apiUrl+`providers/provider-work`;
     // console.log(this.workDetails);
-    const work=this.workDetails;
+   
     const userId=localStorage.getItem('providerId')
    
     const requestBody={
@@ -356,7 +337,11 @@ export class LoginServiceService {
     return this.userNumber;
   }
 
-
+  getAddress():Observable<any>{
+    const id=localStorage.getItem('providerId')
+    const api=`${azureApi}providers/provider-address/${id}`
+    return this.http.get<any>(api);
+  }
   setDefult(){
     this.userDetails = [];
     this.workDetails = [];

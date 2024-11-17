@@ -21,21 +21,21 @@ export class AboutWorkComponent {
   sendResponse()
   {
     console.log(this.selectedAge,this.selectedExperiance);
-    this.loginService.sendWorkDetails().subscribe(
-      (response)=>{
-        console.log(response);
-        this.loginService.workId=[];
-        this.loginService.selectedSubCategories=[];
-        this.loginService.selectedServiceId='';
-        console.log(this.loginService.workId,this.loginService.selectedServiceId,this.loginService.selectedSubCategories);
-        this.dialogeService.openDialog("Service has been added");
+    // this.loginService.sendWorkDetails().subscribe(
+    //   (response)=>{
+    //     console.log(response);
+    //     this.loginService.workId=[];
+    //     this.loginService.selectedSubCategories=[];
+    //     this.loginService.selectedServiceId='';
+    //     console.log(this.loginService.workId,this.loginService.selectedServiceId,this.loginService.selectedSubCategories);
+    //     this.dialogeService.openDialog("Service has been added");
        
-       this.router.navigate(['selectWork'])
-      },(err)=>{
-        console.log(err);
-        this.dialogeService.openDialog(err.error.message);
-      }
-    )
+    //    this.router.navigate(['selectWork'])
+    //   },(err)=>{
+    //     console.log(err);
+    //     this.dialogeService.openDialog(err.error.message);
+    //   }
+    // )
   }
 
   expSelected(exp:string){

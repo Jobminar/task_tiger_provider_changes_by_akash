@@ -7,6 +7,8 @@ import { JobDetailsService } from '../job-details.service';
 import { HttpClient } from '@angular/common/http';
 import { DailogeBoxService } from '../dailoge-box.service';
 import { azureApi } from '../../constents/apis';
+import { catchError, combineLatest, of } from 'rxjs';
+import { UserDetailsService } from '../user-details.service';
 
 @Component({
   selector: 'app-verify',
@@ -26,6 +28,7 @@ export class VerifyComponent implements OnInit{
              private readonly jobDetailsService:JobDetailsService,
              private readonly loginServices:LoginServiceService,
               private readonly router:Router,
+              private readonly userDetailsService:UserDetailsService, 
               private readonly dialogeService:DailogeBoxService,
             private http:HttpClient) { 
 
@@ -217,14 +220,70 @@ export class VerifyComponent implements OnInit{
       );
   }
   navTo(){
-
-    if (this.logInService.alreadyHasAccount) {
-     
-      this.router.navigate(['home'])
-    } else {
-      this.dialogeService.openDialog("Please add your Details");
-      this.router.navigate(['aboutUser'])
-    }
+  
+      const providerId = localStorage.getItem('providerId');
+    
+      const address = this.logInService.getAddress().pipe(
+        catchError((error) => {
+          console.error('address', error);
+          return of('not found'); // Return an empty array in case of error
+        })
+      );
+    
+      const details = this.userDetailsService.getUserDetails(providerId).pipe(
+        catchError((error) => {
+          console.error('details', error);
+          return of('not found'); // Return an empty array in case of error
+        })
+      );
+    
+      const work = this.userDetailsService.getWork(localStorage.getItem('providerId')).pipe(
+        catchError((error) => {
+          console.error('work', error);
+          return of('not found'); // Return an empty array in case of error
+        })
+      );
+    
+      const training = this.http.get<any>(`${azureApi}providers/provider-watched-video/${providerId}`).pipe(
+        catchError((error) => {
+          console.error('training', error);
+          return of('not found'); // Return an empty array in case of error
+        })
+      );
+    
+      combineLatest([details, address, work, training]).subscribe(
+        ([response1, response2, response3, response4]:any) => {
+          console.log('API 1 Response:', response1);
+          console.log('API 2 Response:', response2);
+          console.log('API 3 Response:', response3);
+          console.log('API 4 Response:', response4);
+          const routes = [
+            { condition: response1.provider.firstName ? response1 : 'not found', message: 'Please complete your registration', route: 'aboutUser' },
+            { condition: response2, message: 'Please complete your registration', route: 'addAddress' },
+            { condition: response3, message: 'Please provide your address', route: 'selectWork' },
+            { condition: response4 , message: 'Please complete your training', route: 'induction' }
+          ];
+          
+          for (let route of routes) {
+            if (route.condition === 'not found') {
+              this.dialogeService.openDialog(route.message);
+              this.router.navigate([route.route]);
+              break;
+            }
+          }
+          
+          // If none of the conditions are met, navigate to 'home'
+          if (routes.every(route => !route.condition)) {
+            this.router.navigate(['home']);
+          }
+          // Handle responses here
+        },
+        (error) => {
+          // This should not get triggered because each individual observable handles its own error
+          console.error('Error in combining responses', error);
+        }
+      );
+    
   }
 
 }

@@ -7,8 +7,8 @@ import { Location } from '@angular/common';
 import { azureApi } from '../../constents/apis';
 import { catchError, forkJoin, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
-@Component({
+import * as _ from 'lodash';
+@Component({ 
   selector: 'app-sub-services',
   templateUrl: './sub-services.component.html',
   styleUrl: './sub-services.component.css'
@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class SubServicesComponent implements OnInit{
   workSeleceted:any[]=[];
 last: any;
+selectedIndex:number=0;
   constructor(private loginService:LoginServiceService,
               private logInService:LoginServiceService,
               private router:Router,
@@ -30,16 +31,25 @@ last: any;
 
   ngOnInit(): void {
     this.getSubServices();
-     
+    
   }
 
   // getting subServices
   getSubServices(){
+    this.items=[];
     const catIds=this.loginService.workId;
+    console.log(catIds);
     this.loginService.getSubCategories(catIds).subscribe({
      next: (response)=>{
         console.log(response);
         this.items=response.filter((response) => response !== null);
+        // Assuming 'response' is the array of arrays like [array(34), array(12), array(24)]
+        this.items = this.items.map((subArray:any) =>
+          subArray.filter((item:any, index:any, self:any) =>
+            index === self.findIndex((t:any) => _.isEqual(t, item))
+          )
+        );
+        console.log(this.items);
         this.getWork();
         this.getDetailsOfCat()
       },error:(err)=>{
@@ -66,8 +76,8 @@ last: any;
       (results) => {
         console.log('All categories data:', results);
   
-  this.allCatDetails=results.filter( (res) => res!==null);
-  this.loginService.workId=[];
+          this.allCatDetails=results.filter( (res) => res!==null);
+          this.initializeSelectedIndex();
         // You can perform further logic here if needed, like updating your component state
       },
       (error) => {
@@ -79,7 +89,7 @@ last: any;
 
   // Use forkJoin to execute all requests in parallel and combine their results
    
-  
+   
   // getting selected services
   getWork(){
     this.userDetailsService.getWork(localStorage.getItem('providerId')).subscribe(
@@ -115,6 +125,71 @@ last: any;
     });
   }
   
+  selectAll(event:Event,item:any){
+    
+    const checked = event.target as HTMLInputElement;
+    let catId:any[]=[];
+    let subCatId:any[]=[];
+    if(checked.checked){
+      item.map((i:any)=>{
+        this.logInService.setSubCat(i._id,i.categoryId);
+        i.checked=true;
+      })
+    }
+
+    if(!checked.checked){
+      this.logInService.selectedSubCategories=[];
+    this.logInService.catIdForServices=[];
+      item.map((i:any)=>{
+       
+        i.checked=false;
+      })
+    }
+  }
+  // selectVariant(index: number): void {
+  //   // this.filteredVarients = [];
+  //   // console.log(index, 'index ');
+  //   // this.servicesService.selectedUiVarientIndex = index;
+  //   this.selectedIndex = index;
+
+  //   const selectedVariantName = this.services[this.selectedCat].uiVariant[this.selectedIndex];
+  //   console.log('uivareint name', selectedVariantName);
+  //   this.nameOfUiVarientSelected = selectedVariantName;
+  //   console.log("sub category at filtering the services by varients",this.subCategory);
+  //   // console.log(this.nameOfUiVarientSelected, 'name');
+  //   if (selectedVariantName != 'None') {
+  //     const filteredVariants = this.subCategory.filter(
+  //       (item: any) =>
+  //         item.variantName?.toLowerCase() === selectedVariantName?.toLowerCase()
+  //     );
+  //     this.filteredSubCat = filteredVariants;
+  //   } else {
+  //     this.filteredSubCat = this.subCategory;
+  //   }
+   
+  //   console.log('sub category after filtering ui vaeints', this.filteredSubCat);
+    
+  //   this.selectSubCategory(0);
+  // }
+
+  initializeSelectedIndex() {
+    for (const cat of this.allCatDetails) {
+      // Set default index to 0 for each category
+      this.selectedIndexMap[cat._id] = 0;
+  
+      // Set default UI variant as the first one (index 0) for each category
+      if (cat.uiVariant.length > 0) {
+        this.selectedUiMap[cat._id] = cat.uiVariant[0]; // Default to the first variant
+      }
+    }
+  }
+  selectedUiMap: { [key: string]: string } = {};
+  selectedIndexMap: { [key: string]: number } = {};
+  selectVariant(index: number, item: any, categoryId: string) {
+    // this.selectedIndex=index;
+    this.selectedIndexMap[categoryId] = index; 
+    this.selectedUiMap[categoryId] = item; // Associate selected variant with the specific category/service
+  }
   
   send(){
     // this.logInService.setWorkDetails();
@@ -130,7 +205,7 @@ last: any;
   slect(item:any){
     const indexOfChecked = this.items.indexOf(item);
     console.log("categoryId",item._);
-    this.logInService.setSubCat(item._id);
+    this.logInService.setSubCat(item._id,item.categoryId);
     if (this.logInService.selectedSubCategories.length>0) {
       // this.router.navigate(['aboutWork']);
       this.router.navigate(['services']);
@@ -152,8 +227,8 @@ last: any;
         // console.log('Item checked:', item);
       
         console.log("categoryId",item._);
-        this.logInService.setWork(item,item.categoryId)
-        this.logInService.setSubCat(item._id);
+       
+        this.logInService.setSubCat(item._id,item.categoryId);
         if (this.logInService.selectedSubCategories.length>0) {
           // this.router.navigate(['aboutWork']);
           // this.router.navigate(['services']);
@@ -164,6 +239,15 @@ last: any;
         // this.logInservice.setWork(item.names,item.id);
         // this.router.navigate(['subServices']);
         // Perform additional actions related to the checked item
+      }
+      if(!isChecked){
+       console.log(item.categoryId,item);
+        this.logInService.selectedSubCategories=this.logInService.selectedSubCategories.filter(id=>id !== item._id);
+        // this.logInService.catIdForServices= this.logInService.catIdForServices.filter(id => id !== item.categoryId);
+        item.checked=false;
+        console.log(this.logInService.selectedSubCategories);
+        console.log(this.logInService.catIdForServices);
+       
       }
     }
   }
