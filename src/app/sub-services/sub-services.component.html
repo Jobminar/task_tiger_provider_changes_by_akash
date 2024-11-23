@@ -1,15 +1,29 @@
 <div class="container">
-    <span class="material-symbols-outlined notranslate" (click)="navToBack()">
-        keyboard_backspace
-    </span>
-    <div class="sub-container">
-        <span class="tittle">Select Sub-Services</span><br>
-        <!-- <div class="search-container">
+  <div class="sub-container">
+    <!-- <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+      keyboard_backspace
+    </span> -->
+
+    <div class="title-container">
+      <!-- akash chaged the title text as per figma -->
+      <span class="tittle">Select Sub-Categories</span>
+    </div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="search Hair spa, Makeup ,Bridal makeup...."
+      />
+      <span class="material-symbols-outlined notranslate">search</span>
+    </div>
+
+    <!-- <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for stock" [(ngModel)]="searchQuery" (input)="onInputChange($event)">
             <span class="material-symbols-outlined" [hidden]="searchQuery">search</span>
         </div> -->
-        
-        <!-- <div class="service">
+
+    <!-- <div class="service">
             @for (item of items; track $index) {
               <div class="sub-cat-div">
                 @for (cat of allCatDetails; track $index) {
@@ -56,45 +70,100 @@
               </div>
             }
         </div> -->
-        <div class="service">
-            @for (item of items; track $index) {
-              <div class="sub-cat-div">
-                @for (cat of allCatDetails; track $index) {
-                  @if (cat._id === item[0].categoryId) {
-                    <span>{{ cat.name }}</span>
-                    <div>
-                      <input type="checkbox" (change)="selectAll($event, item)">Select All
-                    </div>
-                    <div class="ui-varient">
-                      <div class="ui-varient-div">
-                        @for (uiItem of cat.uiVariant; track $index) {
-                          <div
-                            [ngClass]="{'Uiselected': selectedIndexMap[cat._id] === $index}"
-                            (click)="selectVariant($index, uiItem, cat._id)"
-                            *ngIf="uiItem !== 'None'">
-                            <p>{{ uiItem }}</p>
-                          </div>
-                        }
-                      </div>
-                    </div>
-                  }
-                }
-                @for (i of item; track $index) {
-                  
-                    <div class="service-div" *ngIf="i.variantName === selectedUiMap[item[0].categoryId]">
-                      <div class="names" (click)="slect(i)">
-                        <img [src]="i.imageKey">{{ i.name }}
-                      </div>
-                      <div>
-                        <input type="checkbox" class="checkbox" [(ngModel)]="i.checked" (change)="onChange($event, i)">
-                      </div>
-                    </div>
-                  
-                }
+
+    <div class="service">
+      @for (item of items; track $index) {
+      <div class="sub-cat-div">
+        @for (cat of allCatDetails; track $index) { @if (cat._id ===
+        item[0].categoryId) {
+
+        <div class="select_all_div">
+          <div>
+            <span class="cat_name">{{ cat.name }}</span>
+          </div>
+          <div>
+            <div class="select_all_text_div">
+              <div>
+                <span class="select_all_text">Select All</span>
               </div>
+              <div>
+                <input
+                  type="checkbox"
+                  (change)="selectAll($event, item)"
+                  class="input_select_all"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-varient">
+          <div class="ui-varient-div">
+            @for (uiItem of cat.uiVariant; track $index) {
+              <!-- akash : added some css on this section -->
+            <div
+              [ngClass]="{ Uiselected: selectedIndexMap[cat._id] === $index }"
+              (click)="selectVariant($index, uiItem, cat._id)"
+              *ngIf="uiItem !== 'None'"
+            >
+              <p>{{ uiItem }}</p>
+            </div>
             }
           </div>
-          
+        </div>
+
+        <!-- akash: adding experience select option -->
+        <div class="experience_div">
+          <div class="experience_title"><span>Experience</span></div>
+          <div class="slider-container">
+            <div class="slider-icon">
+              <img src="/assets/logo/expericen_icon.png" alt="experienceLogo" />
+              <span>1</span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="20"
+              value="0"
+              class="range-slider"
+            />
+          </div>
+        </div>
+
+        } } 
+        
+        <!-- akash : added css like give fixed height and overflow scroll Y and added scroll bar color -->
+        <div class="service-container-scroll">
+          @for (i of item; track $index) {
+
+            <div class="service-container">
+              <div
+                class="service-div"
+                *ngIf="i.variantName === selectedUiMap[item[0].categoryId]"
+              >
+                <div class="names" (click)="slect(i)">
+                  <img [src]="i.imageKey" alt="{{ i.name }}" />
+                  {{ i.name }}
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    class="checkbox"
+                    [(ngModel)]="i.checked"
+                    (change)="onChange($event, i)"
+                  />
+                </div>
+              </div>
+            </div>
+    
+            }
+        </div>
+      </div>
+      }
     </div>
-    <button type="submit" (click)="send()" class="login-btn">Continue</button>
+    <!-- akash : added css here remove position fixed because the button service under name are not showing  -->
+    <div class="btn_div">
+      <button type="submit" (click)="send()" class="login-btn">Save & Continue</button>
+    </div>
+  </div>
 </div>

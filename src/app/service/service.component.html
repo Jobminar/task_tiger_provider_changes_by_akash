@@ -1,31 +1,66 @@
 <div class="container">
-    <span class="material-symbols-outlined notranslate" (click)="navToBack()">
-        keyboard_backspace
-    </span>
-    <div class="sub-container">
-       
-        <span class="tittle">Select Services</span><br>
-        <!-- <div class="search-container">
+  <!-- <span class="material-symbols-outlined notranslate" (click)="navToBack()">
+    keyboard_backspace
+  </span> -->
+  <div class="sub-container">
+
+    <div class="title-container">
+      <span class="tittle">Select Services</span>
+    </div>
+
+    <!-- akash search bar added new -->
+    <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="search Hair spa, Makeup ,Bridal makeup...."
+        />
+        <span class="material-symbols-outlined notranslate">search</span>
+      </div>
+
+    <!-- <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for stock" [(ngModel)]="searchQuery" (input)="onInputChange($event)">
             <span class="material-symbols-outlined" [hidden]="searchQuery">search</span>
         </div> -->
-        
-        <div class="serivce">
-            <!-- <span class="tittle2">All categories</span><br> -->
-             @for (service of groupedServicesArray; track $index) {
-                <div>
-                    <span>{{service[0].categoryId.name}} ({{service[0].subCategoryId.variantName}})</span>
-                </div>
-                    @for (item of service; track $index) {
-                    
-                        <div class="service-div">
-                            <div class="names"><img [src]="item.image">{{item.name}}</div>
-                            <div ><input type="checkbox" class="checkbox"  [(ngModel)]="item.checked"  (change)="onChange($event, item)"></div>
-                        </div>
-                    
-                    }
-                }
+
+    <div class="serivce">
+      <!-- <span class="tittle2">All categories</span><br> -->
+      @for (service of groupedServicesArray; track $index) {
+      <div class=" service_title_and_selectAll_input">
+       <div> <span
+          class="service_name"
+        >{{ service[0].categoryId.name }} ({{
+          service[0].subCategoryId.variantName
+        }})</span
+      ></div>
+      <div>
+        <!-- akash : added select all checkbox -->
+        <div class="item-center-div">
+            <div><span class="select_all_text">Select All</span></div> <div><input type="checkbox" class="select_all_inputbox"/></div>
         </div>
+      </div>
+      </div>
+      <div class="services_name_container">
+        @for (item of service; track $index) {
+
+            <div class="service-div">
+              <div class="names"><img [src]="item.image" />{{ item.name }}</div>
+              <div>
+                <input
+                  type="checkbox"
+                  class="checkbox select_all_inputbox"
+                  [(ngModel)]="item.checked"
+                  (change)="onChange($event, item)"
+                />
+              </div>
+            </div>
+      
+            } 
+      </div>
+     }
     </div>
-    <button type="submit" (click)="send()" class="login-btn">Continue</button>
+    <div class="btn_div">
+      <button type="submit" (click)="send()" class="login-btn">Save & Continue</button>
+    </div>
+  </div>
 </div>

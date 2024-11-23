@@ -63,13 +63,16 @@
                     <label for="email">Email (Optional)</label><br>
                     <input type="email" placeholder="email" formControlName="email" id="email" required>
                 </div>
+              <!-- akash added css on select lag input box as per figma -->
                 <div class="ng-selects">
+                    <p class="language_title">Languages you know</p>
                  
                     <div class="dropdown" (clickOutside)="closeDropdown()">
                         <div class="dropdown-toggle" (click)="toggleDropdown()">
-                            <span *ngIf="!selectedItems.length">Select options</span>
+                            <span *ngIf="!selectedItems.length" class="select_option_text">Select options</span>
                             <span *ngIf="selectedItems.length">{{ selectedItems.join(', ') }}</span>
                             <span class="caret"></span>
+                            <span class="down_arrow_img"><img src="/assets/logo/down_arrow.png" alt=""></span>
                         </div>
                         <div class="dropdown-menu" *ngIf="dropdownOpen">
  

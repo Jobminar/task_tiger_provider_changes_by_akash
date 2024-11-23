@@ -136,20 +136,43 @@ label{
   z-index: 1000; /* Ensure it appears on top */
   overflow-y: auto; /* Allow scrolling if content is large */
 }
-
+/* added css on drown down of select lan */
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+.down_arrow_img{
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .dropdown-toggle {
   /* padding: 8px 12px; */
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
+  height: 51.6px;
+}
+
+.language_title{
+  font-size: 19.2px;
+  color: #000000;
+}
+
+.select_option_text{
+  margin-top: 13px;
+  margin-left: 8px;
+  color: #969AA4;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .dropdown-toggle .caret {
@@ -183,3 +206,6 @@ label{
   width: 1rem;
   height: 1rem;
 }
+
+
+

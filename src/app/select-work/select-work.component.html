@@ -1,13 +1,21 @@
 <div class="container">
-    <div class="sub-container">
-        <span class="tittle">what work do you do?</span><br>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search for Service" [(ngModel)]="searchQuery" (input)="onInputChange($event)">
-            <span class="material-symbols-outlined notranslate" [hidden]="searchQuery">search</span>
-        </div>
-        
-        <div class="serivce">
-                <!-- <span class="tittle2">Popular categories</span><br>
+  <div class="sub-container">
+    <span class="tittle">what work do you do?</span><br />
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="search plumber,electrician etc"
+        [(ngModel)]="searchQuery"
+        (input)="onInputChange($event)"
+      />
+      <span class="material-symbols-outlined notranslate" [hidden]="searchQuery"
+        >search</span
+      >
+    </div>
+
+    <div class="serivce">
+      <!-- <span class="tittle2">Popular categories</span><br>
                
                     @for (item of items; track $index) {
                         
@@ -18,18 +26,35 @@
                         </div>
                     
                     } -->
-                
-                
-                <span class="tittle2">All categories</span> <span><input type="checkbox" (change)="selectAll($event)">Select All</span><br>
-            @for (item of items; track $index) {
-                
-                <div class="service-div">
-                    <div class="names" (click)="selectedCat(item)"><img [src]='item.image' >  {{item.names}}</div>
-                    <div ><input type="checkbox" class="checkbox"  [(ngModel)]="item.checked"  (change)="onChange($event, item)"></div>
-                </div>
-            
-            }
+
+      <div class="all_categories_div">
+        <div><span class="tittle2">Categories</span></div>
+        <div>
+          <!-- akash : added select all check box -->
+         <div class="select-div">
+           <div> <span class="select_all_text">Select All</span></div>
+           <div> <input type="checkbox" class="checkbox" (change)="selectAll($event)" /></div>
+         </div>
         </div>
+      </div>
+      @for (item of items; track $index) {
+
+      <div class="service-div">
+        <div class="names" (click)="selectedCat(item)">
+          <img [src]="item.image" /> {{ item.names }}
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            class="checkbox"
+            [(ngModel)]="item.checked"
+            (change)="onChange($event, item)"
+          />
+        </div>
+      </div>
+
+      }
     </div>
-    <button type="submit" (click)="send()" class="login-btn">Continue</button>
+  </div>
+  <button type="submit" (click)="send()" class="login-btn">Save & Continue</button>
 </div>

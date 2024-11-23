@@ -1,122 +1,172 @@
-.container
-{
-    width: 100%;
-    height: 100vh;
-    /* border: 1px solid black; */
-    align-items: center;
-    text-align: center;
+.container {
+  width: 100%;
+  height: 100vh;
+  /* border: 1px solid black; */
+  align-items: center;
+  text-align: center;
 }
-.sub-container
-{
-    width: 90%;
-    height: 87vh;
-    position: relative;
-    top: 5%;
-    left: 5%;
-    /* border: 1px solid red; */
-    align-items: center;
-    display: grid;
-    grid-gap: 0.5rem;
-   
+.sub-container {
+  width: 90%;
+  height: 87vh;
+  position: relative;
+  top: 5%;
+  left: 5%;
+  /* border: 1px solid red; */
+  align-items: center;
+  display: grid;
+  grid-gap: 0.5rem;
 }
-.tittle
-{
-    font-family: 'inter', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 24px;
+.tittle {
+  font-family: "inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 24px;
 }
-.material-symbols-outlined{
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-size: 28px;
+.material-symbols-outlined {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 28px;
 }
 .search-container {
-    position: relative;
+  position: relative;
 }
 .search-container input[type="text"] {
-    padding-right: 30px;
-    width: 70%;
-    height: 2.5rem;
-    border-radius: 0.8rem;
-    font-size: 1.5rem;
+  padding-right: 30px;
+  width: 70%;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  border: 1px solid #9d9d9d;
 
 }
 .search-input {
-    padding-left: 3.5rem; /* Adjust padding as needed */
-    
+  padding-left: 3rem; /* Adjust padding as needed */
+}
+
+.search-input::placeholder{
+    font-family: "Arial";
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 14.52px;
+    text-align: start;
 }
 
 /* Style for search icon */
 .search-container .material-symbols-outlined {
-    position: absolute;
-    top: 50%;
-    left: 7%; /* Adjust this value to set the distance between input and icon */
-    transform: translateY(-50%);
-    cursor: pointer;
-    pointer-events: none;
-    font-size: 32px;
-    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 7%; /* Adjust this value to set the distance between input and icon */
+  transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: none;
+  font-size: 32px;
+  margin: 0;
 }
-.tittle2
-{
-    font-family: 'inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 24px;
-   display: flex;
-   align-items: start;
+.tittle2 {
+  font-family: "inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 24px;
+  display: flex;
+  align-items: start;
 }
-.serivce
-{
-    height: 70vh;
-    /* border: 1px solid rebeccapurple; */
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
+.serivce {
+  height: 70vh;
+  /* border: 1px solid rebeccapurple; */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
-.service-div
-{
-    display: flex;
-    justify-content: space-between;
+.service-div {
+  display: flex;
+  justify-content: space-between;
 }
-.names
-{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
-    font-family: 'inter' sans-serif;
-    font-weight: 400;
-    line-height: 16.3px;
+.names {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-family: "inter" sans-serif;
+  font-weight: 400;
+  line-height: 16.3px;
 }
-.names img{
-    width: 3rem;
-    height: 3rem;
+.names img {
+  width: 3rem;
+  height: 3rem;
 }
-.checkbox
-{
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid red;
-    border-radius: 50%;
+
+/* akash : added checkbox bg white and orange tik after select */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  /* width: 20px;
+    height: 20px; */
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s ease;
 }
-.login-btn
-{
-    height: 3.4rem;
-    width: 90%;
-    font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    color:rgba(255, 255, 255, 1);
-    border-radius: 4rem;
-    border: none;
-    background-color: #D16611;
-    position: fixed;
-    top: 92%;
-    left: 5%;
-    
+
+input[type="checkbox"]:checked {
+  background-color: white; /* Keep background white */
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: orange;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.all_categories_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+/* akash : added select all text css */
+.select_all_text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+.select-div {
+  height: 81px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid red;
+  border-radius: 50%;
+}
+.login-btn {
+  height: 3.4rem;
+  width: 90%;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 4rem;
+  border: none;
+  background-color: #d16611;
+  position: fixed;
+  top: 92%;
+  left: 5%;
 }

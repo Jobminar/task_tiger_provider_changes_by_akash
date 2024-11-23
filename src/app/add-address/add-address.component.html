@@ -6,6 +6,7 @@
 </div>
 <div class="form-container">
     <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+      <!-- added css for all on input lebel and input  -->
       <div>
         <label for="houseNo">H.no / Door.no / Flat.no</label>
         <input id="houseNo" formControlName="houseNo" placeholder="Enter your H.no">
@@ -35,7 +36,7 @@
         <label for="pincode">Pincode</label>
         <input id="pincode" formControlName="pincode" placeholder="Enter your Pincode">
       </div>
-      <button type="submit">Save & Continue</button>
+     <div class="btn_div"> <button type="submit">Save & Continue</button></div>
     </form>
   </div>
 </div>

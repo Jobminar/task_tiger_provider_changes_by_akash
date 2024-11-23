@@ -254,4 +254,5 @@ selectedIndex:number=0;
   navToBack(){
     this.location.back();
   }
+
 }

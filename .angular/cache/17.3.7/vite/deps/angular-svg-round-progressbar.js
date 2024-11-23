@@ -1,6 +1,6 @@
 import {
   DOCUMENT
-} from "./chunk-X66D22WM.js";
+} from "./chunk-MSREO4PS.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -34,8 +34,8 @@ import {
   ɵɵqueryRefresh,
   ɵɵstyleProp,
   ɵɵviewQuery
-} from "./chunk-4VLB7SF7.js";
-import "./chunk-T7RKEGOE.js";
+} from "./chunk-HUPF46LT.js";
+import "./chunk-WSA2QMXP.js";
 import "./chunk-SFFCLR5V.js";
 
 // node_modules/angular-svg-round-progressbar/fesm2022/angular-svg-round-progressbar.mjs

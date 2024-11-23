@@ -1,142 +1,289 @@
-
 <div class="container" [class.overlap]="isDrawerOpen">
-    <br>
-    <div class="header">
-        <div id="menu-button" (click)="toggleDrawer()">☰</div>
-        <!-- <div class="toggle-container">
+  <br />
+  <div class="header">
+    <div id="menu-button" (click)="toggleDrawer()">☰</div>
+    <!-- <div class="toggle-container">
             <label class="switch">
               <input type="checkbox" [checked]="online"  (change)="onlineStatus()">
               <span class="slider"></span>
             </label>
             
         </div> -->
-        <div class="bell-credit">
-           
-            <!-- <div class="package"><img src="assets/packages/silver coin 1.png">&nbsp;<pre>Silver</pre></div> -->
-            <div class="credit" (click)="navToCredit()">
-                <img src="assets/logo/credit.png">
-                <pre>{{ credits % 1 === 0 ? credits : (credits | number: '1.2-2') }}</pre>
-            </div>
-              
-            <div class="bell" (click)="navToNotification()"><span class="material-symbols-outlined notranslate" >notifications</span></div>
+    <div class="bell-credit">
+      <!-- <div class="package"><img src="assets/packages/silver coin 1.png">&nbsp;<pre>Silver</pre></div> -->
+      <div class="credit" (click)="navToCredit()">
+        <img src="assets/logo/credit.png" />
+        <pre>{{
+          credits % 1 === 0 ? credits : (credits | number : "1.2-2")
+        }}</pre>
+      </div>
+
+      <div class="bell" (click)="navToNotification()">
+        <span class="material-symbols-outlined notranslate">notifications</span>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="sub-container">
+    <!--div for banners   -->
+    <div class="ads-div">
+      <div class="wrapperrr">
+        <div *ngFor="let ad of ads">
+          <div class="slidesss">
+            <img [src]="ad.image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- akash adding code before the schedule -->
+    <div class="">
+      <div class="tracking_container">
+        <div class="pending_box">
+          <div><p class="tracking_text">Pending</p></div>
+          <div><p class="number">02</p></div>
+        </div>
+        <div class="pending_box_two">
+          <div><p class="tracking_text">Ongoing</p></div>
+          <div><p class="number">02</p></div>
+        </div>
+        <div class="pending_box_three">
+          <div><p class="tracking_text">Completed</p></div>
+          <div><p class="number">02</p></div>
+        </div>
+        <div class="pending_box_four">
+          <div><p class="tracking_text">Cancelled</p></div>
+          <div><p class="number">02</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="earnings_container">
+      <div>
+        <p class="earning_text">Total Earnings</p>
+        <p class="earning_num"><span>&#8377;</span>41,000</p>
+      </div>
+      <div>
+        <p class="earning_text">Weekly Earnings</p>
+        <p class="earning_num"><span>&#8377;</span>21,000</p>
+      </div>
+    </div>
+
+    <h1 style="text-align: start; margin-left: 10px">Recent Bookings</h1>
+
+    <div class="recent_booking_container">
+      <div class="view_all_div">
+        <div>
+          <p class="recent_booking_text">
+            Today <span style="margin-left: 10px">6:00pm</span>
+          </p>
+        </div>
+        <div class="view_all_text">View All</div>
+      </div>
+
+      <div class="person_name_details_div">
+        <div><p class="recent_booking_text">Bharath reddy</p></div>
+        <div>
+          <span style="margin-left: 25px"
+            ><img src="/assets/logo/call_icon.png" alt="*"
+          /></span>
+          <span style="margin-left: 15px"
+            ><img src="/assets/logo/msg_box.png" alt="*"
+          /></span>
+          <span style="margin-left: 15px"
+            ><img src="/assets/logo/direction.png" alt="*"
+          /></span>
+        </div>
+      </div>
+      <p class="service-text">Service</p>
+      <div class="serice_detail_text">
+        <div class="recent_booking_text">Hiar cutting & hair Spa</div>
+        <div><p class="service_amt">&#8377;799</p></div>
+      </div>
+      <div class="address_text">
+        <div><img src="/assets/location/location_mark.png" alt="l" /></div>
+        <div>
+          <p
+            style="text-align: start; margin-left: 5px"
+            class="recent_booking_text"
+          >
+            H.no - 30-7-32/3 Adarsha hills,meerpet, near market,<br />
+            hyderabad
+          </p>
+        </div>
+      </div>
+      <div class="btn_div">
+        <div>
+          <button class="btn1">Decline</button>
+        </div>
+        <div>
+          <button class="btn2">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subscription_text">
+      <div><h3>Subscription Packages</h3></div>
+      <div><img src="/assets/logo/vip-stars.png" alt="stars" /></div>
+    </div>
+
+    <div class="carosel_div">
+      <div class="card">
+        <div><p class="card_title">Standard Package</p></div>
+        <div><p>Unlimited jobs with premium</p></div>
+        <div><p>support and featured profile</p></div>
+        <div><button class="buy_btn">Buy</button></div>
+      </div>
+      <div class="card">
+        <div><p  class="card_title">Standard Package</p></div>
+        <div><p class="card_detail_text">Unlimited jobs with premium</p></div>
+        <div><p class="card_detail_text">support and featured profile</p></div>
+        <div><button class="buy_btn">Buy</button></div>
+      </div>
+      <div class="card">
+        <div><p  class="card_title">Standard Package</p></div>
+        <div><p class="card_detail_text">Unlimited jobs with premium</p></div>
+        <div><p class="card_detail_text">support and featured profile</p></div>
+        <div><button class="buy_btn">Buy</button></div>
+      </div>
+    </div>
+
+    <div class="subscription_text">
+        <div><h3>Training & Certificates</h3></div>
+      </div>
+
+    <div class="training_container">
+        <div class="training_card">
+            <div><p  class="card_title">Training Module 2</p></div>
+            <div><p class="card_detail_text">Customer Interaction</p></div>
+            <div><button class="buy_btn">View video</button></div>
+        </div>
+        <div class="training_card">
+            <div><p  class="card_title">Training Module 2</p></div>
+            <div><p class="card_detail_text">Customer Interaction</p></div>
+            <div><button class="buy_btn">View video</button></div>
+        </div>
+        <div class="training_card">
+            <div><p  class="card_title">Training Module 2</p></div>
+            <div><p class="card_detail_text">Customer Interaction</p></div>
+            <div><button class="buy_btn">View video</button></div>
         </div>
     </div>
-    <br>
-    <div class="sub-container">  
-         <!--div for banners   -->
-            <div class="ads-div">
-                <div class="wrapperrr">
-                    <div *ngFor="let ad of ads">
-                        <div class="slidesss">
-                            <img [src]="ad.image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-          
-        <div class="sub-divs">
-              <!-- div fro availability -->
-            <div class="availability-div" [ngClass]="{'availability-bg': nextWorking.length != 0}" >
-                @if (nextWorking.length!=0) {
-                <div *ngFor="let item of nextWorking">
-                    <span>{{item.day}}, {{item.month}} {{item.date}}</span>
-                    <span><i class="fa fa-circle" style="font-size: 10px;"></i>  {{item.isWorking}}</span>
-                </div>
-                <div (click)="navToCal()">
-                    <pre class="material-symbols-outlined notranslate" style="font-size: 28px;">calendar_today</pre>
-                </div>
-                }
-                @else {
-                    <div >
-                        <span>Schedule your availability now</span>
-                    </div>
-                    <div (click)="navToCal()">
-                        <pre class="material-symbols-outlined notranslate" style="font-size: 28px;">arrow_forward_ios</pre>
-                    </div>
-                }
-               
-            </div>
-            <div>
-                    <div class="new-jobs">
-                        <div class="text-div">
-                            <span>No new jobs</span>
-                            <span>5 jobs missed recently</span>
-                        </div>
-                        <div  class="icon-div">
-                            <span class="material-symbols-outlined notranslate" >arrow_forward_ios</span>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="more-jobs">
-                        
-                        <div class="text-div1">
-                            @if (noOfPendingOrders===0) {
-                            <span>No more jobs today</span> 
-                            }
-                            @else {
-                                <span>{{noOfPendingOrders}} more jobs today</span> 
-                            }
-                        </div>
-                        <div  class="icon-div">
-                            <span class="material-symbols-outlined notranslate" >arrow_forward_ios</span>
-                        </div>
-                    </div>
-            </div>
-            <div class="pending-task-div">
-                <span>Pending Tasks</span>
-                <br><br>
-                <p>
-                    80 subscription jobs . 4days left to buy job pack now
-                </p>
-             
-                <p>
-                    Only 50 credits left.Recharge credits to get new jobs
-                </p>
-            </div>
-            <div class="quick-links">
-                <div>
-                    <span>Quick links</span>
-                </div>
-                <div class="helps" routerLinkActive="help" [routerLink]="'/help'">
-                    <span style="color:white" >Help?</span>
-                </div>
-                <!-- src/app/training/training.component.html -->
 
-  
-            </div>
+    <div class="sub-divs">
+      <!-- div fro availability -->
+      <div
+        class="availability-div"
+        [ngClass]="{ 'availability-bg': nextWorking.length != 0 }"
+      >
+        @if (nextWorking.length!=0) {
+        <div *ngFor="let item of nextWorking">
+          <span>{{ item.day }}, {{ item.month }} {{ item.date }}</span>
+          <span
+            ><i class="fa fa-circle" style="font-size: 10px"></i>
+            {{ item.isWorking }}</span
+          >
+        </div>
+        <div (click)="navToCal()">
+          <pre
+            class="material-symbols-outlined notranslate"
+            style="font-size: 28px"
+          >
+calendar_today</pre
+          >
+        </div>
+        } @else {
+        <div>
+          <span>Schedule your availability now</span>
+        </div>
+        <div (click)="navToCal()">
+          <pre
+            class="material-symbols-outlined notranslate"
+            style="font-size: 28px"
+          >
+arrow_forward_ios</pre
+          >
+        </div>
+        }
+      </div>
 
-            <!-- training videos starts here -->
-            <div id="video-div" *ngIf="isAccountVerify">
-                <div *ngFor="let ele of data; let ind = index" >
-                    <!-- <h4>{{ ele.title }}</h4>
+      <div>
+        <div class="new-jobs">
+          <div class="text-div">
+            <span>No new jobs</span>
+            <span>5 jobs missed recently</span>
+          </div>
+          <div class="icon-div">
+            <span class="material-symbols-outlined notranslate"
+              >arrow_forward_ios</span
+            >
+          </div>
+        </div>
+        <br />
+        <div class="more-jobs">
+          <div class="text-div1">
+            @if (noOfPendingOrders===0) {
+            <span>No more jobs today</span>
+            } @else {
+            <span>{{ noOfPendingOrders }} more jobs today</span>
+            }
+          </div>
+          <div class="icon-div">
+            <span class="material-symbols-outlined notranslate"
+              >arrow_forward_ios</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="pending-task-div">
+        <span>Pending Tasks</span>
+        <br /><br />
+        <p>80 subscription jobs . 4days left to buy job pack now</p>
+
+        <p>Only 50 credits left.Recharge credits to get new jobs</p>
+      </div>
+      <div class="quick-links">
+        <div>
+          <span>Quick links</span>
+        </div>
+        <div class="helps" routerLinkActive="help" [routerLink]="'/help'">
+          <span style="color: white">Help?</span>
+        </div>
+        <!-- src/app/training/training.component.html -->
+      </div>
+
+      <!-- training videos starts here -->
+      <div id="video-div" *ngIf="isAccountVerify">
+        <div *ngFor="let ele of data; let ind = index">
+          <!-- <h4>{{ ele.title }}</h4>
                     <p>Profession: {{ ele.profession }}</p> -->
-                    <div id="video-slidess" >
-                        <video controls id="videoss">
-                        <source 
-                            [src]="ele.video" 
-                            type="video/mp4" 
-                        />
-                        <!-- <source src="D:\movies\Premalu (2024) Telugu HQ HDRip  - x264 - AAC - 700MB - ESub.mp4"  type="video/mp4"> -->
-                        </video>
-                    </div>
-                </div>
-            </div>
+          <div id="video-slidess">
+            <video controls id="videoss">
+              <source [src]="ele.video" type="video/mp4" />
+              <!-- <source src="D:\movies\Premalu (2024) Telugu HQ HDRip  - x264 - AAC - 700MB - ESub.mp4"  type="video/mp4"> -->
+            </video>
+          </div>
         </div>
+      </div>
     </div>
-</div> 
+  </div>
+</div>
 
 <!-- <div class="online" (click)="onlineStatus()">
     <span>{{onlineText}}</span>
 </div> -->
-   
-    <div style="height: 5rem;"></div>
-    <router-outlet></router-outlet>
- 
-  <app-fotter></app-fotter>
 
-  <!-- for loading effect -->
-  @if (loading) {
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)' }"></ngx-loading>
-    }
+<div style="height: 5rem"></div>
+<router-outlet></router-outlet>
 
+<app-fotter></app-fotter>
+
+<!-- for loading effect -->
+@if (loading) {
+<ngx-loading
+  [show]="loading"
+  [config]="{
+    backdropBorderRadius: '3px',
+    backdropBackgroundColour: 'rgba(0, 0, 0, 0.5)'
+  }"
+></ngx-loading>
+}
