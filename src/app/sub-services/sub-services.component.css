@@ -33,8 +33,16 @@
 }
 
 .search-input {
-  padding-left: 3.5rem; /* Adjust padding as needed */
+  padding-left: 3.5rem; 
 }
+
+.search-input::placeholder{
+  font-family: "Inter";
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 12.1px;
+}
+
 
 .serivce {
   height: 78vh;
@@ -202,17 +210,19 @@
 
 .search-container {
   position: relative;
+  width: 100%;
 }
 .search-container input[type="text"] {
   padding-right: 30px;
   width: 70%;
   height: 2.5rem;
   border-radius: 0.8rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: 0.25px solid #9d9d9d;
 }
 .search-input {
   padding-left: 3rem; /* Adjust padding as needed */
+  padding-bottom: 5px;
 }
 
 .search-input::placeholder {
